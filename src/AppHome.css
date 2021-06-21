@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap');
+
+.App-header-style-HOME {
+    user-select: none;
+    min-height: 100vh;
+    height: 53.304904051vh;
+    margin-top: 31.98294243vh;
+    margin-bottom: -42.64392324vh;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: top;
+    font-size: 3.125vw;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    color: white;
+  }
+
+  .App-logo1-HOME {
+    pointer-events: none;
+    height: 2.452025586vh;
+    margin-top: -20.255863539vh;
+  }
+
+  .Customize-desc1-HOME1 {
+    font-size: 7.462686567vh;
+    text-align: right;
+    margin-left: 6.25vw;
+    margin-right: 6.25vw;
+    margin-top: -7.462686567vh;
+    display: inline-block;
+    vertical-align: text-top;
+  }
+
+  .Customize-desc1-HOME2 {
+    font-size: 2.604166666vw;
+    text-align: right;
+    margin-left: 6.25vw;
+    margin-right: 6.25vw;
+    display: inline-block;
+    vertical-align: text-top;
+  }
+
+  .App-customize2-HOME0 {
+    user-select: none;
+    display: block;
+    margin-top: 0vh;
+    margin-bottom: 0vh;
+    margin-left: 0vw;
+    height: 5.330490405vh;
+    flex-direction: row;
+    align-items: top;
+    justify-content: center;
+    font-size: 2.083333333vw;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    color: white;
+    overflow: hidden;
+  }
+
+  .App-customize3-HOME1 {
+    user-select: none;
+    display: block;
+    margin-bottom: 0vh;
+    margin-top: -2.132196162vh;
+    margin-left: 0vw;
+    height: 11.727078891vh;
+    flex-direction: row;
+    align-items: top;
+    justify-content: center;
+    font-size: 2.083333333vw;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    color: white;
+    overflow: hidden;
+  }
+
+  .App-customize2-HOME1 {
+    user-select: none;
+    display: block;
+    margin-top: 2.132196162vh;
+    margin-bottom: 0vh;
+    margin-left: 0vw;
+    height: 5.330490405vh;
+    flex-direction: row;
+    align-items: top;
+    justify-content: center;
+    font-size: 2.083333333vw;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    color: white;
+    overflow: hidden;
+  }
+
+  .App-customize2-HOME2 {
+    user-select: none;
+    display: block;
+    margin-top: 2.66524502vh;
+    margin-bottom: 0vh;
+    margin-left: 0vw;
+    height: 5.330490405vh;
+    flex-direction: row;
+    align-items: top;
+    justify-content: center;
+    font-size: 2.083333333vw;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    color: white;
+    overflow: hidden;
+  }

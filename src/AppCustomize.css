@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap');
+
+.Cust-text-1 {
+    margin-left: 0.260416666vw;
+    margin-right: 16.666666666vw;
+    font-size: 2.083333333vw;
+}
+
+.Cust-text-2 {
+    font-size: 2.083333333vw;
+}
+
+.Cust-text-3 {
+    margin-left: -1.302083333vw;
+    margin-right: 0.520833333vw;
+    font-size: 2.083333333vw;
+}
+
+.Cust-text-4 {
+    margin-left: 14.583333333vw;
+    font-size: 2.083333333vw;
+}
+
+.Cust-text-5 {
+    margin-left: -27.34375vw;
+    font-size: 2.083333333vw;
+}
+
+.Cust-text-6 {
+    margin-left: 20.833333333vw;
+    margin-right: -26.822916666vw;
+    font-size: 2.083333333vw;
+}
+
+.Customize-desc1-CUSTOMIZE1 {
+    font-size: 1.5625vw;
+    text-align: right;
+    margin-top: 1.599147121vh;
+    display: inline-block;
+    vertical-align: text-top;
+}
+
+.Customize-desc1-CUSTOMIZE2 {
+    font-size: 1.041666666vw;
+    text-align: left;
+    margin-left: 4.6875vw;
+    margin-right: 6.25vw;
+    display: inline-block;
+    vertical-align: text-top;
+}
+
+.Customize-desc1-CUSTOMIZE3 {
+    font-size: 1.041666666vw;
+    text-align: left;
+    margin-left: 7.03125vw;
+    display: inline-block;
+    vertical-align: text-top;
+}

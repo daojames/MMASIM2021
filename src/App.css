@@ -1,0 +1,396 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap');
+
+.App {
+  height: 100%;
+  text-align: center;
+  overflow: hidden;
+}
+
+.App-logo {
+  height: 10vh;
+  pointer-events: none;
+}
+
+.App-logo1 {
+  pointer-events: none;
+  height: 2.452025586vh;
+  margin-top: -85.287846481vh;
+}
+
+.App-logo1-old {
+  pointer-events: none;
+  height: 23px;
+}
+
+.App-logo2 {
+  pointer-events: none;
+  height: 75px;
+  width: 91px;
+}
+
+.App-combatstats {
+  height: 65.778251599vh;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 0s linear;
+  }
+}
+
+body {
+  overflow: hidden;
+}
+
+.App-start {
+  user-select: none;
+  background-color: #212121;
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 60px;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  color: white;
+  overflow: hidden;
+}
+
+.App-header {
+  user-select: none;
+  background-color: #212121;
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: top;
+  font-size: 60px;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  color: white;
+  overflow: hidden;
+}
+
+.App-header1 {
+  user-select: none;
+  background-color: #212121;
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  font-size: 60px;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  color: white;
+  overflow: hidden;
+}
+
+.App-twitter {
+  user-select: none;
+  background-color: #1DA1F2;
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: top;
+  font-size: 60px;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  color: white;
+  overflow: hidden;
+}
+
+.App-header-styleTop {
+  user-select: none;
+  min-height: 100vh;
+  margin-bottom: -95.948827292vh;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 6.396588486vh;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  color: white;
+  overflow: hidden;
+}
+
+.App-header-style {
+  user-select: none;
+  min-height: 100vh;
+  height: 500px;
+  margin-top: -33.049040511vh;
+  margin-bottom: -42.64392324vh;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: top;
+  font-size: 60px;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  color: white;
+}
+
+.App-header-style1 {
+  user-select: none;
+  height: 120px;
+  display: block;
+  flex-direction: row;
+  align-items: center;
+  justify-content: top;
+  font-size: 30px;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  color: white;
+}
+
+.App-customize {
+  user-select: none;
+  min-height: 100vh;
+  height: 100%;
+  display: block;
+  margin-top: 10.66098081vh;
+  margin-left: 0px;
+  flex-direction: row;
+  align-items: top;
+  justify-content: center;
+  font-size: 40px;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  color: white;
+  overflow: hidden;
+}
+
+.App-customize1 {
+  user-select: none;
+  display: block;
+  margin-top: 100px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  height: 110px;
+  flex-direction: row;
+  align-items: top;
+  justify-content: center;
+  font-size: 40px;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  color: white;
+  overflow: hidden;
+}
+
+.App-customize1a {
+  user-select: none;
+  display:inline-flex;
+  margin-top: 100px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  height: 110px;
+  flex-direction: row;
+  align-items: top;
+  justify-content: center;
+  font-size: 40px;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  color: white;
+  overflow: hidden;
+}
+
+.App-customize1b {
+  user-select: none;
+  display:inline-block;
+  margin-top: 100px;
+  margin-bottom: 0px;
+  height: 110px;
+  width: 500px;
+  flex-direction: row;
+  align-items: top;
+  justify-content: left !important;
+  font-size: 30px;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  color: white;
+  overflow: hidden;
+}
+
+.App-customize1c {
+  user-select: none;
+  display:inline-block;
+  margin-top: 100px;
+  margin-bottom: 0px;
+  height: 110px;
+  width: 500px;
+  flex-direction: row;
+  align-items: top;
+  justify-content: right !important;
+  font-size: 30px;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  color: white;
+  overflow: hidden;
+}
+
+.App-customize2 {
+  user-select: none;
+  display: block;
+  margin-top: 100px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  height: 50px;
+  flex-direction: row;
+  align-items: top;
+  justify-content: center;
+  font-size: 40px;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  color: white;
+  overflow: hidden;
+}
+
+.App-customize2-0 {
+  user-select: none;
+  display: block;
+  margin-top: 100px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  height: 52px;
+  flex-direction: row;
+  align-items: top;
+  justify-content: center;
+  font-size: 40px;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  color: white;
+  overflow: hidden;
+}
+
+.App-customize2-1 {
+  user-select: none;
+  display: block;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  height: 30px;
+  flex-direction: row;
+  align-items: top;
+  justify-content: center;
+  font-size: 40px;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  color: white;
+  overflow: hidden;
+}
+
+.App-customize3 {
+  user-select: none;
+  display: block;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  height: 110px;
+  flex-direction: row;
+  align-items: top;
+  justify-content: center;
+  font-size: 40px;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  color: white;
+  overflow: hidden;
+}
+
+.App-customize4 {
+  user-select: none;
+  display: block;
+  margin-top: 100px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  height: 700px;
+  flex-direction: row;
+  align-items: top;
+  justify-content: center;
+  font-size: 40px;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  color: white;
+  overflow: hidden;
+}
+
+.Fight-division {
+  user-select: none;
+  display: block;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  width: 1000px;
+  height: 1000px;
+  flex-direction: column;
+  align-items: top;
+  justify-content: center;
+  font-size: 40px;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  color: white;
+  overflow: hidden;
+}
+
+.Fight-offer {
+  user-select: none;
+  display: block;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  width: 900px;
+  height: 1000px;
+  flex-direction: column;
+  align-items: top;
+  justify-content: center;
+  font-size: 40px;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  color: white;
+  overflow: hidden;
+}
+
+.alignright {
+  float: right;
+}
+
+.Style-desc {
+  font-size: 2.132196162vh;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+}
+
+.Customize-desc1 {
+  font-size: 20px;
+  display: inline-block;
+  vertical-align: text-top;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.Membership {
+  font-size: 20px !important;
+}
+
+.att0 {
+  background-color: transparent;
+}
+
+.att1 {
+  background-color: #616161 !important;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
