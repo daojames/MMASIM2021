@@ -154,6 +154,9 @@ class Customize extends React.Component {
       sessionStorage.setItem('grplBuff', 0);
       sessionStorage.setItem('clnhBuff', 0);
       sessionStorage.setItem('injury', 0);
+      sessionStorage.setItem('playerStrength', 0);
+      sessionStorage.setItem('playerSpeed', 0);
+      sessionStorage.setItem('playerStamina', 0);
       sessionStorage.setItem('playerPunching', 0);
       sessionStorage.setItem('playerKicking', 0);
       sessionStorage.setItem('playerWrestling', 0);
@@ -488,7 +491,7 @@ class Customize extends React.Component {
         strength: '45',
         speed: '50',
         stamina: '60',
-        punching: '35',
+        punching: '25',
         kicking: '25',
         wrestling: '85',
         grappling: '40',
@@ -1954,7 +1957,7 @@ class Customize extends React.Component {
         first: 'LEON',
         last: 'EDWARDS',
         weight: '170',
-        height: '6\'0\"',
+        height: '6\'2\"',
         nation: 'JAMAICA',
         win: '18',
         loss: '3',
@@ -2618,10 +2621,10 @@ class Customize extends React.Component {
         nation: 'FRANCE',
         win: '8',
         loss: '0',
-        strength: '70',
-        speed: '75',
+        strength: '65',
+        speed: '80',
         stamina: '75',
-        punching: '80',
+        punching: '90',
         kicking: '70',
         wrestling: '60',
         grappling: '70',

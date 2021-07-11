@@ -833,14 +833,8 @@ class Tale4 extends React.Component {
 
     playerPunching0() {
         if (sessionStorage.getItem('pnchBuff') != 0){
-            if ((parseInt(sessionStorage.getItem('punch')) + parseInt(sessionStorage.getItem('pnchBuff'))) > 100){
-                sessionStorage.setItem('playerPunching', 100);
-                return 100;
-            }
-            else {
-                sessionStorage.setItem('playerPunching', parseInt(sessionStorage.getItem('punch')) + parseInt(sessionStorage.getItem('pnchBuff')));
-                return parseInt(sessionStorage.getItem('punch')) + parseInt(sessionStorage.getItem('pnchBuff'));
-            }
+            sessionStorage.setItem('playerPunching', parseInt(sessionStorage.getItem('punch')) + parseInt(sessionStorage.getItem('pnchBuff')));
+            return parseInt(sessionStorage.getItem('punch')) + parseInt(sessionStorage.getItem('pnchBuff'));
         }
     }
 
@@ -853,14 +847,8 @@ class Tale4 extends React.Component {
 
     playerPunching2() {
         if (sessionStorage.getItem('pnchBuff') != 0){
-            if ((parseInt(sessionStorage.getItem('punch')) + parseInt(sessionStorage.getItem('pnchBuff'))) > 100){
-                sessionStorage.setItem('playerPunching', 100);
-                return 100;
-            }
-            else {
-                sessionStorage.setItem('playerPunching', parseInt(sessionStorage.getItem('punch')) + parseInt(sessionStorage.getItem('pnchBuff')));
-                return parseInt(sessionStorage.getItem('punch')) + parseInt(sessionStorage.getItem('pnchBuff'));
-            }
+            sessionStorage.setItem('playerPunching', parseInt(sessionStorage.getItem('punch')) + parseInt(sessionStorage.getItem('pnchBuff')));
+            return parseInt(sessionStorage.getItem('punch')) + parseInt(sessionStorage.getItem('pnchBuff'));
         }
         if (sessionStorage.getItem('pnchBuff') == 0){
             sessionStorage.setItem('playerPunching', sessionStorage.getItem('punch'));
@@ -870,14 +858,8 @@ class Tale4 extends React.Component {
     
     playerKicking0() {
         if (sessionStorage.getItem('kickBuff') != 0){
-            if ((parseInt(sessionStorage.getItem('kick')) + parseInt(sessionStorage.getItem('kickBuff'))) > 100){
-                sessionStorage.setItem('playerKicking', 100);
-                return 100;
-            }
-            else {
-                sessionStorage.setItem('playerKicking', parseInt(sessionStorage.getItem('kick')) + parseInt(sessionStorage.getItem('kickBuff')));
-                return parseInt(sessionStorage.getItem('kick')) + parseInt(sessionStorage.getItem('kickBuff'));
-            }
+            sessionStorage.setItem('playerKicking', parseInt(sessionStorage.getItem('kick')) + parseInt(sessionStorage.getItem('kickBuff')));
+            return parseInt(sessionStorage.getItem('kick')) + parseInt(sessionStorage.getItem('kickBuff'));
         }
     }
 
@@ -890,14 +872,8 @@ class Tale4 extends React.Component {
 
     playerKicking2() {
         if (sessionStorage.getItem('kickBuff') != 0){
-            if ((parseInt(sessionStorage.getItem('kick')) + parseInt(sessionStorage.getItem('kickBuff'))) > 100){
-                sessionStorage.setItem('playerKicking', 100);
-                return 100;
-            }
-            else {
-                sessionStorage.setItem('playerKicking', parseInt(sessionStorage.getItem('kick')) + parseInt(sessionStorage.getItem('kickBuff')));
-                return parseInt(sessionStorage.getItem('kick')) + parseInt(sessionStorage.getItem('kickBuff'));
-            }
+            sessionStorage.setItem('playerKicking', parseInt(sessionStorage.getItem('kick')) + parseInt(sessionStorage.getItem('kickBuff')));
+            return parseInt(sessionStorage.getItem('kick')) + parseInt(sessionStorage.getItem('kickBuff'));
         }
         if (sessionStorage.getItem('kickBuff') == 0){
             sessionStorage.setItem('playerKicking', sessionStorage.getItem('kick'));
@@ -907,14 +883,8 @@ class Tale4 extends React.Component {
     
     playerWrestling0() {
         if (sessionStorage.getItem('wrstBuff') != 0){
-            if ((parseInt(sessionStorage.getItem('wrestling')) + parseInt(sessionStorage.getItem('wrstBuff'))) > 100){
-                sessionStorage.setItem('playerWrestling', 100);
-                return 100;
-            }
-            else {
-                sessionStorage.setItem('playerWrestling', parseInt(sessionStorage.getItem('wrestling')) + parseInt(sessionStorage.getItem('wrstBuff')));
-                return parseInt(sessionStorage.getItem('wrestling')) + parseInt(sessionStorage.getItem('wrstBuff'));
-            }
+            sessionStorage.setItem('playerWrestling', parseInt(sessionStorage.getItem('wrestling')) + parseInt(sessionStorage.getItem('wrstBuff')));
+            return parseInt(sessionStorage.getItem('wrestling')) + parseInt(sessionStorage.getItem('wrstBuff'));
         }
     }
 
@@ -927,14 +897,8 @@ class Tale4 extends React.Component {
 
     playerWrestling2() {
         if (sessionStorage.getItem('wrstBuff') != 0){
-            if ((parseInt(sessionStorage.getItem('wrestling')) + parseInt(sessionStorage.getItem('wrstBuff'))) > 100){
-                sessionStorage.setItem('playerWrestling', 100);
-                return 100;
-            }
-            else {
-                sessionStorage.setItem('playerWrestling', parseInt(sessionStorage.getItem('wrestling')) + parseInt(sessionStorage.getItem('wrstBuff')));
-                return parseInt(sessionStorage.getItem('wrestling')) + parseInt(sessionStorage.getItem('wrstBuff'));
-            }
+            sessionStorage.setItem('playerWrestling', parseInt(sessionStorage.getItem('wrestling')) + parseInt(sessionStorage.getItem('wrstBuff')));
+            return parseInt(sessionStorage.getItem('wrestling')) + parseInt(sessionStorage.getItem('wrstBuff'));
         }
         if (sessionStorage.getItem('wrstBuff') == 0){
             sessionStorage.setItem('playerWrestling', sessionStorage.getItem('wrestling'));
@@ -944,14 +908,8 @@ class Tale4 extends React.Component {
     
     playerGrappling0() {
         if (sessionStorage.getItem('grplBuff') != 0){
-            if ((parseInt(sessionStorage.getItem('grpl')) + parseInt(sessionStorage.getItem('grplBuff'))) > 100){
-                sessionStorage.setItem('playerGrappling', 100);
-                return 100;
-            }
-            else {
-                sessionStorage.setItem('playerGrappling', parseInt(sessionStorage.getItem('grappling')) + parseInt(sessionStorage.getItem('grplBuff')));
-                return parseInt(sessionStorage.getItem('grpl')) + parseInt(sessionStorage.getItem('grplBuff'));
-            }
+            sessionStorage.setItem('playerGrappling', parseInt(sessionStorage.getItem('grappling')) + parseInt(sessionStorage.getItem('grplBuff')));
+            return parseInt(sessionStorage.getItem('grpl')) + parseInt(sessionStorage.getItem('grplBuff'));
         }
     }
 
@@ -964,14 +922,8 @@ class Tale4 extends React.Component {
 
     playerGrappling2() {
         if (sessionStorage.getItem('grplBuff') != 0){
-            if ((parseInt(sessionStorage.getItem('grpl')) + parseInt(sessionStorage.getItem('grplBuff'))) > 100){
-                sessionStorage.setItem('playerGrappling', 100);
-                return 100;
-            }
-            else {
-                sessionStorage.setItem('playerGrappling', parseInt(sessionStorage.getItem('grappling')) + parseInt(sessionStorage.getItem('grplBuff')));
-                return parseInt(sessionStorage.getItem('grpl')) + parseInt(sessionStorage.getItem('grplBuff'));
-            }
+            sessionStorage.setItem('playerGrappling', parseInt(sessionStorage.getItem('grappling')) + parseInt(sessionStorage.getItem('grplBuff')));
+            return parseInt(sessionStorage.getItem('grpl')) + parseInt(sessionStorage.getItem('grplBuff'));
         }
         if (sessionStorage.getItem('grplBuff') == 0){
             sessionStorage.setItem('playerGrappling', sessionStorage.getItem('grappling'));
@@ -981,14 +933,8 @@ class Tale4 extends React.Component {
     
     playerClinch0() {
         if (sessionStorage.getItem('clnhBuff') != 0){
-            if ((parseInt(sessionStorage.getItem('clinch')) + parseInt(sessionStorage.getItem('clnhBuff'))) > 100){
-                sessionStorage.setItem('playerClinch', 100);
-                return 100;
-            }
-            else {
-                sessionStorage.setItem('playerClinch', parseInt(sessionStorage.getItem('clinch')) + parseInt(sessionStorage.getItem('clnhBuff')));
-                return parseInt(sessionStorage.getItem('clinch')) + parseInt(sessionStorage.getItem('clnhBuff'));
-            }
+            sessionStorage.setItem('playerClinch', parseInt(sessionStorage.getItem('clinch')) + parseInt(sessionStorage.getItem('clnhBuff')));
+            return parseInt(sessionStorage.getItem('clinch')) + parseInt(sessionStorage.getItem('clnhBuff'));
         }
     }
 
@@ -1001,14 +947,8 @@ class Tale4 extends React.Component {
 
     playerClinch2() {
         if (sessionStorage.getItem('clnhBuff') != 0){
-            if ((parseInt(sessionStorage.getItem('clinch')) + parseInt(sessionStorage.getItem('clnhBuff'))) > 100){
-                sessionStorage.setItem('playerClinch', 100);
-                return 100;
-            }
-            else {
-                sessionStorage.setItem('playerClinch', parseInt(sessionStorage.getItem('clinch')) + parseInt(sessionStorage.getItem('clnhBuff')));
-                return parseInt(sessionStorage.getItem('clinch')) + parseInt(sessionStorage.getItem('clnhBuff'));
-            }
+            sessionStorage.setItem('playerClinch', parseInt(sessionStorage.getItem('clinch')) + parseInt(sessionStorage.getItem('clnhBuff')));
+            return parseInt(sessionStorage.getItem('clinch')) + parseInt(sessionStorage.getItem('clnhBuff'));
         }
         if (sessionStorage.getItem('clnhBuff') == 0){
             sessionStorage.setItem('playerClinch', sessionStorage.getItem('clinch'));

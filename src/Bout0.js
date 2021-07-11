@@ -162,6 +162,9 @@ class Bout0 extends React.Component {
         sessionStorage.setItem('stance2', false);
         sessionStorage.setItem('stance3', false);
         sessionStorage.setItem('playerStance', 'MMA');
+        sessionStorage.setItem('mmaBuff', 5);
+        sessionStorage.setItem('bladedBuff', 0);
+        sessionStorage.setItem('thaiBuff', 0);
         this.setState({
             sta1: true,
             sta2: false,
@@ -175,6 +178,9 @@ class Bout0 extends React.Component {
         sessionStorage.setItem('stance2', true);
         sessionStorage.setItem('stance3', false);
         sessionStorage.setItem('playerStance', 'BLADED');
+        sessionStorage.setItem('mmaBuff', 0);
+        sessionStorage.setItem('bladedBuff', 5);
+        sessionStorage.setItem('thaiBuff', 0);
         this.setState({
             sta1: false,
             sta2: true,
@@ -188,6 +194,9 @@ class Bout0 extends React.Component {
         sessionStorage.setItem('stance2', false);
         sessionStorage.setItem('stance3', true);
         sessionStorage.setItem('playerStance', 'THAI');
+        sessionStorage.setItem('mmaBuff', 0);
+        sessionStorage.setItem('bladedBuff', 0);
+        sessionStorage.setItem('thaiBuff', 5);
         this.setState({
             sta1: false,
             sta2: false,
@@ -202,6 +211,13 @@ class Bout0 extends React.Component {
         sessionStorage.setItem('guard3', false);
         sessionStorage.setItem('guard4', false);
         sessionStorage.setItem('playerGuard', 'LONG');
+        sessionStorage.setItem('longBuff', 5);
+        sessionStorage.setItem('longNerf', 5);
+        sessionStorage.setItem('highBuff', 0);
+        sessionStorage.setItem('highNerf', 0);
+        sessionStorage.setItem('lowBuff', 0);
+        sessionStorage.setItem('lowNerf', 0);
+        sessionStorage.setItem('reactNerf', 0);
         this.setState({
             gua1: true,
             gua2: false,
@@ -217,6 +233,13 @@ class Bout0 extends React.Component {
         sessionStorage.setItem('guard3', false);
         sessionStorage.setItem('guard4', false);
         sessionStorage.setItem('playerGuard', 'HIGH');
+        sessionStorage.setItem('longBuff', 0);
+        sessionStorage.setItem('longNerf', 0);
+        sessionStorage.setItem('highBuff', 5);
+        sessionStorage.setItem('highNerf', 5);
+        sessionStorage.setItem('lowBuff', 0);
+        sessionStorage.setItem('lowNerf', 0);
+        sessionStorage.setItem('reactNerf', 0);
         this.setState({
             gua1: false,
             gua2: true,
@@ -232,6 +255,13 @@ class Bout0 extends React.Component {
         sessionStorage.setItem('guard3', true);
         sessionStorage.setItem('guard4', false);
         sessionStorage.setItem('playerGuard', 'LOW');
+        sessionStorage.setItem('longBuff', 0);
+        sessionStorage.setItem('longNerf', 0);
+        sessionStorage.setItem('highBuff', 0);
+        sessionStorage.setItem('highNerf', 0);
+        sessionStorage.setItem('lowBuff', 5);
+        sessionStorage.setItem('lowNerf', 5);
+        sessionStorage.setItem('reactNerf', 0);
         this.setState({
             gua1: false,
             gua2: false,
@@ -247,6 +277,13 @@ class Bout0 extends React.Component {
         sessionStorage.setItem('guard3', false);
         sessionStorage.setItem('guard4', true);
         sessionStorage.setItem('playerGuard', 'REACTIVE');
+        sessionStorage.setItem('longBuff', 0);
+        sessionStorage.setItem('longNerf', 0);
+        sessionStorage.setItem('highBuff', 0);
+        sessionStorage.setItem('highNerf', 0);
+        sessionStorage.setItem('lowBuff', 0);
+        sessionStorage.setItem('lowNerf', 0);
+        sessionStorage.setItem('reactNerf', 5);
         this.setState({
             gua1: false,
             gua2: false,
@@ -906,6 +943,312 @@ class Bout0 extends React.Component {
         }
     }
 
+    ready() {
+        if (sessionStorage.getItem('playerStance') == '?' || sessionStorage.getItem('playerGuard') == '?' || sessionStorage.getItem('att1') == '?' || sessionStorage.getItem('att2') == '?' || sessionStorage.getItem('att3') == '?'){
+            console.log('true')
+            return true;
+        }
+        else {
+            console.log('false')
+            return false;
+        }
+    }
+
+    oppInfo() {
+        let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+        let ran2 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+
+        let arr = [
+            {type: 'punching', value: sessionStorage.getItem('oppPunching')},
+            {type: 'kicking', value: sessionStorage.getItem('oppKicking')},
+            {type: 'wrestling', value: sessionStorage.getItem('oppWrestling')},
+            {type: 'grappling', value: sessionStorage.getItem('oppGrappling')}
+        ];
+        arr.sort(function (a, b) {
+            return a.value - b.value;
+        });
+
+        let opp1 = arr[3].type;
+        let opp2 = arr[2].type;
+        let opp3 = arr[1].type;
+        let opp4 = arr[0].type;
+
+        if (ran1 <= 70) {
+            if (opp1 == 'punching'){
+                let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                if (ran <= 50){
+                    sessionStorage.setItem('oppStance', 'MMA');
+                    sessionStorage.setItem('mmaBuff1', 5);
+                }
+                else {
+                    sessionStorage.setItem('oppStance', 'BLADED');
+                    sessionStorage.setItem('bladedBuff1', 5);
+                }
+            }
+            else if (opp1 == 'kicking'){
+                let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                if (ran <= 50){
+                    sessionStorage.setItem('oppStance', 'MMA');
+                    sessionStorage.setItem('mmaBuff1', 5);
+                }
+                else {
+                    sessionStorage.setItem('oppStance', 'THAI');
+                    sessionStorage.setItem('thaiBuff1', 5);
+                }
+            }
+            else if (opp1 == 'wrestling'){
+                sessionStorage.setItem('oppStance', 'MMA');
+                sessionStorage.setItem('mmaBuff1', 5);
+            }
+            else if (opp1 == 'grappling'){
+                sessionStorage.setItem('oppStance', 'MMA');
+                sessionStorage.setItem('mmaBuff1', 5);
+            }
+        }
+        else {
+            if (opp2 == 'punching'){
+                sessionStorage.setItem('oppStance', 'BLADED');
+                sessionStorage.setItem('bladedBuff1', 5);
+            }
+            else if (opp2 == 'kicking'){
+                sessionStorage.setItem('oppStance', 'THAI');
+                sessionStorage.setItem('thaiBuff1', 5);
+            }
+            else if (opp2 == 'wrestling'){
+                sessionStorage.setItem('oppStance', 'MMA');
+                sessionStorage.setItem('mmaBuff1', 5);
+            }
+            else if (opp2 == 'grappling'){
+                sessionStorage.setItem('oppStance', 'MMA');
+                sessionStorage.setItem('mmaBuff1', 5);
+            }
+        }
+
+        if (ran2 <= 50) {
+            if (opp4 == 'punching'){
+                let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                if (ran <= 70){
+                    sessionStorage.setItem('oppGuard', 'HIGH');
+                    sessionStorage.setItem('highBuff1', 5);
+                    sessionStorage.setItem('highNerf1', 5);
+                }
+                else {
+                    sessionStorage.setItem('oppGuard', 'LONG');
+                    sessionStorage.setItem('longBuff1', 5);
+                    sessionStorage.setItem('longNerf1', 5);
+                }
+            }
+            else if (opp4 == 'kicking'){
+                let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                if (ran <= 60){
+                    sessionStorage.setItem('oppGuard', 'HIGH');
+                    sessionStorage.setItem('highBuff1', 5);
+                    sessionStorage.setItem('highNerf1', 5);
+                }
+                else {
+                    sessionStorage.setItem('oppGuard', 'LONG')
+                    sessionStorage.setItem('longBuff1', 5);
+                    sessionStorage.setItem('longNerf1', 5);
+                }
+            }
+            else if (opp4 == 'wrestling'){
+                sessionStorage.setItem('oppGuard', 'LOW');
+                sessionStorage.setItem('lowBuff1', 5);
+                sessionStorage.setItem('lowNerf1', 5);
+            }
+            else if (opp4 == 'grappling'){
+                sessionStorage.setItem('oppGuard', 'LOW');
+                sessionStorage.setItem('lowBuff1', 5);
+                sessionStorage.setItem('lowNerf1', 5);
+            }
+        }
+        else {
+            if (opp1 == 'punching'){
+                let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                if (ran <= 50){
+                    sessionStorage.setItem('oppGuard', 'HIGH');
+                    sessionStorage.setItem('highBuff1', 5);
+                    sessionStorage.setItem('highNerf1', 5);
+                }
+                else {
+                    sessionStorage.setItem('oppGuard', 'REACTIVE');
+                    sessionStorage.setItem('reactNerf1', 5);
+                }
+            }
+            else if (opp1 == 'kicking'){
+                let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                if (ran <= 65){
+                    sessionStorage.setItem('oppGuard', 'LONG');
+                    sessionStorage.setItem('longBuff1', 5);
+                    sessionStorage.setItem('longNerf1', 5);
+                }
+                else {
+                    sessionStorage.setItem('oppGuard', 'REACTIVE');
+                    sessionStorage.setItem('reactNerf1', 5);
+                }
+            }
+            else if (opp1 == 'wrestling'){
+                let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                if (ran <= 75){
+                    sessionStorage.setItem('oppGuard', 'LOW');
+                    sessionStorage.setItem('lowBuff1', 5);
+                    sessionStorage.setItem('lowNerf1', 5);
+                }
+                else {
+                    sessionStorage.setItem('oppGuard', 'REACTIVE');
+                    sessionStorage.setItem('reactNerf1', 5);
+
+                }
+            }
+            else if (opp1 == 'grappling'){
+                let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                if (ran <= 75){
+                    sessionStorage.setItem('oppGuard', 'LOW');
+                    sessionStorage.setItem('lowBuff1', 5);
+                    sessionStorage.setItem('lowNerf1', 5);
+                }
+                else {
+                    sessionStorage.setItem('oppGuard', 'REACTIVE');
+                    sessionStorage.setItem('reactNerf1', 5);
+                }
+            }
+        }
+        
+        if (opp1 == 'punching'){
+            let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            if (ran <= 20){
+                sessionStorage.setItem('oppAtt1', 'BRAWL');
+                sessionStorage.setItem('oppAtt2', 'BLITZ');
+                sessionStorage.setItem('oppAtt3', 'PRESSURE');
+            }
+            else if (ran <= 40){
+                sessionStorage.setItem('oppAtt1', 'BRAWL');
+                sessionStorage.setItem('oppAtt2', 'BLITZ');
+                sessionStorage.setItem('oppAtt3', 'POWER');
+            }
+            else if (ran <= 60){
+                sessionStorage.setItem('oppAtt1', 'BRAWL');
+                sessionStorage.setItem('oppAtt2', 'LOW KICK');
+                sessionStorage.setItem('oppAtt3', 'CLINCH');
+            }
+            else if (ran <= 80){
+                sessionStorage.setItem('oppAtt1', 'BRAWL');
+                sessionStorage.setItem('oppAtt2', 'LOW KICK');
+                sessionStorage.setItem('oppAtt3', 'PRESSURE');
+            }
+            else if (ran <= 90){
+                sessionStorage.setItem('oppAtt1', 'BRAWL');
+                sessionStorage.setItem('oppAtt2', 'BLITZ');
+                sessionStorage.setItem('oppAtt3', 'TAKEDOWN');
+            }
+            else {
+                sessionStorage.setItem('oppAtt1', 'BRAWL');
+                sessionStorage.setItem('oppAtt2', 'FEINT');
+                sessionStorage.setItem('oppAtt3', 'POWER');
+            }
+        }
+        else if (opp1 == 'kicking'){
+            let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            if (ran <= 20){
+                sessionStorage.setItem('oppAtt1', 'BRAWL');
+                sessionStorage.setItem('oppAtt2', 'LOW KICK');
+                sessionStorage.setItem('oppAtt3', 'PRESSURE');
+            }
+            else if (ran <= 40){
+                sessionStorage.setItem('oppAtt1', 'BRAWL');
+                sessionStorage.setItem('oppAtt2', 'LOW KICK');
+                sessionStorage.setItem('oppAtt3', 'POWER');
+            }
+            else if (ran <= 60){
+                sessionStorage.setItem('oppAtt1', 'BRAWL');
+                sessionStorage.setItem('oppAtt2', 'LOW KICK');
+                sessionStorage.setItem('oppAtt3', 'CLINCH');
+            }
+            else if (ran <= 80){
+                sessionStorage.setItem('oppAtt1', 'BRAWL');
+                sessionStorage.setItem('oppAtt2', 'LOW KICK');
+                sessionStorage.setItem('oppAtt3', 'BLITZ');
+            }
+            else if (ran <= 90){
+                sessionStorage.setItem('oppAtt1', 'BRAWL');
+                sessionStorage.setItem('oppAtt2', 'LOW KICK');
+                sessionStorage.setItem('oppAtt3', 'TAKEDOWN');
+            }
+            else {
+                sessionStorage.setItem('oppAtt1', 'BRAWL');
+                sessionStorage.setItem('oppAtt2', 'LOW KICK');
+                sessionStorage.setItem('oppAtt3', 'FEINT');
+            }
+        }
+        else if (opp1 == 'wrestling'){
+            let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            if (ran <= 20){
+                sessionStorage.setItem('oppAtt1', 'BRAWL');
+                sessionStorage.setItem('oppAtt2', 'BLITZ');
+                sessionStorage.setItem('oppAtt3', 'TAKEDOWN');
+            }
+            else if (ran <= 40){
+                sessionStorage.setItem('oppAtt1', 'BRAWL');
+                sessionStorage.setItem('oppAtt2', 'LOW KICK');
+                sessionStorage.setItem('oppAtt3', 'TAKEDOWN');
+            }
+            else if (ran <= 60){
+                sessionStorage.setItem('oppAtt1', 'BRAWL');
+                sessionStorage.setItem('oppAtt2', 'POWER');
+                sessionStorage.setItem('oppAtt3', 'TAKEDOWN');
+            }
+            else if (ran <= 80){
+                sessionStorage.setItem('oppAtt1', 'BRAWL');
+                sessionStorage.setItem('oppAtt2', 'PRESSURE');
+                sessionStorage.setItem('oppAtt3', 'TAKEDOWN');
+            }
+            else if (ran <= 90){
+                sessionStorage.setItem('oppAtt1', 'BRAWL');
+                sessionStorage.setItem('oppAtt2', 'CLINCH');
+                sessionStorage.setItem('oppAtt3', 'TAKEDOWN');
+            }
+            else {
+                sessionStorage.setItem('oppAtt1', 'BRAWL');
+                sessionStorage.setItem('oppAtt2', 'FEINT');
+                sessionStorage.setItem('oppAtt3', 'TAKEDOWN');
+            }
+        }
+        else if (opp1 == 'grappling'){
+            let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            if (ran <= 20){
+                sessionStorage.setItem('oppAtt1', 'BRAWL');
+                sessionStorage.setItem('oppAtt2', 'BLITZ');
+                sessionStorage.setItem('oppAtt3', 'TAKEDOWN');
+            }
+            else if (ran <= 40){
+                sessionStorage.setItem('oppAtt1', 'BRAWL');
+                sessionStorage.setItem('oppAtt2', 'LOW KICK');
+                sessionStorage.setItem('oppAtt3', 'TAKEDOWN');
+            }
+            else if (ran <= 60){
+                sessionStorage.setItem('oppAtt1', 'BRAWL');
+                sessionStorage.setItem('oppAtt2', 'POWER');
+                sessionStorage.setItem('oppAtt3', 'TAKEDOWN');
+            }
+            else if (ran <= 80){
+                sessionStorage.setItem('oppAtt1', 'BRAWL');
+                sessionStorage.setItem('oppAtt2', 'PRESSURE');
+                sessionStorage.setItem('oppAtt3', 'TAKEDOWN');
+            }
+            else if (ran <= 90){
+                sessionStorage.setItem('oppAtt1', 'BRAWL');
+                sessionStorage.setItem('oppAtt2', 'CLINCH');
+                sessionStorage.setItem('oppAtt3', 'TAKEDOWN');
+            }
+            else {
+                sessionStorage.setItem('oppAtt1', 'BRAWL');
+                sessionStorage.setItem('oppAtt2', 'FEINT');
+                sessionStorage.setItem('oppAtt3', 'TAKEDOWN');
+            }
+        }
+        
+    }
+
     render() {
         let data = sessionStorage.getItem('player');
         data = JSON.parse(data);
@@ -1014,26 +1357,26 @@ class Bout0 extends React.Component {
                 </div>
                 <div className="App-customize1a" style={{marginTop: -65}}>
                     <Button data-tip data-for="1" className={this.state.att1 ? "att1" : "att0"} onClick={this.att1}>BRAWL</Button>
-                    <ReactTooltip class="Membership" id="1" place="top" effect="float"><text style={{fontSize: 30}}>BRAWL</text><br/>THROW A FEW STRIKES<br/><b>6 STAMINA</b></ReactTooltip>
+                    <ReactTooltip class="Membership" id="1" place="top" effect="float"><text style={{fontSize: 30}}>BRAWL</text><br/>THROW A FEW STRIKES<br/><b>✓{w}LOW ENERGY</b><br/><b>✘{w}MEDIUM DAMAGE</b><br/><b>★{w}6 STAMINA</b></ReactTooltip>
                     <Button data-tip data-for="2" className={this.state.att2 ? "att1" : "att0"} onClick={this.att2}>BLITZ</Button>
-                    <ReactTooltip class="Membership" id="2" place="top" effect="float"><text style={{fontSize: 30}}>BLITZ</text><br/>QUICKLY COVER DISTANCE AND THROW STRIKES<br/><b>9 STAMINA</b></ReactTooltip>
+                    <ReactTooltip class="Membership" id="2" place="top" effect="float"><text style={{fontSize: 30}}>BLITZ</text><br/>QUICKLY COVER DISTANCE AND THROW STRIKES<br/><b>✓{w}ANTI-COUNTER</b><br/><b>✘{w}SPEED DEPENDENT</b><br/><b>★{w}8 STAMINA</b></ReactTooltip>
                     <Button data-tip data-for="3" className={this.state.att3 ? "att1" : "att0"} onClick={this.att3}>PRESSURE</Button>
-                    <ReactTooltip class="Membership" id="3" place="top" effect="float"><text style={{fontSize: 30}}>PRESSURE</text><br/>HIGH VOLUME OF STRIKES<br/><b>12 STAMINA</b></ReactTooltip>
+                    <ReactTooltip class="Membership" id="3" place="top" effect="float"><text style={{fontSize: 30}}>PRESSURE</text><br/>HIGH VOLUME OF STRIKES<br/><b>✓{w}CONSISTENT</b><br/><b>✘{w}HIGH ENERGY</b><br/><b>★{w}10 STAMINA</b></ReactTooltip>
                     <Button data-tip data-for="11" className={this.state.att4 ? "att1" : "att0"} onClick={this.att4}>POWER</Button>
-                    <ReactTooltip class="Membership" id="11" place="top" effect="float"><text style={{fontSize: 30}}>POWER SHOTS</text><br/>HEAVY BUT TAXING STRIKES<br/><b>15 STAMINA</b></ReactTooltip>
+                    <ReactTooltip class="Membership" id="11" place="top" effect="float"><text style={{fontSize: 30}}>POWER SHOTS</text><br/>HEAVY BUT TAXING STRIKES<br/><b>✓{w}KNOCKOUT POWER</b><br/><b>✘{w}HIGH ENERGY</b><br/><b>★{w}12 STAMINA</b></ReactTooltip>
                 </div>
                 <div className="App-customize1a" style={{marginTop: 0}}>
                     <Button data-tip data-for="12" className={this.state.att5 ? "att1" : "att0"} onClick={this.att5}>FEINT</Button>
-                    <ReactTooltip class="Membership" id="12" place="top" effect="float"><text style={{fontSize: 30}}>FEINT</text><br/>FAKE ATTACK TO REDUCE OPPONENT REACTION<br/><b>1 STAMINA</b></ReactTooltip>
+                    <ReactTooltip class="Membership" id="12" place="top" effect="float"><text style={{fontSize: 30}}>FEINT</text><br/>FAKE ATTACK TO REDUCE OPPONENT REACTION<br/><b>✓{w}HIGHER ACCURACY ON NEXT ATTACK</b><br/><b>✘{w}NO DAMAGE</b><br/><b>★{w}1 STAMINA</b></ReactTooltip>
                     <Button data-tip data-for="4" className={this.state.att6 ? "att1" : "att0"} onClick={this.att6}>LOW KICK</Button>
-                    <ReactTooltip class="Membership" id="4" place="top" effect="float"><text style={{fontSize: 30}}>LOW KICK</text><br/>KICK CALF TO REDUCE OPPONENT SPEED<br/><b>5 STAMINA</b></ReactTooltip>
-                    <Button data-tip data-for="5" className={this.state.att7 ? "att1" : "att0"} onClick={this.att7}>TAKEDOWN</Button>
-                    <ReactTooltip class="Membership" id="5" place="top" effect="float"><text style={{fontSize: 30}}>TAKEDOWN</text><br/>TAKE OPPONENT DOWN TO GROUND<br/><b>10 STAMINA</b></ReactTooltip>
+                    <ReactTooltip class="Membership" id="4" place="top" effect="float"><text style={{fontSize: 30}}>LOW KICK</text><br/>KICK CALF TO REDUCE OPPONENT SPEED<br/><b>✓{w}REDUCE OPPONENT SPEED</b><br/><b>✘{w}LOW DAMAGE</b><br/><b>★{w}4 STAMINA</b></ReactTooltip>
                     <Button data-tip data-for="10" className={this.state.att8 ? "att1" : "att0"} onClick={this.att8}>CLINCH</Button>
-                    <ReactTooltip class="Membership" id="10" place="top" effect="float"><text style={{fontSize: 30}}>CLINCH</text><br/>STRIKE INTO A CLINCH<br/><b>5 STAMINA</b></ReactTooltip>
+                    <ReactTooltip class="Membership" id="10" place="top" effect="float"><text style={{fontSize: 30}}>CLINCH</text><br/>STRIKE INTO A CLINCH<br/><b>✓{w}MORE OFFENSIVE OPTIONS</b><br/><b>✘{w}UNPREDICTABLE OUTCOME</b><br/><b>★{w}8 STAMINA</b></ReactTooltip>
+                    <Button data-tip data-for="5" className={this.state.att7 ? "att1" : "att0"} onClick={this.att7}>TAKEDOWN</Button>
+                    <ReactTooltip class="Membership" id="5" place="top" effect="float"><text style={{fontSize: 30}}>TAKEDOWN</text><br/>TAKE OPPONENT DOWN TO GROUND<br/><b>✓{w}DOMINANT POSITON</b><br/><b>✘{w}HIGH ENERGY</b><br/><b>★{w}12 STAMINA</b></ReactTooltip>
                 </div>
                 <div className="App-customize1a" style={{marginTop: 0}}>
-                    <Link to='./round'><Button>FIGHT</Button></Link>
+                    <Link to='./round'><Button disabled={this.ready()} onClick={this.oppInfo}>FIGHT</Button></Link>
                 </div>
             </div>
         )

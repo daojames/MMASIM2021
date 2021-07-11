@@ -281,6 +281,9 @@ class Gym extends React.Component {
             sessionStorage.setItem('injury', 0);
             sessionStorage.setItem('balance', parseInt(sessionStorage.getItem('balance')) - price);
             sessionStorage.setItem('month', (parseInt(sessionStorage.getItem('month')) + time));
+            sessionStorage.setItem('playerStrength', parseInt(sessionStorage.getItem('str')));
+            sessionStorage.setItem('playerSpeed', parseInt(sessionStorage.getItem('spd')));
+            sessionStorage.setItem('playerStamina', parseInt(sessionStorage.getItem('stm')));
         }
     }
 

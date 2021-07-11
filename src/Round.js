@@ -1061,6 +1061,1426 @@ class Round extends React.Component {
         }
     }
 
+    attDesc1c() {
+        if (sessionStorage.getItem('att1') == 'BRAWL'){
+            return '6';
+        }
+        else if (sessionStorage.getItem('att1') == 'BLITZ'){
+            return '8';
+        }
+        else if (sessionStorage.getItem('att1') == 'PRESSURE'){
+            return '10';
+        }
+        else if (sessionStorage.getItem('att1') == 'POWER'){
+            return '12';
+        }
+        else if (sessionStorage.getItem('att1') == 'FEINT'){
+            return '1';
+        }
+        else if (sessionStorage.getItem('att1') == 'LOW KICK'){
+            return '4';
+        }
+        else if (sessionStorage.getItem('att1') == 'TAKEDOWN'){
+            return '12';
+        }
+        else if (sessionStorage.getItem('att1') == 'CLINCH'){
+            return '8';
+        }
+    }
+
+    attDesc2c() {
+        if (sessionStorage.getItem('att2') == 'BRAWL'){
+            return '6';
+        }
+        else if (sessionStorage.getItem('att2') == 'BLITZ'){
+            return '8';
+        }
+        else if (sessionStorage.getItem('att2') == 'PRESSURE'){
+            return '10';
+        }
+        else if (sessionStorage.getItem('att2') == 'POWER'){
+            return '12';
+        }
+        else if (sessionStorage.getItem('att2') == 'FEINT'){
+            return '1';
+        }
+        else if (sessionStorage.getItem('att2') == 'LOW KICK'){
+            return '4';
+        }
+        else if (sessionStorage.getItem('att2') == 'TAKEDOWN'){
+            return '12';
+        }
+        else if (sessionStorage.getItem('att2') == 'CLINCH'){
+            return '8';
+        }
+    }
+
+    attDesc3c() {
+        if (sessionStorage.getItem('att3') == 'BRAWL'){
+            return '6';
+        }
+        else if (sessionStorage.getItem('att3') == 'BLITZ'){
+            return '8';
+        }
+        else if (sessionStorage.getItem('att3') == 'PRESSURE'){
+            return '10';
+        }
+        else if (sessionStorage.getItem('att3') == 'POWER'){
+            return '12';
+        }
+        else if (sessionStorage.getItem('att3') == 'FEINT'){
+            return '1';
+        }
+        else if (sessionStorage.getItem('att3') == 'LOW KICK'){
+            return '4';
+        }
+        else if (sessionStorage.getItem('att3') == 'TAKEDOWN'){
+            return '12';
+        }
+        else if (sessionStorage.getItem('att3') == 'CLINCH'){
+            return '8';
+        }
+    }
+
+    mover0 = (event) => {
+        sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 2);
+        sessionStorage.setItem('mCount', parseInt(sessionStorage.getItem('mCount')) + 2);
+        let data = sessionStorage.getItem('player');
+        data = JSON.parse(data);
+        let first = data.first;
+        let last = data.last;
+ 
+        let hit = this.getHit('STICK');
+        let dmg = this.getDamage(hit, 'STICK');
+
+        let name = last;
+        let msg = 'THROWS 2 JABS';
+        let info = hit + '/2 HIT, ' + dmg + ' DMG';
+
+        let name1 = sessionStorage.getItem('oppLast');
+        let msg1 = 'THROWS 4 STRIKES';
+        let info1 = '2/4 HIT, 30 DMG';
+        if (sessionStorage.getItem('mCount') == 2){
+            sessionStorage.setItem('name01', name);
+            sessionStorage.setItem('move01', msg);
+            sessionStorage.setItem('info01', info);
+
+            sessionStorage.setItem('name02', name1);
+            sessionStorage.setItem('move02', msg1);
+            sessionStorage.setItem('info02', info1);
+        }
+        else if (sessionStorage.getItem('mCount') == 4){
+            sessionStorage.setItem('name03', name);
+            sessionStorage.setItem('move03', msg);
+            sessionStorage.setItem('info03', info);
+
+            sessionStorage.setItem('name04', name1);
+            sessionStorage.setItem('move04', msg1);
+            sessionStorage.setItem('info04', info1);
+        }
+        else if (sessionStorage.getItem('mCount') == 6){
+            sessionStorage.setItem('name05', name);
+            sessionStorage.setItem('move05', msg);
+            sessionStorage.setItem('info05', info);
+
+            sessionStorage.setItem('name06', name1);
+            sessionStorage.setItem('move06', msg1);
+            sessionStorage.setItem('info06', info1);
+        }
+        else if (sessionStorage.getItem('mCount') == 8){
+            sessionStorage.setItem('name07', name);
+            sessionStorage.setItem('move07', msg);
+            sessionStorage.setItem('info07', info);
+
+            sessionStorage.setItem('name08', name1);
+            sessionStorage.setItem('move08', msg1);
+            sessionStorage.setItem('info08', info1);
+        }
+        else if (sessionStorage.getItem('mCount') == 10){
+            sessionStorage.setItem('name09', name);
+            sessionStorage.setItem('move09', msg);
+            sessionStorage.setItem('info09', info);
+
+            sessionStorage.setItem('name10', name1);
+            sessionStorage.setItem('move10', msg1);
+            sessionStorage.setItem('info10', info1);
+        }
+        else if (sessionStorage.getItem('mCount') == 12){
+            sessionStorage.setItem('name11', name);
+            sessionStorage.setItem('move11', msg);
+            sessionStorage.setItem('info11', info);
+
+            sessionStorage.setItem('name12', name1);
+            sessionStorage.setItem('move12', msg1);
+            sessionStorage.setItem('info12', info1);
+        }
+        else if (sessionStorage.getItem('mCount') == 14){
+            sessionStorage.setItem('name13', name);
+            sessionStorage.setItem('move13', msg);
+            sessionStorage.setItem('info13', info);
+
+            sessionStorage.setItem('name14', name1);
+            sessionStorage.setItem('move14', msg1);
+            sessionStorage.setItem('info14', info1);
+        }
+        else if (sessionStorage.getItem('mCount') == 16){
+            sessionStorage.setItem('name15', name);
+            sessionStorage.setItem('move15', msg);
+            sessionStorage.setItem('info15', info);
+
+            sessionStorage.setItem('name16', name1);
+            sessionStorage.setItem('move16', msg1);
+            sessionStorage.setItem('info16', info1);
+        }
+    }
+
+    calcPer(att) {
+        let playerStr = parseInt(sessionStorage.getItem('playerStrength'));
+        let playerSpd = parseInt(sessionStorage.getItem('playerSpeed'));
+        let playerStm = parseInt(sessionStorage.getItem('playerStamina'));
+        let playerPunching = parseInt(sessionStorage.getItem('playerPunching'));
+        let playerKicking = parseInt(sessionStorage.getItem('playerKicking'));
+        let playerWrestling = parseInt(sessionStorage.getItem('playerWrestling'));
+        let playerGrappling = parseInt(sessionStorage.getItem('playerGrappling'));
+        let playerClinch = parseInt(sessionStorage.getItem('playerClinch'));
+        let playerMmaBuff = parseInt(sessionStorage.getItem('mmaBuff'));
+        let playerBladedBuff = parseInt(sessionStorage.getItem('bladedBuff'));
+        let playerThaiBuff = parseInt(sessionStorage.getItem('thaiBuff'));
+        let playerLongBuff = parseInt(sessionStorage.getItem('longBuff'));
+        let playerLongNerf = parseInt(sessionStorage.getItem('longNerf'));
+        let playerHighBuff = parseInt(sessionStorage.getItem('highBuff'));
+        let playerHighNerf = parseInt(sessionStorage.getItem('highNerf'));
+        let playerLowBuff = parseInt(sessionStorage.getItem('lowBuff'));
+        let playerLowNerf = parseInt(sessionStorage.getItem('lowNerf'));
+        let playerReactNerf = parseInt(sessionStorage.getItem('reactNerf'));
+
+        let oppStr = parseInt(sessionStorage.getItem('oppStrength'));
+        let oppSpd = parseInt(sessionStorage.getItem('oppSpeed'));
+        let oppStm = parseInt(sessionStorage.getItem('oppStamina'));
+        let oppPunching = parseInt(sessionStorage.getItem('oppPunching'));
+        let oppKicking = parseInt(sessionStorage.getItem('oppKicking'));
+        let oppWrestling = parseInt(sessionStorage.getItem('oppWrestling'));
+        let oppGrappling = parseInt(sessionStorage.getItem('oppGrappling'));
+        let oppClinch = parseInt(sessionStorage.getItem('oppClinch'));
+        let oppMmaBuff = parseInt(sessionStorage.getItem('mmaBuff1'));
+        let oppBladedBuff = parseInt(sessionStorage.getItem('bladedBuff1'));
+        let oppThaiBuff = parseInt(sessionStorage.getItem('thaiBuff1'));
+        let oppLongBuff = parseInt(sessionStorage.getItem('longBuff1'));
+        let oppLongNerf = parseInt(sessionStorage.getItem('longNerf1'));
+        let oppHighBuff = parseInt(sessionStorage.getItem('highBuff1'));
+        let oppHighNerf = parseInt(sessionStorage.getItem('highNerf1'));
+        let oppLowBuff = parseInt(sessionStorage.getItem('lowBuff1'));
+        let oppLowNerf = parseInt(sessionStorage.getItem('lowNerf1'));
+        let oppReactNerf = parseInt(sessionStorage.getItem('reactNerf1'));
+
+        let per = 0;
+        per = (1.5 * (playerPunching + playerBladedBuff) - 1.5 * (oppPunching + oppHighBuff)) + (playerSpd - oppSpd);
+        if (att == 'STICK') {
+            if (per >= 0){
+                return Math.round(70 + (Math.pow(per, .63)));
+            }
+            else {
+                let per1 = Math.abs(per);
+                return Math.round(70 - (Math.pow(per1, .63)));
+            }
+        }
+        else if (att == 'BRAWL' || att == 'POWER' || att == 'PRESSURE'){
+            if (per >= 0){
+                return Math.round(30 + (Math.pow(per, .63)));
+            }
+            else {
+                let per1 = Math.abs(per);
+                return Math.round(30 - (Math.pow(per1, .63)));
+            }
+        }
+        else if (att == 'BLITZ'){
+            let bPer = ((playerSpd * 2) - (oppSpd + oppPunching + oppHighBuff));
+            if (bPer >= 0){
+                return Math.round(30 + (Math.pow(bPer, .63)));
+            }
+            else {
+                let bPer1 = Math.abs(bPer);
+                return Math.round(30 - (Math.pow(bPer1, .63)));
+            }
+        }
+    }
+
+    getHit(att) {
+        let playerStr = parseInt(sessionStorage.getItem('playerStrength'));
+        let playerSpd = parseInt(sessionStorage.getItem('playerSpeed'));
+        let playerStm = parseInt(sessionStorage.getItem('playerStamina'));
+        let playerPunching = parseInt(sessionStorage.getItem('playerPunching'));
+        let playerKicking = parseInt(sessionStorage.getItem('playerKicking'));
+        let playerWrestling = parseInt(sessionStorage.getItem('playerWrestling'));
+        let playerGrappling = parseInt(sessionStorage.getItem('playerGrappling'));
+        let playerClinch = parseInt(sessionStorage.getItem('playerClinch'));
+        let playerMmaBuff = parseInt(sessionStorage.getItem('mmaBuff'));
+        let playerBladedBuff = parseInt(sessionStorage.getItem('bladedBuff'));
+        let playerThaiBuff = parseInt(sessionStorage.getItem('thaiBuff'));
+        let playerLongBuff = parseInt(sessionStorage.getItem('longBuff'));
+        let playerLongNerf = parseInt(sessionStorage.getItem('longNerf'));
+        let playerHighBuff = parseInt(sessionStorage.getItem('highBuff'));
+        let playerHighNerf = parseInt(sessionStorage.getItem('highNerf'));
+        let playerLowBuff = parseInt(sessionStorage.getItem('lowBuff'));
+        let playerLowNerf = parseInt(sessionStorage.getItem('lowNerf'));
+        let playerReactNerf = parseInt(sessionStorage.getItem('reactNerf'));
+
+        let oppStr = parseInt(sessionStorage.getItem('oppStrength'));
+        let oppSpd = parseInt(sessionStorage.getItem('oppSpeed'));
+        let oppStm = parseInt(sessionStorage.getItem('oppStamina'));
+        let oppPunching = parseInt(sessionStorage.getItem('oppPunching'));
+        let oppKicking = parseInt(sessionStorage.getItem('oppKicking'));
+        let oppWrestling = parseInt(sessionStorage.getItem('oppWrestling'));
+        let oppGrappling = parseInt(sessionStorage.getItem('oppGrappling'));
+        let oppClinch = parseInt(sessionStorage.getItem('oppClinch'));
+        let oppMmaBuff = parseInt(sessionStorage.getItem('mmaBuff1'));
+        let oppBladedBuff = parseInt(sessionStorage.getItem('bladedBuff1'));
+        let oppThaiBuff = parseInt(sessionStorage.getItem('thaiBuff1'));
+        let oppLongBuff = parseInt(sessionStorage.getItem('longBuff1'));
+        let oppLongNerf = parseInt(sessionStorage.getItem('longNerf1'));
+        let oppHighBuff = parseInt(sessionStorage.getItem('highBuff1'));
+        let oppHighNerf = parseInt(sessionStorage.getItem('highNerf1'));
+        let oppLowBuff = parseInt(sessionStorage.getItem('lowBuff1'));
+        let oppLowNerf = parseInt(sessionStorage.getItem('lowNerf1'));
+        let oppReactNerf = parseInt(sessionStorage.getItem('reactNerf1'));
+
+        let per = 0;
+        let hit = 0;
+        per = (1.5 * (playerPunching + playerBladedBuff) - 1.5 * (oppPunching + oppHighBuff)) + (playerSpd - oppSpd);
+        if (att == 'STICK') {
+            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            if (per >= 0){
+                if (ran1 <= 70 + (Math.pow(per, .63))) {
+                    console.log(70 + (Math.pow(per, .63)))
+                    ++hit;
+                }
+            }
+            else {
+                let per1 = Math.abs(per);
+                if (ran1 <= 70 - (Math.pow(per1, .63))) {
+                    console.log(70 - (Math.pow(per1, .63)))
+                    ++hit;
+                }
+            }
+        }
+        else if (att == 'BRAWL' || att == 'POWER'){
+            for (let i = 0; i < 4; ++i){
+                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                if (per >= 0){
+                    if (ran1 <= 30 + (Math.pow(per, .63))) {
+                        console.log(30 + (Math.pow(per, .63)))
+                        ++hit;
+                    }
+                }
+                else {
+                    let per1 = Math.abs(per);
+                    if (ran1 <= 30 - (Math.pow(per1, .63))) {
+                        console.log(30 - (Math.pow(per1, .63)))
+                        ++hit;
+                    }
+                }
+            }
+        }
+        else if (att == 'PRESSURE'){
+            for (let i = 0; i < 8; ++i){
+                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                if (per >= 0){
+                    if (ran1 <= 30 + (Math.pow(per, .63))) {
+                        console.log(30 + (Math.pow(per, .63)))
+                        ++hit;
+                    }
+                }
+                else {
+                    let per1 = Math.abs(per);
+                    if (ran1 <= 30 - (Math.pow(per1, .63))) {
+                        console.log(30 - (Math.pow(per1, .63)))
+                        ++hit;
+                    }
+                }
+            }
+        }
+        else if (att == 'BLITZ'){
+            let bPer = ((playerSpd * 2) - (oppSpd + oppPunching + oppHighBuff));
+            for (let i = 0; i < 4; ++i){
+                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                if (bPer >= 0){
+                    if (ran1 <= 30 + (Math.pow(bPer, .63))) {
+                        console.log(30 + (Math.pow(bPer, .63)))
+                        ++hit;
+                    }
+                }
+                else {
+                    let bPer1 = Math.abs(bPer);
+                    if (ran1 <= 30 - (Math.pow(bPer1, .63))) {
+                        console.log(30 - (Math.pow(bPer1, .63)))
+                        ++hit;
+                    }
+                }
+            }
+        }
+
+
+        return hit;
+    }
+
+    getHit1(att) {
+        let playerStr = parseInt(sessionStorage.getItem('playerStrength'));
+        let playerSpd = parseInt(sessionStorage.getItem('playerSpeed'));
+        let playerStm = parseInt(sessionStorage.getItem('playerStamina'));
+        let playerPunching = parseInt(sessionStorage.getItem('playerPunching'));
+        let playerKicking = parseInt(sessionStorage.getItem('playerKicking'));
+        let playerWrestling = parseInt(sessionStorage.getItem('playerWrestling'));
+        let playerGrappling = parseInt(sessionStorage.getItem('playerGrappling'));
+        let playerClinch = parseInt(sessionStorage.getItem('playerClinch'));
+        let playerMmaBuff = parseInt(sessionStorage.getItem('mmaBuff'));
+        let playerBladedBuff = parseInt(sessionStorage.getItem('bladedBuff'));
+        let playerThaiBuff = parseInt(sessionStorage.getItem('thaiBuff'));
+        let playerLongBuff = parseInt(sessionStorage.getItem('longBuff'));
+        let playerLongNerf = parseInt(sessionStorage.getItem('longNerf'));
+        let playerHighBuff = parseInt(sessionStorage.getItem('highBuff'));
+        let playerHighNerf = parseInt(sessionStorage.getItem('highNerf'));
+        let playerLowBuff = parseInt(sessionStorage.getItem('lowBuff'));
+        let playerLowNerf = parseInt(sessionStorage.getItem('lowNerf'));
+        let playerReactNerf = parseInt(sessionStorage.getItem('reactNerf'));
+
+        let oppStr = parseInt(sessionStorage.getItem('oppStrength'));
+        let oppSpd = parseInt(sessionStorage.getItem('oppSpeed'));
+        let oppStm = parseInt(sessionStorage.getItem('oppStamina'));
+        let oppPunching = parseInt(sessionStorage.getItem('oppPunching'));
+        let oppKicking = parseInt(sessionStorage.getItem('oppKicking'));
+        let oppWrestling = parseInt(sessionStorage.getItem('oppWrestling'));
+        let oppGrappling = parseInt(sessionStorage.getItem('oppGrappling'));
+        let oppClinch = parseInt(sessionStorage.getItem('oppClinch'));
+        let oppMmaBuff = parseInt(sessionStorage.getItem('mmaBuff1'));
+        let oppBladedBuff = parseInt(sessionStorage.getItem('bladedBuff1'));
+        let oppThaiBuff = parseInt(sessionStorage.getItem('thaiBuff1'));
+        let oppLongBuff = parseInt(sessionStorage.getItem('longBuff1'));
+        let oppLongNerf = parseInt(sessionStorage.getItem('longNerf1'));
+        let oppHighBuff = parseInt(sessionStorage.getItem('highBuff1'));
+        let oppHighNerf = parseInt(sessionStorage.getItem('highNerf1'));
+        let oppLowBuff = parseInt(sessionStorage.getItem('lowBuff1'));
+        let oppLowNerf = parseInt(sessionStorage.getItem('lowNerf1'));
+        let oppReactNerf = parseInt(sessionStorage.getItem('reactNerf1'));
+
+        let per = 0;
+        let hit = 0;
+        per = (1.5 * (oppPunching + oppBladedBuff) - 1.5 * (playerPunching + playerHighBuff)) + (oppSpd - playerSpd);
+        if (att == 'STICK') {
+            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            if (per >= 0){
+                if (ran1 <= 70 + (Math.pow(per, .63))) {
+                    console.log(70 + (Math.pow(per, .63)))
+                    ++hit;
+                }
+            }
+            else {
+                let per1 = Math.abs(per);
+                if (ran1 <= 70 - (Math.pow(per1, .63))) {
+                    console.log(70 - (Math.pow(per1, .63)))
+                    ++hit;
+                }
+            }
+        }
+        else if (att == 'BRAWL' || att == 'POWER'){
+            for (let i = 0; i < 4; ++i){
+                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                if (per >= 0){
+                    if (ran1 <= 30 + (Math.pow(per, .63))) {
+                        console.log(30 + (Math.pow(per, .63)))
+                        ++hit;
+                    }
+                }
+                else {
+                    let per1 = Math.abs(per);
+                    if (ran1 <= 30 - (Math.pow(per1, .63))) {
+                        console.log(30 - (Math.pow(per1, .63)))
+                        ++hit;
+                    }
+                }
+            }
+        }
+        else if (att == 'PRESSURE'){
+            for (let i = 0; i < 8; ++i){
+                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                if (per >= 0){
+                    if (ran1 <= 30 + (Math.pow(per, .63))) {
+                        console.log(30 + (Math.pow(per, .63)))
+                        ++hit;
+                    }
+                }
+                else {
+                    let per1 = Math.abs(per);
+                    if (ran1 <= 30 - (Math.pow(per1, .63))) {
+                        console.log(30 - (Math.pow(per1, .63)))
+                        ++hit;
+                    }
+                }
+            }
+        }
+        else if (att == 'BLITZ'){
+            let bPer = ((oppSpd * 2) - (playerSpd + playerPunching + playerHighBuff));
+            for (let i = 0; i < 4; ++i){
+                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                if (bPer >= 0){
+                    if (ran1 <= 30 + (Math.pow(bPer, .63))) {
+                        console.log(30 + (Math.pow(bPer, .63)))
+                        ++hit;
+                    }
+                }
+                else {
+                    let bPer1 = Math.abs(bPer);
+                    if (ran1 <= 30 - (Math.pow(bPer1, .63))) {
+                        console.log(30 - (Math.pow(bPer1, .63)))
+                        ++hit;
+                    }
+                }
+            }
+        }
+
+
+        return hit;
+    }
+
+    getDamage(hit, att) {
+        let playerStr = parseInt(sessionStorage.getItem('playerStrength'));
+        let playerBladedBuff = parseInt(sessionStorage.getItem('bladedBuff'));
+        let playerThaiBuff = parseInt(sessionStorage.getItem('thaiBuff'));
+        let playerReactNerf = parseInt(sessionStorage.getItem('reactNerf'));
+
+        let oppStr = parseInt(sessionStorage.getItem('oppStrength'));
+        let oppBladedBuff = parseInt(sessionStorage.getItem('bladedBuff'));
+        let oppThaiBuff = parseInt(sessionStorage.getItem('thaiBuff'));
+        let oppReactNerf = parseInt(sessionStorage.getItem('reactNerf'));
+
+        let dmg = 0;
+
+        if (att == 'POWER'){
+            for (let i = 0; i < hit; ++i){
+                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                if (ran1 <= 5) {
+                    dmg += 1000;
+                }
+                else if (ran1 <= 15) {
+                    dmg += 200;
+                }
+                else {
+                    dmg += (((playerStr - 50) / 5) + 40 + playerBladedBuff + oppReactNerf);
+                }
+            }
+        }
+        else if (att == 'STICK'){
+            dmg = hit * (((playerStr - 50) / 10) + 10 + playerBladedBuff + oppReactNerf);
+        }
+        else {
+            dmg = hit * (((playerStr - 50) / 5) + 20 + playerBladedBuff + oppReactNerf);
+        }
+        sessionStorage.setItem('oppStatus', parseInt(sessionStorage.getItem('oppStatus')) - dmg);
+        return dmg;
+    }
+
+    getDamage1(hit, att) {
+        let playerStr = parseInt(sessionStorage.getItem('playerStrength'));
+        let playerBladedBuff = parseInt(sessionStorage.getItem('bladedBuff'));
+        let playerThaiBuff = parseInt(sessionStorage.getItem('thaiBuff'));
+        let playerReactNerf = parseInt(sessionStorage.getItem('reactNerf'));
+
+        let oppStr = parseInt(sessionStorage.getItem('oppStrength'));
+        let oppBladedBuff = parseInt(sessionStorage.getItem('bladedBuff'));
+        let oppThaiBuff = parseInt(sessionStorage.getItem('thaiBuff'));
+        let oppReactNerf = parseInt(sessionStorage.getItem('reactNerf'));
+
+        let dmg = 0;
+
+        if (att == 'POWER'){
+            for (let i = 0; i < hit; ++i){
+                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                if (ran1 <= 5) {
+                    dmg += 1000;
+                }
+                else if (ran1 <= 15) {
+                    dmg += 200;
+                }
+                else {
+                    dmg += (((oppStr - 50) / 5) + 40 + oppBladedBuff + playerReactNerf);
+                }
+            }
+        }
+        else if (att == 'STICK'){
+            dmg = hit * (((oppStr - 50) / 10) + 10 + oppBladedBuff + playerReactNerf);
+        }
+        else {
+            dmg = hit * (((oppStr - 50) / 5) + 20 + oppBladedBuff + playerReactNerf);
+        }
+        sessionStorage.setItem('playerStatus', parseInt(sessionStorage.getItem('playerStatus')) - dmg);
+        return dmg;
+    }
+
+    counterCalc(re, att) {
+        let per = Math.pow(parseInt(sessionStorage.getItem('oppPunching')), .75);
+        let ctr = 0;
+
+        if (parseInt(sessionStorage.getItem('reactNerf1')) == 0){
+            return 0;
+        }
+        else {
+            if (att == 'STICK' || att == 'BRAWL' || att == 'PRESSURE' || att == 'POWER' || att == 'LOW KICK' || att == 'CLINCH' || att == 'TAKEDOWN') {
+                for (let i = 0; i < re; ++i) {
+                    let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                    if (ran <= per) {
+                        ++ctr;
+                    }
+                }
+            }
+            sessionStorage.setItem('oppStm', parseInt(sessionStorage.getItem('oppStm')) - ctr);
+            return ctr;
+        }
+    }
+
+    counterCalc1(re, att) {
+        let per = Math.pow(parseInt(sessionStorage.getItem('playerPunching')), .75);
+        let ctr = 0;
+        console.log('reactNerf: ' + sessionStorage.getItem('reactNerf'))
+        if (parseInt(sessionStorage.getItem('reactNerf')) == 0){
+            return 0;
+        }
+        else {
+            console.log('PING!')
+            if (att == 'STICK' || att == 'BRAWL' || att == 'PRESSURE' || att == 'POWER' || att == 'LOW KICK' || att == 'CLINCH' || att == 'TAKEDOWN') {
+                for (let i = 0; i < re; ++i) {
+                    let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                    if (ran <= per) {
+                        ++ctr;
+                    }
+                }
+            }
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - ctr);
+            return ctr;
+        }
+    }
+
+    counterInfo(ctr, ctrDmg) {
+        let o = '\xa0\xa0';
+        if (ctr == 0) {
+            return '';
+        }
+        else {
+            let str = o + 'COUNTERED! ' + ctrDmg + ' DMG';
+            return str;
+        }
+    }
+
+    getOppMsg1(att) {
+        if (att == 'BRAWL') {
+            return 'THROWS 4 STRIKES';
+        }
+        else if (att == 'BLITZ') {
+            return 'BLITZES IN WITH 4 STRIKES';
+        }
+        else if (att == 'PRESSURE') {
+            return 'THROWS 8 STRIKES';
+        }
+    }
+
+    getOppHitMax(att) {
+        if (att == 'PRESSURE') {
+            return 8;
+        }
+        else if (att == 'LOW KICK' || att == 'TAKEDOWN') {
+            return 1;
+        }
+        else {
+            return 4;
+        }
+    }
+
+    getOppMsg() {
+        let arr = new Array(4);
+        let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+        let hit = 0;
+        let ctr = 0;
+        if (ran >= 80) {
+            arr[0] = 'STICK';
+            arr[1] = 'THROWS 2 JABS';
+            hit = this.getHit1('STICK');
+            arr[2] = hit + '/2 HIT, ' + this.getDamage1(hit, 'STICK') + ' DMG'
+            ctr = this.counterCalc1(2 - hit, 'STICK');
+            if (ctr > 0) {
+                arr[3] = this.counterInfo(ctr, this.getDamage(ctr, 'STICK'));
+            }
+            else {
+                arr[3] = '';
+            }
+        }
+        else if (ran >= 45) {
+            arr[0] = sessionStorage.getItem('oppAtt1');
+            arr[1] = this.getOppMsg1(arr[0]);
+            hit = this.getHit1(arr[0]);
+            arr[2] = hit + '/' + this.getOppHitMax(arr[0]) + ' HIT, ' + this.getDamage1(hit, arr[0]) + ' DMG'
+            ctr = this.counterCalc1(this.getOppHitMax(arr[0]) - hit, arr[0]);
+            if (ctr > 0) {
+                arr[3] = this.counterInfo(ctr, this.getDamage(ctr, arr[0]));
+            }
+            else {
+                arr[3] = '';
+            }
+            console.log(arr[0])
+        }
+        else if (ran >= 20) {
+            arr[0] = sessionStorage.getItem('oppAtt2');
+            arr[1] = this.getOppMsg1(arr[0]);
+            hit = this.getHit1(arr[0]);
+            arr[2] = hit + '/' + this.getOppHitMax(arr[0]) + ' HIT, ' + this.getDamage1(hit, arr[0]) + ' DMG'
+            ctr = this.counterCalc1(this.getOppHitMax(arr[0]) - hit, arr[0]);
+            if (ctr > 0) {
+                arr[3] = this.counterInfo(ctr, this.getDamage(ctr, arr[0]));
+            }
+            else {
+                arr[3] = '';
+            }
+            console.log(arr[0])
+        }
+        else {
+            arr[0] = sessionStorage.getItem('oppAtt3');
+            arr[1] = this.getOppMsg1(arr[0]);
+            hit = this.getHit1(arr[0]);
+            arr[2] = hit + '/' + this.getOppHitMax(arr[0]) + ' HIT, ' + this.getDamage1(hit, arr[0]) + ' DMG'
+            ctr = this.counterCalc1(this.getOppHitMax(arr[0]) - hit, arr[0]);
+            if (ctr > 0) {
+                arr[3] = this.counterInfo(ctr, this.getDamage(ctr, arr[0]));
+            }
+            else {
+                arr[3] = '';
+            }
+            console.log(arr[0])
+        }
+        console.log('hit: ' + hit)
+        console.log('hitMax: ' + this.getOppHitMax(arr[0]))
+        console.log('ctr: ' + ctr)
+        console.log('ctrInfo: ' + arr[3])
+        return arr;
+    }
+    
+    mover1 = (event) => {
+        sessionStorage.setItem('mCount', parseInt(sessionStorage.getItem('mCount')) + 2);
+        let data = sessionStorage.getItem('player');
+        data = JSON.parse(data);
+        let first = data.first;
+        let last = data.last;
+        let o = '\xa0\xa0';
+
+        let hit = 0;
+        let dmg = 0;
+        let ctr = 0;
+        let ctrDmg = 0;
+
+        let name = '';
+        let msg = '';
+        let info = '';
+        let cinfo = '';
+
+        let arr;
+        let name1 = '';
+        let msg1 = '';
+        let info1 = '';
+        let cinfo1 = '';
+
+        if (sessionStorage.getItem('att1') == 'BRAWL'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 6);
+
+            hit = this.getHit('BRAWL');
+            dmg = this.getDamage(hit, 'BRAWL');
+            ctr = this.counterCalc(4 - hit, 1);
+            ctrDmg = this.getDamage1(ctr, 'BRAWL');
+
+            name = last;
+            msg = 'THROWS 4 STRIKES';
+            info = hit + '/4 HIT, ' + dmg + ' DMG';
+            cinfo = this.counterInfo(ctr, ctrDmg);
+
+            arr = this.getOppMsg();
+            name1 = sessionStorage.getItem('oppLast');
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
+        }
+
+        if (sessionStorage.getItem('att1') == 'BLITZ'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 8);
+            
+            hit = this.getHit('BLITZ');
+            dmg = this.getDamage(hit, 'BLITZ');
+
+            name = last;
+            msg = 'BLITZES IN WITH 4 STRIKES';
+            info = hit + '/4 HIT, ' + dmg + ' DMG';
+            cinfo = '';
+
+            name1 = sessionStorage.getItem('oppLast');
+            msg1 = 'THROWS 4 STRIKES';
+            info1 = '2/4 HIT, 30 DMG';
+            cinfo1 = '';
+        }
+
+        if (sessionStorage.getItem('att1') == 'PRESSURE'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 10);
+            
+            hit = this.getHit('PRESSURE');
+            dmg = this.getDamage(hit, 'PRESSURE');
+            ctr = this.counterCalc(8 - hit, 1);
+            ctrDmg = this.getDamage1(ctr, 'PRESSURE');
+            
+            name = last;
+            msg = 'THROWS 8 STRIKES';
+            info = '4/8 HIT, 60 DMG';
+            cinfo = this.counterInfo(ctr, ctrDmg);
+
+            name1 = sessionStorage.getItem('oppLast');
+            msg1 = 'THROWS 4 STRIKES';
+            info1 = '2/4 HIT, 30 DMG';
+            cinfo1 = '';
+        }
+
+        if (sessionStorage.getItem('att1') == 'POWER'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 12);
+            
+            hit = this.getHit('POWER');
+            dmg = this.getDamage(hit, 'POWER');
+            ctr = this.counterCalc(4 - hit, 1);
+            ctrDmg = this.getDamage1(ctr, 'POWER');
+
+            name = last;
+            msg = 'THROWS 4 HEAVY STRIKES';
+            info = '2/4 HIT, 60 DMG';
+            cinfo = this.counterInfo(ctr, ctrDmg);
+
+            name1 = sessionStorage.getItem('oppLast');
+            msg1 = 'THROWS 4 STRIKES';
+            info1 = '2/4 HIT, 30 DMG';
+            cinfo1 = '';
+        }
+
+        if (sessionStorage.getItem('att1') == 'FEINT'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 1);
+            name = last;
+            msg = 'FEINTS A STRIKE';
+            info = 'OPPONENT GUARD REDUCED FOR THE ROUND';
+            cinfo = '';
+
+            name1 = sessionStorage.getItem('oppLast');
+            msg1 = 'THROWS 4 STRIKES';
+            info1 = '2/4 HIT, 30 DMG';
+            cinfo1 = '';
+        }
+
+        if (sessionStorage.getItem('att1') == 'LOW KICK'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 4);
+            name = last;
+            msg = 'THROWS A CALF KICK';
+            info = '1/1 HIT, OPPONENT SPEED REDUCED';
+            cinfo = '';
+
+            name1 = sessionStorage.getItem('oppLast');
+            msg1 = 'THROWS 4 STRIKES';
+            info1 = '2/4 HIT, 30 DMG';
+            cinfo1 = '';
+        }
+
+        if (sessionStorage.getItem('att1') == 'TAKEDOWN'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 12);
+            name = last;
+            msg = 'ATTEMPTS A TAKEDOWN';
+            info = 'SUCCESSFUL';
+            cinfo = '';
+
+            name1 = sessionStorage.getItem('oppLast');
+            msg1 = 'THROWS 4 STRIKES';
+            info1 = '2/4 HIT, 30 DMG';
+            cinfo1 = '';
+        }
+
+        if (sessionStorage.getItem('att1') == 'CLINCH'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 8);
+            name = last;
+            msg = 'THROWS 4 STRIKES AND CLINCHES';
+            info = '2/4 HIT, 30 DMG';
+            cinfo = '';
+
+            name1 = sessionStorage.getItem('oppLast');
+            msg1 = 'THROWS 4 STRIKES';
+            info1 = '2/4 HIT, 30 DMG';
+            cinfo1 = '';
+        }
+
+        if (sessionStorage.getItem('mCount') == 2){
+            sessionStorage.setItem('name01', name);
+            sessionStorage.setItem('move01', msg);
+            sessionStorage.setItem('info01', info);
+            sessionStorage.setItem('ctr01', cinfo);
+
+            sessionStorage.setItem('name02', name1);
+            sessionStorage.setItem('move02', msg1);
+            sessionStorage.setItem('info02', info1);
+            sessionStorage.setItem('ctr02', cinfo1);
+        }
+        else if (sessionStorage.getItem('mCount') == 4){
+            sessionStorage.setItem('name03', name);
+            sessionStorage.setItem('move03', msg);
+            sessionStorage.setItem('info03', info);
+            sessionStorage.setItem('ctr03', cinfo);
+
+            sessionStorage.setItem('name04', name1);
+            sessionStorage.setItem('move04', msg1);
+            sessionStorage.setItem('info04', info1);
+            sessionStorage.setItem('ctr04', cinfo1);
+        }
+        else if (sessionStorage.getItem('mCount') == 6){
+            sessionStorage.setItem('name05', name);
+            sessionStorage.setItem('move05', msg);
+            sessionStorage.setItem('info05', info);
+            sessionStorage.setItem('ctr05', cinfo);
+
+            sessionStorage.setItem('name06', name1);
+            sessionStorage.setItem('move06', msg1);
+            sessionStorage.setItem('info06', info1);
+            sessionStorage.setItem('ctr06', cinfo1);
+        }
+        else if (sessionStorage.getItem('mCount') == 8){
+            sessionStorage.setItem('name07', name);
+            sessionStorage.setItem('move07', msg);
+            sessionStorage.setItem('info07', info);
+            sessionStorage.setItem('ctr07', cinfo);
+
+            sessionStorage.setItem('name08', name1);
+            sessionStorage.setItem('move08', msg1);
+            sessionStorage.setItem('info08', info1);
+            sessionStorage.setItem('ctr08', cinfo1);
+        }
+        else if (sessionStorage.getItem('mCount') == 10){
+            sessionStorage.setItem('name09', name);
+            sessionStorage.setItem('move09', msg);
+            sessionStorage.setItem('info09', info);
+            sessionStorage.setItem('ctr09', cinfo);
+
+            sessionStorage.setItem('name10', name1);
+            sessionStorage.setItem('move10', msg1);
+            sessionStorage.setItem('info10', info1);
+            sessionStorage.setItem('ctr10', cinfo1);
+        }
+        else if (sessionStorage.getItem('mCount') == 12){
+            sessionStorage.setItem('name11', name);
+            sessionStorage.setItem('move11', msg);
+            sessionStorage.setItem('info11', info);
+            sessionStorage.setItem('ctr11', cinfo);
+
+            sessionStorage.setItem('name12', name1);
+            sessionStorage.setItem('move12', msg1);
+            sessionStorage.setItem('info12', info1);
+            sessionStorage.setItem('ctr12', cinfo1);
+        }
+        else if (sessionStorage.getItem('mCount') == 14){
+            sessionStorage.setItem('name13', name);
+            sessionStorage.setItem('move13', msg);
+            sessionStorage.setItem('info13', info);
+            sessionStorage.setItem('ctr13', cinfo);
+
+            sessionStorage.setItem('name14', name1);
+            sessionStorage.setItem('move14', msg1);
+            sessionStorage.setItem('info14', info1);
+            sessionStorage.setItem('ctr14', cinfo1);
+        }
+        else if (sessionStorage.getItem('mCount') == 16){
+            sessionStorage.setItem('name15', name);
+            sessionStorage.setItem('move15', msg);
+            sessionStorage.setItem('info15', info);
+            sessionStorage.setItem('ctr15', cinfo);
+
+            sessionStorage.setItem('name16', name1);
+            sessionStorage.setItem('move16', msg1);
+            sessionStorage.setItem('info16', info1);
+            sessionStorage.setItem('ctr16', cinfo1);
+        }
+    }
+
+    mover2 = (event) => {
+        sessionStorage.setItem('mCount', parseInt(sessionStorage.getItem('mCount')) + 2);
+        let data = sessionStorage.getItem('player');
+        data = JSON.parse(data);
+        let first = data.first;
+        let last = data.last;
+        let o = '\xa0\xa0';
+
+        let hit = 0;
+        let dmg = 0;
+        let ctr = 0;
+        let ctrDmg = 0;
+
+        let name = '';
+        let msg = '';
+        let info = '';
+        let cinfo = '';
+
+        let name1 = '';
+        let msg1 = '';
+        let info1 = '';
+        let cinfo1 = '';
+
+        if (sessionStorage.getItem('att2') == 'BRAWL'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 6);
+            
+            hit = this.getHit('BRAWL');
+            dmg = this.getDamage(hit, 'BRAWL');
+            ctr = this.counterCalc(4 - hit, 1);
+            ctrDmg = this.getDamage1(ctr, 'BRAWL');
+
+            name = last;
+            msg = 'THROWS 4 STRIKES';
+            info = hit + '/4 HIT, ' + dmg + ' DMG';
+            cinfo = this.counterInfo(ctr, ctrDmg);
+
+            name1 = sessionStorage.getItem('oppLast');
+            msg1 = 'THROWS 4 STRIKES';
+            info1 = '2/4 HIT, 30 DMG';
+            cinfo1 = '';
+        }
+
+        if (sessionStorage.getItem('att2') == 'BLITZ'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 8);
+            
+            hit = this.getHit('BLITZ');
+            dmg = this.getDamage(hit, 'BLITZ');
+
+            name = last;
+            msg = 'BLITZES IN WITH 4 STRIKES';
+            info = hit + '/4 HIT, ' + dmg + ' DMG';
+            cinfo = '';
+
+            name1 = sessionStorage.getItem('oppLast');
+            msg1 = 'THROWS 4 STRIKES';
+            info1 = '2/4 HIT, 30 DMG';
+            cinfo1 = '';
+        }
+
+        if (sessionStorage.getItem('att2') == 'PRESSURE'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 10);
+            
+            hit = this.getHit('PRESSURE');
+            dmg = this.getDamage(hit, 'PRESSURE');
+            ctr = this.counterCalc(8 - hit, 1);
+            ctrDmg = this.getDamage1(ctr, 'PRESSURE');
+            
+            name = last;
+            msg = 'THROWS 8 STRIKES';
+            info = '4/8 HIT, 60 DMG';
+            cinfo = this.counterInfo(ctr, ctrDmg);
+
+            name1 = sessionStorage.getItem('oppLast');
+            msg1 = 'THROWS 4 STRIKES';
+            info1 = '2/4 HIT, 30 DMG';
+            cinfo1 = '';
+        }
+
+        if (sessionStorage.getItem('att2') == 'POWER'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 12);
+            
+            hit = this.getHit('POWER');
+            dmg = this.getDamage(hit, 'POWER');
+            ctr = this.counterCalc(4 - hit, 1);
+            ctrDmg = this.getDamage1(ctr, 'POWER');
+
+            name = last;
+            msg = 'THROWS 4 HEAVY STRIKES';
+            info = '2/4 HIT, 60 DMG';
+            cinfo = this.counterInfo(ctr, ctrDmg);
+
+            name1 = sessionStorage.getItem('oppLast');
+            msg1 = 'THROWS 4 STRIKES';
+            info1 = '2/4 HIT, 30 DMG';
+            cinfo1 = '';
+        }
+
+        if (sessionStorage.getItem('att2') == 'FEINT'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 1);
+            name = last;
+            msg = 'FEINTS A STRIKE';
+            info = 'OPPONENT GUARD REDUCED FOR THE ROUND';
+            cinfo = '';
+
+            name1 = sessionStorage.getItem('oppLast');
+            msg1 = 'THROWS 4 STRIKES';
+            info1 = '2/4 HIT, 30 DMG';
+            cinfo1 = '';
+        }
+
+        if (sessionStorage.getItem('att2') == 'LOW KICK'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 4);
+            name = last;
+            msg = 'THROWS A CALF KICK';
+            info = '1/1 HIT, OPPONENT SPEED REDUCED';
+            cinfo = '';
+
+            name1 = sessionStorage.getItem('oppLast');
+            msg1 = 'THROWS 4 STRIKES';
+            info1 = '2/4 HIT, 30 DMG';
+            cinfo1 = '';
+        }
+
+        if (sessionStorage.getItem('att2') == 'TAKEDOWN'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 12);
+            name = last;
+            msg = 'ATTEMPTS A TAKEDOWN';
+            info = 'SUCCESSFUL';
+            cinfo = '';
+
+            name1 = sessionStorage.getItem('oppLast');
+            msg1 = 'THROWS 4 STRIKES';
+            info1 = '2/4 HIT, 30 DMG';
+            cinfo1 = '';
+        }
+
+        if (sessionStorage.getItem('att2') == 'CLINCH'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 8);
+            name = last;
+            msg = 'THROWS 4 STRIKES AND CLINCHES';
+            info = '2/4 HIT, 30 DMG';
+            cinfo = '';
+
+            name1 = sessionStorage.getItem('oppLast');
+            msg1 = 'THROWS 4 STRIKES';
+            info1 = '2/4 HIT, 30 DMG';
+            cinfo1 = '';
+        }
+
+        if (sessionStorage.getItem('mCount') == 2){
+            sessionStorage.setItem('name01', name);
+            sessionStorage.setItem('move01', msg);
+            sessionStorage.setItem('info01', info);
+            sessionStorage.setItem('ctr01', cinfo);
+
+            sessionStorage.setItem('name02', name1);
+            sessionStorage.setItem('move02', msg1);
+            sessionStorage.setItem('info02', info1);
+            sessionStorage.setItem('ctr02', cinfo1);
+        }
+        else if (sessionStorage.getItem('mCount') == 4){
+            sessionStorage.setItem('name03', name);
+            sessionStorage.setItem('move03', msg);
+            sessionStorage.setItem('info03', info);
+            sessionStorage.setItem('ctr03', cinfo);
+
+            sessionStorage.setItem('name04', name1);
+            sessionStorage.setItem('move04', msg1);
+            sessionStorage.setItem('info04', info1);
+            sessionStorage.setItem('ctr04', cinfo1);
+        }
+        else if (sessionStorage.getItem('mCount') == 6){
+            sessionStorage.setItem('name05', name);
+            sessionStorage.setItem('move05', msg);
+            sessionStorage.setItem('info05', info);
+            sessionStorage.setItem('ctr05', cinfo);
+
+            sessionStorage.setItem('name06', name1);
+            sessionStorage.setItem('move06', msg1);
+            sessionStorage.setItem('info06', info1);
+            sessionStorage.setItem('ctr06', cinfo1);
+        }
+        else if (sessionStorage.getItem('mCount') == 8){
+            sessionStorage.setItem('name07', name);
+            sessionStorage.setItem('move07', msg);
+            sessionStorage.setItem('info07', info);
+            sessionStorage.setItem('ctr07', cinfo);
+
+            sessionStorage.setItem('name08', name1);
+            sessionStorage.setItem('move08', msg1);
+            sessionStorage.setItem('info08', info1);
+            sessionStorage.setItem('ctr08', cinfo1);
+        }
+        else if (sessionStorage.getItem('mCount') == 10){
+            sessionStorage.setItem('name09', name);
+            sessionStorage.setItem('move09', msg);
+            sessionStorage.setItem('info09', info);
+            sessionStorage.setItem('ctr09', cinfo);
+
+            sessionStorage.setItem('name10', name1);
+            sessionStorage.setItem('move10', msg1);
+            sessionStorage.setItem('info10', info1);
+            sessionStorage.setItem('ctr10', cinfo1);
+        }
+        else if (sessionStorage.getItem('mCount') == 12){
+            sessionStorage.setItem('name11', name);
+            sessionStorage.setItem('move11', msg);
+            sessionStorage.setItem('info11', info);
+            sessionStorage.setItem('ctr11', cinfo);
+
+            sessionStorage.setItem('name12', name1);
+            sessionStorage.setItem('move12', msg1);
+            sessionStorage.setItem('info12', info1);
+            sessionStorage.setItem('ctr12', cinfo1);
+        }
+        else if (sessionStorage.getItem('mCount') == 14){
+            sessionStorage.setItem('name13', name);
+            sessionStorage.setItem('move13', msg);
+            sessionStorage.setItem('info13', info);
+            sessionStorage.setItem('ctr13', cinfo);
+
+            sessionStorage.setItem('name14', name1);
+            sessionStorage.setItem('move14', msg1);
+            sessionStorage.setItem('info14', info1);
+            sessionStorage.setItem('ctr14', cinfo1);
+        }
+        else if (sessionStorage.getItem('mCount') == 16){
+            sessionStorage.setItem('name15', name);
+            sessionStorage.setItem('move15', msg);
+            sessionStorage.setItem('info15', info);
+            sessionStorage.setItem('ctr15', cinfo);
+
+            sessionStorage.setItem('name16', name1);
+            sessionStorage.setItem('move16', msg1);
+            sessionStorage.setItem('info16', info1);
+            sessionStorage.setItem('ctr16', cinfo1);
+        }
+    }
+    
+    mover3 = (event) => {
+        sessionStorage.setItem('mCount', parseInt(sessionStorage.getItem('mCount')) + 2);
+        let data = sessionStorage.getItem('player');
+        data = JSON.parse(data);
+        let first = data.first;
+        let last = data.last;
+        let o = '\xa0\xa0';
+        
+        let hit = 0;
+        let dmg = 0;
+        let ctr = 0;
+        let ctrDmg = 0;
+
+        let name = '';
+        let msg = '';
+        let info = '';
+        let cinfo = '';
+
+        let arr;
+        let name1 = '';
+        let msg1 = '';
+        let info1 = '';
+        let cinfo1 = '';
+
+        if (sessionStorage.getItem('att3') == 'BRAWL'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 6);
+
+            hit = this.getHit('BRAWL');
+            dmg = this.getDamage(hit, 'BRAWL');
+            ctr = this.counterCalc(4 - hit, 1);
+            ctrDmg = this.getDamage1(ctr, 'BRAWL');
+
+            name = last;
+            msg = 'THROWS 4 STRIKES';
+            info = hit + '/4 HIT, ' + dmg + ' DMG';
+            cinfo = this.counterInfo(ctr, ctrDmg);
+
+            arr = this.getOppMsg();
+            name1 = sessionStorage.getItem('oppLast');
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
+        }
+
+        if (sessionStorage.getItem('att3') == 'BLITZ'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 8);
+            
+            hit = this.getHit('BLITZ');
+            dmg = this.getDamage(hit, 'BLITZ');
+
+            name = last;
+            msg = 'BLITZES IN WITH 4 STRIKES';
+            info = hit + '/4 HIT, ' + dmg + ' DMG';
+            cinfo = '';
+
+            name1 = sessionStorage.getItem('oppLast');
+            msg1 = 'THROWS 4 STRIKES';
+            info1 = '2/4 HIT, 30 DMG';
+            cinfo1 = '';
+        }
+
+        if (sessionStorage.getItem('att3') == 'PRESSURE'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 10);
+            
+            hit = this.getHit('PRESSURE');
+            dmg = this.getDamage(hit, 'PRESSURE');
+            ctr = this.counterCalc(8 - hit, 1);
+            ctrDmg = this.getDamage1(ctr, 'PRESSURE');
+            
+            name = last;
+            msg = 'THROWS 8 STRIKES';
+            info = '4/8 HIT, 60 DMG';
+            cinfo = this.counterInfo(ctr, ctrDmg);
+
+            name1 = sessionStorage.getItem('oppLast');
+            msg1 = 'THROWS 4 STRIKES';
+            info1 = '2/4 HIT, 30 DMG';
+            cinfo1 = '';
+        }
+
+        if (sessionStorage.getItem('att3') == 'POWER'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 12);
+            
+            hit = this.getHit('POWER');
+            dmg = this.getDamage(hit, 'POWER');
+            ctr = this.counterCalc(4 - hit, 1);
+            ctrDmg = this.getDamage1(ctr, 'POWER');
+
+            name = last;
+            msg = 'THROWS 4 HEAVY STRIKES';
+            info = '2/4 HIT, 60 DMG';
+            cinfo = this.counterInfo(ctr, ctrDmg);
+
+            name1 = sessionStorage.getItem('oppLast');
+            msg1 = 'THROWS 4 STRIKES';
+            info1 = '2/4 HIT, 30 DMG';
+            cinfo1 = '';
+        }
+
+        if (sessionStorage.getItem('att3') == 'FEINT'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 1);
+            name = last;
+            msg = 'FEINTS A STRIKE';
+            info = 'OPPONENT GUARD REDUCED FOR THE ROUND';
+            cinfo = '';
+
+            name1 = sessionStorage.getItem('oppLast');
+            msg1 = 'THROWS 4 STRIKES';
+            info1 = '2/4 HIT, 30 DMG';
+            cinfo1 = '';
+        }
+
+        if (sessionStorage.getItem('att3') == 'LOW KICK'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 4);
+            name = last;
+            msg = 'THROWS A CALF KICK';
+            info = '1/1 HIT, OPPONENT SPEED REDUCED';
+            cinfo = '';
+
+            name1 = sessionStorage.getItem('oppLast');
+            msg1 = 'THROWS 4 STRIKES';
+            info1 = '2/4 HIT, 30 DMG';
+            cinfo1 = '';
+        }
+
+        if (sessionStorage.getItem('att3') == 'TAKEDOWN'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 12);
+            name = last;
+            msg = 'ATTEMPTS A TAKEDOWN';
+            info = 'SUCCESSFUL';
+            cinfo = '';
+
+            name1 = sessionStorage.getItem('oppLast');
+            msg1 = 'THROWS 4 STRIKES';
+            info1 = '2/4 HIT, 30 DMG';
+            cinfo1 = '';
+        }
+
+        if (sessionStorage.getItem('att3') == 'CLINCH'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 8);
+            name = last;
+            msg = 'THROWS 4 STRIKES AND CLINCHES';
+            info = '2/4 HIT, 30 DMG';
+            cinfo = '';
+
+            name1 = sessionStorage.getItem('oppLast');
+            msg1 = 'THROWS 4 STRIKES';
+            info1 = '2/4 HIT, 30 DMG';
+            cinfo1 = '';
+        }
+
+        if (sessionStorage.getItem('mCount') == 2){
+            sessionStorage.setItem('name01', name);
+            sessionStorage.setItem('move01', msg);
+            sessionStorage.setItem('info01', info);
+            sessionStorage.setItem('ctr01', cinfo);
+
+            sessionStorage.setItem('name02', name1);
+            sessionStorage.setItem('move02', msg1);
+            sessionStorage.setItem('info02', info1);
+            sessionStorage.setItem('ctr02', cinfo1);
+        }
+        else if (sessionStorage.getItem('mCount') == 4){
+            sessionStorage.setItem('name03', name);
+            sessionStorage.setItem('move03', msg);
+            sessionStorage.setItem('info03', info);
+            sessionStorage.setItem('ctr03', cinfo);
+
+            sessionStorage.setItem('name04', name1);
+            sessionStorage.setItem('move04', msg1);
+            sessionStorage.setItem('info04', info1);
+            sessionStorage.setItem('ctr04', cinfo1);
+        }
+        else if (sessionStorage.getItem('mCount') == 6){
+            sessionStorage.setItem('name05', name);
+            sessionStorage.setItem('move05', msg);
+            sessionStorage.setItem('info05', info);
+            sessionStorage.setItem('ctr05', cinfo);
+
+            sessionStorage.setItem('name06', name1);
+            sessionStorage.setItem('move06', msg1);
+            sessionStorage.setItem('info06', info1);
+            sessionStorage.setItem('ctr06', cinfo1);
+        }
+        else if (sessionStorage.getItem('mCount') == 8){
+            sessionStorage.setItem('name07', name);
+            sessionStorage.setItem('move07', msg);
+            sessionStorage.setItem('info07', info);
+            sessionStorage.setItem('ctr07', cinfo);
+
+            sessionStorage.setItem('name08', name1);
+            sessionStorage.setItem('move08', msg1);
+            sessionStorage.setItem('info08', info1);
+            sessionStorage.setItem('ctr08', cinfo1);
+        }
+        else if (sessionStorage.getItem('mCount') == 10){
+            sessionStorage.setItem('name09', name);
+            sessionStorage.setItem('move09', msg);
+            sessionStorage.setItem('info09', info);
+            sessionStorage.setItem('ctr09', cinfo);
+
+            sessionStorage.setItem('name10', name1);
+            sessionStorage.setItem('move10', msg1);
+            sessionStorage.setItem('info10', info1);
+            sessionStorage.setItem('ctr10', cinfo1);
+        }
+        else if (sessionStorage.getItem('mCount') == 12){
+            sessionStorage.setItem('name11', name);
+            sessionStorage.setItem('move11', msg);
+            sessionStorage.setItem('info11', info);
+            sessionStorage.setItem('ctr11', cinfo);
+
+            sessionStorage.setItem('name12', name1);
+            sessionStorage.setItem('move12', msg1);
+            sessionStorage.setItem('info12', info1);
+            sessionStorage.setItem('ctr12', cinfo1);
+        }
+        else if (sessionStorage.getItem('mCount') == 14){
+            sessionStorage.setItem('name13', name);
+            sessionStorage.setItem('move13', msg);
+            sessionStorage.setItem('info13', info);
+            sessionStorage.setItem('ctr13', cinfo);
+
+            sessionStorage.setItem('name14', name1);
+            sessionStorage.setItem('move14', msg1);
+            sessionStorage.setItem('info14', info1);
+            sessionStorage.setItem('ctr14', cinfo1);
+        }
+        else if (sessionStorage.getItem('mCount') == 16){
+            sessionStorage.setItem('name15', name);
+            sessionStorage.setItem('move15', msg);
+            sessionStorage.setItem('info15', info);
+            sessionStorage.setItem('ctr15', cinfo);
+
+            sessionStorage.setItem('name16', name1);
+            sessionStorage.setItem('move16', msg1);
+            sessionStorage.setItem('info16', info1);
+            sessionStorage.setItem('ctr16', cinfo1);
+        }
+    }
+
     render() {
         let data = sessionStorage.getItem('player');
         data = JSON.parse(data);
@@ -1081,6 +2501,7 @@ class Round extends React.Component {
         let month = sessionStorage.getItem('month');
         let year = sessionStorage.getItem('year');
         let w = '\xa0\xa0';
+        let w1 = '\xa0';
 
         let playerStm = sessionStorage.getItem('playerStm');
         let oppStm = sessionStorage.getItem('oppStm');
@@ -1114,89 +2535,89 @@ class Round extends React.Component {
                 <text style={{color: 'grey'}}>STANCE</text> <b>{this.state.playerStance}</b>
                 </div>
                 <div className="App-customize1c" style={{ textAlign: 'right', fontSize: 15, marginLeft: 1375, marginTop: -110 }}>
-                <b>?</b> <text style={{color: 'grey'}}>STANCE</text>
+                <b>{sessionStorage.getItem('oppStance')}</b> <text style={{color: 'grey'}}>STANCE</text>
                 </div>
                 <div className="App-customize1b" style={{ textAlign: 'left', fontSize: 15, marginLeft: 40, marginRight: 120, marginTop: -90 }}>
                 <text style={{color: 'grey'}}>GUARD</text> <b>{this.state.playerGuard}</b>
                 </div>
                 <div className="App-customize1c" style={{ textAlign: 'right', fontSize: 15, marginLeft: 1375, marginTop: -110 }}>
-                <b>?</b> <text style={{color: 'grey'}}>GUARD</text>
+                <b>{sessionStorage.getItem('oppGuard')}</b> <text style={{color: 'grey'}}>GUARD</text>
                 </div>
                 <div className="App-customize1b" style={{ textAlign: 'left', fontSize: 15, marginLeft: 40, marginRight: 120, marginTop: -90 }}>
                 <text style={{color: 'grey'}}>ATTACK 1</text> <b>{this.state.playerAttack1}</b>
                 </div>
                 <div className="App-customize1c" style={{ textAlign: 'right', fontSize: 15, marginLeft: 1375, marginTop: -110 }}>
-                <b>?</b> <text style={{color: 'grey'}}>ATTACK 1</text>
+                <b>{sessionStorage.getItem('oppAtt1')}</b> <text style={{color: 'grey'}}>ATTACK 1</text>
                 </div>
                 <div className="App-customize1b" style={{ textAlign: 'left', fontSize: 15, marginLeft: 40, marginRight: 120, marginTop: -90 }}>
                 <text style={{color: 'grey'}}>ATTACK 2</text> <b>{this.state.playerAttack2}</b>
                 </div>
                 <div className="App-customize1c" style={{ textAlign: 'right', fontSize: 15, marginLeft: 1375, marginTop: -110 }}>
-                <b>?</b> <text style={{color: 'grey'}}>ATTACK 2</text>
+                <b>{sessionStorage.getItem('oppAtt2')}</b> <text style={{color: 'grey'}}>ATTACK 2</text>
                 </div>
                 <div className="App-customize1b" style={{ textAlign: 'left', fontSize: 15, marginLeft: 40, marginRight: 120, marginTop: -90 }}>
                 <text style={{color: 'grey'}}>ATTACK 3</text> <b>{this.state.playerAttack3}</b>
                 </div>
                 <div className="App-customize1c" style={{ textAlign: 'right', fontSize: 15, marginLeft: 1375, marginTop: -110 }}>
-                <b>?</b> <text style={{color: 'grey'}}>ATTACK 3</text>
+                <b>{sessionStorage.getItem('oppAtt3')}</b> <text style={{color: 'grey'}}>ATTACK 3</text>
                 </div>
                 <div className="App-customize1a" style={{marginTop: -875, fontSize: 22}}>
-                    asd
+                    <text style={{color: 'yellow'}}>{sessionStorage.getItem('name01')}</text>{w1}{sessionStorage.getItem('move01')}{w}<text style={{color: 'red'}}>{sessionStorage.getItem('info01')}</text><text style={{color: 'orange'}}>{sessionStorage.getItem('ctr01')}</text>
                 </div>
                 <div className="App-customize1a" style={{marginTop: -75, fontSize: 22}}>
-                    asd
+                    <text style={{color: 'yellow'}}>{sessionStorage.getItem('name02')}</text>{w1}{sessionStorage.getItem('move02')}{w}<text style={{color: 'red'}}>{sessionStorage.getItem('info02')}</text><text style={{color: 'orange'}}>{sessionStorage.getItem('ctr02')}</text>
                 </div>
                 <div className="App-customize1a" style={{marginTop: -75, fontSize: 22}}>
-                    asd
+                    <text style={{color: 'yellow'}}>{sessionStorage.getItem('name03')}</text>{w1}{sessionStorage.getItem('move03')}{w}<text style={{color: 'red'}}>{sessionStorage.getItem('info03')}</text><text style={{color: 'orange'}}>{sessionStorage.getItem('ctr03')}</text>
                 </div>
                 <div className="App-customize1a" style={{marginTop: -75, fontSize: 22}}>
-                    asd
+                    <text style={{color: 'yellow'}}>{sessionStorage.getItem('name04')}</text>{w1}{sessionStorage.getItem('move04')}{w}<text style={{color: 'red'}}>{sessionStorage.getItem('info04')}</text><text style={{color: 'orange'}}>{sessionStorage.getItem('ctr04')}</text>
                 </div>
                 <div className="App-customize1a" style={{marginTop: -75, fontSize: 22}}>
-                    asd
+                    <text style={{color: 'yellow'}}>{sessionStorage.getItem('name05')}</text>{w1}{sessionStorage.getItem('move05')}{w}<text style={{color: 'red'}}>{sessionStorage.getItem('info05')}</text><text style={{color: 'orange'}}>{sessionStorage.getItem('ctr05')}</text>
                 </div>
                 <div className="App-customize1a" style={{marginTop: -75, fontSize: 22}}>
-                    asd
+                    <text style={{color: 'yellow'}}>{sessionStorage.getItem('name06')}</text>{w1}{sessionStorage.getItem('move06')}{w}<text style={{color: 'red'}}>{sessionStorage.getItem('info06')}</text><text style={{color: 'orange'}}>{sessionStorage.getItem('ctr06')}</text>
                 </div>
                 <div className="App-customize1a" style={{marginTop: -75, fontSize: 22}}>
-                    asd
+                    <text style={{color: 'yellow'}}>{sessionStorage.getItem('name07')}</text>{w1}{sessionStorage.getItem('move07')}{w}<text style={{color: 'red'}}>{sessionStorage.getItem('info07')}</text><text style={{color: 'orange'}}>{sessionStorage.getItem('ctr07')}</text>
                 </div>
                 <div className="App-customize1a" style={{marginTop: -75, fontSize: 22}}>
-                    asd
+                    <text style={{color: 'yellow'}}>{sessionStorage.getItem('name08')}</text>{w1}{sessionStorage.getItem('move08')}{w}<text style={{color: 'red'}}>{sessionStorage.getItem('info08')}</text><text style={{color: 'orange'}}>{sessionStorage.getItem('ctr08')}</text>
                 </div>
                 <div className="App-customize1a" style={{marginTop: -75, fontSize: 22}}>
-                    asd
+                    <text style={{color: 'yellow'}}>{sessionStorage.getItem('name09')}</text>{w1}{sessionStorage.getItem('move09')}{w}<text style={{color: 'red'}}>{sessionStorage.getItem('info09')}</text><text style={{color: 'orange'}}>{sessionStorage.getItem('ctr09')}</text>
                 </div>
                 <div className="App-customize1a" style={{marginTop: -75, fontSize: 22}}>
-                    asd
+                    <text style={{color: 'yellow'}}>{sessionStorage.getItem('name10')}</text>{w1}{sessionStorage.getItem('move10')}{w}<text style={{color: 'red'}}>{sessionStorage.getItem('info10')}</text><text style={{color: 'orange'}}>{sessionStorage.getItem('ctr10')}</text>
                 </div>
                 <div className="App-customize1a" style={{marginTop: -75, fontSize: 22}}>
-                    asd
+                    <text style={{color: 'yellow'}}>{sessionStorage.getItem('name11')}</text>{w1}{sessionStorage.getItem('move11')}{w}<text style={{color: 'red'}}>{sessionStorage.getItem('info11')}</text><text style={{color: 'orange'}}>{sessionStorage.getItem('ctr11')}</text>
                 </div>
                 <div className="App-customize1a" style={{marginTop: -75, fontSize: 22}}>
-                    asd
+                    <text style={{color: 'yellow'}}>{sessionStorage.getItem('name12')}</text>{w1}{sessionStorage.getItem('move12')}{w}<text style={{color: 'red'}}>{sessionStorage.getItem('info12')}</text><text style={{color: 'orange'}}>{sessionStorage.getItem('ctr12')}</text>
                 </div>
                 <div className="App-customize1a" style={{marginTop: -75, fontSize: 22}}>
-                    asd
+                    <text style={{color: 'yellow'}}>{sessionStorage.getItem('name13')}</text>{w1}{sessionStorage.getItem('move13')}{w}<text style={{color: 'red'}}>{sessionStorage.getItem('info13')}</text><text style={{color: 'orange'}}>{sessionStorage.getItem('ctr13')}</text>
                 </div>
                 <div className="App-customize1a" style={{marginTop: -75, fontSize: 22}}>
-                    asd
+                    <text style={{color: 'yellow'}}>{sessionStorage.getItem('name14')}</text>{w1}{sessionStorage.getItem('move14')}{w}<text style={{color: 'red'}}>{sessionStorage.getItem('info14')}</text><text style={{color: 'orange'}}>{sessionStorage.getItem('ctr14')}</text>
                 </div>
                 <div className="App-customize1a" style={{marginTop: -75, fontSize: 22}}>
-                    asd
+                    <text style={{color: 'yellow'}}>{sessionStorage.getItem('name15')}</text>{w1}{sessionStorage.getItem('move15')}{w}<text style={{color: 'red'}}>{sessionStorage.getItem('info15')}</text><text style={{color: 'orange'}}>{sessionStorage.getItem('ctr15')}</text>
                 </div>
                 <div className="App-customize1a" style={{marginTop: -75, fontSize: 22}}>
-                    asd
+                    <text style={{color: 'yellow'}}>{sessionStorage.getItem('name16')}</text>{w1}{sessionStorage.getItem('move16')}{w}<text style={{color: 'red'}}>{sessionStorage.getItem('info16')}</text><text style={{color: 'orange'}}>{sessionStorage.getItem('ctr16')}</text>
                 </div>
                 <div className="App-customize1a" style={{marginTop: -60}}>
-                    <Button data-tip data-for="4" >STICK</Button>
-                    <ReactTooltip class="Membership" id="4" place="top" effect="float"><text style={{fontSize: 30}}>STICK & MOVE</text><br/>LIGHT AND CONSERVATIVE JABS<br/><b>2 STAMINA</b></ReactTooltip>
-                    <Button data-tip data-for="1" >{sessionStorage.getItem('att1')}</Button>
-                    <ReactTooltip class="Membership" id="1" place="top" effect="float"><text style={{fontSize: 30}}>{this.attDesc1a()}</text><br/>{this.attDesc1b()}<br/><b>1 STAMINA</b></ReactTooltip>
-                    <Button data-tip data-for="2" >{sessionStorage.getItem('att2')}</Button>
-                    <ReactTooltip class="Membership" id="2" place="top" effect="float"><text style={{fontSize: 30}}>{this.attDesc2a()}</text><br/>{this.attDesc2b()}<br/><b>5 STAMINA</b></ReactTooltip>
-                    <Button data-tip data-for="3" >{sessionStorage.getItem('att3')}</Button>
-                    <ReactTooltip class="Membership" id="3" place="top" effect="float"><text style={{fontSize: 30}}>{this.attDesc3a()}</text><br/>{this.attDesc3b()}<br/><b>10 STAMINA</b></ReactTooltip>
+                    <Link to='./round'><Button data-tip data-for="4" onClick={this.mover0}>STICK</Button></Link>
+                    <ReactTooltip class="Membership" id="4" place="top" effect="float"><text style={{fontSize: 30}}>STICK & MOVE</text> {this.calcPer('STICK')}% ACC.<br/>LIGHT AND CONSERVATIVE JABS<br/><b>2 STAMINA</b></ReactTooltip>
+                    <Link to='./round'><Button data-tip data-for="1" onClick={this.mover1}>{sessionStorage.getItem('att1')}</Button></Link>
+                    <ReactTooltip class="Membership" id="1" place="top" effect="float"><text style={{fontSize: 30}}>{this.attDesc1a()}</text> {this.calcPer(sessionStorage.getItem('att1'))}% ACC.<br/>{this.attDesc1b()}<br/><b>{this.attDesc1c()} STAMINA</b></ReactTooltip>
+                    <Link to='./round'><Button data-tip data-for="2" onClick={this.mover2}>{sessionStorage.getItem('att2')}</Button></Link>
+                    <ReactTooltip class="Membership" id="2" place="top" effect="float"><text style={{fontSize: 30}}>{this.attDesc2a()}</text> {this.calcPer(sessionStorage.getItem('att2'))}% ACC.<br/>{this.attDesc2b()}<br/><b>{this.attDesc2c()} STAMINA</b></ReactTooltip>
+                    <Link to='./round'><Button data-tip data-for="3" onClick={this.mover3}>{sessionStorage.getItem('att3')}</Button></Link>
+                    <ReactTooltip class="Membership" id="3" place="top" effect="float"><text style={{fontSize: 30}}>{this.attDesc3a()}</text> {this.calcPer(sessionStorage.getItem('att3'))}% ACC.<br/>{this.attDesc3b()}<br/><b>{this.attDesc3c()} STAMINA</b></ReactTooltip>
                 </div>
                 <div className="App-customize1a" style={{marginTop: 0}}>
                     <Link to='./bout0'><Button>FIGHT</Button></Link>

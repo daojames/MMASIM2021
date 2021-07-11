@@ -809,6 +809,47 @@ class Contract5 extends React.Component {
         sessionStorage.setItem('oppGrappling', data.grappling);
         sessionStorage.setItem('oppClinch', data.clinch);
         
+        sessionStorage.setItem('oppStance', '?');
+        sessionStorage.setItem('oppGuard', '?');
+        sessionStorage.setItem('oppAtt1', '?');
+        sessionStorage.setItem('oppAtt2', '?');
+        sessionStorage.setItem('oppAtt3', '?');
+
+        if (sessionStorage.getItem('injury') == 0) {
+            sessionStorage.setItem('playerStrength', sessionStorage.getItem('str'));
+            sessionStorage.setItem('playerSpeed', sessionStorage.getItem('spd'));
+            sessionStorage.setItem('playerStamina', sessionStorage.getItem('stm'));
+        }
+        sessionStorage.setItem('playerPunching', parseInt(sessionStorage.getItem('punch')) + parseInt(sessionStorage.getItem('pnchBuff')));
+        sessionStorage.setItem('playerKicking', parseInt(sessionStorage.getItem('kick')) + parseInt(sessionStorage.getItem('kickBuff')));
+        sessionStorage.setItem('playerWrestling', parseInt(sessionStorage.getItem('wrestling')) + parseInt(sessionStorage.getItem('wrstBuff')));
+        sessionStorage.setItem('playerGrappling', parseInt(sessionStorage.getItem('grappling')) + parseInt(sessionStorage.getItem('grplBuff')));
+        sessionStorage.setItem('playerClinch', parseInt(sessionStorage.getItem('clinch')) + parseInt(sessionStorage.getItem('clnhBuff')));
+
+        sessionStorage.setItem('mmaBuff', 0);
+        sessionStorage.setItem('bladedBuff', 0);
+        sessionStorage.setItem('thaiBuff', 0);
+
+        sessionStorage.setItem('longBuff', 0);
+        sessionStorage.setItem('longNerf', 0);
+        sessionStorage.setItem('highBuff', 0);
+        sessionStorage.setItem('highNerf', 0);
+        sessionStorage.setItem('lowBuff', 0);
+        sessionStorage.setItem('lowNerf', 0);
+        sessionStorage.setItem('reactNerf', 0);
+
+        sessionStorage.setItem('mmaBuff1', 0);
+        sessionStorage.setItem('bladedBuff1', 0);
+        sessionStorage.setItem('thaiBuff1', 0);
+
+        sessionStorage.setItem('longBuff1', 0);
+        sessionStorage.setItem('longNerf1', 0);
+        sessionStorage.setItem('highBuff1', 0);
+        sessionStorage.setItem('highNerf1', 0);
+        sessionStorage.setItem('lowBuff1', 0);
+        sessionStorage.setItem('lowNerf1', 0);
+        sessionStorage.setItem('reactNerf1', 0);
+
         sessionStorage.setItem('playerStance', '?');
         sessionStorage.setItem('playerGuard', '?');
         sessionStorage.setItem('playerStm', 150 + parseInt(sessionStorage.getItem('stm')));
@@ -821,6 +862,75 @@ class Contract5 extends React.Component {
         sessionStorage.setItem('att3', '?');
 
         sessionStorage.setItem('round', 1);
+        
+        sessionStorage.setItem('mCount', 0);
+        sessionStorage.setItem('move01', '');
+        sessionStorage.setItem('move02', '');
+        sessionStorage.setItem('move03', '');
+        sessionStorage.setItem('move04', '');
+        sessionStorage.setItem('move05', '');
+        sessionStorage.setItem('move06', '');
+        sessionStorage.setItem('move07', '');
+        sessionStorage.setItem('move08', '');
+        sessionStorage.setItem('move09', '');
+        sessionStorage.setItem('move10', '');
+        sessionStorage.setItem('move11', '');
+        sessionStorage.setItem('move12', '');
+        sessionStorage.setItem('move13', '');
+        sessionStorage.setItem('move14', '');
+        sessionStorage.setItem('move15', '');
+        sessionStorage.setItem('move16', '');
+        
+        sessionStorage.setItem('info01', '');
+        sessionStorage.setItem('info02', '');
+        sessionStorage.setItem('info03', '');
+        sessionStorage.setItem('info04', '');
+        sessionStorage.setItem('info05', '');
+        sessionStorage.setItem('info06', '');
+        sessionStorage.setItem('info07', '');
+        sessionStorage.setItem('info08', '');
+        sessionStorage.setItem('info09', '');
+        sessionStorage.setItem('info10', '');
+        sessionStorage.setItem('info11', '');
+        sessionStorage.setItem('info12', '');
+        sessionStorage.setItem('info13', '');
+        sessionStorage.setItem('info14', '');
+        sessionStorage.setItem('info15', '');
+        sessionStorage.setItem('info16', '');
+        
+        sessionStorage.setItem('name01', '');
+        sessionStorage.setItem('name02', '');
+        sessionStorage.setItem('name03', '');
+        sessionStorage.setItem('name04', '');
+        sessionStorage.setItem('name05', '');
+        sessionStorage.setItem('name06', '');
+        sessionStorage.setItem('name07', '');
+        sessionStorage.setItem('name08', '');
+        sessionStorage.setItem('name09', '');
+        sessionStorage.setItem('name10', '');
+        sessionStorage.setItem('name11', '');
+        sessionStorage.setItem('name12', '');
+        sessionStorage.setItem('name13', '');
+        sessionStorage.setItem('name14', '');
+        sessionStorage.setItem('name15', '');
+        sessionStorage.setItem('name16', '');
+        
+        sessionStorage.setItem('ctr01', '');
+        sessionStorage.setItem('ctr02', '');
+        sessionStorage.setItem('ctr03', '');
+        sessionStorage.setItem('ctr04', '');
+        sessionStorage.setItem('ctr05', '');
+        sessionStorage.setItem('ctr06', '');
+        sessionStorage.setItem('ctr07', '');
+        sessionStorage.setItem('ctr08', '');
+        sessionStorage.setItem('ctr09', '');
+        sessionStorage.setItem('ctr10', '');
+        sessionStorage.setItem('ctr11', '');
+        sessionStorage.setItem('ctr12', '');
+        sessionStorage.setItem('ctr13', '');
+        sessionStorage.setItem('ctr14', '');
+        sessionStorage.setItem('ctr15', '');
+        sessionStorage.setItem('ctr16', '');
     }
 
     ftin(hgt) {
