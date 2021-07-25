@@ -795,7 +795,7 @@ class Contract4 extends React.Component {
         sessionStorage.setItem('oppRank', data.rank);
         sessionStorage.setItem('oppFirst', data.first);
         sessionStorage.setItem('oppLast', data.last);
-        sessionStorage.setItem('oppHieght', data.height);
+        sessionStorage.setItem('oppHeight', data.height);
         sessionStorage.setItem('oppWeight', data.weight);
         sessionStorage.setItem('oppNation', data.nation);
         sessionStorage.setItem('oppWin', data.win);
@@ -837,6 +837,9 @@ class Contract4 extends React.Component {
         sessionStorage.setItem('lowBuff', 0);
         sessionStorage.setItem('lowNerf', 0);
         sessionStorage.setItem('reactNerf', 0);
+        sessionStorage.setItem('feinted', 0);
+        sessionStorage.setItem('tookdown', 0);
+        sessionStorage.setItem('clinched', 0);
 
         sessionStorage.setItem('mmaBuff1', 0);
         sessionStorage.setItem('bladedBuff1', 0);
@@ -849,6 +852,8 @@ class Contract4 extends React.Component {
         sessionStorage.setItem('lowBuff1', 0);
         sessionStorage.setItem('lowNerf1', 0);
         sessionStorage.setItem('reactNerf1', 0);
+        sessionStorage.setItem('feinted1', 0);
+        sessionStorage.setItem('tookdown1', 0);
 
         sessionStorage.setItem('playerStance', '?');
         sessionStorage.setItem('playerGuard', '?');
@@ -931,6 +936,12 @@ class Contract4 extends React.Component {
         sessionStorage.setItem('ctr14', '');
         sessionStorage.setItem('ctr15', '');
         sessionStorage.setItem('ctr16', '');
+
+        sessionStorage.setItem('countering', 0);
+        sessionStorage.setItem('countering1', 0);
+        sessionStorage.setItem('win', 0);
+        sessionStorage.setItem('win1', 0);
+        sessionStorage.setItem('bell', 0);
     }
 
     ftin(hgt) {

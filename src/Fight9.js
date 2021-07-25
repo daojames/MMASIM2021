@@ -236,7 +236,7 @@ font-family: 'Roboto', sans-serif;
 font-style: italic;
 `
 
-class Fight6 extends React.Component { 
+class Fight9 extends React.Component { 
     calcMonth(month){
         switch(month){
             case '1':
@@ -351,6 +351,30 @@ class Fight6 extends React.Component {
             line = first + ' ' + last;
             return line;
         }
+        else if (str == 9){
+            let data = sessionStorage.getItem('wstC');
+            data = JSON.parse(data);
+            first = data.first;
+            last = data.last;
+            line = first + ' ' + last;
+            return line;
+        }
+        else if (str == 10){
+            let data = sessionStorage.getItem('wflC');
+            data = JSON.parse(data);
+            first = data.first;
+            last = data.last;
+            line = first + ' ' + last;
+            return line;
+        }
+        else if (str == 11){
+            let data = sessionStorage.getItem('wbaC');
+            data = JSON.parse(data);
+            first = data.first;
+            last = data.last;
+            line = first + ' ' + last;
+            return line;
+        }
     }
 
     posCrec (str) {
@@ -415,6 +439,30 @@ class Fight6 extends React.Component {
         }
         else if (str == 8){
             let data = sessionStorage.getItem('heaC');
+            data = JSON.parse(data);
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 9){
+            let data = sessionStorage.getItem('wstC');
+            data = JSON.parse(data);
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 10){
+            let data = sessionStorage.getItem('wflC');
+            data = JSON.parse(data);
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 11){
+            let data = sessionStorage.getItem('wbaC');
             data = JSON.parse(data);
             first = data.win;
             last = data.loss;
@@ -491,6 +539,30 @@ class Fight6 extends React.Component {
             line = first + ' ' + last;
             return line;
         }
+        else if (str == 9){
+            let data = sessionStorage.getItem('wst1');
+            data = JSON.parse(data);
+            first = data.first;
+            last = data.last;
+            line = first + ' ' + last;
+            return line;
+        }
+        else if (str == 10){
+            let data = sessionStorage.getItem('wfl1');
+            data = JSON.parse(data);
+            first = data.first;
+            last = data.last;
+            line = first + ' ' + last;
+            return line;
+        }
+        else if (str == 11){
+            let data = sessionStorage.getItem('wba1');
+            data = JSON.parse(data);
+            first = data.first;
+            last = data.last;
+            line = first + ' ' + last;
+            return line;
+        }
     }
 
     pos1rec (str) {
@@ -555,6 +627,30 @@ class Fight6 extends React.Component {
         }
         else if (str == 8){
             let data = sessionStorage.getItem('hea1');
+            data = JSON.parse(data);
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 9){
+            let data = sessionStorage.getItem('wst1');
+            data = JSON.parse(data);
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 10){
+            let data = sessionStorage.getItem('wfl1');
+            data = JSON.parse(data);
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 11){
+            let data = sessionStorage.getItem('wba1');
             data = JSON.parse(data);
             first = data.win;
             last = data.loss;
@@ -631,6 +727,30 @@ class Fight6 extends React.Component {
             line = first + ' ' + last;
             return line;
         }
+        else if (str == 9){
+            let data = sessionStorage.getItem('wst2');
+            data = JSON.parse(data);
+            first = data.first;
+            last = data.last;
+            line = first + ' ' + last;
+            return line;
+        }
+        else if (str == 10){
+            let data = sessionStorage.getItem('wfl2');
+            data = JSON.parse(data);
+            first = data.first;
+            last = data.last;
+            line = first + ' ' + last;
+            return line;
+        }
+        else if (str == 11){
+            let data = sessionStorage.getItem('wba2');
+            data = JSON.parse(data);
+            first = data.first;
+            last = data.last;
+            line = first + ' ' + last;
+            return line;
+        }
     }
 
     pos2rec (str) {
@@ -695,6 +815,30 @@ class Fight6 extends React.Component {
         }
         else if (str == 8){
             let data = sessionStorage.getItem('hea2');
+            data = JSON.parse(data);
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 9){
+            let data = sessionStorage.getItem('wst2');
+            data = JSON.parse(data);
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 10){
+            let data = sessionStorage.getItem('wfl2');
+            data = JSON.parse(data);
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 11){
+            let data = sessionStorage.getItem('wba2');
             data = JSON.parse(data);
             first = data.win;
             last = data.loss;
@@ -771,6 +915,30 @@ class Fight6 extends React.Component {
             line = first + ' ' + last;
             return line;
         }
+        else if (str == 9){
+            let data = sessionStorage.getItem('wst3');
+            data = JSON.parse(data);
+            first = data.first;
+            last = data.last;
+            line = first + ' ' + last;
+            return line;
+        }
+        else if (str == 10){
+            let data = sessionStorage.getItem('wfl3');
+            data = JSON.parse(data);
+            first = data.first;
+            last = data.last;
+            line = first + ' ' + last;
+            return line;
+        }
+        else if (str == 11){
+            let data = sessionStorage.getItem('wba3');
+            data = JSON.parse(data);
+            first = data.first;
+            last = data.last;
+            line = first + ' ' + last;
+            return line;
+        }
     }
 
     pos3rec (str) {
@@ -835,6 +1003,30 @@ class Fight6 extends React.Component {
         }
         else if (str == 8){
             let data = sessionStorage.getItem('hea3');
+            data = JSON.parse(data);
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 9){
+            let data = sessionStorage.getItem('wst3');
+            data = JSON.parse(data);
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 10){
+            let data = sessionStorage.getItem('wfl3');
+            data = JSON.parse(data);
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 11){
+            let data = sessionStorage.getItem('wba3');
             data = JSON.parse(data);
             first = data.win;
             last = data.loss;
@@ -911,6 +1103,30 @@ class Fight6 extends React.Component {
             line = first + ' ' + last;
             return line;
         }
+        else if (str == 9){
+            let data = sessionStorage.getItem('wst4');
+            data = JSON.parse(data);
+            first = data.first;
+            last = data.last;
+            line = first + ' ' + last;
+            return line;
+        }
+        else if (str == 10){
+            let data = sessionStorage.getItem('wfl4');
+            data = JSON.parse(data);
+            first = data.first;
+            last = data.last;
+            line = first + ' ' + last;
+            return line;
+        }
+        else if (str == 11){
+            let data = sessionStorage.getItem('wba4');
+            data = JSON.parse(data);
+            first = data.first;
+            last = data.last;
+            line = first + ' ' + last;
+            return line;
+        }
     }
 
     pos4rec (str) {
@@ -975,6 +1191,30 @@ class Fight6 extends React.Component {
         }
         else if (str == 8){
             let data = sessionStorage.getItem('hea4');
+            data = JSON.parse(data);
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 9){
+            let data = sessionStorage.getItem('wst4');
+            data = JSON.parse(data);
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 10){
+            let data = sessionStorage.getItem('wfl4');
+            data = JSON.parse(data);
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 11){
+            let data = sessionStorage.getItem('wba4');
             data = JSON.parse(data);
             first = data.win;
             last = data.loss;
@@ -1051,6 +1291,30 @@ class Fight6 extends React.Component {
             line = first + ' ' + last;
             return line;
         }
+        else if (str == 9){
+            let data = sessionStorage.getItem('wst5');
+            data = JSON.parse(data);
+            first = data.first;
+            last = data.last;
+            line = first + ' ' + last;
+            return line;
+        }
+        else if (str == 10){
+            let data = sessionStorage.getItem('wfl5');
+            data = JSON.parse(data);
+            first = data.first;
+            last = data.last;
+            line = first + ' ' + last;
+            return line;
+        }
+        else if (str == 11){
+            let data = sessionStorage.getItem('wba5');
+            data = JSON.parse(data);
+            first = data.first;
+            last = data.last;
+            line = first + ' ' + last;
+            return line;
+        }
     }
 
     pos5rec (str) {
@@ -1115,6 +1379,30 @@ class Fight6 extends React.Component {
         }
         else if (str == 8){
             let data = sessionStorage.getItem('hea5');
+            data = JSON.parse(data);
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 9){
+            let data = sessionStorage.getItem('wst5');
+            data = JSON.parse(data);
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 10){
+            let data = sessionStorage.getItem('wfl5');
+            data = JSON.parse(data);
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 11){
+            let data = sessionStorage.getItem('wba5');
             data = JSON.parse(data);
             first = data.win;
             last = data.loss;
@@ -1191,6 +1479,30 @@ class Fight6 extends React.Component {
             line = first + ' ' + last;
             return line;
         }
+        else if (str == 9){
+            let data = sessionStorage.getItem('wst6');
+            data = JSON.parse(data);
+            first = data.first;
+            last = data.last;
+            line = first + ' ' + last;
+            return line;
+        }
+        else if (str == 10){
+            let data = sessionStorage.getItem('wfl6');
+            data = JSON.parse(data);
+            first = data.first;
+            last = data.last;
+            line = first + ' ' + last;
+            return line;
+        }
+        else if (str == 11){
+            let data = sessionStorage.getItem('wba6');
+            data = JSON.parse(data);
+            first = data.first;
+            last = data.last;
+            line = first + ' ' + last;
+            return line;
+        }
     }
 
     pos6rec (str) {
@@ -1255,6 +1567,30 @@ class Fight6 extends React.Component {
         }
         else if (str == 8){
             let data = sessionStorage.getItem('hea6');
+            data = JSON.parse(data);
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 9){
+            let data = sessionStorage.getItem('wst6');
+            data = JSON.parse(data);
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 10){
+            let data = sessionStorage.getItem('wfl6');
+            data = JSON.parse(data);
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 11){
+            let data = sessionStorage.getItem('wba6');
             data = JSON.parse(data);
             first = data.win;
             last = data.loss;
@@ -1331,6 +1667,30 @@ class Fight6 extends React.Component {
             line = first + ' ' + last;
             return line;
         }
+        else if (str == 9){
+            let data = sessionStorage.getItem('wst7');
+            data = JSON.parse(data);
+            first = data.first;
+            last = data.last;
+            line = first + ' ' + last;
+            return line;
+        }
+        else if (str == 10){
+            let data = sessionStorage.getItem('wfl7');
+            data = JSON.parse(data);
+            first = data.first;
+            last = data.last;
+            line = first + ' ' + last;
+            return line;
+        }
+        else if (str == 11){
+            let data = sessionStorage.getItem('wba7');
+            data = JSON.parse(data);
+            first = data.first;
+            last = data.last;
+            line = first + ' ' + last;
+            return line;
+        }
     }
 
     pos7rec (str) {
@@ -1395,6 +1755,30 @@ class Fight6 extends React.Component {
         }
         else if (str == 8){
             let data = sessionStorage.getItem('hea7');
+            data = JSON.parse(data);
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 9){
+            let data = sessionStorage.getItem('wst7');
+            data = JSON.parse(data);
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 10){
+            let data = sessionStorage.getItem('wfl7');
+            data = JSON.parse(data);
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 11){
+            let data = sessionStorage.getItem('wba7');
             data = JSON.parse(data);
             first = data.win;
             last = data.loss;
@@ -1471,6 +1855,30 @@ class Fight6 extends React.Component {
             line = first + ' ' + last;
             return line;
         }
+        else if (str == 9){
+            let data = sessionStorage.getItem('wst8');
+            data = JSON.parse(data);
+            first = data.first;
+            last = data.last;
+            line = first + ' ' + last;
+            return line;
+        }
+        else if (str == 10){
+            let data = sessionStorage.getItem('wfl8');
+            data = JSON.parse(data);
+            first = data.first;
+            last = data.last;
+            line = first + ' ' + last;
+            return line;
+        }
+        else if (str == 11){
+            let data = sessionStorage.getItem('wba8');
+            data = JSON.parse(data);
+            first = data.first;
+            last = data.last;
+            line = first + ' ' + last;
+            return line;
+        }
     }
 
     pos8rec (str) {
@@ -1535,6 +1943,30 @@ class Fight6 extends React.Component {
         }
         else if (str == 8){
             let data = sessionStorage.getItem('hea8');
+            data = JSON.parse(data);
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 9){
+            let data = sessionStorage.getItem('wst8');
+            data = JSON.parse(data);
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 10){
+            let data = sessionStorage.getItem('wfl8');
+            data = JSON.parse(data);
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 11){
+            let data = sessionStorage.getItem('wba8');
             data = JSON.parse(data);
             first = data.win;
             last = data.loss;
@@ -1611,6 +2043,31 @@ class Fight6 extends React.Component {
             line = first + ' ' + last;
             return line;
         }
+        else if (str == 9){
+            let data = sessionStorage.getItem('wst9');
+            data = JSON.parse(data);
+            first = data.first;
+            last = data.last;
+            line = first + ' ' + last;
+            return line;
+        }
+        else if (str == 10){
+            let data = sessionStorage.getItem('wfl9');
+            data = JSON.parse(data);
+            first = data.first;
+            last = data.last;
+            line = first + ' ' + last;
+            return line;
+        }
+        else if (str == 11){
+            let data = sessionStorage.getItem('wba9');
+            data = JSON.parse(data);
+            first = data.first;
+            last = data.last;
+            line = first + ' ' + last;
+            return line;
+        }
+        
     }
 
     pos9rec (str) {
@@ -1675,6 +2132,30 @@ class Fight6 extends React.Component {
         }
         else if (str == 8){
             let data = sessionStorage.getItem('hea9');
+            data = JSON.parse(data);
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 9){
+            let data = sessionStorage.getItem('wst9');
+            data = JSON.parse(data);
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 10){
+            let data = sessionStorage.getItem('wfl9');
+            data = JSON.parse(data);
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 11){
+            let data = sessionStorage.getItem('wba9');
             data = JSON.parse(data);
             first = data.win;
             last = data.loss;
@@ -1766,6 +2247,39 @@ class Fight6 extends React.Component {
         }
         else if (str == 8) {
             let data = sessionStorage.getItem('hea10');
+            data = JSON.parse(data);
+            if (data.first == '-'){
+                return '-';
+            }
+            first = data.first;
+            last = data.last;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 9) {
+            let data = sessionStorage.getItem('wst10');
+            data = JSON.parse(data);
+            if (data.first == '-'){
+                return '-';
+            }
+            first = data.first;
+            last = data.last;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 10) {
+            let data = sessionStorage.getItem('wfl10');
+            data = JSON.parse(data);
+            if (data.first == '-'){
+                return '-';
+            }
+            first = data.first;
+            last = data.last;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 11) {
+            let data = sessionStorage.getItem('wba10');
             data = JSON.parse(data);
             if (data.first == '-'){
                 return '-';
@@ -1869,6 +2383,39 @@ class Fight6 extends React.Component {
             line = '(' + first + ' - ' + last + ')';
             return line;
         }
+        else if (str == 9){
+            let data = sessionStorage.getItem('wst10');
+            data = JSON.parse(data);
+            if (data.win == '-') {
+                return '';
+            }
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 10){
+            let data = sessionStorage.getItem('wfl10');
+            data = JSON.parse(data);
+            if (data.win == '-') {
+                return '';
+            }
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
+        else if (str == 11){
+            let data = sessionStorage.getItem('wba10');
+            data = JSON.parse(data);
+            if (data.win == '-') {
+                return '';
+            }
+            first = data.win;
+            last = data.loss;
+            line = '(' + first + ' - ' + last + ')';
+            return line;
+        }
     }
 
     weightClass(str) {
@@ -1895,6 +2442,15 @@ class Fight6 extends React.Component {
         }
         else if (str == 'HEAVYWEIGHT'){
             return 8;
+        }
+        else if (str == 'WSTRAWWEIGHT'){
+            return 9;
+        }
+        else if (str == 'WFLYWEIGHT'){
+            return 10;
+        }
+        else if (str == 'WBANTAMWEIGHT'){
+            return 11;
         }
     }
 
@@ -1923,6 +2479,15 @@ class Fight6 extends React.Component {
         else if (str == 8){
             return 'HEAVYWEIGHT';
         }
+        else if (str == 9){
+            return 'WSTRAWWEIGHT';
+        }
+        else if (str == 10){
+            return 'WFLYWEIGHT';
+        }
+        else if (str == 11){
+            return 'WBANTAMWEIGHT';
+        }
     }
 
     render() {
@@ -1940,7 +2505,7 @@ class Fight6 extends React.Component {
         let month = sessionStorage.getItem('month');
         let year = sessionStorage.getItem('year');
         let whitespace = '\xa0\xa0\xa0';
-        sessionStorage.setItem('wc', 6);
+        sessionStorage.setItem('wc', 9);
         return(
             <div className="App">
                 <div className="App-header">
@@ -1949,18 +2514,18 @@ class Fight6 extends React.Component {
                         FIGHT<br/><br/>
                     </div>
                     <div className="Fight-division" style={{marginTop: 125}}>
-                        <Button6>MIDDLEWEIGHT DIVISION</Button6>
-                        <Link to='./fighterC'><ButtonC>C.{whitespace}{this.posC(6)}<text class="alignright">{this.posCrec(6)}{whitespace}</text></ButtonC></Link>
-                        <Link to='./fighter1'><Button5>1.{whitespace}{this.pos1(6)}<text class="alignright">{this.pos1rec(6)}{whitespace}</text></Button5></Link>
-                        <Link to='./fighter2'><Button5>2.{whitespace}{this.pos2(6)}<text class="alignright">{this.pos2rec(6)}{whitespace}</text></Button5></Link>
-                        <Link to='./fighter3'><Button5>3.{whitespace}{this.pos3(6)}<text class="alignright">{this.pos3rec(6)}{whitespace}</text></Button5></Link>
-                        <Link to='./fighter4'><Button5>4.{whitespace}{this.pos4(6)}<text class="alignright">{this.pos4rec(6)}{whitespace}</text></Button5></Link>
-                        <Link to='./fighter5'><Button5>5.{whitespace}{this.pos5(6)}<text class="alignright">{this.pos5rec(6)}{whitespace}</text></Button5></Link>
-                        <Link to='./fighter6'><Button5>6.{whitespace}{this.pos6(6)}<text class="alignright">{this.pos6rec(6)}{whitespace}</text></Button5></Link>
-                        <Link to='./fighter7'><Button5>7.{whitespace}{this.pos7(6)}<text class="alignright">{this.pos7rec(6)}{whitespace}</text></Button5></Link>
-                        <Link to='./fighter8'><Button5>8.{whitespace}{this.pos8(6)}<text class="alignright">{this.pos8rec(6)}{whitespace}</text></Button5></Link>
-                        <Link to='./fighter9'><Button5>9.{whitespace}{this.pos9(6)}<text class="alignright">{this.pos9rec(6)}{whitespace}</text></Button5></Link>
-                        <Link to='./fighter10'><Button5>10. {this.pos10(6)}<text class="alignright">{this.pos10rec(6)}{whitespace}</text></Button5></Link>
+                        <Button6>W. STRAWWEIGHT DIVISION</Button6>
+                        <Link to='./fighterC'><ButtonC>C.{whitespace}{this.posC(9)}<text class="alignright">{this.posCrec(9)}{whitespace}</text></ButtonC></Link>
+                        <Link to='./fighter1'><Button5>1.{whitespace}{this.pos1(9)}<text class="alignright">{this.pos1rec(9)}{whitespace}</text></Button5></Link>
+                        <Link to='./fighter2'><Button5>2.{whitespace}{this.pos2(9)}<text class="alignright">{this.pos2rec(9)}{whitespace}</text></Button5></Link>
+                        <Link to='./fighter3'><Button5>3.{whitespace}{this.pos3(9)}<text class="alignright">{this.pos3rec(9)}{whitespace}</text></Button5></Link>
+                        <Link to='./fighter4'><Button5>4.{whitespace}{this.pos4(9)}<text class="alignright">{this.pos4rec(9)}{whitespace}</text></Button5></Link>
+                        <Link to='./fighter5'><Button5>5.{whitespace}{this.pos5(9)}<text class="alignright">{this.pos5rec(9)}{whitespace}</text></Button5></Link>
+                        <Link to='./fighter6'><Button5>6.{whitespace}{this.pos6(9)}<text class="alignright">{this.pos6rec(9)}{whitespace}</text></Button5></Link>
+                        <Link to='./fighter7'><Button5>7.{whitespace}{this.pos7(9)}<text class="alignright">{this.pos7rec(9)}{whitespace}</text></Button5></Link>
+                        <Link to='./fighter8'><Button5>8.{whitespace}{this.pos8(9)}<text class="alignright">{this.pos8rec(9)}{whitespace}</text></Button5></Link>
+                        <Link to='./fighter9'><Button5>9.{whitespace}{this.pos9(9)}<text class="alignright">{this.pos9rec(9)}{whitespace}</text></Button5></Link>
+                        <Link to='./fighter10'><Button5>10. {this.pos10(9)}<text class="alignright">{this.pos10rec(9)}{whitespace}</text></Button5></Link>
                     </div>
                     <div className="App-header-style1" style={{marginTop: -410, marginRight: 0}}>
                         <Link to='./fight'><ButtonWO>OFFERS</ButtonWO></Link>
@@ -1970,10 +2535,10 @@ class Fight6 extends React.Component {
                         <Link to='./fight3'><ButtonW>145</ButtonW></Link>
                         <Link to='./fight4'><ButtonW>155</ButtonW></Link>
                         <Link to='./fight5'><ButtonW>170</ButtonW></Link>
-                        <Link to='./fight6'><ButtonW1>185</ButtonW1></Link>
+                        <Link to='./fight6'><ButtonW>185</ButtonW></Link>
                         <Link to='./fight7'><ButtonW>205</ButtonW></Link>
                         <Link to='./fight8'><ButtonW>265</ButtonW></Link>
-                        <Link to='./fight9'><ButtonW>W115</ButtonW></Link>
+                        <Link to='./fight9'><ButtonW1>W115</ButtonW1></Link>
                         <Link to='./fight10'><ButtonW>W125</ButtonW></Link>
                         <Link to='./fight11'><ButtonW>W135</ButtonW></Link>
                     </div>
@@ -1988,4 +2553,4 @@ class Fight6 extends React.Component {
     }
 }
 
-export default Fight6;
+export default Fight9;

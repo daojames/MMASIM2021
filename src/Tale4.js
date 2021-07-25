@@ -251,12 +251,21 @@ class Tale4 extends React.Component {
         else if(str == 'HEAVYWEIGHT'){
             return '265';
         }
+        else if(str == 'WSTRAWWEIGHT'){
+            return '115';
+        }
+        else if(str == 'WFLYWEIGHT'){
+            return '125';
+        }
+        else if(str == 'WBANTAMWEIGHT'){
+            return '135';
+        }
     }
 
     heightCalc(str, height){
         let first = sessionStorage.getItem('first');
         if(first == '1'){
-            if(str == "FLYWEIGHT"){
+            if(str == "FLYWEIGHT" || str == "WFLYWEIGHT"){
                 if(height == "1"){
                     sessionStorage.setItem('height', '5\'2\"');
                     return '5\'2\"';
@@ -276,6 +285,50 @@ class Tale4 extends React.Component {
                 else if(height == "5"){
                     sessionStorage.setItem('height', '5\'8\"');
                     return '5\'8\"';
+                }
+            }
+            else if(str == "WSTRAWWEIGHT"){
+                if(height == "1"){
+                    sessionStorage.setItem('height', '5\'1\"');
+                    return '5\'1\"';
+                }
+                else if(height == "2"){
+                    sessionStorage.setItem('height', '5\'3\"');
+                    return '5\'3\"';
+                }
+                else if(height == "3"){
+                    sessionStorage.setItem('height', '5\'4\"');
+                    return '5\'4\"';
+                }
+                else if(height == "4"){
+                    sessionStorage.setItem('height', '5\'5\"');
+                    return '5\'5\"';
+                }
+                else if(height == "5"){
+                    sessionStorage.setItem('height', '5\'7\"');
+                    return '5\'7\"';
+                }
+            }
+            if(str == "WBANTAMWEIGHT"){
+                if(height == "1"){
+                    sessionStorage.setItem('height', '5\'3\"');
+                    return '5\'3\"';
+                }
+                else if(height == "2"){
+                    sessionStorage.setItem('height', '5\'5\"');
+                    return '5\'5\"';
+                }
+                else if(height == "3"){
+                    sessionStorage.setItem('height', '5\'6\"');
+                    return '5\'6\"';
+                }
+                else if(height == "4"){
+                    sessionStorage.setItem('height', '5\'7\"');
+                    return '5\'7\"';
+                }
+                else if(height == "5"){
+                    sessionStorage.setItem('height', '5\'9\"');
+                    return '5\'9\"';
                 }
             }
             else if(str == "BANTAMWEIGHT"){
@@ -499,10 +552,13 @@ class Tale4 extends React.Component {
 
     getWeight() {
         let str = sessionStorage.getItem('wc');
-        if(str == 1){
+        if (str == 9) {
+            return 115;
+        }
+        else if(str == 1 || str == 10){
             return 125;
         }
-        else if(str == 2) {
+        else if(str == 2 || str == 11) {
             return 135;
         }
         else if(str == 3) {
@@ -530,7 +586,7 @@ class Tale4 extends React.Component {
         data = JSON.parse(data);
         let hgt = data.height;
         let wc = sessionStorage.getItem('wc');
-        if (wc == 1){
+        if (wc == 1 || wc == 10){
             if (hgt == 1){
                 return '5\'2\"';
             }
@@ -545,6 +601,40 @@ class Tale4 extends React.Component {
             }
             else if (hgt == 5){
                 return '5\'8\"';
+            }
+        }
+        else if (wc == 9){
+            if (hgt == 1){
+                return '5\'1\"';
+            }
+            else if (hgt == 2){
+                return '5\'3\"';
+            }
+            else if (hgt == 3){
+                return '5\'4\"';
+            }
+            else if (hgt == 4){
+                return '5\'5\"';
+            }
+            else if (hgt == 5){
+                return '5\'7\"';
+            }
+        }
+        else if (wc == 11){
+            if (hgt == 1){
+                return '5\'3\"';
+            }
+            else if (hgt == 2){
+                return '5\'5\"';
+            }
+            else if (hgt == 3){
+                return '5\'6\"';
+            }
+            else if (hgt == 4){
+                return '5\'7\"';
+            }
+            else if (hgt == 5){
+                return '5\'9\"';
             }
         }
         else if (wc == 2){
@@ -762,7 +852,10 @@ class Tale4 extends React.Component {
     }
 
     ftin(hgt) {
-        if (hgt == '5\'2\"') {
+        if (hgt == '5\'1\"') {
+            return 61;
+        }
+        else if (hgt == '5\'2\"') {
             return 62;
         }
         else if (hgt == '5\'3\"') {
@@ -909,7 +1002,7 @@ class Tale4 extends React.Component {
     playerGrappling0() {
         if (sessionStorage.getItem('grplBuff') != 0){
             sessionStorage.setItem('playerGrappling', parseInt(sessionStorage.getItem('grappling')) + parseInt(sessionStorage.getItem('grplBuff')));
-            return parseInt(sessionStorage.getItem('grpl')) + parseInt(sessionStorage.getItem('grplBuff'));
+            return parseInt(sessionStorage.getItem('grappling')) + parseInt(sessionStorage.getItem('grplBuff'));
         }
     }
 
@@ -923,7 +1016,7 @@ class Tale4 extends React.Component {
     playerGrappling2() {
         if (sessionStorage.getItem('grplBuff') != 0){
             sessionStorage.setItem('playerGrappling', parseInt(sessionStorage.getItem('grappling')) + parseInt(sessionStorage.getItem('grplBuff')));
-            return parseInt(sessionStorage.getItem('grpl')) + parseInt(sessionStorage.getItem('grplBuff'));
+            return parseInt(sessionStorage.getItem('grappling')) + parseInt(sessionStorage.getItem('grplBuff'));
         }
         if (sessionStorage.getItem('grplBuff') == 0){
             sessionStorage.setItem('playerGrappling', sessionStorage.getItem('grappling'));

@@ -22,6 +22,9 @@ import Fight5 from './Fight5.js';
 import Fight6 from './Fight6.js';
 import Fight7 from './Fight7.js';
 import Fight8 from './Fight8.js';
+import Fight9 from './Fight9.js';
+import Fight10 from './Fight10.js';
+import Fight11 from './Fight11.js';
 import FighterC from './FighterC.js';
 import Fighter1 from './Fighter1.js';
 import Fighter2 from './Fighter2.js';
@@ -93,6 +96,9 @@ function App() {
           <Route path="/fight6" exact component={Fight6} />
           <Route path="/fight7" exact component={Fight7} />
           <Route path="/fight8" exact component={Fight8} />
+          <Route path="/fight9" exact component={Fight9} />
+          <Route path="/fight10" exact component={Fight10} />
+          <Route path="/fight11" exact component={Fight11} />
           <Route path="/fighterC" exact component={FighterC} />
           <Route path="/fighter1" exact component={Fighter1} />
           <Route path="/fighter2" exact component={Fighter2} />

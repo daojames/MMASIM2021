@@ -138,7 +138,8 @@ class Round extends React.Component {
             attack8: ((sessionStorage.getItem('attack8') == '0') ? true : false),
             playerAttack1: sessionStorage.getItem('att1'),
             playerAttack2: sessionStorage.getItem('att2'),
-            playerAttack3: sessionStorage.getItem('att3')
+            playerAttack3: sessionStorage.getItem('att3'),
+            pos: this.posState()
         }
         this.sta1 = this.sta1.bind(this);
         this.sta2 = this.sta2.bind(this);
@@ -155,6 +156,84 @@ class Round extends React.Component {
         this.att6 = this.att6.bind(this);
         this.att7 = this.att7.bind(this);
         this.att8 = this.att8.bind(this);
+        this.posState = this.posState.bind(this);
+    }
+
+    posState = (event) => {
+        if (parseInt(sessionStorage.getItem('clinched')) == 1) {
+            this.setState({
+                pos: 1
+            })
+        }
+        else if (parseInt(sessionStorage.getItem('tookdown')) == 1) {
+            this.setState({
+                pos: 2
+            })
+        }
+        else if (parseInt(sessionStorage.getItem('tookdown1')) == 1) {
+            this.setState({
+                pos: 3
+            })
+        }
+        else {
+            this.setState({
+                pos: 0
+            })
+        }
+    }
+
+    pos() {
+        if (parseInt(sessionStorage.getItem('clinched')) == 1) {
+            return 1;
+        }
+        else if (parseInt(sessionStorage.getItem('tookdown')) == 1) {
+            return 2;
+        }
+        else if (parseInt(sessionStorage.getItem('tookdown1')) == 1) {
+            return 3;
+        }
+        else {
+            return 0;
+        }
+    }
+
+    clinched(x) {
+        if (x == 1) {
+            sessionStorage.setItem('clinched', 1);
+            sessionStorage.setItem('tookdown', 0);
+            sessionStorage.setItem('tookdown1', 0);
+            this.posState();
+        }
+        else {
+            sessionStorage.setItem('clinched', 0);
+            this.posState();
+        }
+    }
+
+    tookdown(x) {
+        if (x == 1) {
+            sessionStorage.setItem('tookdown', 1);
+            sessionStorage.setItem('clinched', 0);
+            sessionStorage.setItem('tookdown1', 0);
+            this.posState();
+        }
+        else {
+            sessionStorage.setItem('tookdown', 0);
+            this.posState();
+        }
+    }
+
+    tookdown1(x) {
+        if (x == 1) {
+            sessionStorage.setItem('tookdown1', 1);
+            sessionStorage.setItem('tookdown', 0);
+            sessionStorage.setItem('clinched', 0);
+            this.posState();
+        }
+        else {
+            sessionStorage.setItem('tookdown1', 0);
+            this.posState();
+        }
     }
 
     sta1 = (event) => {
@@ -994,10 +1073,10 @@ class Round extends React.Component {
             return 'HEAVY BUT TAXING STRIKES';
         }
         else if (sessionStorage.getItem('att1') == 'FEINT'){
-            return 'FAKE ATTACK TO REDUCE OPPONENT REACTION';
+            return 'FAKE ATTACK TO INC. ACCURACY OF NEXT MOVE';
         }
         else if (sessionStorage.getItem('att1') == 'LOW KICK'){
-            return 'KICK CALF TO REDUCE OPPONENT SPEED';
+            return 'KICK LOW TO REDUCE OPPONENT SPEED';
         }
         else if (sessionStorage.getItem('att1') == 'TAKEDOWN'){
             return 'TAKE OPPONENT DOWN TO GROUND';
@@ -1021,10 +1100,10 @@ class Round extends React.Component {
             return 'HEAVY BUT TAXING STRIKES';
         }
         else if (sessionStorage.getItem('att2') == 'FEINT'){
-            return 'FAKE ATTACK TO REDUCE OPPONENT REACTION';
+            return 'FAKE ATTACK TO INC. ACCURACY OF NEXT MOVE';
         }
         else if (sessionStorage.getItem('att2') == 'LOW KICK'){
-            return 'KICK CALF TO REDUCE OPPONENT SPEED';
+            return 'KICK LOW TO REDUCE OPPONENT SPEED';
         }
         else if (sessionStorage.getItem('att2') == 'TAKEDOWN'){
             return 'TAKE OPPONENT DOWN TO GROUND';
@@ -1048,10 +1127,10 @@ class Round extends React.Component {
             return 'HEAVY BUT TAXING STRIKES';
         }
         else if (sessionStorage.getItem('att3') == 'FEINT'){
-            return 'FAKE ATTACK TO REDUCE OPPONENT REACTION';
+            return 'FAKE ATTACK TO INC. ACCURACY OF NEXT MOVE';
         }
         else if (sessionStorage.getItem('att3') == 'LOW KICK'){
-            return 'KICK CALF TO REDUCE OPPONENT SPEED';
+            return 'KICK LOW TO REDUCE OPPONENT SPEED';
         }
         else if (sessionStorage.getItem('att3') == 'TAKEDOWN'){
             return 'TAKE OPPONENT DOWN TO GROUND';
@@ -1066,13 +1145,13 @@ class Round extends React.Component {
             return '6';
         }
         else if (sessionStorage.getItem('att1') == 'BLITZ'){
-            return '8';
+            return '6';
         }
         else if (sessionStorage.getItem('att1') == 'PRESSURE'){
-            return '10';
+            return '12';
         }
         else if (sessionStorage.getItem('att1') == 'POWER'){
-            return '12';
+            return '18';
         }
         else if (sessionStorage.getItem('att1') == 'FEINT'){
             return '1';
@@ -1084,7 +1163,7 @@ class Round extends React.Component {
             return '12';
         }
         else if (sessionStorage.getItem('att1') == 'CLINCH'){
-            return '8';
+            return '4';
         }
     }
 
@@ -1093,13 +1172,13 @@ class Round extends React.Component {
             return '6';
         }
         else if (sessionStorage.getItem('att2') == 'BLITZ'){
-            return '8';
+            return '6';
         }
         else if (sessionStorage.getItem('att2') == 'PRESSURE'){
-            return '10';
+            return '12';
         }
         else if (sessionStorage.getItem('att2') == 'POWER'){
-            return '12';
+            return '18';
         }
         else if (sessionStorage.getItem('att2') == 'FEINT'){
             return '1';
@@ -1111,7 +1190,7 @@ class Round extends React.Component {
             return '12';
         }
         else if (sessionStorage.getItem('att2') == 'CLINCH'){
-            return '8';
+            return '4';
         }
     }
 
@@ -1120,13 +1199,13 @@ class Round extends React.Component {
             return '6';
         }
         else if (sessionStorage.getItem('att3') == 'BLITZ'){
-            return '8';
+            return '6';
         }
         else if (sessionStorage.getItem('att3') == 'PRESSURE'){
-            return '10';
+            return '12';
         }
         else if (sessionStorage.getItem('att3') == 'POWER'){
-            return '12';
+            return '18';
         }
         else if (sessionStorage.getItem('att3') == 'FEINT'){
             return '1';
@@ -1138,99 +1217,186 @@ class Round extends React.Component {
             return '12';
         }
         else if (sessionStorage.getItem('att3') == 'CLINCH'){
-            return '8';
+            return '4';
         }
     }
 
     mover0 = (event) => {
-        sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 2);
+        if (sessionStorage.getItem('win') == 1 || sessionStorage.getItem('win1') == 1 || sessionStorage.getItem('bell') == 1) {
+            return;
+        }
         sessionStorage.setItem('mCount', parseInt(sessionStorage.getItem('mCount')) + 2);
         let data = sessionStorage.getItem('player');
         data = JSON.parse(data);
         let first = data.first;
         let last = data.last;
- 
-        let hit = this.getHit('STICK');
-        let dmg = this.getDamage(hit, 'STICK');
+        let o = '\xa0\xa0';
 
-        let name = last;
-        let msg = 'THROWS 2 JABS';
-        let info = hit + '/2 HIT, ' + dmg + ' DMG';
+        let hit = 0;
+        let dmg = 0;
+        let ctr = 0;
+        let ctrDmg = 0;
 
-        let name1 = sessionStorage.getItem('oppLast');
-        let msg1 = 'THROWS 4 STRIKES';
-        let info1 = '2/4 HIT, 30 DMG';
+        let name = '';
+        let msg = '';
+        let info = '';
+        let cinfo = '';
+
+        let arr;
+        let name1 = '';
+        let msg1 = '';
+        let info1 = '';
+        let cinfo1 = '';
+
+        if (this.pos() == 0) {
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 2);
+    
+            hit = this.getHit('STICK');
+            dmg = this.getDamage(hit, 'STICK');
+
+            name = last;
+            msg = 'THROWS 2 JABS';
+            info = hit + '/2 HIT, ' + dmg + ' DMG';
+            cinfo = '';
+
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            arr = this.getOppMsg();
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
+        }
+        else if (this.pos() == 1){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 2);
+
+            hit = this.getHit('KNEE');
+            dmg = this.getDamage(hit, 'KNEE');
+
+            name = last;
+            msg = 'THROWS A KNEE';
+            info = hit + '/1 HIT, ' + dmg + ' DMG';
+            cinfo = '';
+
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            arr = this.getOppMsg();
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
+        }
+        else if (this.pos() == 2){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 2);
+
+            name = last;
+            msg = 'DOES NOTHING';
+            info = '';
+            cinfo = '';
+
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            arr = this.getOppMsg();
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
+        }
+        else if (this.pos() == 3){
+            name = last;
+            msg = 'DOES NOTHING';
+            info = '';
+            cinfo = '';
+
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            arr = this.getOppMsg();
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
+        }
+
         if (sessionStorage.getItem('mCount') == 2){
             sessionStorage.setItem('name01', name);
             sessionStorage.setItem('move01', msg);
             sessionStorage.setItem('info01', info);
+            sessionStorage.setItem('ctr01', cinfo);
 
             sessionStorage.setItem('name02', name1);
             sessionStorage.setItem('move02', msg1);
             sessionStorage.setItem('info02', info1);
+            sessionStorage.setItem('ctr02', cinfo1);
         }
         else if (sessionStorage.getItem('mCount') == 4){
             sessionStorage.setItem('name03', name);
             sessionStorage.setItem('move03', msg);
             sessionStorage.setItem('info03', info);
+            sessionStorage.setItem('ctr03', cinfo);
 
             sessionStorage.setItem('name04', name1);
             sessionStorage.setItem('move04', msg1);
             sessionStorage.setItem('info04', info1);
+            sessionStorage.setItem('ctr04', cinfo1);
         }
         else if (sessionStorage.getItem('mCount') == 6){
             sessionStorage.setItem('name05', name);
             sessionStorage.setItem('move05', msg);
             sessionStorage.setItem('info05', info);
+            sessionStorage.setItem('ctr05', cinfo);
 
             sessionStorage.setItem('name06', name1);
             sessionStorage.setItem('move06', msg1);
             sessionStorage.setItem('info06', info1);
+            sessionStorage.setItem('ctr06', cinfo1);
         }
         else if (sessionStorage.getItem('mCount') == 8){
             sessionStorage.setItem('name07', name);
             sessionStorage.setItem('move07', msg);
             sessionStorage.setItem('info07', info);
+            sessionStorage.setItem('ctr07', cinfo);
 
             sessionStorage.setItem('name08', name1);
             sessionStorage.setItem('move08', msg1);
             sessionStorage.setItem('info08', info1);
+            sessionStorage.setItem('ctr08', cinfo1);
         }
         else if (sessionStorage.getItem('mCount') == 10){
             sessionStorage.setItem('name09', name);
             sessionStorage.setItem('move09', msg);
             sessionStorage.setItem('info09', info);
+            sessionStorage.setItem('ctr09', cinfo);
 
             sessionStorage.setItem('name10', name1);
             sessionStorage.setItem('move10', msg1);
             sessionStorage.setItem('info10', info1);
+            sessionStorage.setItem('ctr10', cinfo1);
         }
         else if (sessionStorage.getItem('mCount') == 12){
             sessionStorage.setItem('name11', name);
             sessionStorage.setItem('move11', msg);
             sessionStorage.setItem('info11', info);
+            sessionStorage.setItem('ctr11', cinfo);
 
             sessionStorage.setItem('name12', name1);
             sessionStorage.setItem('move12', msg1);
             sessionStorage.setItem('info12', info1);
+            sessionStorage.setItem('ctr12', cinfo1);
         }
         else if (sessionStorage.getItem('mCount') == 14){
             sessionStorage.setItem('name13', name);
             sessionStorage.setItem('move13', msg);
             sessionStorage.setItem('info13', info);
+            sessionStorage.setItem('ctr13', cinfo);
 
             sessionStorage.setItem('name14', name1);
             sessionStorage.setItem('move14', msg1);
             sessionStorage.setItem('info14', info1);
+            sessionStorage.setItem('ctr14', cinfo1);
         }
         else if (sessionStorage.getItem('mCount') == 16){
+            sessionStorage.setItem('bell', 1);
             sessionStorage.setItem('name15', name);
             sessionStorage.setItem('move15', msg);
             sessionStorage.setItem('info15', info);
+            sessionStorage.setItem('ctr15', cinfo);
 
             sessionStorage.setItem('name16', name1);
             sessionStorage.setItem('move16', msg1);
             sessionStorage.setItem('info16', info1);
+            sessionStorage.setItem('ctr16', cinfo1);
         }
     }
 
@@ -1274,34 +1440,111 @@ class Round extends React.Component {
         let oppReactNerf = parseInt(sessionStorage.getItem('reactNerf1'));
 
         let per = 0;
-        per = (1.5 * (playerPunching + playerBladedBuff) - 1.5 * (oppPunching + oppHighBuff)) + (playerSpd - oppSpd);
+        per = (1.5 * (playerPunching + playerBladedBuff) - 1.5 * (oppPunching + oppBladedBuff + oppHighBuff - oppLongNerf)) + (.35 * (playerSpd - oppSpd));
         if (att == 'STICK') {
             if (per >= 0){
-                return Math.round(70 + (Math.pow(per, .63)));
+                return Math.round(70 + (Math.pow(per, .63)) + this.getFeinted1());
             }
             else {
                 let per1 = Math.abs(per);
-                return Math.round(70 - (Math.pow(per1, .63)));
+                return Math.round(70 - (Math.pow(per1, .63)) + this.getFeinted1());
             }
         }
         else if (att == 'BRAWL' || att == 'POWER' || att == 'PRESSURE'){
             if (per >= 0){
-                return Math.round(30 + (Math.pow(per, .63)));
+                return Math.round(30 + (Math.pow(per, .63)) + this.getFeinted1());
             }
             else {
                 let per1 = Math.abs(per);
-                return Math.round(30 - (Math.pow(per1, .63)));
+                return Math.round(30 - (Math.pow(per1, .63)) + this.getFeinted1());
             }
         }
         else if (att == 'BLITZ'){
-            let bPer = ((playerSpd * 2) - (oppSpd + oppPunching + oppHighBuff));
+            let bPer = ((playerSpd * 2) - (oppSpd + oppPunching + oppBladedBuff + oppHighBuff - oppLowNerf - oppLongNerf));
             if (bPer >= 0){
-                return Math.round(30 + (Math.pow(bPer, .63)));
+                return Math.round(30 + (Math.pow(bPer, .63)) + this.getFeinted1());
             }
             else {
                 let bPer1 = Math.abs(bPer);
-                return Math.round(30 - (Math.pow(bPer1, .63)));
+                return Math.round(30 - (Math.pow(bPer1, .63)) + this.getFeinted1());
             }
+        }
+        else if (att == 'FEINT'){
+            let fPer = parseInt(25 + Math.pow(playerPunching, .9));
+            return fPer;
+        }
+        else if (att == 'LOW KICK'){
+            let kPer = (1.5 * (playerKicking + playerThaiBuff) - 1.5 * (oppKicking + oppThaiBuff + oppLongBuff)) + (.35 * (playerSpd - oppSpd));
+            if (kPer >= 0) {
+                return Math.round(70 + (Math.pow(kPer, .63)) + this.getFeinted1());
+            }
+            else {
+                let per1 = Math.abs(kPer);
+                return Math.round(70 - (Math.pow(per1, .63)) + this.getFeinted1());
+            }
+        }
+        else if (att == 'TAKEDOWN'){
+            let tPer = Math.round(20 + Math.pow(playerWrestling, .75) - Math.pow(oppWrestling, .75) + this.getFeinted1() + playerMmaBuff - oppMmaBuff - oppLowBuff + oppHighNerf + (.35 * (playerSpd - oppSpd)) + (.35 * (playerStr - oppStr)));
+            return tPer;
+        }
+        else if (att == 'CLINCH'){
+            return 100;
+        }
+        else if (att == 'KNEE'){
+            let cPer = parseInt(60 + Math.pow(playerClinch, .9) - Math.pow(oppClinch, .9) + (.35 * (playerSpd - oppSpd)));
+            return cPer;
+        }
+        else if (att == 'ELBOW'){
+            let cPer = parseInt(40 + Math.pow(playerClinch, .9) - Math.pow(oppClinch, .9) + (.35 * (playerSpd - oppSpd)));
+            return cPer;
+        }
+        else if (att == 'EXIT'){
+            let cPer = parseInt(35 + Math.pow(playerClinch, .9) - Math.pow(oppClinch, .9) + (.35 * (playerSpd - oppSpd)) + (.35 * (playerStr - oppStr)));
+            return cPer;
+        }
+        else if (att == 'TRIP'){
+            let cPer = parseInt(25 + Math.pow(playerClinch, .9) - Math.pow(oppClinch, .9) + (.35 * (playerSpd - oppSpd)) + (.35 * (playerStr - oppStr)));
+            return cPer;
+        }
+        else if (att == 'GET UP'){
+            return 100;
+        }
+        else if (att == 'G&P'){
+            return 80;
+        }
+        else if (att == 'SUBMISSIONtop'){
+            let sPer = parseInt(15 + Math.pow(playerGrappling, .65) - Math.pow(oppGrappling, .65));
+            return sPer;
+        }
+        else if (att == 'ESCAPE'){
+            let ePer = parseInt(35 + Math.pow(playerWrestling, .75) - Math.pow(oppWrestling, .75) + (.35 * (playerSpd - oppSpd)) + (.35 * (playerStr - oppStr)));
+            return ePer;
+        }
+        else if (att == 'REVERSE'){
+            let ePer = parseInt(20 + Math.pow(playerWrestling, .6) - Math.pow(oppWrestling, .6) + (.35 * (playerSpd - oppSpd)) + (.35 * (playerStr - oppStr)));
+            return ePer;
+        }
+        else if (att == 'SUBMISSIONbot'){
+            let sPer = parseInt(10 + Math.pow(playerGrappling, .55) - Math.pow(oppGrappling, .55));
+            return sPer;
+        }
+    }
+
+    getFeinted() {
+        if (sessionStorage.getItem('feinted') == 1) {
+            return 15;
+        }
+        else {
+            return 0;
+        }
+    }
+
+    getFeinted1() {
+        if (sessionStorage.getItem('feinted1') == 1) {
+            return 15;
+        }
+        else {
+            return 0;
         }
     }
 
@@ -1346,20 +1589,22 @@ class Round extends React.Component {
 
         let per = 0;
         let hit = 0;
-        per = (1.5 * (playerPunching + playerBladedBuff) - 1.5 * (oppPunching + oppHighBuff)) + (playerSpd - oppSpd);
+        per = (1.5 * (playerPunching + playerBladedBuff) - 1.5 * (oppPunching + oppBladedBuff + oppHighBuff - oppLongNerf)) + (.35 * (playerSpd - oppSpd));
         if (att == 'STICK') {
-            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
-            if (per >= 0){
-                if (ran1 <= 70 + (Math.pow(per, .63))) {
-                    console.log(70 + (Math.pow(per, .63)))
-                    ++hit;
+            for (let i = 0; i < 2; ++i) {
+                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                if (per >= 0){
+                    if (ran1 <= 70 + (Math.pow(per, .63)) + this.getFeinted1()) {
+                        console.log(70 + (Math.pow(per, .63)) + this.getFeinted1())
+                        ++hit;
+                    }
                 }
-            }
-            else {
-                let per1 = Math.abs(per);
-                if (ran1 <= 70 - (Math.pow(per1, .63))) {
-                    console.log(70 - (Math.pow(per1, .63)))
-                    ++hit;
+                else {
+                    let per1 = Math.abs(per);
+                    if (ran1 <= 70 - (Math.pow(per1, .63)) + this.getFeinted1()) {
+                        console.log(70 - (Math.pow(per1, .63)) + this.getFeinted1())
+                        ++hit;
+                    }
                 }
             }
         }
@@ -1367,15 +1612,15 @@ class Round extends React.Component {
             for (let i = 0; i < 4; ++i){
                 let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
                 if (per >= 0){
-                    if (ran1 <= 30 + (Math.pow(per, .63))) {
-                        console.log(30 + (Math.pow(per, .63)))
+                    if (ran1 <= 30 + (Math.pow(per, .63)) + this.getFeinted1()) {
+                        console.log(30 + (Math.pow(per, .63)) + this.getFeinted1())
                         ++hit;
                     }
                 }
                 else {
                     let per1 = Math.abs(per);
-                    if (ran1 <= 30 - (Math.pow(per1, .63))) {
-                        console.log(30 - (Math.pow(per1, .63)))
+                    if (ran1 <= 30 - (Math.pow(per1, .63)) + this.getFeinted1()) {
+                        console.log(30 - (Math.pow(per1, .63)) + this.getFeinted1())
                         ++hit;
                     }
                 }
@@ -1385,40 +1630,187 @@ class Round extends React.Component {
             for (let i = 0; i < 8; ++i){
                 let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
                 if (per >= 0){
-                    if (ran1 <= 30 + (Math.pow(per, .63))) {
-                        console.log(30 + (Math.pow(per, .63)))
+                    if (ran1 <= 30 + (Math.pow(per, .63)) + this.getFeinted1()) {
+                        console.log(30 + (Math.pow(per, .63)) + this.getFeinted1())
                         ++hit;
                     }
                 }
                 else {
                     let per1 = Math.abs(per);
-                    if (ran1 <= 30 - (Math.pow(per1, .63))) {
-                        console.log(30 - (Math.pow(per1, .63)))
+                    if (ran1 <= 30 - (Math.pow(per1, .63)) + this.getFeinted1()) {
+                        console.log(30 - (Math.pow(per1, .63)) + this.getFeinted1())
                         ++hit;
                     }
                 }
             }
         }
         else if (att == 'BLITZ'){
-            let bPer = ((playerSpd * 2) - (oppSpd + oppPunching + oppHighBuff));
+            let bPer = ((playerSpd * 2) - (oppSpd + oppPunching + oppBladedBuff + oppHighBuff - oppLowNerf - oppLongNerf));
             for (let i = 0; i < 4; ++i){
                 let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
                 if (bPer >= 0){
-                    if (ran1 <= 30 + (Math.pow(bPer, .63))) {
-                        console.log(30 + (Math.pow(bPer, .63)))
+                    if (ran1 <= 30 + (Math.pow(bPer, .63)) + this.getFeinted1()) {
+                        console.log(30 + (Math.pow(bPer, .63)) + this.getFeinted1())
                         ++hit;
                     }
                 }
                 else {
                     let bPer1 = Math.abs(bPer);
-                    if (ran1 <= 30 - (Math.pow(bPer1, .63))) {
-                        console.log(30 - (Math.pow(bPer1, .63)))
+                    if (ran1 <= 30 - (Math.pow(bPer1, .63)) + this.getFeinted1()) {
+                        console.log(30 - (Math.pow(bPer1, .63)) + this.getFeinted1())
                         ++hit;
                     }
                 }
             }
         }
-
+        else if (att == 'LOW KICK'){
+            let kPer = (1.5 * (playerKicking + playerThaiBuff) - 1.5 * (oppKicking + oppThaiBuff + oppLongBuff)) + (.35 * (playerSpd - oppSpd));
+            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            if (kPer >= 0){
+                if (ran1 <= 70 + (Math.pow(kPer, .63)) + this.getFeinted1()) {
+                    console.log(70 + (Math.pow(kPer, .63)) + this.getFeinted1())
+                    ++hit;
+                }
+            }
+            else {
+                let per1 = Math.abs(kPer);
+                if (ran1 <= 70 - (Math.pow(per1, .63)) + this.getFeinted1()) {
+                    console.log(70 - (Math.pow(per1, .63)) + this.getFeinted1())
+                    ++hit;
+                }
+            }
+        }
+        else if (att == 'FEINT') {
+            let fPer = parseInt(25 + Math.pow(playerPunching, .9));
+            let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            if (ran <= fPer) {
+                ++hit;
+                sessionStorage.setItem('feinted1', 1);
+            }
+        }
+        else if (att == 'TAKEDOWN') {
+            let tPer = parseInt(35 + Math.pow(playerWrestling, .75) - Math.pow(oppWrestling, .75) + this.getFeinted1() + playerMmaBuff - oppMmaBuff - oppLowBuff + oppHighNerf + (.35 * (playerSpd - oppSpd)) + (.35 * (playerStr - oppStr)));
+            let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            if (tPer < 0) {
+            }
+            else if (ran <= tPer) {
+                ++hit;
+                this.tookdown1(1);
+            }
+        }
+        else if (att == 'CLINCH'){
+            for (let i = 0; i < 2; ++i){
+                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                if (per >= 0){
+                    if (ran1 <= 30 + (Math.pow(per, .63)) + this.getFeinted1()) {
+                        console.log(30 + (Math.pow(per, .63)) + this.getFeinted1())
+                        ++hit;
+                    }
+                }
+                else {
+                    let per1 = Math.abs(per);
+                    if (ran1 <= 30 - (Math.pow(per1, .63)) + this.getFeinted1()) {
+                        console.log(30 - (Math.pow(per1, .63)) + this.getFeinted1())
+                        ++hit;
+                    }
+                }
+            }
+            this.clinched(1);
+        }
+        else if (att == 'KNEE') {
+            let cPer = parseInt(60 + Math.pow(playerClinch, .9) - Math.pow(oppClinch, .9) + (.35 * (playerSpd - oppSpd)));
+            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            if (cPer >= 0){
+                if (ran1 <= cPer) {
+                    console.log(cPer)
+                    ++hit;
+                }
+            }
+        }
+        else if (att == 'ELBOW') {
+            let cPer = parseInt(40 + Math.pow(playerClinch, .9) - Math.pow(oppClinch, .9) + (.35 * (playerSpd - oppSpd)));
+            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            if (cPer >= 0){
+                if (ran1 <= cPer) {
+                    console.log(cPer)
+                    ++hit;
+                }
+            }
+        }
+        else if (att == 'EXIT') {
+            let cPer = parseInt(35 + Math.pow(playerClinch, .9) - Math.pow(oppClinch, .9) + (.35 * (playerSpd - oppSpd)) + (.35 * (playerStr - oppStr)));
+            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            if (cPer >= 0){
+                if (ran1 <= cPer) {
+                    console.log(cPer)
+                    ++hit;
+                    this.clinched(0);
+                }
+            }
+        }
+        else if (att == 'TRIP') {
+            let cPer = parseInt(25 + Math.pow(playerClinch, .9) - Math.pow(oppClinch, .9) + (.35 * (playerSpd - oppSpd)) + (.35 * (playerStr - oppStr)));
+            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            if (cPer >= 0){
+                if (ran1 <= cPer) {
+                    console.log(cPer)
+                    ++hit;
+                    this.clinched(0);
+                    this.tookdown1(1);
+                }
+            }
+        }
+        else if (att == 'GET UP') {
+            this.tookdown1(0);
+        }
+        else if (att == 'G&P') {
+            for (let i = 0; i < 4; ++i) {
+                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                if (ran1 <= 80) {
+                    ++hit;
+                }
+            }
+        }
+        else if (att == 'SUBMISSIONtop') {
+            let sPer = parseInt(15 + Math.pow(playerGrappling, .65) - Math.pow(oppGrappling, .65));
+            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            if (sPer <= 0) {
+            }
+            else if (ran1 <= sPer) {
+                ++hit;
+                sessionStorage.setItem('win', 1);
+            }
+        }
+        else if (att == 'ESCAPE') {
+            let ePer = parseInt(35 + Math.pow(playerWrestling, .75) - Math.pow(oppWrestling, .75) + (.35 * (playerSpd - oppSpd)) + (.35 * (playerStr - oppStr)));
+            let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            if (ePer < 0) {
+            }
+            else if (ran <= ePer) {
+                ++hit;
+                this.tookdown(0);
+            }
+        }
+        else if (att == 'REVERSE') {
+            let ePer = parseInt(20 + Math.pow(playerWrestling, .6) - Math.pow(oppWrestling, .6) + (.35 * (playerSpd - oppSpd)) + (.35 * (playerStr - oppStr)));
+            let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            if (ePer < 0) {
+            }
+            else if (ran <= ePer) {
+                ++hit;
+                this.tookdown1(1);
+            }
+        }
+        else if (att == 'SUBMISSIONbot') {
+            let sPer = parseInt(10 + Math.pow(playerGrappling, .55) - Math.pow(oppGrappling, .55));
+            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            if (sPer <= 0) {
+            }
+            else if (ran1 <= sPer) {
+                ++hit;
+                sessionStorage.setItem('win', 1);
+            }
+        }
 
         return hit;
     }
@@ -1464,20 +1856,22 @@ class Round extends React.Component {
 
         let per = 0;
         let hit = 0;
-        per = (1.5 * (oppPunching + oppBladedBuff) - 1.5 * (playerPunching + playerHighBuff)) + (oppSpd - playerSpd);
+        per = (1.5 * (oppPunching + oppBladedBuff) - 1.5 * (playerPunching + playerBladedBuff + playerHighBuff - playerLongNerf)) + (.35 * (oppSpd - playerSpd));
         if (att == 'STICK') {
-            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
-            if (per >= 0){
-                if (ran1 <= 70 + (Math.pow(per, .63))) {
-                    console.log(70 + (Math.pow(per, .63)))
-                    ++hit;
+            for (let i = 0; i < 2; ++i) {
+                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                if (per >= 0){
+                    if (ran1 <= 70 + (Math.pow(per, .63)) + this.getFeinted()) {
+                        console.log(70 + (Math.pow(per, .63)) + this.getFeinted())
+                        ++hit;
+                    }
                 }
-            }
-            else {
-                let per1 = Math.abs(per);
-                if (ran1 <= 70 - (Math.pow(per1, .63))) {
-                    console.log(70 - (Math.pow(per1, .63)))
-                    ++hit;
+                else {
+                    let per1 = Math.abs(per);
+                    if (ran1 <= 70 - (Math.pow(per1, .63)) + this.getFeinted()) {
+                        console.log(70 - (Math.pow(per1, .63)) + this.getFeinted())
+                        ++hit;
+                    }
                 }
             }
         }
@@ -1485,15 +1879,15 @@ class Round extends React.Component {
             for (let i = 0; i < 4; ++i){
                 let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
                 if (per >= 0){
-                    if (ran1 <= 30 + (Math.pow(per, .63))) {
-                        console.log(30 + (Math.pow(per, .63)))
+                    if (ran1 <= 30 + (Math.pow(per, .63)) + this.getFeinted()) {
+                        console.log(30 + (Math.pow(per, .63)) + this.getFeinted())
                         ++hit;
                     }
                 }
                 else {
                     let per1 = Math.abs(per);
-                    if (ran1 <= 30 - (Math.pow(per1, .63))) {
-                        console.log(30 - (Math.pow(per1, .63)))
+                    if (ran1 <= 30 - (Math.pow(per1, .63)) + this.getFeinted()) {
+                        console.log(30 - (Math.pow(per1, .63)) + this.getFeinted())
                         ++hit;
                     }
                 }
@@ -1503,40 +1897,187 @@ class Round extends React.Component {
             for (let i = 0; i < 8; ++i){
                 let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
                 if (per >= 0){
-                    if (ran1 <= 30 + (Math.pow(per, .63))) {
-                        console.log(30 + (Math.pow(per, .63)))
+                    if (ran1 <= 30 + (Math.pow(per, .63)) + this.getFeinted()) {
+                        console.log(30 + (Math.pow(per, .63)) + this.getFeinted())
                         ++hit;
                     }
                 }
                 else {
                     let per1 = Math.abs(per);
-                    if (ran1 <= 30 - (Math.pow(per1, .63))) {
-                        console.log(30 - (Math.pow(per1, .63)))
+                    if (ran1 <= 30 - (Math.pow(per1, .63)) + this.getFeinted()) {
+                        console.log(30 - (Math.pow(per1, .63)) + this.getFeinted())
                         ++hit;
                     }
                 }
             }
         }
         else if (att == 'BLITZ'){
-            let bPer = ((oppSpd * 2) - (playerSpd + playerPunching + playerHighBuff));
+            let bPer = ((oppSpd * 2) - (playerSpd + playerPunching + playerBladedBuff + playerHighBuff - playerLowNerf - oppLongNerf));
             for (let i = 0; i < 4; ++i){
                 let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
                 if (bPer >= 0){
-                    if (ran1 <= 30 + (Math.pow(bPer, .63))) {
-                        console.log(30 + (Math.pow(bPer, .63)))
+                    if (ran1 <= 30 + (Math.pow(bPer, .63)) + this.getFeinted()) {
+                        console.log(30 + (Math.pow(bPer, .63)) + this.getFeinted())
                         ++hit;
                     }
                 }
                 else {
                     let bPer1 = Math.abs(bPer);
-                    if (ran1 <= 30 - (Math.pow(bPer1, .63))) {
-                        console.log(30 - (Math.pow(bPer1, .63)))
+                    if (ran1 <= 30 - (Math.pow(bPer1, .63)) + this.getFeinted()) {
+                        console.log(30 - (Math.pow(bPer1, .63)) + this.getFeinted())
                         ++hit;
                     }
                 }
             }
         }
-
+        else if (att == 'LOW KICK'){
+            let kPer = (1.5 * (oppKicking + oppThaiBuff) - 1.5 * (playerKicking + playerThaiBuff + playerLongBuff)) + (.35 * (oppSpd - playerSpd));
+            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            if (kPer >= 0){
+                if (ran1 <= 70 + (Math.pow(kPer, .63)) + this.getFeinted()) {
+                    console.log(70 + (Math.pow(kPer, .63)) + this.getFeinted())
+                    ++hit;
+                }
+            }
+            else {
+                let per1 = Math.abs(kPer);
+                if (ran1 <= 70 - (Math.pow(per1, .63)) + this.getFeinted()) {
+                    console.log(70 - (Math.pow(per1, .63)) + this.getFeinted())
+                    ++hit;
+                }
+            }
+        }
+        else if (att == 'FEINT') {
+            let fPer = parseInt(25 + Math.pow(oppPunching, .9));
+            let ran = Math.floor(Math.random() * (100 -1 + 1) + 1);
+            if (ran <= fPer) {
+                ++hit;
+                sessionStorage.setItem('feinted', 1);
+            }
+        }
+        else if (att == 'TAKEDOWN') {
+            let tPer = parseInt(35 + Math.pow(oppWrestling, .75) - Math.pow(playerWrestling, .75) + this.getFeinted() - playerMmaBuff + oppMmaBuff + playerHighNerf - playerLowBuff + (.35 * (oppSpd - playerSpd)) + (.35 * (oppStr - playerStr)));
+            let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            if (tPer < 0) {
+            }
+            else if (ran <= tPer) {
+                ++hit;
+                this.tookdown(1);
+            }
+        }
+        else if (att == 'CLINCH'){
+            for (let i = 0; i < 2; ++i){
+                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                if (per >= 0){
+                    if (ran1 <= 30 + (Math.pow(per, .63)) + this.getFeinted()) {
+                        console.log(30 + (Math.pow(per, .63)) + this.getFeinted())
+                        ++hit;
+                    }
+                }
+                else {
+                    let per1 = Math.abs(per);
+                    if (ran1 <= 30 - (Math.pow(per1, .63)) + this.getFeinted()) {
+                        console.log(30 - (Math.pow(per1, .63)) + this.getFeinted())
+                        ++hit;
+                    }
+                }
+            }
+            this.clinched(1);
+        }
+        else if (att == 'KNEE') {
+            let cPer = parseInt(60 + Math.pow(oppClinch, .9) - Math.pow(playerClinch, .9) + (.35 * (oppSpd - playerSpd)));
+            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            if (cPer >= 0){
+                if (ran1 <= cPer) {
+                    console.log(cPer)
+                    ++hit;
+                }
+            }
+        }
+        else if (att == 'ELBOW') {
+            let cPer = parseInt(40 + Math.pow(oppClinch, .9) - Math.pow(playerClinch, .9) + (.35 * (oppSpd - playerSpd)));
+            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            if (cPer >= 0){
+                if (ran1 <= cPer) {
+                    console.log(cPer)
+                    ++hit;
+                }
+            }
+        }
+        else if (att == 'EXIT') {
+            let cPer = parseInt(35 + Math.pow(oppClinch, .9) - Math.pow(playerClinch, .9) + (.35 * (oppSpd - playerSpd)) + (.35 * (oppStr - playerStr)));
+            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            if (cPer >= 0){
+                if (ran1 <= cPer) {
+                    console.log(cPer)
+                    ++hit;
+                    this.clinched(0);
+                }
+            }
+        }
+        else if (att == 'TRIP') {
+            let cPer = parseInt(25 + Math.pow(oppClinch, .9) - Math.pow(playerClinch, .9) + (.35 * (oppSpd - playerSpd)) + (.35 * (oppStr - playerStr)));
+            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            if (cPer >= 0){
+                if (ran1 <= cPer) {
+                    console.log(cPer)
+                    ++hit;
+                    this.clinched(0);
+                    this.tookdown(1);
+                }
+            }
+        }
+        else if (att == 'GET UP') {
+            this.tookdown(0);
+        }
+        else if (att == 'G&P') {
+            for (let i = 0; i < 4; ++i) {
+                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                if (ran1 <= 80) {
+                    ++hit;
+                }
+            }
+        }
+        else if (att == 'SUBMISSIONtop') {
+            let sPer = parseInt(15 + Math.pow(oppGrappling, .65) - Math.pow(playerGrappling, .65));
+            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            if (sPer <= 0) {
+            }
+            else if (ran1 <= sPer) {
+                ++hit;
+                sessionStorage.setItem('win1', 1);
+            }
+        }
+        else if (att == 'ESCAPE') {
+            let ePer = parseInt(35 + Math.pow(oppWrestling, .75) - Math.pow(playerWrestling, .75) + (.35 * (oppSpd - playerSpd)) + (.35 * (oppStr - playerStr)));
+            let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            if (ePer < 0) {
+            }
+            else if (ran <= ePer) {
+                ++hit;
+                this.tookdown1(0);
+            }
+        }
+        else if (att == 'REVERSE') {
+            let ePer = parseInt(20 + Math.pow(oppWrestling, .6) - Math.pow(playerWrestling, .6) + (.35 * (oppSpd - playerSpd)) + (.35 * (oppStr - playerStr)));
+            let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            if (ePer < 0) {
+            }
+            else if (ran <= ePer) {
+                ++hit;
+                this.tookdown(1);
+            }
+        }
+        else if (att == 'SUBMISSIONbot') {
+            let sPer = parseInt(10 + Math.pow(oppGrappling, .55) - Math.pow(playerGrappling, .55));
+            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            if (sPer <= 0) {
+            }
+            else if (ran1 <= sPer) {
+                ++hit;
+                sessionStorage.setItem('win1', 1);
+            }
+        }
 
         return hit;
     }
@@ -1553,28 +2094,76 @@ class Round extends React.Component {
         let oppReactNerf = parseInt(sessionStorage.getItem('reactNerf'));
 
         let dmg = 0;
+        let kd = 0;
 
         if (att == 'POWER'){
             for (let i = 0; i < hit; ++i){
                 let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
                 if (ran1 <= 5) {
                     dmg += 1000;
+                    kd = 2;
                 }
                 else if (ran1 <= 15) {
                     dmg += 200;
+                    kd = 1;
                 }
                 else {
-                    dmg += (((playerStr - 50) / 5) + 40 + playerBladedBuff + oppReactNerf);
+                    dmg += ((playerStr / 2.5) + 20 + playerBladedBuff + oppReactNerf);
                 }
             }
         }
         else if (att == 'STICK'){
             dmg = hit * (((playerStr - 50) / 10) + 10 + playerBladedBuff + oppReactNerf);
         }
+        else if (att == 'LOW KICK') {
+            dmg = hit * (((playerStr - 50) / 10) + 10 + playerThaiBuff + oppReactNerf);
+            if (hit > 0) {
+                sessionStorage.setItem('oppSpeed', parseInt(sessionStorage.getItem('oppSpeed')) - 5);
+            }
+        }
+        else if (att == 'KNEE') {
+            dmg = hit * (((playerStr - 50) / 10) + 15);
+        }
+        else if (att == 'ELBOW') {
+            dmg = hit * (((playerStr - 50) / 5) + 30);
+        }
+        else if (att == 'G&P') {
+            dmg = hit * (((playerStr - 50) / 10) + 10);
+        }
         else {
             dmg = hit * (((playerStr - 50) / 5) + 20 + playerBladedBuff + oppReactNerf);
         }
         sessionStorage.setItem('oppStatus', parseInt(sessionStorage.getItem('oppStatus')) - dmg);
+        console.log('COUNTERING: ' + sessionStorage.getItem('countering'))
+        if (sessionStorage.getItem('countering') == 0) {
+            sessionStorage.setItem('feinted1', 0);
+        }
+        else {
+            sessionStorage.setItem('countering', 0);
+        }
+
+        if (kd == 1) {
+            if (sessionStorage.getItem('oppStatus') <= 0) {
+                sessionStorage.setItem('win', 1);
+                return 'KNOCKOUT! ' + dmg;
+            }
+            else {
+                this.tookdown1(1);
+                return 'KNOCKDOWN! ' + dmg;
+            }
+        }
+        else if (kd == 2) {
+            sessionStorage.setItem('win', 1);
+            return 'KNOCKOUT! ' + dmg;
+        }
+        else if (sessionStorage.getItem('oppStatus') <= 0) {
+            sessionStorage.setItem('win', 1);
+            return 'TKO! ' + dmg;
+        }
+        else if (sessionStorage.getItem('oppStm') <= 0) {
+            sessionStorage.setItem('win', 1);
+            return 'TKO! ' + dmg;
+        }
         return dmg;
     }
 
@@ -1590,28 +2179,75 @@ class Round extends React.Component {
         let oppReactNerf = parseInt(sessionStorage.getItem('reactNerf'));
 
         let dmg = 0;
+        let kd = 0;
 
         if (att == 'POWER'){
             for (let i = 0; i < hit; ++i){
                 let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
                 if (ran1 <= 5) {
                     dmg += 1000;
+                    kd = 2;
                 }
                 else if (ran1 <= 15) {
                     dmg += 200;
+                    kd = 1;
                 }
                 else {
-                    dmg += (((oppStr - 50) / 5) + 40 + oppBladedBuff + playerReactNerf);
+                    dmg += ((oppStr / 2.5) + 20 + oppBladedBuff + playerReactNerf);
                 }
             }
         }
         else if (att == 'STICK'){
             dmg = hit * (((oppStr - 50) / 10) + 10 + oppBladedBuff + playerReactNerf);
         }
+        else if (att == 'LOW KICK') {
+            dmg = hit * (((oppStr - 50) / 10) + 10 + oppThaiBuff + playerReactNerf);
+            if (hit > 0) {
+                sessionStorage.setItem('playerSpeed', parseInt(sessionStorage.getItem('playerSpeed')) - 5);
+            }
+        }
+        else if (att == 'KNEE') {
+            dmg = hit * (((oppStr - 50) / 10) + 15);
+        }
+        else if (att == 'ELBOW') {
+            dmg = hit * (((oppStr - 50) / 5) + 30);
+        }
+        else if (att == 'G&P') {
+            dmg = hit * (((oppStr - 50) / 10) + 10);
+        }
         else {
             dmg = hit * (((oppStr - 50) / 5) + 20 + oppBladedBuff + playerReactNerf);
         }
         sessionStorage.setItem('playerStatus', parseInt(sessionStorage.getItem('playerStatus')) - dmg);
+        console.log('COUNTERING1: ' + sessionStorage.getItem('countering1'))
+        if (sessionStorage.getItem('countering1') == 0) {
+            sessionStorage.setItem('feinted', 0);
+        }
+        else {
+            sessionStorage.setItem('countering1', 0);
+        }
+    
+        if (kd == 1) {
+            if (sessionStorage.getItem('playerStatus') <= 0) {
+                sessionStorage.setItem('win1', 1);
+                return 'KNOCKOUT! ' + dmg;
+            }
+            else {
+                this.tookdown(1);
+                return 'KNOCKDOWN! ' + dmg;
+            }
+        }
+        if (kd == 2) {
+            return 'KNOCKOUT! ' + dmg;
+        }
+        else if (sessionStorage.getItem('playerStatus') <= 0) {
+            sessionStorage.setItem('win1', 1);
+            return 'TKO! ' + dmg;
+        }
+        else if (sessionStorage.getItem('playerStm') <= 0) {
+            sessionStorage.setItem('win1', 1);
+            return 'TKO! ' + dmg;
+        }
         return dmg;
     }
 
@@ -1623,15 +2259,16 @@ class Round extends React.Component {
             return 0;
         }
         else {
-            if (att == 'STICK' || att == 'BRAWL' || att == 'PRESSURE' || att == 'POWER' || att == 'LOW KICK' || att == 'CLINCH' || att == 'TAKEDOWN') {
+            if (att == 'BRAWL' || att == 'PRESSURE' || att == 'POWER' || att == 'LOW KICK' || att == 'CLINCH' || att == 'TAKEDOWN') {
                 for (let i = 0; i < re; ++i) {
                     let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
                     if (ran <= per) {
                         ++ctr;
                     }
                 }
+                sessionStorage.setItem('countering1', 1);
             }
-            sessionStorage.setItem('oppStm', parseInt(sessionStorage.getItem('oppStm')) - ctr);
+            sessionStorage.setItem('oppStm', parseInt(sessionStorage.getItem('oppStm')) - (ctr + 2));
             return ctr;
         }
     }
@@ -1639,21 +2276,22 @@ class Round extends React.Component {
     counterCalc1(re, att) {
         let per = Math.pow(parseInt(sessionStorage.getItem('playerPunching')), .75);
         let ctr = 0;
+
         console.log('reactNerf: ' + sessionStorage.getItem('reactNerf'))
         if (parseInt(sessionStorage.getItem('reactNerf')) == 0){
             return 0;
         }
         else {
-            console.log('PING!')
-            if (att == 'STICK' || att == 'BRAWL' || att == 'PRESSURE' || att == 'POWER' || att == 'LOW KICK' || att == 'CLINCH' || att == 'TAKEDOWN') {
+            if (att == 'BRAWL' || att == 'PRESSURE' || att == 'POWER' || att == 'LOW KICK' || att == 'CLINCH' || att == 'TAKEDOWN') {
                 for (let i = 0; i < re; ++i) {
                     let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
                     if (ran <= per) {
                         ++ctr;
                     }
                 }
+                sessionStorage.setItem('countering', 1);
             }
-            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - ctr);
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - (ctr + 2));
             return ctr;
         }
     }
@@ -1671,13 +2309,78 @@ class Round extends React.Component {
 
     getOppMsg1(att) {
         if (att == 'BRAWL') {
+            sessionStorage.setItem('oppStm', parseInt(sessionStorage.getItem('oppStm') - 6));
             return 'THROWS 4 STRIKES';
         }
         else if (att == 'BLITZ') {
+            sessionStorage.setItem('oppStm', parseInt(sessionStorage.getItem('oppStm') - 8));
             return 'BLITZES IN WITH 4 STRIKES';
         }
         else if (att == 'PRESSURE') {
+            sessionStorage.setItem('oppStm', parseInt(sessionStorage.getItem('oppStm') - 12));
             return 'THROWS 8 STRIKES';
+        }
+        else if (att == 'POWER') {
+            sessionStorage.setItem('oppStm', parseInt(sessionStorage.getItem('oppStm') - 16));
+            return 'THROWS 4 HEAVY STRIKES';
+        }
+        else if (att == 'FEINT') {
+            sessionStorage.setItem('oppStm', parseInt(sessionStorage.getItem('oppStm') - 1));
+            return 'FEINTS A STRIKE';
+        }
+        else if (att == 'LOW KICK') {
+            sessionStorage.setItem('oppStm', parseInt(sessionStorage.getItem('oppStm') - 4));
+            return 'THROWS A LOW KICK';
+        }
+        else if (att == 'CLINCH') {
+            sessionStorage.setItem('oppStm', parseInt(sessionStorage.getItem('oppStm') - 4));
+            return 'THROWS 2 STRIKES AND CLINCHES';
+        }
+        else if (att == 'TAKEDOWN') {
+            sessionStorage.setItem('oppStm', parseInt(sessionStorage.getItem('oppStm') - 12));
+            return 'ATTEMPTS A TAKEDOWN';
+        }
+        else if (att == 'STALL') {
+            return 'DOES NOTHING';
+        }
+        else if (att == 'ESCAPE') {
+            sessionStorage.setItem('oppStm', parseInt(sessionStorage.getItem('oppStm') - 6));
+            return 'ATTEMPTS TO STAND UP';
+        }
+        else if (att == 'REVERSE') {
+            sessionStorage.setItem('oppStm', parseInt(sessionStorage.getItem('oppStm') - 10));
+            return 'ATTEMPTS A REVERSAL';
+        }
+        else if (att == 'SUBMISSIONbot') {
+            sessionStorage.setItem('oppStm', parseInt(sessionStorage.getItem('oppStm') - 10));
+            return 'ATTEMPTS A SUBMISSION FROM BOTTOM';
+        }
+        else if (att == 'GET UP') {
+            return 'LETS PLAYER UP';
+        }
+        else if (att == 'G&P') {
+            sessionStorage.setItem('oppStm', parseInt(sessionStorage.getItem('oppStm') - 4));
+            return 'THROWS 4 GROUND & POUND';
+        }
+        else if (att == 'SUBMISSIONtop') {
+            sessionStorage.setItem('oppStm', parseInt(sessionStorage.getItem('oppStm') - 10));
+            return 'ATTEMPTS A SUBMISSION FROM TOP';
+        }
+        else if (att == 'KNEE') {
+            sessionStorage.setItem('oppStm', parseInt(sessionStorage.getItem('oppStm') - 2));
+            return 'THROWS A KNEE';
+        }
+        else if (att == 'ELBOW') {
+            sessionStorage.setItem('oppStm', parseInt(sessionStorage.getItem('oppStm') - 4));
+            return 'THROWS AN ELBOW';
+        }
+        else if (att == 'EXIT') {
+            sessionStorage.setItem('oppStm', parseInt(sessionStorage.getItem('oppStm') - 4));
+            return 'ATTEMPTS TO EXIT CLINCH';
+        }
+        else if (att == 'TRIP') {
+            sessionStorage.setItem('oppStm', parseInt(sessionStorage.getItem('oppStm') - 6));
+            return 'ATTEMPTS A TRIP';
         }
     }
 
@@ -1687,6 +2390,9 @@ class Round extends React.Component {
         }
         else if (att == 'LOW KICK' || att == 'TAKEDOWN') {
             return 1;
+        }
+        else if (att == 'CLINCH') {
+            return 2;
         }
         else {
             return 4;
@@ -1698,60 +2404,724 @@ class Round extends React.Component {
         let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
         let hit = 0;
         let ctr = 0;
-        if (ran >= 80) {
-            arr[0] = 'STICK';
-            arr[1] = 'THROWS 2 JABS';
-            hit = this.getHit1('STICK');
-            arr[2] = hit + '/2 HIT, ' + this.getDamage1(hit, 'STICK') + ' DMG'
-            ctr = this.counterCalc1(2 - hit, 'STICK');
-            if (ctr > 0) {
-                arr[3] = this.counterInfo(ctr, this.getDamage(ctr, 'STICK'));
+        if (sessionStorage.getItem('win') == 1) {
+            arr[0] = '';
+            arr[1] = '';
+            arr[2] = '';
+            arr[3] = '';
+        }
+        else if (this.pos() == 0) {
+            if (parseInt(sessionStorage.getItem('oppStm') <= 70)){
+                if (ran >= 50) {
+                    arr[0] = 'STICK';
+                    arr[1] = 'THROWS 2 JABS';
+                    hit = this.getHit1('STICK');
+                    arr[2] = hit + '/2 HIT, ' + this.getDamage1(hit, 'STICK') + ' DMG'
+                    ctr = this.counterCalc1(2 - hit, 'STICK');
+                    if (ctr > 0) {
+                        arr[3] = this.counterInfo(ctr, this.getDamage(ctr, 'STICK'));
+                    }
+                    else {
+                        arr[3] = '';
+                    }
+                }
+                else if (ran >= 30) {
+                    arr[0] = sessionStorage.getItem('oppAtt1');
+                    if (arr[0] == 'TAKEDOWN') {
+                        arr[1] = this.getOppMsg1(arr[0]);
+                        hit = this.getHit1(arr[0]);
+                        if (hit > 0) {
+                            arr[2] = 'SUCCESSFUL';
+                        }
+                        else {
+                            arr[2] = 'FAILED';
+                        }
+                        ctr = this.counterCalc1(this.getOppHitMax(arr[0]) - hit, arr[0]);
+                        if (ctr > 0) {
+                            arr[3] = this.counterInfo(ctr, this.getDamage(ctr, arr[0]));
+                        }
+                        else {
+                            arr[3] = '';
+                        }
+                        console.log(arr[0])
+                    }
+                    else if (arr[0] == 'FEINT') {
+                        arr[1] = this.getOppMsg1(arr[0]);
+                        hit = this.getHit1(arr[0]);
+                        if (hit > 0) {
+                            arr[2] = 'SUCCESSFUL';
+                        }
+                        else {
+                            arr[2] = 'FAILED';
+                        }
+                        arr[3] = '';
+                        console.log(arr[0])
+                    }
+                    else {
+                        arr[1] = this.getOppMsg1(arr[0]);
+                        hit = this.getHit1(arr[0]);
+                        arr[2] = hit + '/' + this.getOppHitMax(arr[0]) + ' HIT, ' + this.getDamage1(hit, arr[0]) + ' DMG' + this.getKicked1(hit, 1);
+                        ctr = this.counterCalc1(this.getOppHitMax(arr[0]) - hit, arr[0]);
+                        if (ctr > 0) {
+                            arr[3] = this.counterInfo(ctr, this.getDamage(ctr, arr[0]));
+                        }
+                        else {
+                            arr[3] = '';
+                        }
+                        console.log(arr[0])
+                    }
+                }
+                else if (ran >= 10) {
+                    arr[0] = sessionStorage.getItem('oppAtt2');
+                    if (arr[0] == 'TAKEDOWN') {
+                        arr[1] = this.getOppMsg1(arr[0]);
+                        hit = this.getHit1(arr[0]);
+                        if (hit > 0) {
+                            arr[2] = 'SUCCESSFUL';
+                        }
+                        else {
+                            arr[2] = 'FAILED';
+                        }
+                        ctr = this.counterCalc1(this.getOppHitMax(arr[0]) - hit, arr[0]);
+                        if (ctr > 0) {
+                            arr[3] = this.counterInfo(ctr, this.getDamage(ctr, arr[0]));
+                        }
+                        else {
+                            arr[3] = '';
+                        }
+                        console.log(arr[0])
+                    }
+                    else if (arr[0] == 'FEINT') {
+                        arr[1] = this.getOppMsg1(arr[0]);
+                        hit = this.getHit1(arr[0]);
+                        if (hit > 0) {
+                            arr[2] = 'SUCCESSFUL';
+                        }
+                        else {
+                            arr[2] = 'FAILED';
+                        }
+                        arr[3] = '';
+                        console.log(arr[0])
+                    }
+                    else {
+                        arr[1] = this.getOppMsg1(arr[0]);
+                        hit = this.getHit1(arr[0]);
+                        arr[2] = hit + '/' + this.getOppHitMax(arr[0]) + ' HIT, ' + this.getDamage1(hit, arr[0]) + ' DMG' + this.getKicked1(hit, 2);
+                        ctr = this.counterCalc1(this.getOppHitMax(arr[0]) - hit, arr[0]);
+                        if (ctr > 0) {
+                            arr[3] = this.counterInfo(ctr, this.getDamage(ctr, arr[0]));
+                        }
+                        else {
+                            arr[3] = '';
+                        }
+                        console.log(arr[0])
+                    }
+                }
+                else {
+                    arr[0] = sessionStorage.getItem('oppAtt3');
+                    if (arr[0] == 'TAKEDOWN') {
+                        arr[1] = this.getOppMsg1(arr[0]);
+                        hit = this.getHit1(arr[0]);
+                        if (hit > 0) {
+                            arr[2] = 'SUCCESSFUL';
+                        }
+                        else {
+                            arr[2] = 'FAILED';
+                        }
+                        ctr = this.counterCalc1(this.getOppHitMax(arr[0]) - hit, arr[0]);
+                        if (ctr > 0) {
+                            arr[3] = this.counterInfo(ctr, this.getDamage(ctr, arr[0]));
+                        }
+                        else {
+                            arr[3] = '';
+                        }
+                        console.log(arr[0])
+                    }
+                    else if (arr[0] == 'FEINT') {
+                        arr[1] = this.getOppMsg1(arr[0]);
+                        hit = this.getHit1(arr[0]);
+                        if (hit > 0) {
+                            arr[2] = 'SUCCESSFUL';
+                        }
+                        else {
+                            arr[2] = 'FAILED';
+                        }
+                        arr[3] = '';
+                        console.log(arr[0])
+                    }
+                    else {
+                        arr[1] = this.getOppMsg1(arr[0]);
+                        hit = this.getHit1(arr[0]);
+                        arr[2] = hit + '/' + this.getOppHitMax(arr[0]) + ' HIT, ' + this.getDamage1(hit, arr[0]) + ' DMG' + this.getKicked1(hit, 3);
+                        ctr = this.counterCalc1(this.getOppHitMax(arr[0]) - hit, arr[0]);
+                        if (ctr > 0) {
+                            arr[3] = this.counterInfo(ctr, this.getDamage(ctr, arr[0]));
+                        }
+                        else {
+                            arr[3] = '';
+                        }
+                        console.log(arr[0])
+                    }
+                }
             }
             else {
-                arr[3] = '';
+                if (ran >= 80) {
+                    arr[0] = 'STICK';
+                    arr[1] = 'THROWS 2 JABS';
+                    hit = this.getHit1('STICK');
+                    arr[2] = hit + '/2 HIT, ' + this.getDamage1(hit, 'STICK') + ' DMG'
+                    ctr = this.counterCalc1(2 - hit, 'STICK');
+                    if (ctr > 0) {
+                        arr[3] = this.counterInfo(ctr, this.getDamage(ctr, 'STICK'));
+                    }
+                    else {
+                        arr[3] = '';
+                    }
+                }
+                else if (ran >= 45) {
+                    arr[0] = sessionStorage.getItem('oppAtt1');
+                    if (arr[0] == 'TAKEDOWN') {
+                        arr[1] = this.getOppMsg1(arr[0]);
+                        hit = this.getHit1(arr[0]);
+                        if (hit > 0) {
+                            arr[2] = 'SUCCESSFUL';
+                        }
+                        else {
+                            arr[2] = 'FAILED';
+                        }
+                        ctr = this.counterCalc1(this.getOppHitMax(arr[0]) - hit, arr[0]);
+                        if (ctr > 0) {
+                            arr[3] = this.counterInfo(ctr, this.getDamage(ctr, arr[0]));
+                        }
+                        else {
+                            arr[3] = '';
+                        }
+                        console.log(arr[0])
+                    }
+                    else if (arr[0] == 'FEINT') {
+                        arr[1] = this.getOppMsg1(arr[0]);
+                        hit = this.getHit1(arr[0]);
+                        if (hit > 0) {
+                            arr[2] = 'SUCCESSFUL';
+                        }
+                        else {
+                            arr[2] = 'FAILED';
+                        }
+                        arr[3] = '';
+                        console.log(arr[0])
+                    }
+                    else {
+                        arr[1] = this.getOppMsg1(arr[0]);
+                        hit = this.getHit1(arr[0]);
+                        arr[2] = hit + '/' + this.getOppHitMax(arr[0]) + ' HIT, ' + this.getDamage1(hit, arr[0]) + ' DMG' + this.getKicked1(hit, 1);
+                        ctr = this.counterCalc1(this.getOppHitMax(arr[0]) - hit, arr[0]);
+                        if (ctr > 0) {
+                            arr[3] = this.counterInfo(ctr, this.getDamage(ctr, arr[0]));
+                        }
+                        else {
+                            arr[3] = '';
+                        }
+                        console.log(arr[0])
+                    }
+                }
+                else if (ran >= 20) {
+                    arr[0] = sessionStorage.getItem('oppAtt2');
+                    if (arr[0] == 'TAKEDOWN') {
+                        arr[1] = this.getOppMsg1(arr[0]);
+                        hit = this.getHit1(arr[0]);
+                        if (hit > 0) {
+                            arr[2] = 'SUCCESSFUL';
+                        }
+                        else {
+                            arr[2] = 'FAILED';
+                        }
+                        ctr = this.counterCalc1(this.getOppHitMax(arr[0]) - hit, arr[0]);
+                        if (ctr > 0) {
+                            arr[3] = this.counterInfo(ctr, this.getDamage(ctr, arr[0]));
+                        }
+                        else {
+                            arr[3] = '';
+                        }
+                        console.log(arr[0])
+                    }
+                    else if (arr[0] == 'FEINT') {
+                        arr[1] = this.getOppMsg1(arr[0]);
+                        hit = this.getHit1(arr[0]);
+                        if (hit > 0) {
+                            arr[2] = 'SUCCESSFUL';
+                        }
+                        else {
+                            arr[2] = 'FAILED';
+                        }
+                        arr[3] = '';
+                        console.log(arr[0])
+                    }
+                    else {
+                        arr[1] = this.getOppMsg1(arr[0]);
+                        hit = this.getHit1(arr[0]);
+                        arr[2] = hit + '/' + this.getOppHitMax(arr[0]) + ' HIT, ' + this.getDamage1(hit, arr[0]) + ' DMG' + this.getKicked1(hit, 2);
+                        ctr = this.counterCalc1(this.getOppHitMax(arr[0]) - hit, arr[0]);
+                        if (ctr > 0) {
+                            arr[3] = this.counterInfo(ctr, this.getDamage(ctr, arr[0]));
+                        }
+                        else {
+                            arr[3] = '';
+                        }
+                        console.log(arr[0])
+                    }
+                }
+                else {
+                    arr[0] = sessionStorage.getItem('oppAtt3');
+                    if (arr[0] == 'TAKEDOWN') {
+                        arr[1] = this.getOppMsg1(arr[0]);
+                        hit = this.getHit1(arr[0]);
+                        if (hit > 0) {
+                            arr[2] = 'SUCCESSFUL';
+                        }
+                        else {
+                            arr[2] = 'FAILED';
+                        }
+                        ctr = this.counterCalc1(this.getOppHitMax(arr[0]) - hit, arr[0]);
+                        if (ctr > 0) {
+                            arr[3] = this.counterInfo(ctr, this.getDamage(ctr, arr[0]));
+                        }
+                        else {
+                            arr[3] = '';
+                        }
+                        console.log(arr[0])
+                    }
+                    else if (arr[0] == 'FEINT') {
+                        arr[1] = this.getOppMsg1(arr[0]);
+                        hit = this.getHit1(arr[0]);
+                        if (hit > 0) {
+                            arr[2] = 'SUCCESSFUL';
+                        }
+                        else {
+                            arr[2] = 'FAILED';
+                        }
+                        arr[3] = '';
+                        console.log(arr[0])
+                    }
+                    else {
+                        arr[1] = this.getOppMsg1(arr[0]);
+                        hit = this.getHit1(arr[0]);
+                        arr[2] = hit + '/' + this.getOppHitMax(arr[0]) + ' HIT, ' + this.getDamage1(hit, arr[0]) + ' DMG' + this.getKicked1(hit, 3);
+                        ctr = this.counterCalc1(this.getOppHitMax(arr[0]) - hit, arr[0]);
+                        if (ctr > 0) {
+                            arr[3] = this.counterInfo(ctr, this.getDamage(ctr, arr[0]));
+                        }
+                        else {
+                            arr[3] = '';
+                        }
+                        console.log(arr[0])
+                    }
+                }
             }
         }
-        else if (ran >= 45) {
-            arr[0] = sessionStorage.getItem('oppAtt1');
-            arr[1] = this.getOppMsg1(arr[0]);
-            hit = this.getHit1(arr[0]);
-            arr[2] = hit + '/' + this.getOppHitMax(arr[0]) + ' HIT, ' + this.getDamage1(hit, arr[0]) + ' DMG'
-            ctr = this.counterCalc1(this.getOppHitMax(arr[0]) - hit, arr[0]);
-            if (ctr > 0) {
-                arr[3] = this.counterInfo(ctr, this.getDamage(ctr, arr[0]));
+        else if (this.pos() == 1) {
+            if (parseInt(sessionStorage.getItem('oppStm') <= 70)){
+                if (ran >= 50) {
+                    arr[0] = 'KNEE';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    hit = this.getHit1('KNEE');
+                    arr[2] = hit + '/1 HIT, ' + this.getDamage1(hit, 'KNEE') + ' DMG';
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
+                else if (ran >= 35) {
+                    arr[0] = 'ELBOW';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    hit = this.getHit1('ELBOW');
+                    arr[2] = hit + '/1 HIT, ' + this.getDamage1(hit, 'ELBOW') + ' DMG';
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
+                else if (ran >= 10) {
+                    arr[0] = 'EXIT';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    hit = this.getHit1('EXIT');
+                    if (hit > 0) {
+                        arr[2] = 'SUCCESSFUL';
+                    }
+                    else {
+                        arr[2] = 'FAILED';
+                    }
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
+                else {
+                    arr[0] = 'TRIP';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    hit = this.getHit1('TRIP');
+                    if (hit > 0) {
+                        arr[2] = 'SUCCESSFUL';
+                    }
+                    else {
+                        arr[2] = 'FAILED';
+                    }
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
+            }
+            else if (parseInt(sessionStorage.getItem('oppPunching')) > parseInt(sessionStorage.getItem('oppWrestling')) || parseInt(sessionStorage.getItem('oppKicking')) > parseInt(sessionStorage.getItem('oppWrestling')) || parseInt(sessionStorage.getItem('oppClinch')) > parseInt(sessionStorage.getItem('oppWrestling'))) {
+                if (ran >= 70) {
+                    arr[0] = 'KNEE';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    hit = this.getHit1('KNEE');
+                    arr[2] = hit + '/1 HIT, ' + this.getDamage1(hit, 'KNEE') + ' DMG';
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
+                else if (ran >= 40) {
+                    arr[0] = 'ELBOW';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    hit = this.getHit1('ELBOW');
+                    arr[2] = hit + '/1 HIT, ' + this.getDamage1(hit, 'ELBOW') + ' DMG';
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
+                else if (ran >= 10) {
+                    arr[0] = 'EXIT';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    hit = this.getHit1('EXIT');
+                    if (hit > 0) {
+                        arr[2] = 'SUCCESSFUL';
+                    }
+                    else {
+                        arr[2] = 'FAILED';
+                    }
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
+                else {
+                    arr[0] = 'TRIP';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    hit = this.getHit1('TRIP');
+                    if (hit > 0) {
+                        arr[2] = 'SUCCESSFUL';
+                    }
+                    else {
+                        arr[2] = 'FAILED';
+                    }
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
             }
             else {
-                arr[3] = '';
+                if (ran >= 65) {
+                    arr[0] = 'KNEE';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    hit = this.getHit1('KNEE');
+                    arr[2] = hit + '/1 HIT, ' + this.getDamage1(hit, 'KNEE') + ' DMG';
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
+                else if (ran >= 45) {
+                    arr[0] = 'ELBOW';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    hit = this.getHit1('ELBOW');
+                    arr[2] = hit + '/1 HIT, ' + this.getDamage1(hit, 'ELBOW') + ' DMG';
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
+                else if (ran >= 35) {
+                    arr[0] = 'EXIT';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    hit = this.getHit1('EXIT');
+                    if (hit > 0) {
+                        arr[2] = 'SUCCESSFUL';
+                    }
+                    else {
+                        arr[2] = 'FAILED';
+                    }
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
+                else {
+                    arr[0] = 'TRIP';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    hit = this.getHit1('TRIP');
+                    if (hit > 0) {
+                        arr[2] = 'SUCCESSFUL';
+                    }
+                    else {
+                        arr[2] = 'FAILED';
+                    }
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
             }
-            console.log(arr[0])
         }
-        else if (ran >= 20) {
-            arr[0] = sessionStorage.getItem('oppAtt2');
-            arr[1] = this.getOppMsg1(arr[0]);
-            hit = this.getHit1(arr[0]);
-            arr[2] = hit + '/' + this.getOppHitMax(arr[0]) + ' HIT, ' + this.getDamage1(hit, arr[0]) + ' DMG'
-            ctr = this.counterCalc1(this.getOppHitMax(arr[0]) - hit, arr[0]);
-            if (ctr > 0) {
-                arr[3] = this.counterInfo(ctr, this.getDamage(ctr, arr[0]));
+        else if (this.pos() == 2) {
+            if (parseInt(sessionStorage.getItem('oppStm') <= 70)){
+                if (ran >= 50) {
+                    arr[0] = 'STALL';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    arr[2] = '';
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
+                else if (ran >= 45) {
+                    arr[0] = 'GET UP';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    hit = this.getHit1('GET UP');
+                    arr[2] = '';
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
+                else if (ran >= 15) {
+                    arr[0] = 'G&P';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    hit = this.getHit1('G&P');
+                    arr[2] =  hit + '/4 HIT, ' + this.getDamage1(hit, 'G&P') + ' DMG';
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
+                else {
+                    arr[0] = 'SUBMISSIONtop';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    hit = this.getHit1('SUBMISSIONtop');
+                    if (hit > 0) {
+                        arr[2] = 'SUCCESSFUL';
+                        sessionStorage.setItem('win1', 1);
+                    }
+                    else {
+                        arr[2] = 'FAILED';
+                    }
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
+            }
+            else if (parseInt(sessionStorage.getItem('oppPunching')) > parseInt(sessionStorage.getItem('oppWrestling')) || parseInt(sessionStorage.getItem('oppKicking')) > parseInt(sessionStorage.getItem('oppWrestling'))) {
+                if (ran >= 95) {
+                    arr[0] = 'STALL';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    arr[2] = '';
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
+                else if (ran >= 35) {
+                    arr[0] = 'GET UP';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    hit = this.getHit1('GET UP');
+                    arr[2] = '';
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
+                else if (ran >= 15) {
+                    arr[0] = 'G&P';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    hit = this.getHit1('G&P');
+                    arr[2] =  hit + '/4 HIT, ' + this.getDamage1(hit, 'G&P') + ' DMG';
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
+                else {
+                    arr[0] = 'SUBMISSIONtop';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    hit = this.getHit1('SUBMISSIONtop');
+                    if (hit > 0) {
+                        arr[2] = 'SUCCESSFUL';
+                        sessionStorage.setItem('win1', 1);
+                    }
+                    else {
+                        arr[2] = 'FAILED';
+                    }
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
             }
             else {
-                arr[3] = '';
+                if (ran >= 90) {
+                    arr[0] = 'STALL';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    arr[2] = '';
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
+                else if (ran >= 55) {
+                    arr[0] = 'GET UP';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    hit = this.getHit1('GET UP');
+                    arr[2] = '';
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
+                else if (ran >= 25) {
+                    arr[0] = 'G&P';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    hit = this.getHit1('G&P');
+                    arr[2] =  hit + '/4 HIT, ' + this.getDamage1(hit, 'G&P') + ' DMG';
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
+                else {
+                    arr[0] = 'SUBMISSIONtop';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    hit = this.getHit1('SUBMISSIONtop');
+                    if (hit > 0) {
+                        arr[2] = 'SUCCESSFUL';
+                        sessionStorage.setItem('win1', 1);
+                    }
+                    else {
+                        arr[2] = 'FAILED';
+                    }
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
             }
-            console.log(arr[0])
         }
-        else {
-            arr[0] = sessionStorage.getItem('oppAtt3');
-            arr[1] = this.getOppMsg1(arr[0]);
-            hit = this.getHit1(arr[0]);
-            arr[2] = hit + '/' + this.getOppHitMax(arr[0]) + ' HIT, ' + this.getDamage1(hit, arr[0]) + ' DMG'
-            ctr = this.counterCalc1(this.getOppHitMax(arr[0]) - hit, arr[0]);
-            if (ctr > 0) {
-                arr[3] = this.counterInfo(ctr, this.getDamage(ctr, arr[0]));
+        else if (this.pos() == 3) {
+            if (parseInt(sessionStorage.getItem('oppStm') <= 70)){
+                if (ran >= 70) {
+                    arr[0] = 'STALL';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    arr[2] = '';
+                    arr[3] = '';
+                    console.log(arr[0])
+                    sessionStorage.setItem('oppStm', parseInt(sessionStorage.getItem('oppStm')) - 2);
+                }
+                else if (ran >= 35) {
+                    arr[0] = 'ESCAPE';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    hit = this.getHit1('ESCAPE');
+                    if (hit > 0) {
+                        arr[2] = 'SUCCESSFUL';
+                    }
+                    else {
+                        arr[2] = 'FAILED';
+                    }
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
+                else if (ran >= 15) {
+                    arr[0] = 'REVERSE';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    hit = this.getHit1('REVERSE');
+                    if (hit > 0) {
+                        arr[2] = 'SUCCESSFUL';
+                    }
+                    else {
+                        arr[2] = 'FAILED';
+                    }
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
+                else {
+                    arr[0] = 'SUBMISSIONbot';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    hit = this.getHit1('SUBMISSIONbot');
+                    if (hit > 0) {
+                        arr[2] = 'SUCCESSFUL';
+                        sessionStorage.setItem('win1', 1);
+                    }
+                    else {
+                        arr[2] = 'FAILED';
+                    }
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
+            }
+            else if (parseInt(sessionStorage.getItem('oppPunching')) > parseInt(sessionStorage.getItem('oppWrestling')) || parseInt(sessionStorage.getItem('oppKicking')) > parseInt(sessionStorage.getItem('oppWrestling'))) {
+                if (ran >= 95) {
+                    arr[0] = 'STALL';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    arr[2] = '';
+                    arr[3] = '';
+                    console.log(arr[0])
+                    sessionStorage.setItem('oppStm', parseInt(sessionStorage.getItem('oppStm')) - 2);
+                }
+                else if (ran >= 35) {
+                    arr[0] = 'ESCAPE';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    hit = this.getHit1('ESCAPE');
+                    if (hit > 0) {
+                        arr[2] = 'SUCCESSFUL';
+                    }
+                    else {
+                        arr[2] = 'FAILED';
+                    }
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
+                else if (ran >= 15) {
+                    arr[0] = 'REVERSE';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    hit = this.getHit1('REVERSE');
+                    if (hit > 0) {
+                        arr[2] = 'SUCCESSFUL';
+                    }
+                    else {
+                        arr[2] = 'FAILED';
+                    }
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
+                else {
+                    arr[0] = 'SUBMISSIONbot';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    hit = this.getHit1('SUBMISSIONbot');
+                    if (hit > 0) {
+                        arr[2] = 'SUCCESSFUL';
+                        sessionStorage.setItem('win1', 1);
+                    }
+                    else {
+                        arr[2] = 'FAILED';
+                    }
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
             }
             else {
-                arr[3] = '';
+                if (ran >= 90) {
+                    arr[0] = 'STALL';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    arr[2] = '';
+                    arr[3] = '';
+                    console.log(arr[0])
+                    sessionStorage.setItem('oppStm', parseInt(sessionStorage.getItem('oppStm')) - 2);
+                }
+                else if (ran >= 55) {
+                    arr[0] = 'ESCAPE';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    hit = this.getHit1('ESCAPE');
+                    if (hit > 0) {
+                        arr[2] = 'SUCCESSFUL';
+                    }
+                    else {
+                        arr[2] = 'FAILED';
+                    }
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
+                else if (ran >= 25) {
+                    arr[0] = 'REVERSE';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    hit = this.getHit1('REVERSE');
+                    if (hit > 0) {
+                        arr[2] = 'SUCCESSFUL';
+                    }
+                    else {
+                        arr[2] = 'FAILED';
+                    }
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
+                else {
+                    arr[0] = 'SUBMISSIONbot';
+                    arr[1] = this.getOppMsg1(arr[0]);
+                    hit = this.getHit1('SUBMISSIONbot');
+                    if (hit > 0) {
+                        arr[2] = 'SUCCESSFUL';
+                        sessionStorage.setItem('win1', 1);
+                    }
+                    else {
+                        arr[2] = 'FAILED';
+                    }
+                    arr[3] = '';
+                    console.log(arr[0])
+                }
             }
-            console.log(arr[0])
         }
         console.log('hit: ' + hit)
         console.log('hitMax: ' + this.getOppHitMax(arr[0]))
@@ -1759,8 +3129,50 @@ class Round extends React.Component {
         console.log('ctrInfo: ' + arr[3])
         return arr;
     }
+
+    getKicked(hit) {
+        if (hit > 0) {
+            return ', OPPONENT SPEED REDUCED';
+        }
+        else {
+            return '';
+        }
+    }
+
+    getKicked1(hit, num) {
+        if (num == 1 && sessionStorage.getItem('oppAtt1') == 'LOW KICK') {
+            if (hit > 0) {
+                return ', PLAYER SPEED REDUCED';
+            }
+            else {
+                return '';
+            }
+        }
+        else if (num == 2 && sessionStorage.getItem('oppAtt2') == 'LOW KICK') {
+            if (hit > 0) {
+                return ', PLAYER SPEED REDUCED';
+            }
+            else {
+                return '';
+            }
+        }
+        else if (num == 3 && sessionStorage.getItem('oppAtt3') == 'LOW KICK') {
+            if (hit > 0) {
+                return ', PLAYER SPEED REDUCED';
+            }
+            else {
+                return '';
+            }
+        }
+        else {
+            return '';
+        }
+    }
     
     mover1 = (event) => {
+        if (sessionStorage.getItem('win') == 1 || sessionStorage.getItem('win1') == 1 || sessionStorage.getItem('bell') == 1) {
+            return;
+        }
         sessionStorage.setItem('mCount', parseInt(sessionStorage.getItem('mCount')) + 2);
         let data = sessionStorage.getItem('player');
         data = JSON.parse(data);
@@ -1784,12 +3196,65 @@ class Round extends React.Component {
         let info1 = '';
         let cinfo1 = '';
 
-        if (sessionStorage.getItem('att1') == 'BRAWL'){
+        if (this.pos() == 1){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 4);
+
+            hit = this.getHit('ELBOW');
+            dmg = this.getDamage(hit, 'ELBOW');
+
+            name = last;
+            msg = 'THROWS AN ELBOW';
+            info = hit + '/1 HIT, ' + dmg + ' DMG';
+            cinfo = '';
+
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            arr = this.getOppMsg();
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
+        }
+        else if (this.pos() == 2){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 6);
+
+            hit = this.getHit('ESCAPE');
+
+            name = last;
+            msg = 'ATTEMPTS TO STAND UP';
+            if (hit > 0) {
+                info = 'SUCCESSFUL';
+            }
+            else {
+                info = 'FAILED';
+            }
+            cinfo = '';
+
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            arr = this.getOppMsg();
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
+        }
+        else if (this.pos() == 3){
+            hit = this.getHit('GET UP');
+            dmg = this.getDamage(hit, 'GET UP');
+
+            name = last;
+            msg = 'LETS OPPONENT UP';
+            info = '';
+            cinfo = '';
+
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            arr = this.getOppMsg();
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
+        }
+        else if (sessionStorage.getItem('att1') == 'BRAWL'){
             sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 6);
 
             hit = this.getHit('BRAWL');
             dmg = this.getDamage(hit, 'BRAWL');
-            ctr = this.counterCalc(4 - hit, 1);
+            ctr = this.counterCalc(4 - hit, 'BRAWL');
             ctrDmg = this.getDamage1(ctr, 'BRAWL');
 
             name = last;
@@ -1797,14 +3262,13 @@ class Round extends React.Component {
             info = hit + '/4 HIT, ' + dmg + ' DMG';
             cinfo = this.counterInfo(ctr, ctrDmg);
 
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
             arr = this.getOppMsg();
-            name1 = sessionStorage.getItem('oppLast');
             msg1 = arr[1];
             info1 = arr[2];
             cinfo1 = arr[3];
         }
-
-        if (sessionStorage.getItem('att1') == 'BLITZ'){
+        else if (sessionStorage.getItem('att1') == 'BLITZ'){
             sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 8);
             
             hit = this.getHit('BLITZ');
@@ -1815,100 +3279,132 @@ class Round extends React.Component {
             info = hit + '/4 HIT, ' + dmg + ' DMG';
             cinfo = '';
 
-            name1 = sessionStorage.getItem('oppLast');
-            msg1 = 'THROWS 4 STRIKES';
-            info1 = '2/4 HIT, 30 DMG';
-            cinfo1 = '';
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            arr = this.getOppMsg();
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
         }
-
-        if (sessionStorage.getItem('att1') == 'PRESSURE'){
-            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 10);
+        else if (sessionStorage.getItem('att1') == 'PRESSURE'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 12);
             
             hit = this.getHit('PRESSURE');
             dmg = this.getDamage(hit, 'PRESSURE');
-            ctr = this.counterCalc(8 - hit, 1);
+            ctr = this.counterCalc(8 - hit, 'PRESSURE');
             ctrDmg = this.getDamage1(ctr, 'PRESSURE');
             
             name = last;
             msg = 'THROWS 8 STRIKES';
-            info = '4/8 HIT, 60 DMG';
+            info = hit + '/8 HIT, ' + dmg + ' DMG';
             cinfo = this.counterInfo(ctr, ctrDmg);
 
-            name1 = sessionStorage.getItem('oppLast');
-            msg1 = 'THROWS 4 STRIKES';
-            info1 = '2/4 HIT, 30 DMG';
-            cinfo1 = '';
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            arr = this.getOppMsg();
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
         }
-
-        if (sessionStorage.getItem('att1') == 'POWER'){
-            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 12);
+        else if (sessionStorage.getItem('att1') == 'POWER'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 16);
             
             hit = this.getHit('POWER');
             dmg = this.getDamage(hit, 'POWER');
-            ctr = this.counterCalc(4 - hit, 1);
+            ctr = this.counterCalc(4 - hit, 'POWER');
             ctrDmg = this.getDamage1(ctr, 'POWER');
 
             name = last;
             msg = 'THROWS 4 HEAVY STRIKES';
-            info = '2/4 HIT, 60 DMG';
+            info = hit + '/4 HIT, ' + dmg + ' DMG';
             cinfo = this.counterInfo(ctr, ctrDmg);
 
-            name1 = sessionStorage.getItem('oppLast');
-            msg1 = 'THROWS 4 STRIKES';
-            info1 = '2/4 HIT, 30 DMG';
-            cinfo1 = '';
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            arr = this.getOppMsg();
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
         }
-
-        if (sessionStorage.getItem('att1') == 'FEINT'){
+        else if (sessionStorage.getItem('att1') == 'FEINT'){
             sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 1);
+            
+            hit = this.getHit('FEINT');
+
             name = last;
             msg = 'FEINTS A STRIKE';
-            info = 'OPPONENT GUARD REDUCED FOR THE ROUND';
+            if (hit > 0) {
+                info = 'SUCCESSFUL';
+            }
+            else {
+                info = 'FAILED';
+            }
             cinfo = '';
 
-            name1 = sessionStorage.getItem('oppLast');
-            msg1 = 'THROWS 4 STRIKES';
-            info1 = '2/4 HIT, 30 DMG';
-            cinfo1 = '';
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            arr = this.getOppMsg();
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
         }
-
-        if (sessionStorage.getItem('att1') == 'LOW KICK'){
+        else if (sessionStorage.getItem('att1') == 'LOW KICK'){
             sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 4);
+
+            hit = this.getHit('LOW KICK');
+            dmg = this.getDamage(hit, 'LOW KICK');
+            ctr = this.counterCalc(1 - hit, 'LOW KICK');
+            ctrDmg = this.getDamage1(ctr, 'LOW KICK');
+            
             name = last;
-            msg = 'THROWS A CALF KICK';
-            info = '1/1 HIT, OPPONENT SPEED REDUCED';
-            cinfo = '';
+            msg = 'THROWS A LOW KICK';
+            info = hit + '/1 HIT, ' + dmg + ' DMG' + this.getKicked(hit);
+            cinfo = this.counterInfo(ctr, ctrDmg);
 
-            name1 = sessionStorage.getItem('oppLast');
-            msg1 = 'THROWS 4 STRIKES';
-            info1 = '2/4 HIT, 30 DMG';
-            cinfo1 = '';
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            arr = this.getOppMsg();
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
         }
-
-        if (sessionStorage.getItem('att1') == 'TAKEDOWN'){
+        else if (sessionStorage.getItem('att1') == 'TAKEDOWN'){
             sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 12);
+            
+            hit = this.getHit('TAKEDOWN');
+            ctr = this.counterCalc(1 - hit, 'TAKEDOWN');
+            ctrDmg = this.getDamage1(ctr, 'TAKEDOWN');
+            
             name = last;
             msg = 'ATTEMPTS A TAKEDOWN';
-            info = 'SUCCESSFUL';
-            cinfo = '';
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            if (hit > 0) {
+                info = 'SUCCESSFUL';
+                arr = this.getOppMsg();
+            }
+            else {
+                info = 'FAILED';
+                arr = this.getOppMsg();
+            }
+            cinfo = this.counterInfo(ctr, ctrDmg);
 
-            name1 = sessionStorage.getItem('oppLast');
-            msg1 = 'THROWS 4 STRIKES';
-            info1 = '2/4 HIT, 30 DMG';
-            cinfo1 = '';
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
         }
+        else if (sessionStorage.getItem('att1') == 'CLINCH'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 4);
+            
+            hit = this.getHit('CLINCH');
+            dmg = this.getDamage(hit, 'CLINCH');
+            ctr = this.counterCalc(2 - hit, 'CLINCH');
+            ctrDmg = this.getDamage1(ctr, 'CLINCH');
 
-        if (sessionStorage.getItem('att1') == 'CLINCH'){
-            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 8);
             name = last;
-            msg = 'THROWS 4 STRIKES AND CLINCHES';
-            info = '2/4 HIT, 30 DMG';
-            cinfo = '';
+            msg = 'THROWS 2 STRIKES AND CLINCHES';
+            info = hit + '/2 HIT, ' + dmg + ' DMG';
+            cinfo = this.counterInfo(ctr, ctrDmg);
 
-            name1 = sessionStorage.getItem('oppLast');
-            msg1 = 'THROWS 4 STRIKES';
-            info1 = '2/4 HIT, 30 DMG';
-            cinfo1 = '';
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            arr = this.getOppMsg();
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
         }
 
         if (sessionStorage.getItem('mCount') == 2){
@@ -1989,6 +3485,7 @@ class Round extends React.Component {
             sessionStorage.setItem('ctr14', cinfo1);
         }
         else if (sessionStorage.getItem('mCount') == 16){
+            sessionStorage.setItem('bell', 1);
             sessionStorage.setItem('name15', name);
             sessionStorage.setItem('move15', msg);
             sessionStorage.setItem('info15', info);
@@ -2002,6 +3499,9 @@ class Round extends React.Component {
     }
 
     mover2 = (event) => {
+        if (sessionStorage.getItem('win') == 1 || sessionStorage.getItem('win1') == 1 || sessionStorage.getItem('bell') == 1) {
+            return;
+        }
         sessionStorage.setItem('mCount', parseInt(sessionStorage.getItem('mCount')) + 2);
         let data = sessionStorage.getItem('player');
         data = JSON.parse(data);
@@ -2009,245 +3509,6 @@ class Round extends React.Component {
         let last = data.last;
         let o = '\xa0\xa0';
 
-        let hit = 0;
-        let dmg = 0;
-        let ctr = 0;
-        let ctrDmg = 0;
-
-        let name = '';
-        let msg = '';
-        let info = '';
-        let cinfo = '';
-
-        let name1 = '';
-        let msg1 = '';
-        let info1 = '';
-        let cinfo1 = '';
-
-        if (sessionStorage.getItem('att2') == 'BRAWL'){
-            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 6);
-            
-            hit = this.getHit('BRAWL');
-            dmg = this.getDamage(hit, 'BRAWL');
-            ctr = this.counterCalc(4 - hit, 1);
-            ctrDmg = this.getDamage1(ctr, 'BRAWL');
-
-            name = last;
-            msg = 'THROWS 4 STRIKES';
-            info = hit + '/4 HIT, ' + dmg + ' DMG';
-            cinfo = this.counterInfo(ctr, ctrDmg);
-
-            name1 = sessionStorage.getItem('oppLast');
-            msg1 = 'THROWS 4 STRIKES';
-            info1 = '2/4 HIT, 30 DMG';
-            cinfo1 = '';
-        }
-
-        if (sessionStorage.getItem('att2') == 'BLITZ'){
-            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 8);
-            
-            hit = this.getHit('BLITZ');
-            dmg = this.getDamage(hit, 'BLITZ');
-
-            name = last;
-            msg = 'BLITZES IN WITH 4 STRIKES';
-            info = hit + '/4 HIT, ' + dmg + ' DMG';
-            cinfo = '';
-
-            name1 = sessionStorage.getItem('oppLast');
-            msg1 = 'THROWS 4 STRIKES';
-            info1 = '2/4 HIT, 30 DMG';
-            cinfo1 = '';
-        }
-
-        if (sessionStorage.getItem('att2') == 'PRESSURE'){
-            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 10);
-            
-            hit = this.getHit('PRESSURE');
-            dmg = this.getDamage(hit, 'PRESSURE');
-            ctr = this.counterCalc(8 - hit, 1);
-            ctrDmg = this.getDamage1(ctr, 'PRESSURE');
-            
-            name = last;
-            msg = 'THROWS 8 STRIKES';
-            info = '4/8 HIT, 60 DMG';
-            cinfo = this.counterInfo(ctr, ctrDmg);
-
-            name1 = sessionStorage.getItem('oppLast');
-            msg1 = 'THROWS 4 STRIKES';
-            info1 = '2/4 HIT, 30 DMG';
-            cinfo1 = '';
-        }
-
-        if (sessionStorage.getItem('att2') == 'POWER'){
-            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 12);
-            
-            hit = this.getHit('POWER');
-            dmg = this.getDamage(hit, 'POWER');
-            ctr = this.counterCalc(4 - hit, 1);
-            ctrDmg = this.getDamage1(ctr, 'POWER');
-
-            name = last;
-            msg = 'THROWS 4 HEAVY STRIKES';
-            info = '2/4 HIT, 60 DMG';
-            cinfo = this.counterInfo(ctr, ctrDmg);
-
-            name1 = sessionStorage.getItem('oppLast');
-            msg1 = 'THROWS 4 STRIKES';
-            info1 = '2/4 HIT, 30 DMG';
-            cinfo1 = '';
-        }
-
-        if (sessionStorage.getItem('att2') == 'FEINT'){
-            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 1);
-            name = last;
-            msg = 'FEINTS A STRIKE';
-            info = 'OPPONENT GUARD REDUCED FOR THE ROUND';
-            cinfo = '';
-
-            name1 = sessionStorage.getItem('oppLast');
-            msg1 = 'THROWS 4 STRIKES';
-            info1 = '2/4 HIT, 30 DMG';
-            cinfo1 = '';
-        }
-
-        if (sessionStorage.getItem('att2') == 'LOW KICK'){
-            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 4);
-            name = last;
-            msg = 'THROWS A CALF KICK';
-            info = '1/1 HIT, OPPONENT SPEED REDUCED';
-            cinfo = '';
-
-            name1 = sessionStorage.getItem('oppLast');
-            msg1 = 'THROWS 4 STRIKES';
-            info1 = '2/4 HIT, 30 DMG';
-            cinfo1 = '';
-        }
-
-        if (sessionStorage.getItem('att2') == 'TAKEDOWN'){
-            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 12);
-            name = last;
-            msg = 'ATTEMPTS A TAKEDOWN';
-            info = 'SUCCESSFUL';
-            cinfo = '';
-
-            name1 = sessionStorage.getItem('oppLast');
-            msg1 = 'THROWS 4 STRIKES';
-            info1 = '2/4 HIT, 30 DMG';
-            cinfo1 = '';
-        }
-
-        if (sessionStorage.getItem('att2') == 'CLINCH'){
-            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 8);
-            name = last;
-            msg = 'THROWS 4 STRIKES AND CLINCHES';
-            info = '2/4 HIT, 30 DMG';
-            cinfo = '';
-
-            name1 = sessionStorage.getItem('oppLast');
-            msg1 = 'THROWS 4 STRIKES';
-            info1 = '2/4 HIT, 30 DMG';
-            cinfo1 = '';
-        }
-
-        if (sessionStorage.getItem('mCount') == 2){
-            sessionStorage.setItem('name01', name);
-            sessionStorage.setItem('move01', msg);
-            sessionStorage.setItem('info01', info);
-            sessionStorage.setItem('ctr01', cinfo);
-
-            sessionStorage.setItem('name02', name1);
-            sessionStorage.setItem('move02', msg1);
-            sessionStorage.setItem('info02', info1);
-            sessionStorage.setItem('ctr02', cinfo1);
-        }
-        else if (sessionStorage.getItem('mCount') == 4){
-            sessionStorage.setItem('name03', name);
-            sessionStorage.setItem('move03', msg);
-            sessionStorage.setItem('info03', info);
-            sessionStorage.setItem('ctr03', cinfo);
-
-            sessionStorage.setItem('name04', name1);
-            sessionStorage.setItem('move04', msg1);
-            sessionStorage.setItem('info04', info1);
-            sessionStorage.setItem('ctr04', cinfo1);
-        }
-        else if (sessionStorage.getItem('mCount') == 6){
-            sessionStorage.setItem('name05', name);
-            sessionStorage.setItem('move05', msg);
-            sessionStorage.setItem('info05', info);
-            sessionStorage.setItem('ctr05', cinfo);
-
-            sessionStorage.setItem('name06', name1);
-            sessionStorage.setItem('move06', msg1);
-            sessionStorage.setItem('info06', info1);
-            sessionStorage.setItem('ctr06', cinfo1);
-        }
-        else if (sessionStorage.getItem('mCount') == 8){
-            sessionStorage.setItem('name07', name);
-            sessionStorage.setItem('move07', msg);
-            sessionStorage.setItem('info07', info);
-            sessionStorage.setItem('ctr07', cinfo);
-
-            sessionStorage.setItem('name08', name1);
-            sessionStorage.setItem('move08', msg1);
-            sessionStorage.setItem('info08', info1);
-            sessionStorage.setItem('ctr08', cinfo1);
-        }
-        else if (sessionStorage.getItem('mCount') == 10){
-            sessionStorage.setItem('name09', name);
-            sessionStorage.setItem('move09', msg);
-            sessionStorage.setItem('info09', info);
-            sessionStorage.setItem('ctr09', cinfo);
-
-            sessionStorage.setItem('name10', name1);
-            sessionStorage.setItem('move10', msg1);
-            sessionStorage.setItem('info10', info1);
-            sessionStorage.setItem('ctr10', cinfo1);
-        }
-        else if (sessionStorage.getItem('mCount') == 12){
-            sessionStorage.setItem('name11', name);
-            sessionStorage.setItem('move11', msg);
-            sessionStorage.setItem('info11', info);
-            sessionStorage.setItem('ctr11', cinfo);
-
-            sessionStorage.setItem('name12', name1);
-            sessionStorage.setItem('move12', msg1);
-            sessionStorage.setItem('info12', info1);
-            sessionStorage.setItem('ctr12', cinfo1);
-        }
-        else if (sessionStorage.getItem('mCount') == 14){
-            sessionStorage.setItem('name13', name);
-            sessionStorage.setItem('move13', msg);
-            sessionStorage.setItem('info13', info);
-            sessionStorage.setItem('ctr13', cinfo);
-
-            sessionStorage.setItem('name14', name1);
-            sessionStorage.setItem('move14', msg1);
-            sessionStorage.setItem('info14', info1);
-            sessionStorage.setItem('ctr14', cinfo1);
-        }
-        else if (sessionStorage.getItem('mCount') == 16){
-            sessionStorage.setItem('name15', name);
-            sessionStorage.setItem('move15', msg);
-            sessionStorage.setItem('info15', info);
-            sessionStorage.setItem('ctr15', cinfo);
-
-            sessionStorage.setItem('name16', name1);
-            sessionStorage.setItem('move16', msg1);
-            sessionStorage.setItem('info16', info1);
-            sessionStorage.setItem('ctr16', cinfo1);
-        }
-    }
-    
-    mover3 = (event) => {
-        sessionStorage.setItem('mCount', parseInt(sessionStorage.getItem('mCount')) + 2);
-        let data = sessionStorage.getItem('player');
-        data = JSON.parse(data);
-        let first = data.first;
-        let last = data.last;
-        let o = '\xa0\xa0';
-        
         let hit = 0;
         let dmg = 0;
         let ctr = 0;
@@ -2264,12 +3525,71 @@ class Round extends React.Component {
         let info1 = '';
         let cinfo1 = '';
 
-        if (sessionStorage.getItem('att3') == 'BRAWL'){
+        if (this.pos() == 1){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 4);
+
+            hit = this.getHit('EXIT');
+
+            name = last;
+            msg = 'ATTEMPTS TO EXIT CLINCH';
+            if (hit > 0) {
+                info = 'SUCCESSFUL';
+            }
+            else {
+                info = 'FAILED';
+            }
+            cinfo = '';
+
+            arr = this.getOppMsg();
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
+        }
+        else if (this.pos() == 2){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 10);
+
+            hit = this.getHit('REVERSE');
+
+            name = last;
+            msg = 'ATTEMPTS A REVERSAL';
+            if (hit > 0) {
+                info = 'SUCCESSFUL';
+            }
+            else {
+                info = 'FAILED';
+            }
+            cinfo = '';
+
+            arr = this.getOppMsg();
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
+        }
+        else if (this.pos() == 3){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 4);
+
+            hit = this.getHit('G&P');
+            dmg = this.getDamage(hit, 'G&P');
+
+            name = last;
+            msg = 'THROWS GROUND & POUND';
+            info = hit + '/4 HIT, ' + dmg + ' DMG';
+            cinfo = '';
+
+            arr = this.getOppMsg();
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
+        }
+        else if (sessionStorage.getItem('att2') == 'BRAWL'){
             sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 6);
 
             hit = this.getHit('BRAWL');
             dmg = this.getDamage(hit, 'BRAWL');
-            ctr = this.counterCalc(4 - hit, 1);
+            ctr = this.counterCalc(4 - hit, 'BRAWL');
             ctrDmg = this.getDamage1(ctr, 'BRAWL');
 
             name = last;
@@ -2277,14 +3597,13 @@ class Round extends React.Component {
             info = hit + '/4 HIT, ' + dmg + ' DMG';
             cinfo = this.counterInfo(ctr, ctrDmg);
 
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
             arr = this.getOppMsg();
-            name1 = sessionStorage.getItem('oppLast');
             msg1 = arr[1];
             info1 = arr[2];
             cinfo1 = arr[3];
         }
-
-        if (sessionStorage.getItem('att3') == 'BLITZ'){
+        else if (sessionStorage.getItem('att2') == 'BLITZ'){
             sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 8);
             
             hit = this.getHit('BLITZ');
@@ -2295,100 +3614,132 @@ class Round extends React.Component {
             info = hit + '/4 HIT, ' + dmg + ' DMG';
             cinfo = '';
 
-            name1 = sessionStorage.getItem('oppLast');
-            msg1 = 'THROWS 4 STRIKES';
-            info1 = '2/4 HIT, 30 DMG';
-            cinfo1 = '';
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            arr = this.getOppMsg();
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
         }
-
-        if (sessionStorage.getItem('att3') == 'PRESSURE'){
-            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 10);
+        else if (sessionStorage.getItem('att2') == 'PRESSURE'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 12);
             
             hit = this.getHit('PRESSURE');
             dmg = this.getDamage(hit, 'PRESSURE');
-            ctr = this.counterCalc(8 - hit, 1);
+            ctr = this.counterCalc(8 - hit, 'PRESSURE');
             ctrDmg = this.getDamage1(ctr, 'PRESSURE');
             
             name = last;
             msg = 'THROWS 8 STRIKES';
-            info = '4/8 HIT, 60 DMG';
+            info = hit + '/8 HIT, ' + dmg + ' DMG';
             cinfo = this.counterInfo(ctr, ctrDmg);
 
-            name1 = sessionStorage.getItem('oppLast');
-            msg1 = 'THROWS 4 STRIKES';
-            info1 = '2/4 HIT, 30 DMG';
-            cinfo1 = '';
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            arr = this.getOppMsg();
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
         }
-
-        if (sessionStorage.getItem('att3') == 'POWER'){
-            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 12);
+        else if (sessionStorage.getItem('att2') == 'POWER'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 16);
             
             hit = this.getHit('POWER');
             dmg = this.getDamage(hit, 'POWER');
-            ctr = this.counterCalc(4 - hit, 1);
+            ctr = this.counterCalc(4 - hit, 'POWER');
             ctrDmg = this.getDamage1(ctr, 'POWER');
 
             name = last;
             msg = 'THROWS 4 HEAVY STRIKES';
-            info = '2/4 HIT, 60 DMG';
+            info = hit + '/4 HIT, ' + dmg + ' DMG';
             cinfo = this.counterInfo(ctr, ctrDmg);
 
-            name1 = sessionStorage.getItem('oppLast');
-            msg1 = 'THROWS 4 STRIKES';
-            info1 = '2/4 HIT, 30 DMG';
-            cinfo1 = '';
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            arr = this.getOppMsg();
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
         }
-
-        if (sessionStorage.getItem('att3') == 'FEINT'){
+        else if (sessionStorage.getItem('att2') == 'FEINT'){
             sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 1);
+            
+            hit = this.getHit('FEINT');
+
             name = last;
             msg = 'FEINTS A STRIKE';
-            info = 'OPPONENT GUARD REDUCED FOR THE ROUND';
+            if (hit > 0) {
+                info = 'SUCCESSFUL';
+            }
+            else {
+                info = 'FAILED';
+            }
             cinfo = '';
 
-            name1 = sessionStorage.getItem('oppLast');
-            msg1 = 'THROWS 4 STRIKES';
-            info1 = '2/4 HIT, 30 DMG';
-            cinfo1 = '';
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            arr = this.getOppMsg();
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
         }
-
-        if (sessionStorage.getItem('att3') == 'LOW KICK'){
+        else if (sessionStorage.getItem('att2') == 'LOW KICK'){
             sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 4);
+
+            hit = this.getHit('LOW KICK');
+            dmg = this.getDamage(hit, 'LOW KICK');
+            ctr = this.counterCalc(1 - hit, 'LOW KICK');
+            ctrDmg = this.getDamage1(ctr, 'LOW KICK');
+            
             name = last;
-            msg = 'THROWS A CALF KICK';
-            info = '1/1 HIT, OPPONENT SPEED REDUCED';
-            cinfo = '';
+            msg = 'THROWS A LOW KICK';
+            info = hit + '/1 HIT, ' + dmg + ' DMG' + this.getKicked(hit);
+            cinfo = this.counterInfo(ctr, ctrDmg);
 
-            name1 = sessionStorage.getItem('oppLast');
-            msg1 = 'THROWS 4 STRIKES';
-            info1 = '2/4 HIT, 30 DMG';
-            cinfo1 = '';
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            arr = this.getOppMsg();
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
         }
-
-        if (sessionStorage.getItem('att3') == 'TAKEDOWN'){
+        else if (sessionStorage.getItem('att2') == 'TAKEDOWN'){
             sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 12);
+            
+            hit = this.getHit('TAKEDOWN');
+            ctr = this.counterCalc(1 - hit, 'TAKEDOWN');
+            ctrDmg = this.getDamage1(ctr, 'TAKEDOWN');
+            
             name = last;
             msg = 'ATTEMPTS A TAKEDOWN';
-            info = 'SUCCESSFUL';
-            cinfo = '';
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            if (hit > 0) {
+                info = 'SUCCESSFUL';
+                arr = this.getOppMsg();
+            }
+            else {
+                info = 'FAILED';
+                arr = this.getOppMsg();
+            }
+            cinfo = this.counterInfo(ctr, ctrDmg);
 
-            name1 = sessionStorage.getItem('oppLast');
-            msg1 = 'THROWS 4 STRIKES';
-            info1 = '2/4 HIT, 30 DMG';
-            cinfo1 = '';
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
         }
+        else if (sessionStorage.getItem('att2') == 'CLINCH'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 4);
+            
+            hit = this.getHit('CLINCH');
+            dmg = this.getDamage(hit, 'CLINCH');
+            ctr = this.counterCalc(2 - hit, 'CLINCH');
+            ctrDmg = this.getDamage1(ctr, 'CLINCH');
 
-        if (sessionStorage.getItem('att3') == 'CLINCH'){
-            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 8);
             name = last;
-            msg = 'THROWS 4 STRIKES AND CLINCHES';
-            info = '2/4 HIT, 30 DMG';
-            cinfo = '';
+            msg = 'THROWS 2 STRIKES AND CLINCHES';
+            info = hit + '/2 HIT, ' + dmg + ' DMG';
+            cinfo = this.counterInfo(ctr, ctrDmg);
 
-            name1 = sessionStorage.getItem('oppLast');
-            msg1 = 'THROWS 4 STRIKES';
-            info1 = '2/4 HIT, 30 DMG';
-            cinfo1 = '';
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            arr = this.getOppMsg();
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
         }
 
         if (sessionStorage.getItem('mCount') == 2){
@@ -2469,6 +3820,7 @@ class Round extends React.Component {
             sessionStorage.setItem('ctr14', cinfo1);
         }
         else if (sessionStorage.getItem('mCount') == 16){
+            sessionStorage.setItem('bell', 1);
             sessionStorage.setItem('name15', name);
             sessionStorage.setItem('move15', msg);
             sessionStorage.setItem('info15', info);
@@ -2478,6 +3830,441 @@ class Round extends React.Component {
             sessionStorage.setItem('move16', msg1);
             sessionStorage.setItem('info16', info1);
             sessionStorage.setItem('ctr16', cinfo1);
+        }
+    }
+    
+    mover3 = (event) => {
+        if (sessionStorage.getItem('win') == 1 || sessionStorage.getItem('win1') == 1 || sessionStorage.getItem('bell') == 1) {
+            return;
+        }
+        sessionStorage.setItem('mCount', parseInt(sessionStorage.getItem('mCount')) + 2);
+        let data = sessionStorage.getItem('player');
+        data = JSON.parse(data);
+        let first = data.first;
+        let last = data.last;
+        let o = '\xa0\xa0';
+
+        let hit = 0;
+        let dmg = 0;
+        let ctr = 0;
+        let ctrDmg = 0;
+
+        let name = '';
+        let msg = '';
+        let info = '';
+        let cinfo = '';
+
+        let arr;
+        let name1 = '';
+        let msg1 = '';
+        let info1 = '';
+        let cinfo1 = '';
+
+        if (this.pos() == 1){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 4);
+
+            hit = this.getHit('TRIP');
+
+            name = last;
+            msg = 'ATTEMPTS A TRIP';
+            if (hit > 0) {
+                info = 'SUCCESSFUL';
+            }
+            else {
+                info = 'FAILED';
+            }
+            cinfo = '';
+
+            arr = this.getOppMsg();
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
+        }
+        else if (this.pos() == 2){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 10);
+
+            hit = this.getHit('SUBMISSIONbot');
+
+            name = last;
+            msg = 'ATTEMPTS A SUBMISSION FROM BOTTOM';
+            if (hit > 0) {
+                info = 'SUCCESSFUL';
+            }
+            else {
+                info = 'FAILED';
+            }
+            cinfo = '';
+
+            arr = this.getOppMsg();
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
+        }
+        else if (this.pos() == 3){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 10);
+
+            hit = this.getHit('SUBMISSIONtop');
+
+            name = last;
+            msg = 'ATTEMPTS A SUBMISSION FROM TOP';
+            if (hit > 0) {
+                info = 'SUCCESSFUL';
+            }
+            else {
+                info = 'FAILED';
+            }
+            cinfo = '';
+
+            arr = this.getOppMsg();
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
+        }
+        else if (sessionStorage.getItem('att3') == 'BRAWL'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 6);
+
+            hit = this.getHit('BRAWL');
+            dmg = this.getDamage(hit, 'BRAWL');
+            ctr = this.counterCalc(4 - hit, 'BRAWL');
+            ctrDmg = this.getDamage1(ctr, 'BRAWL');
+
+            name = last;
+            msg = 'THROWS 4 STRIKES';
+            info = hit + '/4 HIT, ' + dmg + ' DMG';
+            cinfo = this.counterInfo(ctr, ctrDmg);
+
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            arr = this.getOppMsg();
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
+        }
+        else if (sessionStorage.getItem('att3') == 'BLITZ'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 8);
+            
+            hit = this.getHit('BLITZ');
+            dmg = this.getDamage(hit, 'BLITZ');
+
+            name = last;
+            msg = 'BLITZES IN WITH 4 STRIKES';
+            info = hit + '/4 HIT, ' + dmg + ' DMG';
+            cinfo = '';
+
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            arr = this.getOppMsg();
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
+        }
+        else if (sessionStorage.getItem('att3') == 'PRESSURE'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 12);
+            
+            hit = this.getHit('PRESSURE');
+            dmg = this.getDamage(hit, 'PRESSURE');
+            ctr = this.counterCalc(8 - hit, 'PRESSURE');
+            ctrDmg = this.getDamage1(ctr, 'PRESSURE');
+            
+            name = last;
+            msg = 'THROWS 8 STRIKES';
+            info = hit + '/8 HIT, ' + dmg + ' DMG';
+            cinfo = this.counterInfo(ctr, ctrDmg);
+
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            arr = this.getOppMsg();
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
+        }
+        else if (sessionStorage.getItem('att3') == 'POWER'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 16);
+            
+            hit = this.getHit('POWER');
+            dmg = this.getDamage(hit, 'POWER');
+            ctr = this.counterCalc(4 - hit, 'POWER');
+            ctrDmg = this.getDamage1(ctr, 'POWER');
+
+            name = last;
+            msg = 'THROWS 4 HEAVY STRIKES';
+            info = hit + '/4 HIT, ' + dmg + ' DMG';
+            cinfo = this.counterInfo(ctr, ctrDmg);
+
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            arr = this.getOppMsg();
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
+        }
+        else if (sessionStorage.getItem('att3') == 'FEINT'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 1);
+            
+            hit = this.getHit('FEINT');
+
+            name = last;
+            msg = 'FEINTS A STRIKE';
+            if (hit > 0) {
+                info = 'SUCCESSFUL';
+            }
+            else {
+                info = 'FAILED';
+            }
+            cinfo = '';
+
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            arr = this.getOppMsg();
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
+        }
+        else if (sessionStorage.getItem('att3') == 'LOW KICK'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 4);
+
+            hit = this.getHit('LOW KICK');
+            dmg = this.getDamage(hit, 'LOW KICK');
+            ctr = this.counterCalc(1 - hit, 'LOW KICK');
+            ctrDmg = this.getDamage1(ctr, 'LOW KICK');
+            
+            name = last;
+            msg = 'THROWS A LOW KICK';
+            info = hit + '/1 HIT, ' + dmg + ' DMG' + this.getKicked(hit);
+            cinfo = this.counterInfo(ctr, ctrDmg);
+
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            arr = this.getOppMsg();
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
+        }
+        else if (sessionStorage.getItem('att3') == 'TAKEDOWN'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 12);
+            
+            hit = this.getHit('TAKEDOWN');
+            ctr = this.counterCalc(1 - hit, 'TAKEDOWN');
+            ctrDmg = this.getDamage1(ctr, 'TAKEDOWN');
+            
+            name = last;
+            msg = 'ATTEMPTS A TAKEDOWN';
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            if (hit > 0) {
+                info = 'SUCCESSFUL';
+                arr = this.getOppMsg();
+            }
+            else {
+                info = 'FAILED';
+                arr = this.getOppMsg();
+            }
+            cinfo = this.counterInfo(ctr, ctrDmg);
+
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
+        }
+        else if (sessionStorage.getItem('att3') == 'CLINCH'){
+            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 4);
+            
+            hit = this.getHit('CLINCH');
+            dmg = this.getDamage(hit, 'CLINCH');
+            ctr = this.counterCalc(2 - hit, 'CLINCH');
+            ctrDmg = this.getDamage1(ctr, 'CLINCH');
+
+            name = last;
+            msg = 'THROWS 2 STRIKES AND CLINCHES';
+            info = hit + '/2 HIT, ' + dmg + ' DMG';
+            cinfo = this.counterInfo(ctr, ctrDmg);
+
+            name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
+            arr = this.getOppMsg();
+            msg1 = arr[1];
+            info1 = arr[2];
+            cinfo1 = arr[3];
+        }
+
+        if (sessionStorage.getItem('mCount') == 2){
+            sessionStorage.setItem('name01', name);
+            sessionStorage.setItem('move01', msg);
+            sessionStorage.setItem('info01', info);
+            sessionStorage.setItem('ctr01', cinfo);
+
+            sessionStorage.setItem('name02', name1);
+            sessionStorage.setItem('move02', msg1);
+            sessionStorage.setItem('info02', info1);
+            sessionStorage.setItem('ctr02', cinfo1);
+        }
+        else if (sessionStorage.getItem('mCount') == 4){
+            sessionStorage.setItem('name03', name);
+            sessionStorage.setItem('move03', msg);
+            sessionStorage.setItem('info03', info);
+            sessionStorage.setItem('ctr03', cinfo);
+
+            sessionStorage.setItem('name04', name1);
+            sessionStorage.setItem('move04', msg1);
+            sessionStorage.setItem('info04', info1);
+            sessionStorage.setItem('ctr04', cinfo1);
+        }
+        else if (sessionStorage.getItem('mCount') == 6){
+            sessionStorage.setItem('name05', name);
+            sessionStorage.setItem('move05', msg);
+            sessionStorage.setItem('info05', info);
+            sessionStorage.setItem('ctr05', cinfo);
+
+            sessionStorage.setItem('name06', name1);
+            sessionStorage.setItem('move06', msg1);
+            sessionStorage.setItem('info06', info1);
+            sessionStorage.setItem('ctr06', cinfo1);
+        }
+        else if (sessionStorage.getItem('mCount') == 8){
+            sessionStorage.setItem('name07', name);
+            sessionStorage.setItem('move07', msg);
+            sessionStorage.setItem('info07', info);
+            sessionStorage.setItem('ctr07', cinfo);
+
+            sessionStorage.setItem('name08', name1);
+            sessionStorage.setItem('move08', msg1);
+            sessionStorage.setItem('info08', info1);
+            sessionStorage.setItem('ctr08', cinfo1);
+        }
+        else if (sessionStorage.getItem('mCount') == 10){
+            sessionStorage.setItem('name09', name);
+            sessionStorage.setItem('move09', msg);
+            sessionStorage.setItem('info09', info);
+            sessionStorage.setItem('ctr09', cinfo);
+
+            sessionStorage.setItem('name10', name1);
+            sessionStorage.setItem('move10', msg1);
+            sessionStorage.setItem('info10', info1);
+            sessionStorage.setItem('ctr10', cinfo1);
+        }
+        else if (sessionStorage.getItem('mCount') == 12){
+            sessionStorage.setItem('name11', name);
+            sessionStorage.setItem('move11', msg);
+            sessionStorage.setItem('info11', info);
+            sessionStorage.setItem('ctr11', cinfo);
+
+            sessionStorage.setItem('name12', name1);
+            sessionStorage.setItem('move12', msg1);
+            sessionStorage.setItem('info12', info1);
+            sessionStorage.setItem('ctr12', cinfo1);
+        }
+        else if (sessionStorage.getItem('mCount') == 14){
+            sessionStorage.setItem('name13', name);
+            sessionStorage.setItem('move13', msg);
+            sessionStorage.setItem('info13', info);
+            sessionStorage.setItem('ctr13', cinfo);
+
+            sessionStorage.setItem('name14', name1);
+            sessionStorage.setItem('move14', msg1);
+            sessionStorage.setItem('info14', info1);
+            sessionStorage.setItem('ctr14', cinfo1);
+        }
+        else if (sessionStorage.getItem('mCount') == 16){
+            sessionStorage.setItem('bell', 1);
+            sessionStorage.setItem('name15', name);
+            sessionStorage.setItem('move15', msg);
+            sessionStorage.setItem('info15', info);
+            sessionStorage.setItem('ctr15', cinfo);
+
+            sessionStorage.setItem('name16', name1);
+            sessionStorage.setItem('move16', msg1);
+            sessionStorage.setItem('info16', info1);
+            sessionStorage.setItem('ctr16', cinfo1);
+        }
+    }
+
+    nextRound() {
+        if (sessionStorage.getItem('bell') == 0){
+        }
+        else {
+            let round = parseInt(sessionStorage.getItem('round'));
+            sessionStorage.setItem('round', round + 1);
+            sessionStorage.setItem('bell', 0);
+
+            sessionStorage.setItem('clinched', 0);
+            sessionStorage.setItem('tookdown', 0);
+            sessionStorage.setItem('tookdown1', 0);
+
+            sessionStorage.setItem('mCount', 0);
+
+            sessionStorage.setItem('name01', '');
+            sessionStorage.setItem('move01', '');
+            sessionStorage.setItem('info01', '');
+            sessionStorage.setItem('ctr01', '');
+
+            sessionStorage.setItem('name02', '');
+            sessionStorage.setItem('move02', '');
+            sessionStorage.setItem('info02', '');
+            sessionStorage.setItem('ctr02', '');
+
+            sessionStorage.setItem('name03', '');
+            sessionStorage.setItem('move03', '');
+            sessionStorage.setItem('info03', '');
+            sessionStorage.setItem('ctr03', '');
+
+            sessionStorage.setItem('name04', '');
+            sessionStorage.setItem('move04', '');
+            sessionStorage.setItem('info04', '');
+            sessionStorage.setItem('ctr04', '');
+            
+            sessionStorage.setItem('name05', '');
+            sessionStorage.setItem('move05', '');
+            sessionStorage.setItem('info05', '');
+            sessionStorage.setItem('ctr05', '');
+
+            sessionStorage.setItem('name06', '');
+            sessionStorage.setItem('move06', '');
+            sessionStorage.setItem('info06', '');
+            sessionStorage.setItem('ctr06', '');
+            
+            sessionStorage.setItem('name07', '');
+            sessionStorage.setItem('move07', '');
+            sessionStorage.setItem('info07', '');
+            sessionStorage.setItem('ctr07', '');
+
+            sessionStorage.setItem('name08', '');
+            sessionStorage.setItem('move08', '');
+            sessionStorage.setItem('info08', '');
+            sessionStorage.setItem('ctr08', '');
+            
+            sessionStorage.setItem('name09', '');
+            sessionStorage.setItem('move09', '');
+            sessionStorage.setItem('info09', '');
+            sessionStorage.setItem('ctr09', '');
+
+            sessionStorage.setItem('name10', '');
+            sessionStorage.setItem('move10', '');
+            sessionStorage.setItem('info10', '');
+            sessionStorage.setItem('ctr10', '');
+            
+            sessionStorage.setItem('name11', '');
+            sessionStorage.setItem('move11', '');
+            sessionStorage.setItem('info11', '');
+            sessionStorage.setItem('ctr11', '');
+
+            sessionStorage.setItem('name12', '');
+            sessionStorage.setItem('move12', '');
+            sessionStorage.setItem('info12', '');
+            sessionStorage.setItem('ctr12', '');
+            
+            sessionStorage.setItem('name13', '');
+            sessionStorage.setItem('move13', '');
+            sessionStorage.setItem('info13', '');
+            sessionStorage.setItem('ctr13', '');
+
+            sessionStorage.setItem('name14', '');
+            sessionStorage.setItem('move14', '');
+            sessionStorage.setItem('info14', '');
+            sessionStorage.setItem('ctr14', '');
+            
+            sessionStorage.setItem('name15', '');
+            sessionStorage.setItem('move15', '');
+            sessionStorage.setItem('info15', '');
+            sessionStorage.setItem('ctr15', '');
+
+            sessionStorage.setItem('name16', '');
+            sessionStorage.setItem('move16', '');
+            sessionStorage.setItem('info16', '');
+            sessionStorage.setItem('ctr16', '');
         }
     }
 
@@ -2610,17 +4397,17 @@ class Round extends React.Component {
                     <text style={{color: 'yellow'}}>{sessionStorage.getItem('name16')}</text>{w1}{sessionStorage.getItem('move16')}{w}<text style={{color: 'red'}}>{sessionStorage.getItem('info16')}</text><text style={{color: 'orange'}}>{sessionStorage.getItem('ctr16')}</text>
                 </div>
                 <div className="App-customize1a" style={{marginTop: -60}}>
-                    <Link to='./round'><Button data-tip data-for="4" onClick={this.mover0}>STICK</Button></Link>
-                    <ReactTooltip class="Membership" id="4" place="top" effect="float"><text style={{fontSize: 30}}>STICK & MOVE</text> {this.calcPer('STICK')}% ACC.<br/>LIGHT AND CONSERVATIVE JABS<br/><b>2 STAMINA</b></ReactTooltip>
-                    <Link to='./round'><Button data-tip data-for="1" onClick={this.mover1}>{sessionStorage.getItem('att1')}</Button></Link>
-                    <ReactTooltip class="Membership" id="1" place="top" effect="float"><text style={{fontSize: 30}}>{this.attDesc1a()}</text> {this.calcPer(sessionStorage.getItem('att1'))}% ACC.<br/>{this.attDesc1b()}<br/><b>{this.attDesc1c()} STAMINA</b></ReactTooltip>
-                    <Link to='./round'><Button data-tip data-for="2" onClick={this.mover2}>{sessionStorage.getItem('att2')}</Button></Link>
-                    <ReactTooltip class="Membership" id="2" place="top" effect="float"><text style={{fontSize: 30}}>{this.attDesc2a()}</text> {this.calcPer(sessionStorage.getItem('att2'))}% ACC.<br/>{this.attDesc2b()}<br/><b>{this.attDesc2c()} STAMINA</b></ReactTooltip>
-                    <Link to='./round'><Button data-tip data-for="3" onClick={this.mover3}>{sessionStorage.getItem('att3')}</Button></Link>
-                    <ReactTooltip class="Membership" id="3" place="top" effect="float"><text style={{fontSize: 30}}>{this.attDesc3a()}</text> {this.calcPer(sessionStorage.getItem('att3'))}% ACC.<br/>{this.attDesc3b()}<br/><b>{this.attDesc3c()} STAMINA</b></ReactTooltip>
+                    <Link to='./round'><Button data-tip data-for="4" style={(sessionStorage.getItem('win') == 1 || sessionStorage.getItem('win1') == 1 || sessionStorage.getItem('bell') == 1) ? {border: '2px solid gray', color: 'gray'} : {}} onClick={this.mover0}>{(this.pos() == 0) ? 'STICK' : (this.pos() == 1) ? 'KNEE' : 'STALL'}</Button></Link>
+                    <ReactTooltip class="Membership" id="4" place="top" effect="float"><text style={{fontSize: 30}}>{(this.pos() == 0) ? 'STICK & MOVE' : (this.pos() == 1) ? 'KNEE' : 'STALL'}</text> <text style={sessionStorage.getItem('feinted1') == 1 ? {color: 'green'} : {}}>{(this.pos() == 0) ? this.calcPer('STICK') : (this.pos() == 1) ? this.calcPer('KNEE') : 100}% ACC.</text><br/>{(this.pos() == 0) ? 'LIGHT & CONSERVATIVE JABS' : (this.pos() == 1) ? 'RELIABLE CLINCH STRIKE' : 'DO NOTHING'}<br/><b>{(this.pos() == 0 || this.pos() == 1 || this.pos() == 2) ? '2 STAMINA' : '0 STAMINA'}</b></ReactTooltip>
+                    <Link to='./round'><Button data-tip data-for="1" style={(sessionStorage.getItem('win') == 1 || sessionStorage.getItem('win1') == 1 || sessionStorage.getItem('bell') == 1) ? {border: '2px solid gray', color: 'gray'} : {}} onClick={this.mover1}>{(this.pos() == 0) ? sessionStorage.getItem('att1') : (this.pos() == 1) ? 'ELBOW' : (this.pos() == 2) ? 'ESCAPE' : 'GET UP'}</Button></Link>
+                    <ReactTooltip class="Membership" id="1" place="top" effect="float"><text style={{fontSize: 30}}>{(this.pos() == 0) ? this.attDesc1a() : (this.pos() == 1) ? 'ELBOW' : (this.pos() == 2) ? 'ESCAPE' : 'GET UP'}</text> <text style={sessionStorage.getItem('feinted1') == 1 ? {color: 'green'} : {}}>{(this.pos() == 0) ? this.calcPer(sessionStorage.getItem('att1')) : (this.pos() == 1) ? this.calcPer('ELBOW') : (this.pos() == 2) ? this.calcPer('ESCAPE') : this.calcPer('GET UP')}% ACC.</text><br/>{(this.pos() == 0) ? this.attDesc1b() : (this.pos() == 1) ? 'HEAVY CLINCH STRIKE' : (this.pos() == 2) ? 'ATTEMPT TO STAND UP' : 'LET OPPONENT UP'}<br/><b>{(this.pos() == 0) ? this.attDesc1c() : (this.pos() == 1) ? '4' : (this.pos() == 2) ? '6' : '0'} STAMINA</b></ReactTooltip>
+                    <Link to='./round'><Button data-tip data-for="2" style={(sessionStorage.getItem('win') == 1 || sessionStorage.getItem('win1') == 1 || sessionStorage.getItem('bell') == 1) ? {border: '2px solid gray', color: 'gray'} : {}} onClick={this.mover2}>{(this.pos() == 0) ? sessionStorage.getItem('att2') : (this.pos() == 1) ? 'EXIT' : (this.pos() == 2) ? 'REVERSE' : 'G & P'}</Button></Link>
+                    <ReactTooltip class="Membership" id="2" place="top" effect="float"><text style={{fontSize: 30}}>{(this.pos() == 0) ? this.attDesc2a() : (this.pos() == 1) ? 'EXIT' : (this.pos() == 2) ? 'REVERSE' : 'GROUND & POUND'}</text> <text style={sessionStorage.getItem('feinted1') == 1 ? {color: 'green'} : {}}>{(this.pos() == 0) ? this.calcPer(sessionStorage.getItem('att2')) : (this.pos() == 1) ? this.calcPer('EXIT') : (this.pos() == 2) ? this.calcPer('REVERSE') : this.calcPer('G&P')}% ACC.</text><br/>{(this.pos() == 0) ? this.attDesc2b() : (this.pos() == 1) ? 'ATTEMPT TO EXIT CLINCH' : (this.pos() == 2) ? 'ATTEMPT TO GAIN TOP POSITION' : 'STRIKE OPPONENT'}<br/><b>{(this.pos() == 0) ? this.attDesc2c() : (this.pos() == 1) ? '4' : (this.pos() == 2) ? '10' : '4'} STAMINA</b></ReactTooltip>
+                    <Link to='./round'><Button data-tip data-for="3" style={(sessionStorage.getItem('win') == 1 || sessionStorage.getItem('win1') == 1 || sessionStorage.getItem('bell') == 1) ? {border: '2px solid gray', color: 'gray'} : {}} onClick={this.mover3}>{(this.pos() == 0) ? sessionStorage.getItem('att3') : (this.pos() == 1) ? 'TRIP' : (this.pos() == 2) ? 'SUBMISSION' : 'SUBMISSION'}</Button></Link>
+                    <ReactTooltip class="Membership" id="3" place="top" effect="float"><text style={{fontSize: 30}}>{(this.pos() == 0) ? this.attDesc3a() : (this.pos() == 1) ? 'TRIP' : (this.pos() == 2) ? 'SUBMISSION' : 'SUBMISSION'}</text> <text style={sessionStorage.getItem('feinted1') == 1 ? {color: 'green'} : {}}>{(this.pos() == 0) ? this.calcPer(sessionStorage.getItem('att3')) : (this.pos() == 1) ? this.calcPer('TRIP') : (this.pos() == 2) ? this.calcPer('SUBMISSIONbot') : this.calcPer('SUBMISSIONtop')}% ACC.</text><br/>{(this.pos() == 0) ? this.attDesc3b() : (this.pos() == 1) ? 'ATTEMPT TO BRING TO GROUND' : (this.pos() == 2) ? 'ATTEMPT SUBMISSION FROM BOTTOM POSITION' : 'ATTEMPT SUBMISSION FROM TOP POSITION'}<br/><b>{(this.pos() == 0) ? this.attDesc3c() : (this.pos() == 1) ? '6' : (this.pos() == 2) ? '10' : '10'} STAMINA</b></ReactTooltip>
                 </div>
                 <div className="App-customize1a" style={{marginTop: 0}}>
-                    <Link to='./bout0'><Button>FIGHT</Button></Link>
+                    <Link to={(sessionStorage.getItem('win') == 1 || sessionStorage.getItem('win1') == 1) ? './' : './round'}><Button style={(sessionStorage.getItem('win') == 0 && sessionStorage.getItem('win1') == 0 && sessionStorage.getItem('bell') == 0) ? {border: '2px solid gray', color: 'gray'} : {}} onClick={this.nextRound}><text>NEXT</text></Button></Link>
                 </div>
             </div>
         )

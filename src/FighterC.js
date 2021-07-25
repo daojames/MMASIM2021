@@ -138,6 +138,15 @@ class FighterC extends React.Component {
         else if(str == 'HEAVYWEIGHT'){
             return '265';
         }
+        else if(str == 'WSTRAWWEIGHT'){
+            return '115';
+        }
+        else if(str == 'WFLYWEIGHT'){
+            return '125';
+        }
+        else if(str == 'WBANTAMWEIGHT'){
+            return '135';
+        }
     }
 
     calcMonth(month){
@@ -228,6 +237,21 @@ class FighterC extends React.Component {
             data = JSON.parse(data);
             return data.first;
         }
+        else if(str == 9) {
+            data = sessionStorage.getItem('wstC');
+            data = JSON.parse(data);
+            return data.first;
+        }
+        else if(str == 10) {
+            data = sessionStorage.getItem('wflC');
+            data = JSON.parse(data);
+            return data.first;
+        }
+        else if(str == 11) {
+            data = sessionStorage.getItem('wbaC');
+            data = JSON.parse(data);
+            return data.first;
+        }
     }
 
     getLast(str) {
@@ -269,6 +293,21 @@ class FighterC extends React.Component {
         }
         else if(str == 8) {
             data = sessionStorage.getItem('heaC');
+            data = JSON.parse(data);
+            return data.last;
+        }
+        else if(str == 9) {
+            data = sessionStorage.getItem('wstC');
+            data = JSON.parse(data);
+            return data.last;
+        }
+        else if(str == 10) {
+            data = sessionStorage.getItem('wflC');
+            data = JSON.parse(data);
+            return data.last;
+        }
+        else if(str == 11) {
+            data = sessionStorage.getItem('wbaC');
             data = JSON.parse(data);
             return data.last;
         }
@@ -316,6 +355,21 @@ class FighterC extends React.Component {
             data = JSON.parse(data);
             return data.weight;
         }
+        else if(str == 9) {
+            data = sessionStorage.getItem('wstC');
+            data = JSON.parse(data);
+            return data.weight;
+        }
+        else if(str == 10) {
+            data = sessionStorage.getItem('wflC');
+            data = JSON.parse(data);
+            return data.weight;
+        }
+        else if(str == 11) {
+            data = sessionStorage.getItem('wbaC');
+            data = JSON.parse(data);
+            return data.weight;
+        }
     }
 
     getHeight(str) {
@@ -357,6 +411,21 @@ class FighterC extends React.Component {
         }
         else if(str == 8) {
             data = sessionStorage.getItem('heaC');
+            data = JSON.parse(data);
+            return data.height;
+        }
+        else if(str == 9) {
+            data = sessionStorage.getItem('wstC');
+            data = JSON.parse(data);
+            return data.height;
+        }
+        else if(str == 10) {
+            data = sessionStorage.getItem('wflC');
+            data = JSON.parse(data);
+            return data.height;
+        }
+        else if(str == 11) {
+            data = sessionStorage.getItem('wbaC');
             data = JSON.parse(data);
             return data.height;
         }
@@ -404,6 +473,21 @@ class FighterC extends React.Component {
             data = JSON.parse(data);
             return data.strength;
         }
+        else if(str == 9) {
+            data = sessionStorage.getItem('wstC');
+            data = JSON.parse(data);
+            return data.strength;
+        }
+        else if(str == 10) {
+            data = sessionStorage.getItem('wflC');
+            data = JSON.parse(data);
+            return data.strength;
+        }
+        else if(str == 11) {
+            data = sessionStorage.getItem('wbaC');
+            data = JSON.parse(data);
+            return data.strength;
+        }
     }
 
     getSpeed(str) {
@@ -445,6 +529,21 @@ class FighterC extends React.Component {
         }
         else if(str == 8) {
             data = sessionStorage.getItem('heaC');
+            data = JSON.parse(data);
+            return data.speed;
+        }
+        else if(str == 9) {
+            data = sessionStorage.getItem('wstC');
+            data = JSON.parse(data);
+            return data.speed;
+        }
+        else if(str == 10) {
+            data = sessionStorage.getItem('wflC');
+            data = JSON.parse(data);
+            return data.speed;
+        }
+        else if(str == 11) {
+            data = sessionStorage.getItem('wbaC');
             data = JSON.parse(data);
             return data.speed;
         }
@@ -492,6 +591,21 @@ class FighterC extends React.Component {
             data = JSON.parse(data);
             return data.stamina;
         }
+        else if(str == 9) {
+            data = sessionStorage.getItem('wstC');
+            data = JSON.parse(data);
+            return data.stamina;
+        }
+        else if(str == 10) {
+            data = sessionStorage.getItem('wflC');
+            data = JSON.parse(data);
+            return data.stamina;
+        }
+        else if(str == 11) {
+            data = sessionStorage.getItem('wbaC');
+            data = JSON.parse(data);
+            return data.stamina;
+        }
     }
 
     getPunching(str) {
@@ -533,6 +647,21 @@ class FighterC extends React.Component {
         }
         else if(str == 8) {
             data = sessionStorage.getItem('heaC');
+            data = JSON.parse(data);
+            return data.punching;
+        }
+        else if(str == 9) {
+            data = sessionStorage.getItem('wstC');
+            data = JSON.parse(data);
+            return data.punching;
+        }
+        else if(str == 10) {
+            data = sessionStorage.getItem('wflC');
+            data = JSON.parse(data);
+            return data.punching;
+        }
+        else if(str == 11) {
+            data = sessionStorage.getItem('wbaC');
             data = JSON.parse(data);
             return data.punching;
         }
@@ -580,6 +709,21 @@ class FighterC extends React.Component {
             data = JSON.parse(data);
             return data.kicking;
         }
+        else if(str == 9) {
+            data = sessionStorage.getItem('wstC');
+            data = JSON.parse(data);
+            return data.kicking;
+        }
+        else if(str == 10) {
+            data = sessionStorage.getItem('wflC');
+            data = JSON.parse(data);
+            return data.kicking;
+        }
+        else if(str == 11) {
+            data = sessionStorage.getItem('wbaC');
+            data = JSON.parse(data);
+            return data.kicking;
+        }
     }
 
     getWrestling(str) {
@@ -621,6 +765,21 @@ class FighterC extends React.Component {
         }
         else if(str == 8) {
             data = sessionStorage.getItem('heaC');
+            data = JSON.parse(data);
+            return data.wrestling;
+        }
+        else if(str == 9) {
+            data = sessionStorage.getItem('wstC');
+            data = JSON.parse(data);
+            return data.wrestling;
+        }
+        else if(str == 10) {
+            data = sessionStorage.getItem('wflC');
+            data = JSON.parse(data);
+            return data.wrestling;
+        }
+        else if(str == 11) {
+            data = sessionStorage.getItem('wbaC');
             data = JSON.parse(data);
             return data.wrestling;
         }
@@ -668,6 +827,21 @@ class FighterC extends React.Component {
             data = JSON.parse(data);
             return data.grappling;
         }
+        else if(str == 9) {
+            data = sessionStorage.getItem('wstC');
+            data = JSON.parse(data);
+            return data.grappling;
+        }
+        else if(str == 10) {
+            data = sessionStorage.getItem('wflC');
+            data = JSON.parse(data);
+            return data.grappling;
+        }
+        else if(str == 11) {
+            data = sessionStorage.getItem('wbaC');
+            data = JSON.parse(data);
+            return data.grappling;
+        }
     }
 
     getClinch(str) {
@@ -709,6 +883,21 @@ class FighterC extends React.Component {
         }
         else if(str == 8) {
             data = sessionStorage.getItem('heaC');
+            data = JSON.parse(data);
+            return data.clinch;
+        }
+        else if(str == 9) {
+            data = sessionStorage.getItem('wstC');
+            data = JSON.parse(data);
+            return data.clinch;
+        }
+        else if(str == 10) {
+            data = sessionStorage.getItem('wflC');
+            data = JSON.parse(data);
+            return data.clinch;
+        }
+        else if(str == 11) {
+            data = sessionStorage.getItem('wbaC');
             data = JSON.parse(data);
             return data.clinch;
         }
@@ -756,6 +945,21 @@ class FighterC extends React.Component {
             data = JSON.parse(data);
             return data.nation;
         }
+        else if(str == 9) {
+            data = sessionStorage.getItem('wstC');
+            data = JSON.parse(data);
+            return data.nation;
+        }
+        else if(str == 10) {
+            data = sessionStorage.getItem('wflC');
+            data = JSON.parse(data);
+            return data.nation;
+        }
+        else if(str == 11) {
+            data = sessionStorage.getItem('wbaC');
+            data = JSON.parse(data);
+            return data.nation;
+        }
     }
 
     getWin(str) {
@@ -797,6 +1001,21 @@ class FighterC extends React.Component {
         }
         else if(str == 8) {
             data = sessionStorage.getItem('heaC');
+            data = JSON.parse(data);
+            return data.win;
+        }
+        else if(str == 9) {
+            data = sessionStorage.getItem('wstC');
+            data = JSON.parse(data);
+            return data.win;
+        }
+        else if(str == 10) {
+            data = sessionStorage.getItem('wflC');
+            data = JSON.parse(data);
+            return data.win;
+        }
+        else if(str == 11) {
+            data = sessionStorage.getItem('wbaC');
             data = JSON.parse(data);
             return data.win;
         }
@@ -844,6 +1063,21 @@ class FighterC extends React.Component {
             data = JSON.parse(data);
             return data.loss;
         }
+        else if(str == 9) {
+            data = sessionStorage.getItem('wstC');
+            data = JSON.parse(data);
+            return data.loss;
+        }
+        else if(str == 10) {
+            data = sessionStorage.getItem('wflC');
+            data = JSON.parse(data);
+            return data.loss;
+        }
+        else if(str == 11) {
+            data = sessionStorage.getItem('wbaC');
+            data = JSON.parse(data);
+            return data.loss;
+        }
     }
 
     notFirst() {
@@ -857,13 +1091,14 @@ class FighterC extends React.Component {
     render() {
         let month = sessionStorage.getItem('month');
         let year = sessionStorage.getItem('year');
+        let wc = sessionStorage.getItem('wc');
         return(
             <div className="App">
                 <div className="App-header">
                     <div className="App-header-styleTop">
                         <img src={logo} alt='logo' className="App-logo1" style={{ marginTop: -155 }} />
                         FIGHTER PROFILE<br/><br/>
-                        <div className="Customize-desc1" style={{ color: "#ffcc99", textAlign: 'right', marginLeft: 130, marginRight: 120, fontSize: 70, marginTop: -70 }}><b>{this.getFirst(sessionStorage.getItem('wc'))} {this.getLast(sessionStorage.getItem('wc'))}</b><br/></div>
+                        <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 130, marginRight: 120, fontSize: 70, marginTop: -70 }}><b>{this.getFirst(sessionStorage.getItem('wc'))} {this.getLast(sessionStorage.getItem('wc'))}</b><br/></div>
                         <Button6>{this.getNation(sessionStorage.getItem('wc'))}</Button6>
                         <div className="App-customize2" style={{marginTop: 40}}>
                             <Button1>RANK</Button1>
@@ -873,7 +1108,7 @@ class FighterC extends React.Component {
                             <Button1>HEIGHT</Button1>
                         </div>
                         <div className="App-customize3" style={{marginTop: -20}}>
-                            <Button2><text style={{color: "#ffcc99"}}><b>C</b></text></Button2>
+                            <Button2><text style={{color: '#ffcc99'}}><b>C</b></text></Button2>
                             <Button2><b>{this.getWin(sessionStorage.getItem('wc'))}</b></Button2>
                             <Button2><b>{this.getLoss(sessionStorage.getItem('wc'))}</b></Button2>
                             <Button2><b>{this.getWeight(sessionStorage.getItem('wc'))}</b></Button2>
@@ -906,7 +1141,7 @@ class FighterC extends React.Component {
                     </div>
                     <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 833 }}>
                         <Button3>${sessionStorage.getItem('balance')}</Button3>
-                        <Link to='./fight'><Button4>BACK</Button4></Link>
+                        <Link to={(wc == 1) ? './fight1' : (wc == 2) ? './fight2' : (wc == 3) ? './fight3' : (wc == 4) ? './fight4' : (wc == 5) ? './fight5' : (wc == 6) ? './fight6' : (wc == 7) ? './fight7' : (wc == 8) ? './fight8' : (wc == 9) ? './fight9' : (wc == 10) ? './fight10' : './fight11'}><Button4>BACK</Button4></Link>
                         <Button3>{this.calcMonth(month)} {sessionStorage.getItem('year')}</Button3>
                     </div>
                 </div>

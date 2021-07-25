@@ -48,7 +48,7 @@ const ButtonW = styled.button`
 background-color: transparent;
 color: white;
 padding: 20px;
-width: 170px;
+width: 125px;
 height: 90px;
 text-align: center;
 margin: 10px;
@@ -68,7 +68,27 @@ const ButtonW1 = styled.button`
 background-color: grey;
 color: white;
 padding: 20px;
-width: 170px;
+width: 125px;
+height: 90px;
+text-align: center;
+margin: 10px;
+font-size: 30px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 2px solid white;
+border-radius: 2px;
+outline: 0;
+transition: ease background-color 250ms;
+&:hover {
+  background-color: #616161;
+}
+`
+
+const ButtonWO = styled.button`
+background-color: transparent;
+color: white;
+padding: 20px;
+width: 145px;
 height: 90px;
 text-align: center;
 margin: 10px;
@@ -85,7 +105,7 @@ transition: ease background-color 250ms;
 `
 
 const Button1 = styled.button`
-background-color: transparent;
+background-color: gray;
 color: white;
 padding: 0px;
 width: 275px;
@@ -1943,7 +1963,7 @@ class Fight1 extends React.Component {
                         <Link to='./fighter10'><Button5>10. {this.pos10(1)}<text class="alignright">{this.pos10rec(1)}{whitespace}</text></Button5></Link>
                     </div>
                     <div className="App-header-style1" style={{marginTop: -410, marginRight: 0}}>
-                        <Link to='./fight'><ButtonW>OFFERS</ButtonW></Link>
+                        <Link to='./fight'><ButtonWO>OFFERS</ButtonWO></Link>
                         <Link to='./fight1'><ButtonW>CARD</ButtonW></Link>
                         <Link to='./fight1'><ButtonW1>125</ButtonW1></Link>
                         <Link to='./fight2'><ButtonW>135</ButtonW></Link>
@@ -1953,6 +1973,9 @@ class Fight1 extends React.Component {
                         <Link to='./fight6'><ButtonW>185</ButtonW></Link>
                         <Link to='./fight7'><ButtonW>205</ButtonW></Link>
                         <Link to='./fight8'><ButtonW>265</ButtonW></Link>
+                        <Link to='./fight9'><ButtonW>W115</ButtonW></Link>
+                        <Link to='./fight10'><ButtonW>W125</ButtonW></Link>
+                        <Link to='./fight11'><ButtonW>W135</ButtonW></Link>
                     </div>
                     <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: -7, fontSize: 30 }}>
                         <Button3>${sessionStorage.getItem('balance')}</Button3>

@@ -48,7 +48,7 @@ const ButtonW = styled.button`
 background-color: transparent;
 color: white;
 padding: 20px;
-width: 170px;
+width: 125px;
 height: 90px;
 text-align: center;
 margin: 10px;
@@ -68,7 +68,7 @@ const ButtonW1 = styled.button`
 background-color: grey;
 color: white;
 padding: 20px;
-width: 170px;
+width: 145px;
 height: 90px;
 text-align: center;
 margin: 10px;
@@ -1899,6 +1899,15 @@ class Fight extends React.Component {
         else if (str == 'HEAVYWEIGHT'){
             return 8;
         }
+        else if (str == 'WSTRAWWEIGHT'){
+            return 9;
+        }
+        else if (str == 'WFLYWEIGHT'){
+            return 10;
+        }
+        else if (str == 'WBANTAMWEIGHT'){
+            return 11;
+        }
     }
 
     classWeight(str) {
@@ -1925,6 +1934,15 @@ class Fight extends React.Component {
         }
         else if (str == 8){
             return 'HEAVYWEIGHT';
+        }
+        else if (str == 9){
+            return 'WSTRAWWEIGHT';
+        }
+        else if (str == 10){
+            return 'WFLYWEIGHT';
+        }
+        else if (str == 11){
+            return 'WBANTAMWEIGHT';
         }
     }
 
@@ -2113,6 +2131,51 @@ class Fight extends React.Component {
                 data = JSON.parse(data);
                 str = '(' + data.win + ' - ' + data.loss + ')';
             }
+            else if (num == 101) {
+                let data = sessionStorage.getItem('nrf1');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 102) {
+                let data = sessionStorage.getItem('nrf2');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 103) {
+                let data = sessionStorage.getItem('nrf3');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 104) {
+                let data = sessionStorage.getItem('nrf4');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 105) {
+                let data = sessionStorage.getItem('nrf5');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 106) {
+                let data = sessionStorage.getItem('nrf6');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 107) {
+                let data = sessionStorage.getItem('nrf7');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 108) {
+                let data = sessionStorage.getItem('nrf8');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 109) {
+                let data = sessionStorage.getItem('nrf9');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
             return str;
         }
     }
@@ -2224,6 +2287,51 @@ class Fight extends React.Component {
             }
             else if (num == 21) {
                 let data = sessionStorage.getItem('nr21');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 101) {
+                let data = sessionStorage.getItem('nrf1');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 102) {
+                let data = sessionStorage.getItem('nrf2');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 103) {
+                let data = sessionStorage.getItem('nrf3');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 104) {
+                let data = sessionStorage.getItem('nrf4');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 105) {
+                let data = sessionStorage.getItem('nrf5');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 106) {
+                let data = sessionStorage.getItem('nrf6');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 107) {
+                let data = sessionStorage.getItem('nrf7');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 108) {
+                let data = sessionStorage.getItem('nrf8');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 109) {
+                let data = sessionStorage.getItem('nrf9');
                 data = JSON.parse(data);
                 str = '(' + data.win + ' - ' + data.loss + ')';
             }
@@ -2341,6 +2449,51 @@ class Fight extends React.Component {
                 data = JSON.parse(data);
                 str = '(' + data.win + ' - ' + data.loss + ')';
             }
+            else if (num == 101) {
+                let data = sessionStorage.getItem('nrf1');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 102) {
+                let data = sessionStorage.getItem('nrf2');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 103) {
+                let data = sessionStorage.getItem('nrf3');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 104) {
+                let data = sessionStorage.getItem('nrf4');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 105) {
+                let data = sessionStorage.getItem('nrf5');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 106) {
+                let data = sessionStorage.getItem('nrf6');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 107) {
+                let data = sessionStorage.getItem('nrf7');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 108) {
+                let data = sessionStorage.getItem('nrf8');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 109) {
+                let data = sessionStorage.getItem('nrf9');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
             return str;
         }
     }
@@ -2452,6 +2605,51 @@ class Fight extends React.Component {
             }
             else if (num == 21) {
                 let data = sessionStorage.getItem('nr21');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 101) {
+                let data = sessionStorage.getItem('nrf1');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 102) {
+                let data = sessionStorage.getItem('nrf2');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 103) {
+                let data = sessionStorage.getItem('nrf3');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 104) {
+                let data = sessionStorage.getItem('nrf4');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 105) {
+                let data = sessionStorage.getItem('nrf5');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 106) {
+                let data = sessionStorage.getItem('nrf6');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 107) {
+                let data = sessionStorage.getItem('nrf7');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 108) {
+                let data = sessionStorage.getItem('nrf8');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 109) {
+                let data = sessionStorage.getItem('nrf9');
                 data = JSON.parse(data);
                 str = '(' + data.win + ' - ' + data.loss + ')';
             }
@@ -2569,6 +2767,51 @@ class Fight extends React.Component {
                 data = JSON.parse(data);
                 str = '(' + data.win + ' - ' + data.loss + ')';
             }
+            else if (num == 101) {
+                let data = sessionStorage.getItem('nrf1');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 102) {
+                let data = sessionStorage.getItem('nrf2');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 103) {
+                let data = sessionStorage.getItem('nrf3');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 104) {
+                let data = sessionStorage.getItem('nrf4');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 105) {
+                let data = sessionStorage.getItem('nrf5');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 106) {
+                let data = sessionStorage.getItem('nrf6');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 107) {
+                let data = sessionStorage.getItem('nrf7');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 108) {
+                let data = sessionStorage.getItem('nrf8');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 109) {
+                let data = sessionStorage.getItem('nrf9');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
             return str;
         }
     }
@@ -2680,6 +2923,51 @@ class Fight extends React.Component {
             }
             else if (num == 21) {
                 let data = sessionStorage.getItem('nr21');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 101) {
+                let data = sessionStorage.getItem('nrf1');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 102) {
+                let data = sessionStorage.getItem('nrf2');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 103) {
+                let data = sessionStorage.getItem('nrf3');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 104) {
+                let data = sessionStorage.getItem('nrf4');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 105) {
+                let data = sessionStorage.getItem('nrf5');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 106) {
+                let data = sessionStorage.getItem('nrf6');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 107) {
+                let data = sessionStorage.getItem('nrf7');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 108) {
+                let data = sessionStorage.getItem('nrf8');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 109) {
+                let data = sessionStorage.getItem('nrf9');
                 data = JSON.parse(data);
                 str = data.first + ' ' + data.last;
             }
@@ -2797,6 +3085,51 @@ class Fight extends React.Component {
                 data = JSON.parse(data);
                 str = data.first + ' ' + data.last;
             }
+            else if (num == 101) {
+                let data = sessionStorage.getItem('nrf1');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 102) {
+                let data = sessionStorage.getItem('nrf2');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 103) {
+                let data = sessionStorage.getItem('nrf3');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 104) {
+                let data = sessionStorage.getItem('nrf4');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 105) {
+                let data = sessionStorage.getItem('nrf5');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 106) {
+                let data = sessionStorage.getItem('nrf6');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 107) {
+                let data = sessionStorage.getItem('nrf7');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 108) {
+                let data = sessionStorage.getItem('nrf8');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 109) {
+                let data = sessionStorage.getItem('nrf9');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
             return str;
         }
     }
@@ -2908,6 +3241,51 @@ class Fight extends React.Component {
             }
             else if (num == 21) {
                 let data = sessionStorage.getItem('nr21');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 101) {
+                let data = sessionStorage.getItem('nrf1');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 102) {
+                let data = sessionStorage.getItem('nrf2');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 103) {
+                let data = sessionStorage.getItem('nrf3');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 104) {
+                let data = sessionStorage.getItem('nrf4');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 105) {
+                let data = sessionStorage.getItem('nrf5');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 106) {
+                let data = sessionStorage.getItem('nrf6');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 107) {
+                let data = sessionStorage.getItem('nrf7');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 108) {
+                let data = sessionStorage.getItem('nrf8');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 109) {
+                let data = sessionStorage.getItem('nrf9');
                 data = JSON.parse(data);
                 str = data.first + ' ' + data.last;
             }
@@ -3025,6 +3403,51 @@ class Fight extends React.Component {
                 data = JSON.parse(data);
                 str = data.first + ' ' + data.last;
             }
+            else if (num == 101) {
+                let data = sessionStorage.getItem('nrf1');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 102) {
+                let data = sessionStorage.getItem('nrf2');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 103) {
+                let data = sessionStorage.getItem('nrf3');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 104) {
+                let data = sessionStorage.getItem('nrf4');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 105) {
+                let data = sessionStorage.getItem('nrf5');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 106) {
+                let data = sessionStorage.getItem('nrf6');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 107) {
+                let data = sessionStorage.getItem('nrf7');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 108) {
+                let data = sessionStorage.getItem('nrf8');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 109) {
+                let data = sessionStorage.getItem('nrf9');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
             return str;
         }
     }
@@ -3136,6 +3559,51 @@ class Fight extends React.Component {
             }
             else if (num == 21) {
                 let data = sessionStorage.getItem('nr21');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 101) {
+                let data = sessionStorage.getItem('nrf1');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 102) {
+                let data = sessionStorage.getItem('nrf2');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 103) {
+                let data = sessionStorage.getItem('nrf3');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 104) {
+                let data = sessionStorage.getItem('nrf4');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 105) {
+                let data = sessionStorage.getItem('nrf5');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 106) {
+                let data = sessionStorage.getItem('nrf6');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 107) {
+                let data = sessionStorage.getItem('nrf7');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 108) {
+                let data = sessionStorage.getItem('nrf8');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 109) {
+                let data = sessionStorage.getItem('nrf9');
                 data = JSON.parse(data);
                 str = data.first + ' ' + data.last;
             }
@@ -3253,6 +3721,51 @@ class Fight extends React.Component {
                 data = JSON.parse(data);
                 money = 10000 + (2000 * parseInt(data.win));
             }
+            else if (num == 101) {
+                let data = sessionStorage.getItem('nrf1');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 102) {
+                let data = sessionStorage.getItem('nrf2');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 103) {
+                let data = sessionStorage.getItem('nrf3');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 104) {
+                let data = sessionStorage.getItem('nrf4');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 105) {
+                let data = sessionStorage.getItem('nrf5');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 106) {
+                let data = sessionStorage.getItem('nrf6');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 107) {
+                let data = sessionStorage.getItem('nrf7');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 108) {
+                let data = sessionStorage.getItem('nrf8');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 109) {
+                let data = sessionStorage.getItem('nrf9');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
             return ' $' + money;
         }
     }
@@ -3364,6 +3877,51 @@ class Fight extends React.Component {
             }
             else if (num == 21){
                 let data = sessionStorage.getItem('nr21');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 101) {
+                let data = sessionStorage.getItem('nrf1');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 102) {
+                let data = sessionStorage.getItem('nrf2');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 103) {
+                let data = sessionStorage.getItem('nrf3');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 104) {
+                let data = sessionStorage.getItem('nrf4');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 105) {
+                let data = sessionStorage.getItem('nrf5');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 106) {
+                let data = sessionStorage.getItem('nrf6');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 107) {
+                let data = sessionStorage.getItem('nrf7');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 108) {
+                let data = sessionStorage.getItem('nrf8');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 109) {
+                let data = sessionStorage.getItem('nrf9');
                 data = JSON.parse(data);
                 money = 10000 + (2000 * parseInt(data.win));
             }
@@ -3481,6 +4039,51 @@ class Fight extends React.Component {
                 data = JSON.parse(data);
                 money = 10000 + (2000 * parseInt(data.win));
             }
+            else if (num == 101) {
+                let data = sessionStorage.getItem('nrf1');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 102) {
+                let data = sessionStorage.getItem('nrf2');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 103) {
+                let data = sessionStorage.getItem('nrf3');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 104) {
+                let data = sessionStorage.getItem('nrf4');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 105) {
+                let data = sessionStorage.getItem('nrf5');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 106) {
+                let data = sessionStorage.getItem('nrf6');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 107) {
+                let data = sessionStorage.getItem('nrf7');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 108) {
+                let data = sessionStorage.getItem('nrf8');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 109) {
+                let data = sessionStorage.getItem('nrf9');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
             return ' $' + money;
         }
     }
@@ -3592,6 +4195,51 @@ class Fight extends React.Component {
             }
             else if (num == 21){
                 let data = sessionStorage.getItem('nr21');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 101) {
+                let data = sessionStorage.getItem('nrf1');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 102) {
+                let data = sessionStorage.getItem('nrf2');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 103) {
+                let data = sessionStorage.getItem('nrf3');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 104) {
+                let data = sessionStorage.getItem('nrf4');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 105) {
+                let data = sessionStorage.getItem('nrf5');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 106) {
+                let data = sessionStorage.getItem('nrf6');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 107) {
+                let data = sessionStorage.getItem('nrf7');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 108) {
+                let data = sessionStorage.getItem('nrf8');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 109) {
+                let data = sessionStorage.getItem('nrf9');
                 data = JSON.parse(data);
                 money = 10000 + (2000 * parseInt(data.win));
             }
@@ -3709,6 +4357,51 @@ class Fight extends React.Component {
                 data = JSON.parse(data);
                 money = 10000 + (2000 * parseInt(data.win));
             }
+            else if (num == 101) {
+                let data = sessionStorage.getItem('nrf1');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 102) {
+                let data = sessionStorage.getItem('nrf2');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 103) {
+                let data = sessionStorage.getItem('nrf3');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 104) {
+                let data = sessionStorage.getItem('nrf4');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 105) {
+                let data = sessionStorage.getItem('nrf5');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 106) {
+                let data = sessionStorage.getItem('nrf6');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 107) {
+                let data = sessionStorage.getItem('nrf7');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 108) {
+                let data = sessionStorage.getItem('nrf8');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
+            else if (num == 109) {
+                let data = sessionStorage.getItem('nrf9');
+                data = JSON.parse(data);
+                money = 10000 + (2000 * parseInt(data.win));
+            }
             return ' $' + money;
         }
     }
@@ -3756,6 +4449,9 @@ class Fight extends React.Component {
                         <Link to='./fight6'><ButtonW>185</ButtonW></Link>
                         <Link to='./fight7'><ButtonW>205</ButtonW></Link>
                         <Link to='./fight8'><ButtonW>265</ButtonW></Link>
+                        <Link to='./fight9'><ButtonW>W115</ButtonW></Link>
+                        <Link to='./fight10'><ButtonW>W125</ButtonW></Link>
+                        <Link to='./fight11'><ButtonW>W135</ButtonW></Link>
                     </div>
                     <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: -7, fontSize: 30 }}>
                         <Button3>${sessionStorage.getItem('balance')}</Button3>

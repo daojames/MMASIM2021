@@ -1359,19 +1359,19 @@ class Bout0 extends React.Component {
                     <Button data-tip data-for="1" className={this.state.att1 ? "att1" : "att0"} onClick={this.att1}>BRAWL</Button>
                     <ReactTooltip class="Membership" id="1" place="top" effect="float"><text style={{fontSize: 30}}>BRAWL</text><br/>THROW A FEW STRIKES<br/><b>✓{w}LOW ENERGY</b><br/><b>✘{w}MEDIUM DAMAGE</b><br/><b>★{w}6 STAMINA</b></ReactTooltip>
                     <Button data-tip data-for="2" className={this.state.att2 ? "att1" : "att0"} onClick={this.att2}>BLITZ</Button>
-                    <ReactTooltip class="Membership" id="2" place="top" effect="float"><text style={{fontSize: 30}}>BLITZ</text><br/>QUICKLY COVER DISTANCE AND THROW STRIKES<br/><b>✓{w}ANTI-COUNTER</b><br/><b>✘{w}SPEED DEPENDENT</b><br/><b>★{w}8 STAMINA</b></ReactTooltip>
+                    <ReactTooltip class="Membership" id="2" place="top" effect="float"><text style={{fontSize: 30}}>BLITZ</text><br/>QUICKLY COVER DISTANCE AND THROW STRIKES<br/><b>✓{w}CAN'T BE COUNTERED</b><br/><b>✘{w}SPEED DEPENDENT</b><br/><b>★{w}8 STAMINA</b></ReactTooltip>
                     <Button data-tip data-for="3" className={this.state.att3 ? "att1" : "att0"} onClick={this.att3}>PRESSURE</Button>
-                    <ReactTooltip class="Membership" id="3" place="top" effect="float"><text style={{fontSize: 30}}>PRESSURE</text><br/>HIGH VOLUME OF STRIKES<br/><b>✓{w}CONSISTENT</b><br/><b>✘{w}HIGH ENERGY</b><br/><b>★{w}10 STAMINA</b></ReactTooltip>
+                    <ReactTooltip class="Membership" id="3" place="top" effect="float"><text style={{fontSize: 30}}>PRESSURE</text><br/>HIGH VOLUME OF STRIKES<br/><b>✓{w}CONSISTENT</b><br/><b>✘{w}HIGH ENERGY</b><br/><b>★{w}12 STAMINA</b></ReactTooltip>
                     <Button data-tip data-for="11" className={this.state.att4 ? "att1" : "att0"} onClick={this.att4}>POWER</Button>
-                    <ReactTooltip class="Membership" id="11" place="top" effect="float"><text style={{fontSize: 30}}>POWER SHOTS</text><br/>HEAVY BUT TAXING STRIKES<br/><b>✓{w}KNOCKOUT POWER</b><br/><b>✘{w}HIGH ENERGY</b><br/><b>★{w}12 STAMINA</b></ReactTooltip>
+                    <ReactTooltip class="Membership" id="11" place="top" effect="float"><text style={{fontSize: 30}}>POWER SHOTS</text><br/>HEAVY BUT TAXING STRIKES<br/><b>✓{w}KNOCKOUT/KNOCKDOWN POWER</b><br/><b>✘{w}HIGH ENERGY</b><br/><b>★{w}16 STAMINA</b></ReactTooltip>
                 </div>
                 <div className="App-customize1a" style={{marginTop: 0}}>
                     <Button data-tip data-for="12" className={this.state.att5 ? "att1" : "att0"} onClick={this.att5}>FEINT</Button>
-                    <ReactTooltip class="Membership" id="12" place="top" effect="float"><text style={{fontSize: 30}}>FEINT</text><br/>FAKE ATTACK TO REDUCE OPPONENT REACTION<br/><b>✓{w}HIGHER ACCURACY ON NEXT ATTACK</b><br/><b>✘{w}NO DAMAGE</b><br/><b>★{w}1 STAMINA</b></ReactTooltip>
+                    <ReactTooltip class="Membership" id="12" place="top" effect="float"><text style={{fontSize: 30}}>FEINT</text><br/>FAKE ATTACK TO INC. ACCURACY OF NEXT MOVE<br/><b>✓{w}CAN'T BE COUNTERED</b><br/><b>✘{w}NO DAMAGE</b><br/><b>★{w}1 STAMINA</b></ReactTooltip>
                     <Button data-tip data-for="4" className={this.state.att6 ? "att1" : "att0"} onClick={this.att6}>LOW KICK</Button>
                     <ReactTooltip class="Membership" id="4" place="top" effect="float"><text style={{fontSize: 30}}>LOW KICK</text><br/>KICK CALF TO REDUCE OPPONENT SPEED<br/><b>✓{w}REDUCE OPPONENT SPEED</b><br/><b>✘{w}LOW DAMAGE</b><br/><b>★{w}4 STAMINA</b></ReactTooltip>
                     <Button data-tip data-for="10" className={this.state.att8 ? "att1" : "att0"} onClick={this.att8}>CLINCH</Button>
-                    <ReactTooltip class="Membership" id="10" place="top" effect="float"><text style={{fontSize: 30}}>CLINCH</text><br/>STRIKE INTO A CLINCH<br/><b>✓{w}MORE OFFENSIVE OPTIONS</b><br/><b>✘{w}UNPREDICTABLE OUTCOME</b><br/><b>★{w}8 STAMINA</b></ReactTooltip>
+                    <ReactTooltip class="Membership" id="10" place="top" effect="float"><text style={{fontSize: 30}}>CLINCH</text><br/>STRIKE INTO A CLINCH<br/><b>✓{w}MORE OFFENSIVE OPTIONS</b><br/><b>✘{w}UNPREDICTABLE OUTCOME</b><br/><b>★{w}4 STAMINA</b></ReactTooltip>
                     <Button data-tip data-for="5" className={this.state.att7 ? "att1" : "att0"} onClick={this.att7}>TAKEDOWN</Button>
                     <ReactTooltip class="Membership" id="5" place="top" effect="float"><text style={{fontSize: 30}}>TAKEDOWN</text><br/>TAKE OPPONENT DOWN TO GROUND<br/><b>✓{w}DOMINANT POSITON</b><br/><b>✘{w}HIGH ENERGY</b><br/><b>★{w}12 STAMINA</b></ReactTooltip>
                 </div>

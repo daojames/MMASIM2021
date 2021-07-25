@@ -138,6 +138,15 @@ class Offer3 extends React.Component {
         else if(str == 'HEAVYWEIGHT'){
             return '265';
         }
+        else if(str == 'WSTRAWWEIGHT'){
+            return '115';
+        }
+        else if(str == 'WFLYWEIGHT'){
+            return '125';
+        }
+        else if(str == 'WBANTAMWEIGHT'){
+            return '135';
+        }
     }
 
     calcMonth(month){
@@ -224,6 +233,15 @@ class Offer3 extends React.Component {
         else if(str == 8) {
             return 265;
         }
+        else if(str == 9) {
+            return 115;
+        }
+        else if(str == 10) {
+            return 125;
+        }
+        else if(str == 11) {
+            return 135;
+        }
     }
 
     getHeight() {
@@ -231,7 +249,7 @@ class Offer3 extends React.Component {
         data = JSON.parse(data);
         let hgt = data.height;
         let wc = sessionStorage.getItem('wc');
-        if (wc == 1){
+        if (wc == 1 || wc == 10){
             if (hgt == 1){
                 return '5\'2\"';
             }
@@ -246,6 +264,40 @@ class Offer3 extends React.Component {
             }
             else if (hgt == 5){
                 return '5\'8\"';
+            }
+        }
+        else if (wc == 9){
+            if (hgt == 1){
+                return '5\'1\"';
+            }
+            else if (hgt == 2){
+                return '5\'3\"';
+            }
+            else if (hgt == 3){
+                return '5\'4\"';
+            }
+            else if (hgt == 4){
+                return '5\'5\"';
+            }
+            else if (hgt == 5){
+                return '5\'7\"';
+            }
+        }
+        else if (wc == 11){
+            if (hgt == 1){
+                return '5\'3\"';
+            }
+            else if (hgt == 2){
+                return '5\'5\"';
+            }
+            else if (hgt == 3){
+                return '5\'6\"';
+            }
+            else if (hgt == 4){
+                return '5\'7\"';
+            }
+            else if (hgt == 5){
+                return '5\'9\"';
             }
         }
         else if (wc == 2){

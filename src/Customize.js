@@ -110,6 +110,15 @@ class Customize extends React.Component {
       else if (str == 'HEAVYWEIGHT'){
           return 8;
       }
+      else if (str == 'WSTRAWWEIGHT'){
+          return 9;
+      }
+      else if (str == 'WFLYWEIGHT'){
+          return 10;
+      }
+      else if (str == 'WBANTAMWEIGHT'){
+          return 11;
+      }
   }
 
     handleInputChange = (event) => {
@@ -599,366 +608,730 @@ class Customize extends React.Component {
       }
       sessionStorage.setItem('nr21', JSON.stringify(nr21));
 
-      let ran1 = Math.floor(Math.random() * (22 - 1) + 1);
-      sessionStorage.setItem('abc1', ran1);
+      let nrf1 = {
+        rank: 'NR',
+        first: 'KAREN',
+        last: 'NGUYEN',
+        height: '3',
+        weight: '0',
+        nation: 'USA',
+        win: '0',
+        loss: '0',
+        strength: '40',
+        speed: '50',
+        stamina: '60',
+        punching: '50',
+        kicking: '40',
+        wrestling: '50',
+        grappling: '50',
+        clinch: '30'
+      }
+      sessionStorage.setItem('nrf1', JSON.stringify(nrf1));
 
-      let ran2 = Math.floor(Math.random() * (22 - 1) + 1);
-      while(true) {
-        if (ran2 != ran1) {
-          break;
+      let nrf2 = {
+        rank: 'NR',
+        first: 'GIOVANNA',
+        last: 'RIVAS',
+        height: '5',
+        weight: '0',
+        nation: 'MEXICO',
+        win: '0',
+        loss: '0',
+        strength: '45',
+        speed: '50',
+        stamina: '40',
+        punching: '100',
+        kicking: '50',
+        wrestling: '15',
+        grappling: '30',
+        clinch: '40'
+      }
+      sessionStorage.setItem('nrf2', JSON.stringify(nrf2));
+
+      let nrf3 = {
+        rank: 'NR',
+        first: 'JENNIFER',
+        last: 'NGUYEN',
+        height: '3',
+        weight: '0',
+        nation: 'USA',
+        win: '0',
+        loss: '0',
+        strength: '30',
+        speed: '50',
+        stamina: '70',
+        punching: '30',
+        kicking: '30',
+        wrestling: '80',
+        grappling: '40',
+        clinch: '40'
+      }
+      sessionStorage.setItem('nrf3', JSON.stringify(nrf3));
+
+      let nrf4 = {
+        rank: 'NR',
+        first: 'TIFFANY',
+        last: 'NGUYEN',
+        height: '5',
+        weight: '0',
+        nation: 'USA',
+        win: '0',
+        loss: '0',
+        strength: '35',
+        speed: '50',
+        stamina: '50',
+        punching: '65',
+        kicking: '55',
+        wrestling: '35',
+        grappling: '50',
+        clinch: '30'
+      }
+      sessionStorage.setItem('nrf4', JSON.stringify(nrf4));
+
+      let nrf5 = {
+        rank: 'NR',
+        first: 'SIERRA',
+        last: 'PHAM',
+        height: '2',
+        weight: '0',
+        nation: 'USA',
+        win: '0',
+        loss: '0',
+        strength: '55',
+        speed: '50',
+        stamina: '50',
+        punching: '45',
+        kicking: '45',
+        wrestling: '35',
+        grappling: '30',
+        clinch: '60'
+      }
+      sessionStorage.setItem('nrf5', JSON.stringify(nrf5));
+
+      let nrf6 = {
+        rank: 'NR',
+        first: 'SIYEON',
+        last: 'KIM',
+        height: '4',
+        weight: '0',
+        nation: 'USA',
+        win: '0',
+        loss: '0',
+        strength: '65',
+        speed: '50',
+        stamina: '30',
+        punching: '55',
+        kicking: '45',
+        wrestling: '45',
+        grappling: '50',
+        clinch: '30'
+      }
+      sessionStorage.setItem('nrf6', JSON.stringify(nrf6));
+
+      let nrf7 = {
+        rank: 'NR',
+        first: 'KAITLYN',
+        last: 'NGUYEN',
+        height: '4',
+        weight: '0',
+        nation: 'USA',
+        win: '0',
+        loss: '0',
+        strength: '25',
+        speed: '50',
+        stamina: '70',
+        punching: '55',
+        kicking: '55',
+        wrestling: '25',
+        grappling: '30',
+        clinch: '60'
+      }
+      sessionStorage.setItem('nrf7', JSON.stringify(nrf7));
+
+      let nrf8 = {
+        rank: 'NR',
+        first: 'CHRISTINE',
+        last: 'LUU',
+        height: '3',
+        weight: '0',
+        nation: 'USA',
+        win: '0',
+        loss: '0',
+        strength: '70',
+        speed: '50',
+        stamina: '30',
+        punching: '30',
+        kicking: '30',
+        wrestling: '80',
+        grappling: '40',
+        clinch: '40'
+      }
+      sessionStorage.setItem('nrf8', JSON.stringify(nrf8));
+
+      let nrf9 = {
+        rank: 'NR',
+        first: 'SAVANNA',
+        last: 'PHAM',
+        height: '1',
+        weight: '0',
+        nation: 'USA',
+        win: '0',
+        loss: '0',
+        strength: '55',
+        speed: '50',
+        stamina: '60',
+        punching: '75',
+        kicking: '15',
+        wrestling: '45',
+        grappling: '30',
+        clinch: '40'
+      }
+      sessionStorage.setItem('nrf9', JSON.stringify(nrf9));
+
+      if (this.state.weight == 'WSTRAWWEIGHT' || this.state.weight == 'WFLYWEIGHT' || this.state.weight == 'WBANTAMWEIGHT') {
+        let ran1 = Math.floor(Math.random() * (110 - 101) + 101);
+        sessionStorage.setItem('abc1', ran1);
+
+        let ran2 = Math.floor(Math.random() * (110 - 101) + 101);
+        while(true) {
+          if (ran2 != ran1) {
+            break;
+          }
+          ran2 = Math.floor(Math.random() * (110 - 101) + 101);
         }
-        ran2 = Math.floor(Math.random() * (22 - 1) + 1);
-      }
-      sessionStorage.setItem('abc2', ran2);
+        sessionStorage.setItem('abc2', ran2);
 
-      let ran3 = Math.floor(Math.random() * (22 - 1) + 1);
-      while(true) {
-        if (ran3 != ran1 && ran3 != ran2) {
-          break;
+        let ran3 = Math.floor(Math.random() * (110 - 101) + 101);
+        while(true) {
+          if (ran3 != ran1 && ran3 != ran2) {
+            break;
+          }
+          ran3 = Math.floor(Math.random() * (110 - 101) + 101);
         }
-        ran3 = Math.floor(Math.random() * (22 - 1) + 1);
-      }
-      sessionStorage.setItem('abc3', ran3);
+        sessionStorage.setItem('abc3', ran3);
 
-      let ran4 = Math.floor(Math.random() * (22 - 1) + 1);
-      while(true) {
-        if (ran4 != ran1 && ran4 != ran2 && ran4 != ran3) {
-          break;
+        let ran4 = Math.floor(Math.random() * (110 - 101) + 101);
+        while(true) {
+          if (ran4 != ran1 && ran4 != ran2 && ran4 != ran3) {
+            break;
+          }
+          ran4 = Math.floor(Math.random() * (110 - 101) + 101);
         }
-        ran4 = Math.floor(Math.random() * (22 - 1) + 1);
-      }
-      sessionStorage.setItem('abc4', ran4);
+        sessionStorage.setItem('abc4', ran4);
 
-      let ran5 = Math.floor(Math.random() * (22 - 1) + 1);
-      while(true) {
-        if (ran5 != ran1 && ran5 != ran2 && ran5 != ran3 && ran5 != ran4) {
-          break;
+        let ran5 = Math.floor(Math.random() * (110 - 101) + 101);
+        while(true) {
+          if (ran5 != ran1 && ran5 != ran2 && ran5 != ran3 && ran5 != ran4) {
+            break;
+          }
+          ran5 = Math.floor(Math.random() * (110 - 101) + 101);
         }
-        ran5 = Math.floor(Math.random() * (22 - 1) + 1);
-      }
-      sessionStorage.setItem('abc5', ran5);
+        sessionStorage.setItem('abc5', ran5);
 
-      if (ran1 == 1){
-        sessionStorage.setItem('ABC1', JSON.stringify(nr1));
+        if (ran1 == 101){
+          sessionStorage.setItem('ABC1', JSON.stringify(nrf1));
+        }
+        else if (ran1 == 102){
+          sessionStorage.setItem('ABC1', JSON.stringify(nrf2));
+        }
+        else if (ran1 == 103){
+          sessionStorage.setItem('ABC1', JSON.stringify(nrf3));
+        }
+        else if (ran1 == 104){
+          sessionStorage.setItem('ABC1', JSON.stringify(nrf4));
+        }
+        else if (ran1 == 105){
+          sessionStorage.setItem('ABC1', JSON.stringify(nrf5));
+        }
+        else if (ran1 == 106){
+          sessionStorage.setItem('ABC1', JSON.stringify(nrf6));
+        }
+        else if (ran1 == 107){
+          sessionStorage.setItem('ABC1', JSON.stringify(nrf7));
+        }
+        else if (ran1 == 108){
+          sessionStorage.setItem('ABC1', JSON.stringify(nrf8));
+        }
+        else if (ran1 == 109){
+          sessionStorage.setItem('ABC1', JSON.stringify(nrf9));
+        }
+        let gas = sessionStorage.getItem('ABC1');
+        gas = JSON.parse(gas);
+        console.log(gas.first)
+        if (ran2 == 101){
+          sessionStorage.setItem('ABC2', JSON.stringify(nrf1));
+        }
+        else if (ran2 == 102){
+          sessionStorage.setItem('ABC2', JSON.stringify(nrf2));
+        }
+        else if (ran2 == 103){
+          sessionStorage.setItem('ABC2', JSON.stringify(nrf3));
+        }
+        else if (ran2 == 104){
+          sessionStorage.setItem('ABC2', JSON.stringify(nrf4));
+        }
+        else if (ran2 == 105){
+          sessionStorage.setItem('ABC2', JSON.stringify(nrf5));
+        }
+        else if (ran2 == 106){
+          sessionStorage.setItem('ABC2', JSON.stringify(nrf6));
+        }
+        else if (ran2 == 107){
+          sessionStorage.setItem('ABC2', JSON.stringify(nrf7));
+        }
+        else if (ran2 == 108){
+          sessionStorage.setItem('ABC2', JSON.stringify(nrf8));
+        }
+        else if (ran2 == 109){
+          sessionStorage.setItem('ABC2', JSON.stringify(nrf9));
+        }
+  
+        if (ran3 == 101){
+          sessionStorage.setItem('ABC3', JSON.stringify(nrf1));
+        }
+        else if (ran3 == 102){
+          sessionStorage.setItem('ABC3', JSON.stringify(nrf2));
+        }
+        else if (ran3 == 103){
+          sessionStorage.setItem('ABC3', JSON.stringify(nrf3));
+        }
+        else if (ran3 == 104){
+          sessionStorage.setItem('ABC3', JSON.stringify(nrf4));
+        }
+        else if (ran3 == 105){
+          sessionStorage.setItem('ABC3', JSON.stringify(nrf5));
+        }
+        else if (ran3 == 106){
+          sessionStorage.setItem('ABC3', JSON.stringify(nrf6));
+        }
+        else if (ran3 == 107){
+          sessionStorage.setItem('ABC3', JSON.stringify(nrf7));
+        }
+        else if (ran3 == 108){
+          sessionStorage.setItem('ABC3', JSON.stringify(nrf8));
+        }
+        else if (ran3 == 109){
+          sessionStorage.setItem('ABC3', JSON.stringify(nrf9));
+        }
+  
+        if (ran4 == 101){
+          sessionStorage.setItem('ABC4', JSON.stringify(nrf1));
+        }
+        else if (ran4 == 102){
+          sessionStorage.setItem('ABC4', JSON.stringify(nrf2));
+        }
+        else if (ran4 == 103){
+          sessionStorage.setItem('ABC4', JSON.stringify(nrf3));
+        }
+        else if (ran4 == 104){
+          sessionStorage.setItem('ABC4', JSON.stringify(nrf4));
+        }
+        else if (ran4 == 105){
+          sessionStorage.setItem('ABC4', JSON.stringify(nrf5));
+        }
+        else if (ran4 == 106){
+          sessionStorage.setItem('ABC4', JSON.stringify(nrf6));
+        }
+        else if (ran4 == 107){
+          sessionStorage.setItem('ABC4', JSON.stringify(nrf7));
+        }
+        else if (ran4 == 108){
+          sessionStorage.setItem('ABC4', JSON.stringify(nrf8));
+        }
+        else if (ran4 == 109){
+          sessionStorage.setItem('ABC4', JSON.stringify(nrf9));
+        }
+  
+        if (ran5 == 101){
+          sessionStorage.setItem('ABC5', JSON.stringify(nrf1));
+        }
+        else if (ran5 == 102){
+          sessionStorage.setItem('ABC5', JSON.stringify(nrf2));
+        }
+        else if (ran5 == 103){
+          sessionStorage.setItem('ABC5', JSON.stringify(nrf3));
+        }
+        else if (ran5 == 104){
+          sessionStorage.setItem('ABC5', JSON.stringify(nrf4));
+        }
+        else if (ran5 == 105){
+          sessionStorage.setItem('ABC5', JSON.stringify(nrf5));
+        }
+        else if (ran5 == 106){
+          sessionStorage.setItem('ABC5', JSON.stringify(nrf6));
+        }
+        else if (ran5 == 107){
+          sessionStorage.setItem('ABC5', JSON.stringify(nrf7));
+        }
+        else if (ran5 == 108){
+          sessionStorage.setItem('ABC5', JSON.stringify(nrf8));
+        }
+        else if (ran5 == 109){
+          sessionStorage.setItem('ABC5', JSON.stringify(nrf9));
+        }
       }
-      else if (ran1 == 2){
-        sessionStorage.setItem('ABC1', JSON.stringify(nr2));
-      }
-      else if (ran1 == 3){
-        sessionStorage.setItem('ABC1', JSON.stringify(nr3));
-      }
-      else if (ran1 == 4){
-        sessionStorage.setItem('ABC1', JSON.stringify(nr4));
-      }
-      else if (ran1 == 5){
-        sessionStorage.setItem('ABC1', JSON.stringify(nr5));
-      }
-      else if (ran1 == 6){
-        sessionStorage.setItem('ABC1', JSON.stringify(nr6));
-      }
-      else if (ran1 == 7){
-        sessionStorage.setItem('ABC1', JSON.stringify(nr7));
-      }
-      else if (ran1 == 8){
-        sessionStorage.setItem('ABC1', JSON.stringify(nr8));
-      }
-      else if (ran1 == 9){
-        sessionStorage.setItem('ABC1', JSON.stringify(nr9));
-      }
-      else if (ran1 == 10){
-        sessionStorage.setItem('ABC1', JSON.stringify(nr10));
-      }
-      else if (ran1 == 11){
-        sessionStorage.setItem('ABC1', JSON.stringify(nr11));
-      }
-      else if (ran1 == 12){
-        sessionStorage.setItem('ABC1', JSON.stringify(nr12));
-      }
-      else if (ran1 == 13){
-        sessionStorage.setItem('ABC1', JSON.stringify(nr13));
-      }
-      else if (ran1 == 14){
-        sessionStorage.setItem('ABC1', JSON.stringify(nr14));
-      }
-      else if (ran1 == 15){
-        sessionStorage.setItem('ABC1', JSON.stringify(nr15));
-      }
-      else if (ran1 == 16){
-        sessionStorage.setItem('ABC1', JSON.stringify(nr16));
-      }
-      else if (ran1 == 17){
-        sessionStorage.setItem('ABC1', JSON.stringify(nr17));
-      }
-      else if (ran1 == 18){
-        sessionStorage.setItem('ABC1', JSON.stringify(nr18));
-      }
-      else if (ran1 == 19){
-        sessionStorage.setItem('ABC1', JSON.stringify(nr19));
-      }
-      else if (ran1 == 20){
-        sessionStorage.setItem('ABC1', JSON.stringify(nr20));
-      }
-      else if (ran1 == 21){
-        sessionStorage.setItem('ABC1', JSON.stringify(nr21));
-      }
-      let gas = sessionStorage.getItem('ABC1');
-      gas = JSON.parse(gas);
-      console.log(gas.first)
-      if (ran2 == 1){
-        sessionStorage.setItem('ABC2', JSON.stringify(nr1));
-      }
-      else if (ran2 == 2){
-        sessionStorage.setItem('ABC2', JSON.stringify(nr2));
-      }
-      else if (ran2 == 3){
-        sessionStorage.setItem('ABC2', JSON.stringify(nr3));
-      }
-      else if (ran2 == 4){
-        sessionStorage.setItem('ABC2', JSON.stringify(nr4));
-      }
-      else if (ran2 == 5){
-        sessionStorage.setItem('ABC2', JSON.stringify(nr5));
-      }
-      else if (ran2 == 6){
-        sessionStorage.setItem('ABC2', JSON.stringify(nr6));
-      }
-      else if (ran2 == 7){
-        sessionStorage.setItem('ABC2', JSON.stringify(nr7));
-      }
-      else if (ran2 == 8){
-        sessionStorage.setItem('ABC2', JSON.stringify(nr8));
-      }
-      else if (ran2 == 9){
-        sessionStorage.setItem('ABC2', JSON.stringify(nr9));
-      }
-      else if (ran2 == 10){
-        sessionStorage.setItem('ABC2', JSON.stringify(nr10));
-      }
-      else if (ran2 == 11){
-        sessionStorage.setItem('ABC2', JSON.stringify(nr11));
-      }
-      else if (ran2 == 12){
-        sessionStorage.setItem('ABC2', JSON.stringify(nr12));
-      }
-      else if (ran2 == 13){
-        sessionStorage.setItem('ABC2', JSON.stringify(nr13));
-      }
-      else if (ran2 == 14){
-        sessionStorage.setItem('ABC2', JSON.stringify(nr14));
-      }
-      else if (ran2 == 15){
-        sessionStorage.setItem('ABC2', JSON.stringify(nr15));
-      }
-      else if (ran2 == 16){
-        sessionStorage.setItem('ABC2', JSON.stringify(nr16));
-      }
-      else if (ran2 == 17){
-        sessionStorage.setItem('ABC2', JSON.stringify(nr17));
-      }
-      else if (ran2 == 18){
-        sessionStorage.setItem('ABC2', JSON.stringify(nr18));
-      }
-      else if (ran2 == 19){
-        sessionStorage.setItem('ABC2', JSON.stringify(nr19));
-      }
-      else if (ran2 == 20){
-        sessionStorage.setItem('ABC2', JSON.stringify(nr20));
-      }
-      else if (ran2 == 21){
-        sessionStorage.setItem('ABC2', JSON.stringify(nr21));
-      }
+      else {
+        let ran1 = Math.floor(Math.random() * (22 - 1) + 1);
+        sessionStorage.setItem('abc1', ran1);
 
-      if (ran3 == 1){
-        sessionStorage.setItem('ABC3', JSON.stringify(nr1));
-      }
-      else if (ran3 == 2){
-        sessionStorage.setItem('ABC3', JSON.stringify(nr2));
-      }
-      else if (ran3 == 3){
-        sessionStorage.setItem('ABC3', JSON.stringify(nr3));
-      }
-      else if (ran3 == 4){
-        sessionStorage.setItem('ABC3', JSON.stringify(nr4));
-      }
-      else if (ran3 == 5){
-        sessionStorage.setItem('ABC3', JSON.stringify(nr5));
-      }
-      else if (ran3 == 6){
-        sessionStorage.setItem('ABC3', JSON.stringify(nr6));
-      }
-      else if (ran3 == 7){
-        sessionStorage.setItem('ABC3', JSON.stringify(nr7));
-      }
-      else if (ran3 == 8){
-        sessionStorage.setItem('ABC3', JSON.stringify(nr8));
-      }
-      else if (ran3 == 9){
-        sessionStorage.setItem('ABC3', JSON.stringify(nr9));
-      }
-      else if (ran3 == 10){
-        sessionStorage.setItem('ABC3', JSON.stringify(nr10));
-      }
-      else if (ran3 == 11){
-        sessionStorage.setItem('ABC3', JSON.stringify(nr11));
-      }
-      else if (ran3 == 12){
-        sessionStorage.setItem('ABC3', JSON.stringify(nr12));
-      }
-      else if (ran3 == 13){
-        sessionStorage.setItem('ABC3', JSON.stringify(nr13));
-      }
-      else if (ran3 == 14){
-        sessionStorage.setItem('ABC3', JSON.stringify(nr14));
-      }
-      else if (ran3 == 15){
-        sessionStorage.setItem('ABC3', JSON.stringify(nr15));
-      }
-      else if (ran3 == 16){
-        sessionStorage.setItem('ABC3', JSON.stringify(nr16));
-      }
-      else if (ran3 == 17){
-        sessionStorage.setItem('ABC3', JSON.stringify(nr17));
-      }
-      else if (ran3 == 18){
-        sessionStorage.setItem('ABC3', JSON.stringify(nr18));
-      }
-      else if (ran3 == 19){
-        sessionStorage.setItem('ABC3', JSON.stringify(nr19));
-      }
-      else if (ran3 == 20){
-        sessionStorage.setItem('ABC3', JSON.stringify(nr20));
-      }
-      else if (ran3 == 21){
-        sessionStorage.setItem('ABC3', JSON.stringify(nr21));
-      }
+        let ran2 = Math.floor(Math.random() * (22 - 1) + 1);
+        while(true) {
+          if (ran2 != ran1) {
+            break;
+          }
+          ran2 = Math.floor(Math.random() * (22 - 1) + 1);
+        }
+        sessionStorage.setItem('abc2', ran2);
 
-      if (ran4 == 1){
-        sessionStorage.setItem('ABC4', JSON.stringify(nr1));
-      }
-      else if (ran4 == 2){
-        sessionStorage.setItem('ABC4', JSON.stringify(nr2));
-      }
-      else if (ran4 == 3){
-        sessionStorage.setItem('ABC4', JSON.stringify(nr3));
-      }
-      else if (ran4 == 4){
-        sessionStorage.setItem('ABC4', JSON.stringify(nr4));
-      }
-      else if (ran4 == 5){
-        sessionStorage.setItem('ABC4', JSON.stringify(nr5));
-      }
-      else if (ran4 == 6){
-        sessionStorage.setItem('ABC4', JSON.stringify(nr6));
-      }
-      else if (ran4 == 7){
-        sessionStorage.setItem('ABC4', JSON.stringify(nr7));
-      }
-      else if (ran4 == 8){
-        sessionStorage.setItem('ABC4', JSON.stringify(nr8));
-      }
-      else if (ran4 == 9){
-        sessionStorage.setItem('ABC4', JSON.stringify(nr9));
-      }
-      else if (ran4 == 10){
-        sessionStorage.setItem('ABC4', JSON.stringify(nr10));
-      }
-      else if (ran4 == 11){
-        sessionStorage.setItem('ABC4', JSON.stringify(nr11));
-      }
-      else if (ran4 == 12){
-        sessionStorage.setItem('ABC4', JSON.stringify(nr12));
-      }
-      else if (ran4 == 13){
-        sessionStorage.setItem('ABC4', JSON.stringify(nr13));
-      }
-      else if (ran4 == 14){
-        sessionStorage.setItem('ABC4', JSON.stringify(nr14));
-      }
-      else if (ran4 == 15){
-        sessionStorage.setItem('ABC4', JSON.stringify(nr15));
-      }
-      else if (ran4 == 16){
-        sessionStorage.setItem('ABC4', JSON.stringify(nr16));
-      }
-      else if (ran4 == 17){
-        sessionStorage.setItem('ABC4', JSON.stringify(nr17));
-      }
-      else if (ran4 == 18){
-        sessionStorage.setItem('ABC4', JSON.stringify(nr18));
-      }
-      else if (ran4 == 19){
-        sessionStorage.setItem('ABC4', JSON.stringify(nr19));
-      }
-      else if (ran4 == 20){
-        sessionStorage.setItem('ABC4', JSON.stringify(nr20));
-      }
-      else if (ran4 == 21){
-        sessionStorage.setItem('ABC4', JSON.stringify(nr21));
-      }
+        let ran3 = Math.floor(Math.random() * (22 - 1) + 1);
+        while(true) {
+          if (ran3 != ran1 && ran3 != ran2) {
+            break;
+          }
+          ran3 = Math.floor(Math.random() * (22 - 1) + 1);
+        }
+        sessionStorage.setItem('abc3', ran3);
 
-      if (ran5 == 1){
-        sessionStorage.setItem('ABC5', JSON.stringify(nr1));
-      }
-      else if (ran5 == 2){
-        sessionStorage.setItem('ABC5', JSON.stringify(nr2));
-      }
-      else if (ran5 == 3){
-        sessionStorage.setItem('ABC5', JSON.stringify(nr3));
-      }
-      else if (ran5 == 4){
-        sessionStorage.setItem('ABC5', JSON.stringify(nr4));
-      }
-      else if (ran5 == 5){
-        sessionStorage.setItem('ABC5', JSON.stringify(nr5));
-      }
-      else if (ran5 == 6){
-        sessionStorage.setItem('ABC5', JSON.stringify(nr6));
-      }
-      else if (ran5 == 7){
-        sessionStorage.setItem('ABC5', JSON.stringify(nr7));
-      }
-      else if (ran5 == 8){
-        sessionStorage.setItem('ABC5', JSON.stringify(nr8));
-      }
-      else if (ran5 == 9){
-        sessionStorage.setItem('ABC5', JSON.stringify(nr9));
-      }
-      else if (ran5 == 10){
-        sessionStorage.setItem('ABC5', JSON.stringify(nr10));
-      }
-      else if (ran5 == 11){
-        sessionStorage.setItem('ABC5', JSON.stringify(nr11));
-      }
-      else if (ran5 == 12){
-        sessionStorage.setItem('ABC5', JSON.stringify(nr12));
-      }
-      else if (ran5 == 13){
-        sessionStorage.setItem('ABC5', JSON.stringify(nr13));
-      }
-      else if (ran5 == 14){
-        sessionStorage.setItem('ABC5', JSON.stringify(nr14));
-      }
-      else if (ran5 == 15){
-        sessionStorage.setItem('ABC5', JSON.stringify(nr15));
-      }
-      else if (ran5 == 16){
-        sessionStorage.setItem('ABC5', JSON.stringify(nr16));
-      }
-      else if (ran5 == 17){
-        sessionStorage.setItem('ABC5', JSON.stringify(nr17));
-      }
-      else if (ran5 == 18){
-        sessionStorage.setItem('ABC5', JSON.stringify(nr18));
-      }
-      else if (ran5 == 19){
-        sessionStorage.setItem('ABC5', JSON.stringify(nr19));
-      }
-      else if (ran5 == 20){
-        sessionStorage.setItem('ABC5', JSON.stringify(nr20));
-      }
-      else if (ran5 == 21){
-        sessionStorage.setItem('ABC5', JSON.stringify(nr21));
-      }
+        let ran4 = Math.floor(Math.random() * (22 - 1) + 1);
+        while(true) {
+          if (ran4 != ran1 && ran4 != ran2 && ran4 != ran3) {
+            break;
+          }
+          ran4 = Math.floor(Math.random() * (22 - 1) + 1);
+        }
+        sessionStorage.setItem('abc4', ran4);
+
+        let ran5 = Math.floor(Math.random() * (22 - 1) + 1);
+        while(true) {
+          if (ran5 != ran1 && ran5 != ran2 && ran5 != ran3 && ran5 != ran4) {
+            break;
+          }
+          ran5 = Math.floor(Math.random() * (22 - 1) + 1);
+        }
+        sessionStorage.setItem('abc5', ran5);
+      
+        if (ran1 == 1){
+          sessionStorage.setItem('ABC1', JSON.stringify(nr1));
+        }
+        else if (ran1 == 2){
+          sessionStorage.setItem('ABC1', JSON.stringify(nr2));
+        }
+        else if (ran1 == 3){
+          sessionStorage.setItem('ABC1', JSON.stringify(nr3));
+        }
+        else if (ran1 == 4){
+          sessionStorage.setItem('ABC1', JSON.stringify(nr4));
+        }
+        else if (ran1 == 5){
+          sessionStorage.setItem('ABC1', JSON.stringify(nr5));
+        }
+        else if (ran1 == 6){
+          sessionStorage.setItem('ABC1', JSON.stringify(nr6));
+        }
+        else if (ran1 == 7){
+          sessionStorage.setItem('ABC1', JSON.stringify(nr7));
+        }
+        else if (ran1 == 8){
+          sessionStorage.setItem('ABC1', JSON.stringify(nr8));
+        }
+        else if (ran1 == 9){
+          sessionStorage.setItem('ABC1', JSON.stringify(nr9));
+        }
+        else if (ran1 == 10){
+          sessionStorage.setItem('ABC1', JSON.stringify(nr10));
+        }
+        else if (ran1 == 11){
+          sessionStorage.setItem('ABC1', JSON.stringify(nr11));
+        }
+        else if (ran1 == 12){
+          sessionStorage.setItem('ABC1', JSON.stringify(nr12));
+        }
+        else if (ran1 == 13){
+          sessionStorage.setItem('ABC1', JSON.stringify(nr13));
+        }
+        else if (ran1 == 14){
+          sessionStorage.setItem('ABC1', JSON.stringify(nr14));
+        }
+        else if (ran1 == 15){
+          sessionStorage.setItem('ABC1', JSON.stringify(nr15));
+        }
+        else if (ran1 == 16){
+          sessionStorage.setItem('ABC1', JSON.stringify(nr16));
+        }
+        else if (ran1 == 17){
+          sessionStorage.setItem('ABC1', JSON.stringify(nr17));
+        }
+        else if (ran1 == 18){
+          sessionStorage.setItem('ABC1', JSON.stringify(nr18));
+        }
+        else if (ran1 == 19){
+          sessionStorage.setItem('ABC1', JSON.stringify(nr19));
+        }
+        else if (ran1 == 20){
+          sessionStorage.setItem('ABC1', JSON.stringify(nr20));
+        }
+        else if (ran1 == 21){
+          sessionStorage.setItem('ABC1', JSON.stringify(nr21));
+        }
+        let gas = sessionStorage.getItem('ABC1');
+        gas = JSON.parse(gas);
+        console.log(gas.first)
+        if (ran2 == 1){
+          sessionStorage.setItem('ABC2', JSON.stringify(nr1));
+        }
+        else if (ran2 == 2){
+          sessionStorage.setItem('ABC2', JSON.stringify(nr2));
+        }
+        else if (ran2 == 3){
+          sessionStorage.setItem('ABC2', JSON.stringify(nr3));
+        }
+        else if (ran2 == 4){
+          sessionStorage.setItem('ABC2', JSON.stringify(nr4));
+        }
+        else if (ran2 == 5){
+          sessionStorage.setItem('ABC2', JSON.stringify(nr5));
+        }
+        else if (ran2 == 6){
+          sessionStorage.setItem('ABC2', JSON.stringify(nr6));
+        }
+        else if (ran2 == 7){
+          sessionStorage.setItem('ABC2', JSON.stringify(nr7));
+        }
+        else if (ran2 == 8){
+          sessionStorage.setItem('ABC2', JSON.stringify(nr8));
+        }
+        else if (ran2 == 9){
+          sessionStorage.setItem('ABC2', JSON.stringify(nr9));
+        }
+        else if (ran2 == 10){
+          sessionStorage.setItem('ABC2', JSON.stringify(nr10));
+        }
+        else if (ran2 == 11){
+          sessionStorage.setItem('ABC2', JSON.stringify(nr11));
+        }
+        else if (ran2 == 12){
+          sessionStorage.setItem('ABC2', JSON.stringify(nr12));
+        }
+        else if (ran2 == 13){
+          sessionStorage.setItem('ABC2', JSON.stringify(nr13));
+        }
+        else if (ran2 == 14){
+          sessionStorage.setItem('ABC2', JSON.stringify(nr14));
+        }
+        else if (ran2 == 15){
+          sessionStorage.setItem('ABC2', JSON.stringify(nr15));
+        }
+        else if (ran2 == 16){
+          sessionStorage.setItem('ABC2', JSON.stringify(nr16));
+        }
+        else if (ran2 == 17){
+          sessionStorage.setItem('ABC2', JSON.stringify(nr17));
+        }
+        else if (ran2 == 18){
+          sessionStorage.setItem('ABC2', JSON.stringify(nr18));
+        }
+        else if (ran2 == 19){
+          sessionStorage.setItem('ABC2', JSON.stringify(nr19));
+        }
+        else if (ran2 == 20){
+          sessionStorage.setItem('ABC2', JSON.stringify(nr20));
+        }
+        else if (ran2 == 21){
+          sessionStorage.setItem('ABC2', JSON.stringify(nr21));
+        }
+  
+        if (ran3 == 1){
+          sessionStorage.setItem('ABC3', JSON.stringify(nr1));
+        }
+        else if (ran3 == 2){
+          sessionStorage.setItem('ABC3', JSON.stringify(nr2));
+        }
+        else if (ran3 == 3){
+          sessionStorage.setItem('ABC3', JSON.stringify(nr3));
+        }
+        else if (ran3 == 4){
+          sessionStorage.setItem('ABC3', JSON.stringify(nr4));
+        }
+        else if (ran3 == 5){
+          sessionStorage.setItem('ABC3', JSON.stringify(nr5));
+        }
+        else if (ran3 == 6){
+          sessionStorage.setItem('ABC3', JSON.stringify(nr6));
+        }
+        else if (ran3 == 7){
+          sessionStorage.setItem('ABC3', JSON.stringify(nr7));
+        }
+        else if (ran3 == 8){
+          sessionStorage.setItem('ABC3', JSON.stringify(nr8));
+        }
+        else if (ran3 == 9){
+          sessionStorage.setItem('ABC3', JSON.stringify(nr9));
+        }
+        else if (ran3 == 10){
+          sessionStorage.setItem('ABC3', JSON.stringify(nr10));
+        }
+        else if (ran3 == 11){
+          sessionStorage.setItem('ABC3', JSON.stringify(nr11));
+        }
+        else if (ran3 == 12){
+          sessionStorage.setItem('ABC3', JSON.stringify(nr12));
+        }
+        else if (ran3 == 13){
+          sessionStorage.setItem('ABC3', JSON.stringify(nr13));
+        }
+        else if (ran3 == 14){
+          sessionStorage.setItem('ABC3', JSON.stringify(nr14));
+        }
+        else if (ran3 == 15){
+          sessionStorage.setItem('ABC3', JSON.stringify(nr15));
+        }
+        else if (ran3 == 16){
+          sessionStorage.setItem('ABC3', JSON.stringify(nr16));
+        }
+        else if (ran3 == 17){
+          sessionStorage.setItem('ABC3', JSON.stringify(nr17));
+        }
+        else if (ran3 == 18){
+          sessionStorage.setItem('ABC3', JSON.stringify(nr18));
+        }
+        else if (ran3 == 19){
+          sessionStorage.setItem('ABC3', JSON.stringify(nr19));
+        }
+        else if (ran3 == 20){
+          sessionStorage.setItem('ABC3', JSON.stringify(nr20));
+        }
+        else if (ran3 == 21){
+          sessionStorage.setItem('ABC3', JSON.stringify(nr21));
+        }
+  
+        if (ran4 == 1){
+          sessionStorage.setItem('ABC4', JSON.stringify(nr1));
+        }
+        else if (ran4 == 2){
+          sessionStorage.setItem('ABC4', JSON.stringify(nr2));
+        }
+        else if (ran4 == 3){
+          sessionStorage.setItem('ABC4', JSON.stringify(nr3));
+        }
+        else if (ran4 == 4){
+          sessionStorage.setItem('ABC4', JSON.stringify(nr4));
+        }
+        else if (ran4 == 5){
+          sessionStorage.setItem('ABC4', JSON.stringify(nr5));
+        }
+        else if (ran4 == 6){
+          sessionStorage.setItem('ABC4', JSON.stringify(nr6));
+        }
+        else if (ran4 == 7){
+          sessionStorage.setItem('ABC4', JSON.stringify(nr7));
+        }
+        else if (ran4 == 8){
+          sessionStorage.setItem('ABC4', JSON.stringify(nr8));
+        }
+        else if (ran4 == 9){
+          sessionStorage.setItem('ABC4', JSON.stringify(nr9));
+        }
+        else if (ran4 == 10){
+          sessionStorage.setItem('ABC4', JSON.stringify(nr10));
+        }
+        else if (ran4 == 11){
+          sessionStorage.setItem('ABC4', JSON.stringify(nr11));
+        }
+        else if (ran4 == 12){
+          sessionStorage.setItem('ABC4', JSON.stringify(nr12));
+        }
+        else if (ran4 == 13){
+          sessionStorage.setItem('ABC4', JSON.stringify(nr13));
+        }
+        else if (ran4 == 14){
+          sessionStorage.setItem('ABC4', JSON.stringify(nr14));
+        }
+        else if (ran4 == 15){
+          sessionStorage.setItem('ABC4', JSON.stringify(nr15));
+        }
+        else if (ran4 == 16){
+          sessionStorage.setItem('ABC4', JSON.stringify(nr16));
+        }
+        else if (ran4 == 17){
+          sessionStorage.setItem('ABC4', JSON.stringify(nr17));
+        }
+        else if (ran4 == 18){
+          sessionStorage.setItem('ABC4', JSON.stringify(nr18));
+        }
+        else if (ran4 == 19){
+          sessionStorage.setItem('ABC4', JSON.stringify(nr19));
+        }
+        else if (ran4 == 20){
+          sessionStorage.setItem('ABC4', JSON.stringify(nr20));
+        }
+        else if (ran4 == 21){
+          sessionStorage.setItem('ABC4', JSON.stringify(nr21));
+        }
+  
+        if (ran5 == 1){
+          sessionStorage.setItem('ABC5', JSON.stringify(nr1));
+        }
+        else if (ran5 == 2){
+          sessionStorage.setItem('ABC5', JSON.stringify(nr2));
+        }
+        else if (ran5 == 3){
+          sessionStorage.setItem('ABC5', JSON.stringify(nr3));
+        }
+        else if (ran5 == 4){
+          sessionStorage.setItem('ABC5', JSON.stringify(nr4));
+        }
+        else if (ran5 == 5){
+          sessionStorage.setItem('ABC5', JSON.stringify(nr5));
+        }
+        else if (ran5 == 6){
+          sessionStorage.setItem('ABC5', JSON.stringify(nr6));
+        }
+        else if (ran5 == 7){
+          sessionStorage.setItem('ABC5', JSON.stringify(nr7));
+        }
+        else if (ran5 == 8){
+          sessionStorage.setItem('ABC5', JSON.stringify(nr8));
+        }
+        else if (ran5 == 9){
+          sessionStorage.setItem('ABC5', JSON.stringify(nr9));
+        }
+        else if (ran5 == 10){
+          sessionStorage.setItem('ABC5', JSON.stringify(nr10));
+        }
+        else if (ran5 == 11){
+          sessionStorage.setItem('ABC5', JSON.stringify(nr11));
+        }
+        else if (ran5 == 12){
+          sessionStorage.setItem('ABC5', JSON.stringify(nr12));
+        }
+        else if (ran5 == 13){
+          sessionStorage.setItem('ABC5', JSON.stringify(nr13));
+        }
+        else if (ran5 == 14){
+          sessionStorage.setItem('ABC5', JSON.stringify(nr14));
+        }
+        else if (ran5 == 15){
+          sessionStorage.setItem('ABC5', JSON.stringify(nr15));
+        }
+        else if (ran5 == 16){
+          sessionStorage.setItem('ABC5', JSON.stringify(nr16));
+        }
+        else if (ran5 == 17){
+          sessionStorage.setItem('ABC5', JSON.stringify(nr17));
+        }
+        else if (ran5 == 18){
+          sessionStorage.setItem('ABC5', JSON.stringify(nr18));
+        }
+        else if (ran5 == 19){
+          sessionStorage.setItem('ABC5', JSON.stringify(nr19));
+        }
+        else if (ran5 == 20){
+          sessionStorage.setItem('ABC5', JSON.stringify(nr20));
+        }
+        else if (ran5 == 21){
+          sessionStorage.setItem('ABC5', JSON.stringify(nr21));
+        }
+      }   
 
       let twt1 = {
         month: 'JAN',
@@ -1144,9 +1517,9 @@ class Customize extends React.Component {
         strength: '55',
         speed: '70',
         stamina: '65',
-        punching: '55',
+        punching: '70',
         kicking: '50',
-        wrestling: '60',
+        wrestling: '70',
         grappling: '75',
         clinch: '45'
       }
@@ -1181,9 +1554,9 @@ class Customize extends React.Component {
         nation: 'BRAZIL',
         win: '16',
         loss: '3',
-        strength: '50',
+        strength: '80',
         speed: '50',
-        stamina: '50',
+        stamina: '70',
         punching: '55',
         kicking: '50',
         wrestling: '60',
@@ -1263,7 +1636,7 @@ class Customize extends React.Component {
         loss: '3',
         strength: '55',
         speed: '55',
-        stamina: '80',
+        stamina: '65',
         punching: '55',
         kicking: '55',
         wrestling: '75',
@@ -1342,11 +1715,11 @@ class Customize extends React.Component {
         win: '29',
         loss: '7',
         strength: '75',
-        speed: '80',
+        speed: '85',
         stamina: '40',
         punching: '80',
         kicking: '70',
-        wrestling: '65',
+        wrestling: '70',
         grappling: '55',
         clinch: '55'
       }
@@ -1366,7 +1739,7 @@ class Customize extends React.Component {
         stamina: '45',
         punching: '70',
         kicking: '70',
-        wrestling: '65',
+        wrestling: '70',
         grappling: '70',
         clinch: '50'
       }
@@ -1501,7 +1874,7 @@ class Customize extends React.Component {
         nation: 'USA',
         win: '15',
         loss: '1',
-        strength: '70',
+        strength: '75',
         speed: '75',
         stamina: '85',
         punching: '70',
@@ -1546,9 +1919,9 @@ class Customize extends React.Component {
         stamina: '60',
         punching: '75',
         kicking: '75',
-        wrestling: '50',
+        wrestling: '75',
         grappling: '75',
-        clinch: '55'
+        clinch: '60'
       }
       sessionStorage.setItem('fea4', JSON.stringify(fea4));
 
@@ -1947,7 +2320,7 @@ class Customize extends React.Component {
         punching: '75',
         kicking: '60',
         wrestling: '75',
-        grappling: '80',
+        grappling: '85',
         clinch: '55'
       }
       sessionStorage.setItem('wel2', JSON.stringify(wel2));
@@ -2367,7 +2740,7 @@ class Customize extends React.Component {
         punching: '70',
         kicking: '55',
         wrestling: '80',
-        grappling: '75',
+        grappling: '80',
         clinch: '55'
       }
       sessionStorage.setItem('lhe1', JSON.stringify(lhe1));
@@ -2405,10 +2778,10 @@ class Customize extends React.Component {
         speed: '80',
         stamina: '75',
         punching: '75',
-        kicking: '60',
+        kicking: '75',
         wrestling: '80',
         grappling: '65',
-        clinch: '50'
+        clinch: '70'
       }
       sessionStorage.setItem('lhe3', JSON.stringify(lhe3));
 
@@ -2626,9 +2999,9 @@ class Customize extends React.Component {
         stamina: '75',
         punching: '90',
         kicking: '70',
-        wrestling: '60',
+        wrestling: '70',
         grappling: '70',
-        clinch: '55'
+        clinch: '70'
       }
       sessionStorage.setItem('hea3', JSON.stringify(hea3));
 
@@ -2771,7 +3144,667 @@ class Customize extends React.Component {
         clinch: '-'
       }
       sessionStorage.setItem('hea10', JSON.stringify(hea10));
-    }
+
+      let wstC = {
+        rank: 'C',
+        first: 'ROSE',
+        last: 'NAMAJUNAS',
+        weight: '115',
+        height: '5\'5\"',
+        nation: 'USA',
+        win: '10',
+        loss: '4',
+        strength: '45',
+        speed: '90',
+        stamina: '65',
+        punching: '90',
+        kicking: '80',
+        wrestling: '70',
+        grappling: '80',
+        clinch: '40'
+      }
+      sessionStorage.setItem('wstC', JSON.stringify(wstC));
+      
+      let wst1 = {
+        rank: '1',
+        first: 'ZHANG',
+        last: 'WEILI',
+        weight: '115',
+        height: '5\'4\"',
+        nation: 'CHINA',
+        win: '21',
+        loss: '2',
+        strength: '85',
+        speed: '80',
+        stamina: '70',
+        punching: '80',
+        kicking: '55',
+        wrestling: '70',
+        grappling: '80',
+        clinch: '70'
+      }
+      sessionStorage.setItem('wst1', JSON.stringify(wst1));
+      
+      let wst2 = {
+        rank: '2',
+        first: 'JOANNA',
+        last: 'JEDRZEJCZYK',
+        weight: '115',
+        height: '5\'6\"',
+        nation: 'POLAND',
+        win: '16',
+        loss: '4',
+        strength: '40',
+        speed: '80',
+        stamina: '90',
+        punching: '85',
+        kicking: '75',
+        wrestling: '30',
+        grappling: '25',
+        clinch: '70'
+      }
+      sessionStorage.setItem('wst2', JSON.stringify(wst2));
+ 
+      let wst3 = {
+        rank: '3',
+        first: 'CARLA',
+        last: 'ESPARZA',
+        weight: '115',
+        height: '5\'1\"',
+        nation: 'USA',
+        win: '18',
+        loss: '6',
+        strength: '55',
+        speed: '50',
+        stamina: '85',
+        punching: '30',
+        kicking: '25',
+        wrestling: '90',
+        grappling: '65',
+        clinch: '40'
+      }
+      sessionStorage.setItem('wst3', JSON.stringify(wst3));
+ 
+      let wst4 = {
+        rank: '4',
+        first: 'YAN',
+        last: 'XIAONAN',
+        weight: '115',
+        height: '5\'5\"',
+        nation: 'CHINA',
+        win: '13',
+        loss: '2',
+        strength: '75',
+        speed: '75',
+        stamina: '80',
+        punching: '80',
+        kicking: '70',
+        wrestling: '30',
+        grappling: '35',
+        clinch: '70'
+      }
+      sessionStorage.setItem('wst4', JSON.stringify(wst4));
+ 
+      let wst5 = {
+        rank: '5',
+        first: 'MARINA',
+        last: 'RODRIGUEZ',
+        weight: '115',
+        height: '5\'6\"',
+        nation: 'BRAZIL',
+        win: '14',
+        loss: '1',
+        strength: '75',
+        speed: '70',
+        stamina: '70',
+        punching: '90',
+        kicking: '65',
+        wrestling: '35',
+        grappling: '40',
+        clinch: '60'
+      }
+      sessionStorage.setItem('wst5', JSON.stringify(wst5));
+ 
+      let wst6 = {
+        rank: '6',
+        first: 'MACKENZIE',
+        last: 'DERN',
+        weight: '115',
+        height: '5\'4\"',
+        nation: 'USA',
+        win: '11',
+        loss: '1',
+        strength: '65',
+        speed: '50',
+        stamina: '50',
+        punching: '30',
+        kicking: '20',
+        wrestling: '75',
+        grappling: '80',
+        clinch: '35'
+      }
+      sessionStorage.setItem('wst6', JSON.stringify(wst6));
+ 
+      let wst7 = {
+        rank: '7',
+        first: 'NINA',
+        last: 'NUNES',
+        weight: '115',
+        height: '5\'5\"',
+        nation: 'USA',
+        win: '10',
+        loss: '7',
+        strength: '40',
+        speed: '50',
+        stamina: '50',
+        punching: '60',
+        kicking: '65',
+        wrestling: '50',
+        grappling: '60',
+        clinch: '40'
+      }
+      sessionStorage.setItem('wst7', JSON.stringify(wst7));
+ 
+      let wst8 = {
+        rank: '8',
+        first: 'CLAUDIA',
+        last: 'GADELHA',
+        weight: '115',
+        height: '5\'4\"',
+        nation: 'BRAZIL',
+        win: '18',
+        loss: '5',
+        strength: '40',
+        speed: '45',
+        stamina: '60',
+        punching: '30',
+        kicking: '25',
+        wrestling: '65',
+        grappling: '75',
+        clinch: '45'
+      }
+      sessionStorage.setItem('wst8', JSON.stringify(wst8));
+ 
+      let wst9 = {
+        rank: '9',
+        first: 'MICHELLE',
+        last: 'WATERSON',
+        weight: '115',
+        height: '5\'3\"',
+        nation: 'USA',
+        win: '18',
+        loss: '9',
+        strength: '45',
+        speed: '70',
+        stamina: '70',
+        punching: '70',
+        kicking: '80',
+        wrestling: '70',
+        grappling: '75',
+        clinch: '45'
+      }
+      sessionStorage.setItem('wst9', JSON.stringify(wst9));
+ 
+      let wst10 = {
+        rank: '10',
+        first: '-',
+        last: '-',
+        weight: '-',
+        height: '-',
+        nation: '-',
+        win: '-',
+        loss: '-',
+        strength: '-',
+        speed: '-',
+        stamina: '-',
+        punching: '-',
+        kicking: '-',
+        wrestling: '-',
+        grappling: '-',
+        clinch: '-'
+      }
+      sessionStorage.setItem('wst10', JSON.stringify(wst10));
+ 
+      let wflC = {
+        rank: 'C',
+        first: 'VALENTINA',
+        last: 'SHEVCHENKO',
+        weight: '125',
+        height: '5\'5\"',
+        nation: 'KYRGYZSTAN',
+        win: '21',
+        loss: '3',
+        strength: '80',
+        speed: '80',
+        stamina: '80',
+        punching: '80',
+        kicking: '75',
+        wrestling: '75',
+        grappling: '70',
+        clinch: '75'
+      }
+      sessionStorage.setItem('wflC', JSON.stringify(wflC));
+ 
+      let wfl1 = {
+        rank: '1',
+        first: 'JESSICA',
+        last: 'ANDRADE',
+        weight: '125',
+        height: '5\'2\"',
+        nation: 'BRAZIL',
+        win: '21',
+        loss: '9',
+        strength: '90',
+        speed: '80',
+        stamina: '70',
+        punching: '75',
+        kicking: '40',
+        wrestling: '75',
+        grappling: '75',
+        clinch: '60'
+      }
+      sessionStorage.setItem('wfl1', JSON.stringify(wfl1));
+ 
+      let wfl2 = {
+        rank: '2',
+        first: 'KATLYN',
+        last: 'CHOOKAGIAN',
+        weight: '125',
+        height: '5\'9\"',
+        nation: 'USA',
+        win: '16',
+        loss: '4',
+        strength: '35',
+        speed: '70',
+        stamina: '85',
+        punching: '80',
+        kicking: '70',
+        wrestling: '30',
+        grappling: '50',
+        clinch: '60'
+      }
+      sessionStorage.setItem('wfl2', JSON.stringify(wfl2));
+ 
+      let wfl3 = {
+        rank: '3',
+        first: 'LAUREN',
+        last: 'MURPHY',
+        weight: '125',
+        height: '5\'5\"',
+        nation: 'USA',
+        win: '15',
+        loss: '4',
+        strength: '75',
+        speed: '60',
+        stamina: '70',
+        punching: '55',
+        kicking: '30',
+        wrestling: '80',
+        grappling: '50',
+        clinch: '45'
+      }
+      sessionStorage.setItem('wfl3', JSON.stringify(wfl3));
+ 
+      let wfl4 = {
+        rank: '4',
+        first: 'JENNIFER',
+        last: 'MAIA',
+        weight: '125',
+        height: '5\'4\"',
+        nation: 'BRAZIL',
+        win: '19',
+        loss: '7',
+        strength: '75',
+        speed: '65',
+        stamina: '70',
+        punching: '35',
+        kicking: '20',
+        wrestling: '70',
+        grappling: '75',
+        clinch: '50'
+      }
+      sessionStorage.setItem('wfl4', JSON.stringify(wfl4));
+ 
+      let wfl5 = {
+        rank: '5',
+        first: 'CYNTHIA',
+        last: 'CALVILLO',
+        weight: '125',
+        height: '5\'4\"',
+        nation: 'USA',
+        win: '9',
+        loss: '2',
+        strength: '40',
+        speed: '50',
+        stamina: '55',
+        punching: '75',
+        kicking: '60',
+        wrestling: '70',
+        grappling: '70',
+        clinch: '65'
+      }
+      sessionStorage.setItem('wfl5', JSON.stringify(wfl5));
+ 
+      let wfl6 = {
+        rank: '6',
+        first: 'JOANNE',
+        last: 'CALDERWOOD',
+        weight: '125',
+        height: '5\'6\"',
+        nation: 'SCOTLAND',
+        win: '15',
+        loss: '6',
+        strength: '50',
+        speed: '60',
+        stamina: '65',
+        punching: '65',
+        kicking: '35',
+        wrestling: '60',
+        grappling: '60',
+        clinch: '50'
+      }
+      sessionStorage.setItem('wfl6', JSON.stringify(wfl6));
+ 
+      let wfl7 = {
+        rank: '7',
+        first: 'VIVIANE',
+        last: 'ARAUJO',
+        weight: '125',
+        height: '5\'5\"',
+        nation: 'BRAZIL',
+        win: '10',
+        loss: '3',
+        strength: '50',
+        speed: '50',
+        stamina: '50',
+        punching: '50',
+        kicking: '40',
+        wrestling: '60',
+        grappling: '75',
+        clinch: '50'
+      }
+      sessionStorage.setItem('wfl7', JSON.stringify(wfl7));
+ 
+      let wfl8 = {
+        rank: '8',
+        first: 'JESSICA',
+        last: 'EYE',
+        weight: '125',
+        height: '5\'6\"',
+        nation: 'USA',
+        win: '15',
+        loss: '10',
+        strength: '40',
+        speed: '40',
+        stamina: '70',
+        punching: '45',
+        kicking: '30',
+        wrestling: '55',
+        grappling: '45',
+        clinch: '45'
+      }
+      sessionStorage.setItem('wfl8', JSON.stringify(wfl8));
+ 
+      let wfl9 = {
+        rank: '9',
+        first: 'ROXANNE',
+        last: 'MODAFFERI',
+        weight: '125',
+        height: '5\'6\"',
+        nation: 'USA',
+        win: '25',
+        loss: '18',
+        strength: '50',
+        speed: '45',
+        stamina: '70',
+        punching: '45',
+        kicking: '30',
+        wrestling: '70',
+        grappling: '60',
+        clinch: '50'
+      }
+      sessionStorage.setItem('wfl9', JSON.stringify(wfl9));
+ 
+      let wfl10 = {
+        rank: '10',
+        first: '-',
+        last: '-',
+        weight: '-',
+        height: '-',
+        nation: '-',
+        win: '-',
+        loss: '-',
+        strength: '-',
+        speed: '-',
+        stamina: '-',
+        punching: '-',
+        kicking: '-',
+        wrestling: '-',
+        grappling: '-',
+        clinch: '-'
+      }
+      sessionStorage.setItem('wfl10', JSON.stringify(wfl10));
+ 
+      let wbaC = {
+        rank: 'C',
+        first: 'AMANDA',
+        last: 'NUNES',
+        weight: '135',
+        height: '5\'8\"',
+        nation: 'BRAZIL',
+        win: '21',
+        loss: '4',
+        strength: '100',
+        speed: '75',
+        stamina: '75',
+        punching: '80',
+        kicking: '50',
+        wrestling: '70',
+        grappling: '70',
+        clinch: '70'
+      }
+      sessionStorage.setItem('wbaC', JSON.stringify(wbaC));
+ 
+      let wba1 = {
+        rank: '1',
+        first: 'GERMAINE',
+        last: 'DE RANDAMIE',
+        weight: '135',
+        height: '5\'9\"',
+        nation: 'NETHERLANDS',
+        win: '10',
+        loss: '4',
+        strength: '80',
+        speed: '75',
+        stamina: '70',
+        punching: '95',
+        kicking: '70',
+        wrestling: '40',
+        grappling: '35',
+        clinch: '70'
+      }
+      sessionStorage.setItem('wba1', JSON.stringify(wba1));
+ 
+      let wba2 = {
+        rank: '2',
+        first: 'HOLLY',
+        last: 'HOLM',
+        weight: '135',
+        height: '5\'8\"',
+        nation: 'USA',
+        win: '14',
+        loss: '5',
+        strength: '80',
+        speed: '75',
+        stamina: '80',
+        punching: '80',
+        kicking: '75',
+        wrestling: '70',
+        grappling: '45',
+        clinch: '60'
+      }
+      sessionStorage.setItem('wba2', JSON.stringify(wba2));
+ 
+      let wba3 = {
+        rank: '3',
+        first: 'ASPEN',
+        last: 'LADD',
+        weight: '135',
+        height: '5\'6\"',
+        nation: 'USA',
+        win: '9',
+        loss: '1',
+        strength: '90',
+        speed: '80',
+        stamina: '65',
+        punching: '90',
+        kicking: '60',
+        wrestling: '50',
+        grappling: '50',
+        clinch: '50'
+      }
+      sessionStorage.setItem('wba3', JSON.stringify(wba3));
+ 
+      let wba4 = {
+        rank: '4',
+        first: 'IRENE',
+        last: 'ALDANA',
+        weight: '135',
+        height: '5\'9\"',
+        nation: 'MEXICO',
+        win: '13',
+        loss: '6',
+        strength: '80',
+        speed: '70',
+        stamina: '50',
+        punching: '80',
+        kicking: '65',
+        wrestling: '60',
+        grappling: '50',
+        clinch: '65'
+      }
+      sessionStorage.setItem('wba4', JSON.stringify(wba4));
+ 
+      let wba5 = {
+        rank: '5',
+        first: 'JULIANNA',
+        last: 'PENA',
+        weight: '135',
+        height: '5\'7\"',
+        nation: 'USA',
+        win: '10',
+        loss: '4',
+        strength: '50',
+        speed: '60',
+        stamina: '55',
+        punching: '50',
+        kicking: '30',
+        wrestling: '60',
+        grappling: '70',
+        clinch: '50'
+      }
+      sessionStorage.setItem('wba5', JSON.stringify(wba5));
+ 
+      let wba6 = {
+        rank: '6',
+        first: 'YANA',
+        last: 'KUNITSKAYA',
+        weight: '135',
+        height: '5\'8\"',
+        nation: 'RUSSIA',
+        win: '14',
+        loss: '6',
+        strength: '75',
+        speed: '70',
+        stamina: '60',
+        punching: '75',
+        kicking: '65',
+        wrestling: '55',
+        grappling: '55',
+        clinch: '60'
+      }
+      sessionStorage.setItem('wba6', JSON.stringify(wba6));
+ 
+      let wba7 = {
+        rank: '7',
+        first: 'KETLEN',
+        last: 'VIEIRA',
+        weight: '135',
+        height: '5\'8\"',
+        nation: 'BRAZIL',
+        win: '11',
+        loss: '2',
+        strength: '45',
+        speed: '50',
+        stamina: '60',
+        punching: '35',
+        kicking: '30',
+        wrestling: '65',
+        grappling: '65',
+        clinch: '40'
+      }
+      sessionStorage.setItem('wba7', JSON.stringify(wba7));
+ 
+      let wba8 = {
+        rank: '8',
+        first: 'MIESHA',
+        last: 'TATE',
+        weight: '135',
+        height: '5\'6\"',
+        nation: 'USA',
+        win: '19',
+        loss: '7',
+        strength: '50',
+        speed: '60',
+        stamina: '70',
+        punching: '50',
+        kicking: '35',
+        wrestling: '80',
+        grappling: '80',
+        clinch: '60'
+      }
+      sessionStorage.setItem('wba8', JSON.stringify(wba8));
+ 
+      let wba9 = {
+        rank: '9',
+        first: 'SARA',
+        last: 'MCMANN',
+        weight: '135',
+        height: '5\'6\"',
+        nation: 'USA',
+        win: '12',
+        loss: '6',
+        strength: '70',
+        speed: '60',
+        stamina: '60',
+        punching: '30',
+        kicking: '20',
+        wrestling: '80',
+        grappling: '80',
+        clinch: '50'
+      }
+      sessionStorage.setItem('wba9', JSON.stringify(wba9));
+ 
+      let wba10 = {
+        rank: '10',
+        first: '-',
+        last: '-',
+        weight: '-',
+        height: '-',
+        nation: '-',
+        win: '-',
+        loss: '-',
+        strength: '-',
+        speed: '-',
+        stamina: '-',
+        punching: '-',
+        kicking: '-',
+        wrestling: '-',
+        grappling: '-',
+        clinch: '-'
+      }
+      sessionStorage.setItem('wba10', JSON.stringify(wba10));
+  }
 
     capitalize(str) {
       return str.toUpperCase();
@@ -2824,6 +3857,9 @@ class Customize extends React.Component {
                       <option value="MIDDLEWEIGHT">185 MIDDLEWEIGHT</option>
                       <option value="LIGHT HEAVYWEIGHT">205 LIGHT HEAVYWEIGHT</option>
                       <option value="HEAVYWEIGHT">265 HEAVYWEIGHT</option>
+                      <option value="WSTRAWWEIGHT" style={{color: '#FC46AA'}}>115 W. STRAWWEIGHT</option>
+                      <option value="WFLYWEIGHT" style={{color: '#FC46AA'}}>125 W. FLYWEIGHT</option>
+                      <option value="WBANTAMWEIGHT" style={{color: '#FC46AA'}}>135 W. BANTAMWEIGHT</option>
                     </Select>
                   </label>
                   <label>

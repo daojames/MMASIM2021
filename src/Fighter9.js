@@ -138,6 +138,15 @@ class Fighter9 extends React.Component {
         else if(str == 'HEAVYWEIGHT'){
             return '265';
         }
+        else if(str == 'WSTRAWWEIGHT'){
+            return '115';
+        }
+        else if(str == 'WFLYWEIGHT'){
+            return '125';
+        }
+        else if(str == 'WBANTAMWEIGHT'){
+            return '135';
+        }
     }
 
     calcMonth(month){
@@ -228,6 +237,21 @@ class Fighter9 extends React.Component {
             data = JSON.parse(data);
             return data.first;
         }
+        else if(str == 9) {
+            data = sessionStorage.getItem('wst9');
+            data = JSON.parse(data);
+            return data.first;
+        }
+        else if(str == 10) {
+            data = sessionStorage.getItem('wfl9');
+            data = JSON.parse(data);
+            return data.first;
+        }
+        else if(str == 11) {
+            data = sessionStorage.getItem('wba9');
+            data = JSON.parse(data);
+            return data.first;
+        }
     }
 
     getLast(str) {
@@ -269,6 +293,21 @@ class Fighter9 extends React.Component {
         }
         else if(str == 8) {
             data = sessionStorage.getItem('hea9');
+            data = JSON.parse(data);
+            return data.last;
+        }
+        else if(str == 9) {
+            data = sessionStorage.getItem('wst9');
+            data = JSON.parse(data);
+            return data.last;
+        }
+        else if(str == 10) {
+            data = sessionStorage.getItem('wfl9');
+            data = JSON.parse(data);
+            return data.last;
+        }
+        else if(str == 11) {
+            data = sessionStorage.getItem('wba9');
             data = JSON.parse(data);
             return data.last;
         }
@@ -316,6 +355,21 @@ class Fighter9 extends React.Component {
             data = JSON.parse(data);
             return data.weight;
         }
+        else if(str == 9) {
+            data = sessionStorage.getItem('wst9');
+            data = JSON.parse(data);
+            return data.weight;
+        }
+        else if(str == 10) {
+            data = sessionStorage.getItem('wfl9');
+            data = JSON.parse(data);
+            return data.weight;
+        }
+        else if(str == 11) {
+            data = sessionStorage.getItem('wba9');
+            data = JSON.parse(data);
+            return data.weight;
+        }
     }
 
     getHeight(str) {
@@ -357,6 +411,21 @@ class Fighter9 extends React.Component {
         }
         else if(str == 8) {
             data = sessionStorage.getItem('hea9');
+            data = JSON.parse(data);
+            return data.height;
+        }
+        else if(str == 9) {
+            data = sessionStorage.getItem('wst9');
+            data = JSON.parse(data);
+            return data.height;
+        }
+        else if(str == 10) {
+            data = sessionStorage.getItem('wfl9');
+            data = JSON.parse(data);
+            return data.height;
+        }
+        else if(str == 11) {
+            data = sessionStorage.getItem('wba9');
             data = JSON.parse(data);
             return data.height;
         }
@@ -404,6 +473,21 @@ class Fighter9 extends React.Component {
             data = JSON.parse(data);
             return data.strength;
         }
+        else if(str == 9) {
+            data = sessionStorage.getItem('wst9');
+            data = JSON.parse(data);
+            return data.strength;
+        }
+        else if(str == 10) {
+            data = sessionStorage.getItem('wfl9');
+            data = JSON.parse(data);
+            return data.strength;
+        }
+        else if(str == 11) {
+            data = sessionStorage.getItem('wba9');
+            data = JSON.parse(data);
+            return data.strength;
+        }
     }
 
     getSpeed(str) {
@@ -445,6 +529,21 @@ class Fighter9 extends React.Component {
         }
         else if(str == 8) {
             data = sessionStorage.getItem('hea9');
+            data = JSON.parse(data);
+            return data.speed;
+        }
+        else if(str == 9) {
+            data = sessionStorage.getItem('wst9');
+            data = JSON.parse(data);
+            return data.speed;
+        }
+        else if(str == 10) {
+            data = sessionStorage.getItem('wfl9');
+            data = JSON.parse(data);
+            return data.speed;
+        }
+        else if(str == 11) {
+            data = sessionStorage.getItem('wba9');
             data = JSON.parse(data);
             return data.speed;
         }
@@ -492,6 +591,21 @@ class Fighter9 extends React.Component {
             data = JSON.parse(data);
             return data.stamina;
         }
+        else if(str == 9) {
+            data = sessionStorage.getItem('wst9');
+            data = JSON.parse(data);
+            return data.stamina;
+        }
+        else if(str == 10) {
+            data = sessionStorage.getItem('wfl9');
+            data = JSON.parse(data);
+            return data.stamina;
+        }
+        else if(str == 11) {
+            data = sessionStorage.getItem('wba9');
+            data = JSON.parse(data);
+            return data.stamina;
+        }
     }
 
     getPunching(str) {
@@ -533,6 +647,21 @@ class Fighter9 extends React.Component {
         }
         else if(str == 8) {
             data = sessionStorage.getItem('hea9');
+            data = JSON.parse(data);
+            return data.punching;
+        }
+        else if(str == 9) {
+            data = sessionStorage.getItem('wst9');
+            data = JSON.parse(data);
+            return data.punching;
+        }
+        else if(str == 10) {
+            data = sessionStorage.getItem('wfl9');
+            data = JSON.parse(data);
+            return data.punching;
+        }
+        else if(str == 11) {
+            data = sessionStorage.getItem('wba9');
             data = JSON.parse(data);
             return data.punching;
         }
@@ -580,6 +709,21 @@ class Fighter9 extends React.Component {
             data = JSON.parse(data);
             return data.kicking;
         }
+        else if(str == 9) {
+            data = sessionStorage.getItem('wst9');
+            data = JSON.parse(data);
+            return data.kicking;
+        }
+        else if(str == 10) {
+            data = sessionStorage.getItem('wfl9');
+            data = JSON.parse(data);
+            return data.kicking;
+        }
+        else if(str == 11) {
+            data = sessionStorage.getItem('wba9');
+            data = JSON.parse(data);
+            return data.kicking;
+        }
     }
 
     getWrestling(str) {
@@ -621,6 +765,21 @@ class Fighter9 extends React.Component {
         }
         else if(str == 8) {
             data = sessionStorage.getItem('hea9');
+            data = JSON.parse(data);
+            return data.wrestling;
+        }
+        else if(str == 9) {
+            data = sessionStorage.getItem('wst9');
+            data = JSON.parse(data);
+            return data.wrestling;
+        }
+        else if(str == 10) {
+            data = sessionStorage.getItem('wfl9');
+            data = JSON.parse(data);
+            return data.wrestling;
+        }
+        else if(str == 11) {
+            data = sessionStorage.getItem('wba9');
             data = JSON.parse(data);
             return data.wrestling;
         }
@@ -668,6 +827,21 @@ class Fighter9 extends React.Component {
             data = JSON.parse(data);
             return data.grappling;
         }
+        else if(str == 9) {
+            data = sessionStorage.getItem('wst9');
+            data = JSON.parse(data);
+            return data.grappling;
+        }
+        else if(str == 10) {
+            data = sessionStorage.getItem('wfl9');
+            data = JSON.parse(data);
+            return data.grappling;
+        }
+        else if(str == 11) {
+            data = sessionStorage.getItem('wba9');
+            data = JSON.parse(data);
+            return data.grappling;
+        }
     }
 
     getClinch(str) {
@@ -709,6 +883,21 @@ class Fighter9 extends React.Component {
         }
         else if(str == 8) {
             data = sessionStorage.getItem('hea9');
+            data = JSON.parse(data);
+            return data.clinch;
+        }
+        else if(str == 9) {
+            data = sessionStorage.getItem('wst9');
+            data = JSON.parse(data);
+            return data.clinch;
+        }
+        else if(str == 10) {
+            data = sessionStorage.getItem('wfl9');
+            data = JSON.parse(data);
+            return data.clinch;
+        }
+        else if(str == 11) {
+            data = sessionStorage.getItem('wba9');
             data = JSON.parse(data);
             return data.clinch;
         }
@@ -756,7 +945,23 @@ class Fighter9 extends React.Component {
             data = JSON.parse(data);
             return data.nation;
         }
+        else if(str == 9) {
+            data = sessionStorage.getItem('wst9');
+            data = JSON.parse(data);
+            return data.nation;
+        }
+        else if(str == 10) {
+            data = sessionStorage.getItem('wfl9');
+            data = JSON.parse(data);
+            return data.nation;
+        }
+        else if(str == 11) {
+            data = sessionStorage.getItem('wba9');
+            data = JSON.parse(data);
+            return data.nation;
+        }
     }
+
     getWin(str) {
         let data = '';
         if(str == 1){
@@ -796,6 +1001,21 @@ class Fighter9 extends React.Component {
         }
         else if(str == 8) {
             data = sessionStorage.getItem('hea9');
+            data = JSON.parse(data);
+            return data.win;
+        }
+        else if(str == 9) {
+            data = sessionStorage.getItem('wst9');
+            data = JSON.parse(data);
+            return data.win;
+        }
+        else if(str == 10) {
+            data = sessionStorage.getItem('wfl9');
+            data = JSON.parse(data);
+            return data.win;
+        }
+        else if(str == 11) {
+            data = sessionStorage.getItem('wba9');
             data = JSON.parse(data);
             return data.win;
         }
@@ -843,6 +1063,21 @@ class Fighter9 extends React.Component {
             data = JSON.parse(data);
             return data.loss;
         }
+        else if(str == 9) {
+            data = sessionStorage.getItem('wst9');
+            data = JSON.parse(data);
+            return data.loss;
+        }
+        else if(str == 10) {
+            data = sessionStorage.getItem('wfl9');
+            data = JSON.parse(data);
+            return data.loss;
+        }
+        else if(str == 11) {
+            data = sessionStorage.getItem('wba9');
+            data = JSON.parse(data);
+            return data.loss;
+        }
     }
 
     notFirst() {
@@ -856,6 +1091,7 @@ class Fighter9 extends React.Component {
     render() {
         let month = sessionStorage.getItem('month');
         let year = sessionStorage.getItem('year');
+        let wc = sessionStorage.getItem('wc');
         return(
             <div className="App">
                 <div className="App-header">
@@ -905,7 +1141,7 @@ class Fighter9 extends React.Component {
                     </div>
                     <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 833 }}>
                         <Button3>${sessionStorage.getItem('balance')}</Button3>
-                        <Link to='./fight'><Button4>BACK</Button4></Link>
+                        <Link to={(wc == 1) ? './fight1' : (wc == 2) ? './fight2' : (wc == 3) ? './fight3' : (wc == 4) ? './fight4' : (wc == 5) ? './fight5' : (wc == 6) ? './fight6' : (wc == 7) ? './fight7' : (wc == 8) ? './fight8' : (wc == 9) ? './fight9' : (wc == 10) ? './fight10' : './fight11'}><Button4>BACK</Button4></Link>
                         <Button3>{this.calcMonth(month)} {sessionStorage.getItem('year')}</Button3>
                     </div>
                 </div>
