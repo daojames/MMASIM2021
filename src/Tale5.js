@@ -1069,7 +1069,7 @@ class Tale5 extends React.Component {
                         <img src={logo} alt='logo' className="App-logo1" style={{ marginTop: -366 }} />
                         TALE OF THE TAPE
                         <div className="App-customize2" style={{marginTop: -20}}>
-                            <Button1d>{data.weight} BOUT</Button1d>
+                            <Button1d>{(data.weight == 'WSTRAWWEIGHT') ? 'WOMEN\'S STRAWWEIGHT' : (data.weight == 'WFLYWEIGHT') ? 'WOMEN\'S FLYWEIGHT' : (data.weight == 'WBANTAMWEIGHT') ? 'WOMEN\'S BANTAMWEIGHT' : data.weight} BOUT</Button1d>
                         </div>
                         <div className="App-customize2" style={{marginTop: 20}}>
                             <Button1cl><text style={{color: 'grey'}}>{sessionStorage.getItem('rank')}</text> <b>{data.first} {data.last}</b></Button1cl>
