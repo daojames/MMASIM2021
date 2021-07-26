@@ -1284,10 +1284,11 @@ class Round extends React.Component {
         }
         else if (this.pos() == 2){
             sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 2);
+            dmg = this.getDamage(0, 'x');
 
             name = last;
-            msg = 'DOES NOTHING';
-            info = '';
+            msg = 'DOES NOTHING ' + dmg;
+            info = dmg;
             cinfo = '';
 
             name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
@@ -1297,9 +1298,11 @@ class Round extends React.Component {
             cinfo1 = arr[3];
         }
         else if (this.pos() == 3){
+            dmg = this.getDamage(0, 'x');
+
             name = last;
-            msg = 'DOES NOTHING';
-            info = '';
+            msg = 'DOES NOTHING ' + dmg;
+            info = dmg;
             cinfo = '';
 
             name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
@@ -1440,7 +1443,7 @@ class Round extends React.Component {
         let oppReactNerf = parseInt(sessionStorage.getItem('reactNerf1'));
 
         let per = 0;
-        per = (1.5 * (playerPunching + playerBladedBuff) - 1.5 * (oppPunching + oppBladedBuff + oppHighBuff - oppLongNerf)) + (.35 * (playerSpd - oppSpd));
+        per = (1.5 * (playerPunching + playerBladedBuff) - 1.5 * (oppPunching + oppBladedBuff + oppHighBuff - oppLongNerf)) + (.8 * (playerSpd - oppSpd));
         if (att == 'STICK') {
             if (per >= 0){
                 return Math.round(70 + (Math.pow(per, .63)) + this.getFeinted1());
@@ -1474,7 +1477,7 @@ class Round extends React.Component {
             return fPer;
         }
         else if (att == 'LOW KICK'){
-            let kPer = (1.5 * (playerKicking + playerThaiBuff) - 1.5 * (oppKicking + oppThaiBuff + oppLongBuff)) + (.35 * (playerSpd - oppSpd));
+            let kPer = (1.5 * (playerKicking + playerThaiBuff) - 1.5 * (oppKicking + oppThaiBuff + oppLongBuff)) + (.8 * (playerSpd - oppSpd));
             if (kPer >= 0) {
                 return Math.round(70 + (Math.pow(kPer, .63)) + this.getFeinted1());
             }
@@ -1484,26 +1487,26 @@ class Round extends React.Component {
             }
         }
         else if (att == 'TAKEDOWN'){
-            let tPer = Math.round(20 + Math.pow(playerWrestling, .75) - Math.pow(oppWrestling, .75) + this.getFeinted1() + playerMmaBuff - oppMmaBuff - oppLowBuff + oppHighNerf + (.35 * (playerSpd - oppSpd)) + (.35 * (playerStr - oppStr)));
+            let tPer = Math.round(20 + Math.pow(playerWrestling, .75) - Math.pow(oppWrestling, .75) + this.getFeinted1() + playerMmaBuff - oppMmaBuff - oppLowBuff + oppHighNerf + (.8 * (playerSpd - oppSpd)) + (.8 * (playerStr - oppStr)));
             return tPer;
         }
         else if (att == 'CLINCH'){
             return 100;
         }
         else if (att == 'KNEE'){
-            let cPer = parseInt(60 + Math.pow(playerClinch, .9) - Math.pow(oppClinch, .9) + (.35 * (playerSpd - oppSpd)));
+            let cPer = parseInt(60 + Math.pow(playerClinch, .9) - Math.pow(oppClinch, .9) + (.8 * (playerSpd - oppSpd)));
             return cPer;
         }
         else if (att == 'ELBOW'){
-            let cPer = parseInt(40 + Math.pow(playerClinch, .9) - Math.pow(oppClinch, .9) + (.35 * (playerSpd - oppSpd)));
+            let cPer = parseInt(40 + Math.pow(playerClinch, .9) - Math.pow(oppClinch, .9) + (.8 * (playerSpd - oppSpd)));
             return cPer;
         }
         else if (att == 'EXIT'){
-            let cPer = parseInt(35 + Math.pow(playerClinch, .9) - Math.pow(oppClinch, .9) + (.35 * (playerSpd - oppSpd)) + (.35 * (playerStr - oppStr)));
+            let cPer = parseInt(35 + Math.pow(playerClinch, .9) - Math.pow(oppClinch, .9) + (.8 * (playerSpd - oppSpd)) + (.8 * (playerStr - oppStr)));
             return cPer;
         }
         else if (att == 'TRIP'){
-            let cPer = parseInt(25 + Math.pow(playerClinch, .9) - Math.pow(oppClinch, .9) + (.35 * (playerSpd - oppSpd)) + (.35 * (playerStr - oppStr)));
+            let cPer = parseInt(25 + Math.pow(playerClinch, .9) - Math.pow(oppClinch, .9) + (.8 * (playerSpd - oppSpd)) + (.8 * (playerStr - oppStr)));
             return cPer;
         }
         else if (att == 'GET UP'){
@@ -1517,11 +1520,11 @@ class Round extends React.Component {
             return sPer;
         }
         else if (att == 'ESCAPE'){
-            let ePer = parseInt(35 + Math.pow(playerWrestling, .75) - Math.pow(oppWrestling, .75) + (.35 * (playerSpd - oppSpd)) + (.35 * (playerStr - oppStr)));
+            let ePer = parseInt(35 + Math.pow(playerWrestling, .75) - Math.pow(oppWrestling, .75) + (.8 * (playerSpd - oppSpd)) + (.8 * (playerStr - oppStr)));
             return ePer;
         }
         else if (att == 'REVERSE'){
-            let ePer = parseInt(20 + Math.pow(playerWrestling, .6) - Math.pow(oppWrestling, .6) + (.35 * (playerSpd - oppSpd)) + (.35 * (playerStr - oppStr)));
+            let ePer = parseInt(20 + Math.pow(playerWrestling, .6) - Math.pow(oppWrestling, .6) + (.8 * (playerSpd - oppSpd)) + (.8 * (playerStr - oppStr)));
             return ePer;
         }
         else if (att == 'SUBMISSIONbot'){
@@ -1589,20 +1592,20 @@ class Round extends React.Component {
 
         let per = 0;
         let hit = 0;
-        per = (1.5 * (playerPunching + playerBladedBuff) - 1.5 * (oppPunching + oppBladedBuff + oppHighBuff - oppLongNerf)) + (.35 * (playerSpd - oppSpd));
+        per = (1.5 * (playerPunching) - 1.5 * (oppPunching)) + (.8 * (playerSpd - oppSpd));
         if (att == 'STICK') {
             for (let i = 0; i < 2; ++i) {
                 let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
                 if (per >= 0){
-                    if (ran1 <= 70 + (Math.pow(per, .63)) + this.getFeinted1()) {
-                        console.log(70 + (Math.pow(per, .63)) + this.getFeinted1())
+                    if (ran1 <= 70 + (Math.pow(per, .63)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1()) {
+                        console.log(70 + (Math.pow(per, .63)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1())
                         ++hit;
                     }
                 }
                 else {
                     let per1 = Math.abs(per);
-                    if (ran1 <= 70 - (Math.pow(per1, .63)) + this.getFeinted1()) {
-                        console.log(70 - (Math.pow(per1, .63)) + this.getFeinted1())
+                    if (ran1 <= 70 - (Math.pow(per1, .63)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1()) {
+                        console.log(70 - (Math.pow(per1, .63)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1())
                         ++hit;
                     }
                 }
@@ -1612,15 +1615,15 @@ class Round extends React.Component {
             for (let i = 0; i < 4; ++i){
                 let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
                 if (per >= 0){
-                    if (ran1 <= 30 + (Math.pow(per, .63)) + this.getFeinted1()) {
-                        console.log(30 + (Math.pow(per, .63)) + this.getFeinted1())
+                    if (ran1 <= 30 + (Math.pow(per, .63)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1()) {
+                        console.log(30 + (Math.pow(per, .63)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1())
                         ++hit;
                     }
                 }
                 else {
                     let per1 = Math.abs(per);
-                    if (ran1 <= 30 - (Math.pow(per1, .63)) + this.getFeinted1()) {
-                        console.log(30 - (Math.pow(per1, .63)) + this.getFeinted1())
+                    if (ran1 <= 30 - (Math.pow(per1, .63)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1()) {
+                        console.log(30 - (Math.pow(per1, .63)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1())
                         ++hit;
                     }
                 }
@@ -1630,52 +1633,52 @@ class Round extends React.Component {
             for (let i = 0; i < 8; ++i){
                 let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
                 if (per >= 0){
-                    if (ran1 <= 30 + (Math.pow(per, .63)) + this.getFeinted1()) {
-                        console.log(30 + (Math.pow(per, .63)) + this.getFeinted1())
+                    if (ran1 <= 30 + (Math.pow(per, .63)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1()) {
+                        console.log(30 + (Math.pow(per, .63)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1())
                         ++hit;
                     }
                 }
                 else {
                     let per1 = Math.abs(per);
-                    if (ran1 <= 30 - (Math.pow(per1, .63)) + this.getFeinted1()) {
-                        console.log(30 - (Math.pow(per1, .63)) + this.getFeinted1())
+                    if (ran1 <= 30 - (Math.pow(per1, .63)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1()) {
+                        console.log(30 - (Math.pow(per1, .63)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1())
                         ++hit;
                     }
                 }
             }
         }
         else if (att == 'BLITZ'){
-            let bPer = ((playerSpd * 2) - (oppSpd + oppPunching + oppBladedBuff + oppHighBuff - oppLowNerf - oppLongNerf));
+            let bPer = ((playerSpd * 2) - (oppSpd + oppPunching));
             for (let i = 0; i < 4; ++i){
                 let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
                 if (bPer >= 0){
-                    if (ran1 <= 30 + (Math.pow(bPer, .63)) + this.getFeinted1()) {
-                        console.log(30 + (Math.pow(bPer, .63)) + this.getFeinted1())
+                    if (ran1 <= 30 + (Math.pow(bPer, .63)) - oppBladedBuff - oppHighBuff + oppLowNerf + oppLongNerf + this.getFeinted1()) {
+                        console.log(30 + (Math.pow(bPer, .63)) - oppBladedBuff - oppHighBuff + oppLowNerf + oppLongNerf + this.getFeinted1())
                         ++hit;
                     }
                 }
                 else {
                     let bPer1 = Math.abs(bPer);
-                    if (ran1 <= 30 - (Math.pow(bPer1, .63)) + this.getFeinted1()) {
-                        console.log(30 - (Math.pow(bPer1, .63)) + this.getFeinted1())
+                    if (ran1 <= 30 - (Math.pow(bPer1, .63)) - oppBladedBuff - oppHighBuff + oppLowNerf + oppLongNerf + this.getFeinted1()) {
+                        console.log(30 - (Math.pow(bPer1, .63)) - oppBladedBuff - oppHighBuff + oppLowNerf + oppLongNerf + this.getFeinted1())
                         ++hit;
                     }
                 }
             }
         }
         else if (att == 'LOW KICK'){
-            let kPer = (1.5 * (playerKicking + playerThaiBuff) - 1.5 * (oppKicking + oppThaiBuff + oppLongBuff)) + (.35 * (playerSpd - oppSpd));
+            let kPer = (1.5 * (playerKicking) - 1.5 * (oppKicking)) + (.8 * (playerSpd - oppSpd));
             let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
             if (kPer >= 0){
-                if (ran1 <= 70 + (Math.pow(kPer, .63)) + this.getFeinted1()) {
-                    console.log(70 + (Math.pow(kPer, .63)) + this.getFeinted1())
+                if (ran1 <= 70 + (Math.pow(kPer, .63)) + playerThaiBuff - oppThaiBuff - oppLongBuff + this.getFeinted1()) {
+                    console.log(70 + (Math.pow(kPer, .63)) + playerThaiBuff - oppThaiBuff - oppLongBuff + this.getFeinted1())
                     ++hit;
                 }
             }
             else {
                 let per1 = Math.abs(kPer);
-                if (ran1 <= 70 - (Math.pow(per1, .63)) + this.getFeinted1()) {
-                    console.log(70 - (Math.pow(per1, .63)) + this.getFeinted1())
+                if (ran1 <= 70 - (Math.pow(per1, .63)) + playerThaiBuff - oppThaiBuff - oppLongBuff + this.getFeinted1()) {
+                    console.log(70 - (Math.pow(per1, .63)) + playerThaiBuff - oppThaiBuff - oppLongBuff + this.getFeinted1())
                     ++hit;
                 }
             }
@@ -1689,7 +1692,7 @@ class Round extends React.Component {
             }
         }
         else if (att == 'TAKEDOWN') {
-            let tPer = parseInt(35 + Math.pow(playerWrestling, .75) - Math.pow(oppWrestling, .75) + this.getFeinted1() + playerMmaBuff - oppMmaBuff - oppLowBuff + oppHighNerf + (.35 * (playerSpd - oppSpd)) + (.35 * (playerStr - oppStr)));
+            let tPer = parseInt(35 + Math.pow(playerWrestling, .75) - Math.pow(oppWrestling, .75) + this.getFeinted1() + playerMmaBuff - oppMmaBuff - oppLowBuff + oppHighNerf + (.8 * (playerSpd - oppSpd)) + (.8 * (playerStr - oppStr)));
             let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
             if (tPer < 0) {
             }
@@ -1702,15 +1705,15 @@ class Round extends React.Component {
             for (let i = 0; i < 2; ++i){
                 let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
                 if (per >= 0){
-                    if (ran1 <= 30 + (Math.pow(per, .63)) + this.getFeinted1()) {
-                        console.log(30 + (Math.pow(per, .63)) + this.getFeinted1())
+                    if (ran1 <= 30 + (Math.pow(per, .63)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1()) {
+                        console.log(30 + (Math.pow(per, .63)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1())
                         ++hit;
                     }
                 }
                 else {
                     let per1 = Math.abs(per);
-                    if (ran1 <= 30 - (Math.pow(per1, .63)) + this.getFeinted1()) {
-                        console.log(30 - (Math.pow(per1, .63)) + this.getFeinted1())
+                    if (ran1 <= 30 - (Math.pow(per1, .63)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1()) {
+                        console.log(30 - (Math.pow(per1, .63)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1())
                         ++hit;
                     }
                 }
@@ -1718,7 +1721,7 @@ class Round extends React.Component {
             this.clinched(1);
         }
         else if (att == 'KNEE') {
-            let cPer = parseInt(60 + Math.pow(playerClinch, .9) - Math.pow(oppClinch, .9) + (.35 * (playerSpd - oppSpd)));
+            let cPer = parseInt(60 + Math.pow(playerClinch, .9) - Math.pow(oppClinch, .9) + (.8 * (playerSpd - oppSpd)));
             let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
             if (cPer >= 0){
                 if (ran1 <= cPer) {
@@ -1728,7 +1731,7 @@ class Round extends React.Component {
             }
         }
         else if (att == 'ELBOW') {
-            let cPer = parseInt(40 + Math.pow(playerClinch, .9) - Math.pow(oppClinch, .9) + (.35 * (playerSpd - oppSpd)));
+            let cPer = parseInt(40 + Math.pow(playerClinch, .9) - Math.pow(oppClinch, .9) + (.8 * (playerSpd - oppSpd)));
             let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
             if (cPer >= 0){
                 if (ran1 <= cPer) {
@@ -1738,7 +1741,7 @@ class Round extends React.Component {
             }
         }
         else if (att == 'EXIT') {
-            let cPer = parseInt(35 + Math.pow(playerClinch, .9) - Math.pow(oppClinch, .9) + (.35 * (playerSpd - oppSpd)) + (.35 * (playerStr - oppStr)));
+            let cPer = parseInt(35 + Math.pow(playerClinch, .9) - Math.pow(oppClinch, .9) + (.8 * (playerSpd - oppSpd)) + (.8 * (playerStr - oppStr)));
             let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
             if (cPer >= 0){
                 if (ran1 <= cPer) {
@@ -1749,7 +1752,7 @@ class Round extends React.Component {
             }
         }
         else if (att == 'TRIP') {
-            let cPer = parseInt(25 + Math.pow(playerClinch, .9) - Math.pow(oppClinch, .9) + (.35 * (playerSpd - oppSpd)) + (.35 * (playerStr - oppStr)));
+            let cPer = parseInt(25 + Math.pow(playerClinch, .9) - Math.pow(oppClinch, .9) + (.8 * (playerSpd - oppSpd)) + (.8 * (playerStr - oppStr)));
             let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
             if (cPer >= 0){
                 if (ran1 <= cPer) {
@@ -1782,7 +1785,7 @@ class Round extends React.Component {
             }
         }
         else if (att == 'ESCAPE') {
-            let ePer = parseInt(35 + Math.pow(playerWrestling, .75) - Math.pow(oppWrestling, .75) + (.35 * (playerSpd - oppSpd)) + (.35 * (playerStr - oppStr)));
+            let ePer = parseInt(35 + Math.pow(playerWrestling, .75) - Math.pow(oppWrestling, .75) + (.8 * (playerSpd - oppSpd)) + (.8 * (playerStr - oppStr)));
             let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
             if (ePer < 0) {
             }
@@ -1792,7 +1795,7 @@ class Round extends React.Component {
             }
         }
         else if (att == 'REVERSE') {
-            let ePer = parseInt(20 + Math.pow(playerWrestling, .6) - Math.pow(oppWrestling, .6) + (.35 * (playerSpd - oppSpd)) + (.35 * (playerStr - oppStr)));
+            let ePer = parseInt(20 + Math.pow(playerWrestling, .6) - Math.pow(oppWrestling, .6) + (.8 * (playerSpd - oppSpd)) + (.8 * (playerStr - oppStr)));
             let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
             if (ePer < 0) {
             }
@@ -1810,6 +1813,9 @@ class Round extends React.Component {
                 ++hit;
                 sessionStorage.setItem('win', 1);
             }
+        }
+        if (sessionStorage.getItem('oppStm') <= 0) {
+            sessionStorage.setItem('win', 1);
         }
 
         return hit;
@@ -1856,20 +1862,20 @@ class Round extends React.Component {
 
         let per = 0;
         let hit = 0;
-        per = (1.5 * (oppPunching + oppBladedBuff) - 1.5 * (playerPunching + playerBladedBuff + playerHighBuff - playerLongNerf)) + (.35 * (oppSpd - playerSpd));
+        per = (1.5 * (oppPunching) - 1.5 * (playerPunching)) + (.8 * (oppSpd - playerSpd));
         if (att == 'STICK') {
             for (let i = 0; i < 2; ++i) {
                 let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
                 if (per >= 0){
-                    if (ran1 <= 70 + (Math.pow(per, .63)) + this.getFeinted()) {
-                        console.log(70 + (Math.pow(per, .63)) + this.getFeinted())
+                    if (ran1 <= 70 + (Math.pow(per, .63)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted()) {
+                        console.log(70 + (Math.pow(per, .63)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted())
                         ++hit;
                     }
                 }
                 else {
                     let per1 = Math.abs(per);
-                    if (ran1 <= 70 - (Math.pow(per1, .63)) + this.getFeinted()) {
-                        console.log(70 - (Math.pow(per1, .63)) + this.getFeinted())
+                    if (ran1 <= 70 - (Math.pow(per1, .63)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted()) {
+                        console.log(70 - (Math.pow(per1, .63)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted())
                         ++hit;
                     }
                 }
@@ -1879,15 +1885,15 @@ class Round extends React.Component {
             for (let i = 0; i < 4; ++i){
                 let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
                 if (per >= 0){
-                    if (ran1 <= 30 + (Math.pow(per, .63)) + this.getFeinted()) {
-                        console.log(30 + (Math.pow(per, .63)) + this.getFeinted())
+                    if (ran1 <= 30 + (Math.pow(per, .63)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted()) {
+                        console.log(30 + (Math.pow(per, .63)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted())
                         ++hit;
                     }
                 }
                 else {
                     let per1 = Math.abs(per);
-                    if (ran1 <= 30 - (Math.pow(per1, .63)) + this.getFeinted()) {
-                        console.log(30 - (Math.pow(per1, .63)) + this.getFeinted())
+                    if (ran1 <= 30 - (Math.pow(per1, .63)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted()) {
+                        console.log(30 - (Math.pow(per1, .63)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted())
                         ++hit;
                     }
                 }
@@ -1897,52 +1903,52 @@ class Round extends React.Component {
             for (let i = 0; i < 8; ++i){
                 let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
                 if (per >= 0){
-                    if (ran1 <= 30 + (Math.pow(per, .63)) + this.getFeinted()) {
-                        console.log(30 + (Math.pow(per, .63)) + this.getFeinted())
+                    if (ran1 <= 30 + (Math.pow(per, .63)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted()) {
+                        console.log(30 + (Math.pow(per, .63)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted())
                         ++hit;
                     }
                 }
                 else {
                     let per1 = Math.abs(per);
-                    if (ran1 <= 30 - (Math.pow(per1, .63)) + this.getFeinted()) {
-                        console.log(30 - (Math.pow(per1, .63)) + this.getFeinted())
+                    if (ran1 <= 30 - (Math.pow(per1, .63)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted()) {
+                        console.log(30 - (Math.pow(per1, .63)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted())
                         ++hit;
                     }
                 }
             }
         }
         else if (att == 'BLITZ'){
-            let bPer = ((oppSpd * 2) - (playerSpd + playerPunching + playerBladedBuff + playerHighBuff - playerLowNerf - oppLongNerf));
+            let bPer = ((oppSpd * 2) - (playerSpd + playerPunching));
             for (let i = 0; i < 4; ++i){
                 let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
                 if (bPer >= 0){
-                    if (ran1 <= 30 + (Math.pow(bPer, .63)) + this.getFeinted()) {
-                        console.log(30 + (Math.pow(bPer, .63)) + this.getFeinted())
+                    if (ran1 <= 30 + (Math.pow(bPer, .63)) - playerBladedBuff - playerHighBuff + playerLowNerf + playerLongNerf + this.getFeinted()) {
+                        console.log(30 + (Math.pow(bPer, .63)) - playerBladedBuff - playerHighBuff + playerLowNerf + playerLongNerf + this.getFeinted())
                         ++hit;
                     }
                 }
                 else {
                     let bPer1 = Math.abs(bPer);
-                    if (ran1 <= 30 - (Math.pow(bPer1, .63)) + this.getFeinted()) {
-                        console.log(30 - (Math.pow(bPer1, .63)) + this.getFeinted())
+                    if (ran1 <= 30 - (Math.pow(bPer1, .63)) - playerBladedBuff - playerHighBuff + playerLowNerf + playerLongNerf + this.getFeinted()) {
+                        console.log(30 - (Math.pow(bPer1, .63)) - playerBladedBuff - playerHighBuff + playerLowNerf + playerLongNerf + this.getFeinted())
                         ++hit;
                     }
                 }
             }
         }
         else if (att == 'LOW KICK'){
-            let kPer = (1.5 * (oppKicking + oppThaiBuff) - 1.5 * (playerKicking + playerThaiBuff + playerLongBuff)) + (.35 * (oppSpd - playerSpd));
+            let kPer = (1.5 * (oppKicking) - 1.5 * (playerKicking)) + (.8 * (oppSpd - playerSpd));
             let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
             if (kPer >= 0){
-                if (ran1 <= 70 + (Math.pow(kPer, .63)) + this.getFeinted()) {
-                    console.log(70 + (Math.pow(kPer, .63)) + this.getFeinted())
+                if (ran1 <= 70 + (Math.pow(kPer, .63)) + oppThaiBuff - playerThaiBuff - playerLongBuff + this.getFeinted()) {
+                    console.log(70 + (Math.pow(kPer, .63)) + oppThaiBuff - playerThaiBuff - playerLongBuff + this.getFeinted())
                     ++hit;
                 }
             }
             else {
                 let per1 = Math.abs(kPer);
-                if (ran1 <= 70 - (Math.pow(per1, .63)) + this.getFeinted()) {
-                    console.log(70 - (Math.pow(per1, .63)) + this.getFeinted())
+                if (ran1 <= 70 - (Math.pow(per1, .63)) + oppThaiBuff - playerThaiBuff - playerLongBuff + this.getFeinted()) {
+                    console.log(70 - (Math.pow(per1, .63)) + oppThaiBuff - playerThaiBuff - playerLongBuff + this.getFeinted())
                     ++hit;
                 }
             }
@@ -1956,7 +1962,7 @@ class Round extends React.Component {
             }
         }
         else if (att == 'TAKEDOWN') {
-            let tPer = parseInt(35 + Math.pow(oppWrestling, .75) - Math.pow(playerWrestling, .75) + this.getFeinted() - playerMmaBuff + oppMmaBuff + playerHighNerf - playerLowBuff + (.35 * (oppSpd - playerSpd)) + (.35 * (oppStr - playerStr)));
+            let tPer = parseInt(35 + Math.pow(oppWrestling, .75) - Math.pow(playerWrestling, .75) + this.getFeinted() - playerMmaBuff + oppMmaBuff + playerHighNerf - playerLowBuff + (.8 * (oppSpd - playerSpd)) + (.8 * (oppStr - playerStr)));
             let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
             if (tPer < 0) {
             }
@@ -1969,15 +1975,15 @@ class Round extends React.Component {
             for (let i = 0; i < 2; ++i){
                 let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
                 if (per >= 0){
-                    if (ran1 <= 30 + (Math.pow(per, .63)) + this.getFeinted()) {
-                        console.log(30 + (Math.pow(per, .63)) + this.getFeinted())
+                    if (ran1 <= 30 + (Math.pow(per, .63)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted()) {
+                        console.log(30 + (Math.pow(per, .63)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted())
                         ++hit;
                     }
                 }
                 else {
                     let per1 = Math.abs(per);
-                    if (ran1 <= 30 - (Math.pow(per1, .63)) + this.getFeinted()) {
-                        console.log(30 - (Math.pow(per1, .63)) + this.getFeinted())
+                    if (ran1 <= 30 - (Math.pow(per1, .63)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted()) {
+                        console.log(30 - (Math.pow(per1, .63)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted())
                         ++hit;
                     }
                 }
@@ -1985,7 +1991,7 @@ class Round extends React.Component {
             this.clinched(1);
         }
         else if (att == 'KNEE') {
-            let cPer = parseInt(60 + Math.pow(oppClinch, .9) - Math.pow(playerClinch, .9) + (.35 * (oppSpd - playerSpd)));
+            let cPer = parseInt(60 + Math.pow(oppClinch, .9) - Math.pow(playerClinch, .9) + (.8 * (oppSpd - playerSpd)));
             let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
             if (cPer >= 0){
                 if (ran1 <= cPer) {
@@ -1995,7 +2001,7 @@ class Round extends React.Component {
             }
         }
         else if (att == 'ELBOW') {
-            let cPer = parseInt(40 + Math.pow(oppClinch, .9) - Math.pow(playerClinch, .9) + (.35 * (oppSpd - playerSpd)));
+            let cPer = parseInt(40 + Math.pow(oppClinch, .9) - Math.pow(playerClinch, .9) + (.8 * (oppSpd - playerSpd)));
             let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
             if (cPer >= 0){
                 if (ran1 <= cPer) {
@@ -2005,7 +2011,7 @@ class Round extends React.Component {
             }
         }
         else if (att == 'EXIT') {
-            let cPer = parseInt(35 + Math.pow(oppClinch, .9) - Math.pow(playerClinch, .9) + (.35 * (oppSpd - playerSpd)) + (.35 * (oppStr - playerStr)));
+            let cPer = parseInt(35 + Math.pow(oppClinch, .9) - Math.pow(playerClinch, .9) + (.8 * (oppSpd - playerSpd)) + (.8 * (oppStr - playerStr)));
             let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
             if (cPer >= 0){
                 if (ran1 <= cPer) {
@@ -2016,7 +2022,7 @@ class Round extends React.Component {
             }
         }
         else if (att == 'TRIP') {
-            let cPer = parseInt(25 + Math.pow(oppClinch, .9) - Math.pow(playerClinch, .9) + (.35 * (oppSpd - playerSpd)) + (.35 * (oppStr - playerStr)));
+            let cPer = parseInt(25 + Math.pow(oppClinch, .9) - Math.pow(playerClinch, .9) + (.8 * (oppSpd - playerSpd)) + (.8 * (oppStr - playerStr)));
             let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
             if (cPer >= 0){
                 if (ran1 <= cPer) {
@@ -2049,7 +2055,7 @@ class Round extends React.Component {
             }
         }
         else if (att == 'ESCAPE') {
-            let ePer = parseInt(35 + Math.pow(oppWrestling, .75) - Math.pow(playerWrestling, .75) + (.35 * (oppSpd - playerSpd)) + (.35 * (oppStr - playerStr)));
+            let ePer = parseInt(35 + Math.pow(oppWrestling, .75) - Math.pow(playerWrestling, .75) + (.8 * (oppSpd - playerSpd)) + (.8 * (oppStr - playerStr)));
             let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
             if (ePer < 0) {
             }
@@ -2059,7 +2065,7 @@ class Round extends React.Component {
             }
         }
         else if (att == 'REVERSE') {
-            let ePer = parseInt(20 + Math.pow(oppWrestling, .6) - Math.pow(playerWrestling, .6) + (.35 * (oppSpd - playerSpd)) + (.35 * (oppStr - playerStr)));
+            let ePer = parseInt(20 + Math.pow(oppWrestling, .6) - Math.pow(playerWrestling, .6) + (.8 * (oppSpd - playerSpd)) + (.8 * (oppStr - playerStr)));
             let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
             if (ePer < 0) {
             }
@@ -2077,6 +2083,9 @@ class Round extends React.Component {
                 ++hit;
                 sessionStorage.setItem('win1', 1);
             }
+        }
+        if (sessionStorage.getItem('playerStm') <= 0) {
+            sessionStorage.setItem('win1', 1);
         }
 
         return hit;
@@ -2130,17 +2139,18 @@ class Round extends React.Component {
         else if (att == 'G&P') {
             dmg = hit * (((playerStr - 50) / 10) + 10);
         }
+        else if (att == 'x') {
+            dmg = '';
+        }
         else {
             dmg = hit * (((playerStr - 50) / 5) + 20 + playerBladedBuff + oppReactNerf);
         }
-        sessionStorage.setItem('oppStatus', parseInt(sessionStorage.getItem('oppStatus')) - dmg);
+
+        if (dmg != '') {
+            sessionStorage.setItem('oppStatus', parseInt(sessionStorage.getItem('oppStatus')) - dmg);
+        }
         console.log('COUNTERING: ' + sessionStorage.getItem('countering'))
-        if (sessionStorage.getItem('countering') == 0) {
-            sessionStorage.setItem('feinted1', 0);
-        }
-        else {
-            sessionStorage.setItem('countering', 0);
-        }
+        sessionStorage.setItem('feinted1', 0);
 
         if (kd == 1) {
             if (sessionStorage.getItem('oppStatus') <= 0) {
@@ -2160,8 +2170,7 @@ class Round extends React.Component {
             sessionStorage.setItem('win', 1);
             return 'TKO! ' + dmg;
         }
-        else if (sessionStorage.getItem('oppStm') <= 0) {
-            sessionStorage.setItem('win', 1);
+        else if (sessionStorage.getItem('win') == 1) {
             return 'TKO! ' + dmg;
         }
         return dmg;
@@ -2215,18 +2224,19 @@ class Round extends React.Component {
         else if (att == 'G&P') {
             dmg = hit * (((oppStr - 50) / 10) + 10);
         }
+        else if (att == 'x') {
+            dmg = '';
+        }
         else {
             dmg = hit * (((oppStr - 50) / 5) + 20 + oppBladedBuff + playerReactNerf);
         }
-        sessionStorage.setItem('playerStatus', parseInt(sessionStorage.getItem('playerStatus')) - dmg);
+
+        if (dmg != '') {
+            sessionStorage.setItem('playerStatus', parseInt(sessionStorage.getItem('playerStatus')) - dmg);
+        }
         console.log('COUNTERING1: ' + sessionStorage.getItem('countering1'))
-        if (sessionStorage.getItem('countering1') == 0) {
-            sessionStorage.setItem('feinted', 0);
-        }
-        else {
-            sessionStorage.setItem('countering1', 0);
-        }
-    
+        sessionStorage.setItem('feinted', 0);
+
         if (kd == 1) {
             if (sessionStorage.getItem('playerStatus') <= 0) {
                 sessionStorage.setItem('win1', 1);
@@ -2238,14 +2248,14 @@ class Round extends React.Component {
             }
         }
         if (kd == 2) {
+            sessionStorage.setItem('win1', 1);
             return 'KNOCKOUT! ' + dmg;
         }
         else if (sessionStorage.getItem('playerStatus') <= 0) {
             sessionStorage.setItem('win1', 1);
             return 'TKO! ' + dmg;
         }
-        else if (sessionStorage.getItem('playerStm') <= 0) {
-            sessionStorage.setItem('win1', 1);
+        else if (sessionStorage.getItem('win1') == 1) {
             return 'TKO! ' + dmg;
         }
         return dmg;
@@ -2266,8 +2276,8 @@ class Round extends React.Component {
                         ++ctr;
                     }
                 }
-                sessionStorage.setItem('countering1', 1);
             }
+
             sessionStorage.setItem('oppStm', parseInt(sessionStorage.getItem('oppStm')) - (ctr + 2));
             return ctr;
         }
@@ -2289,8 +2299,8 @@ class Round extends React.Component {
                         ++ctr;
                     }
                 }
-                sessionStorage.setItem('countering', 1);
             }
+
             sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - (ctr + 2));
             return ctr;
         }
@@ -2404,6 +2414,7 @@ class Round extends React.Component {
         let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
         let hit = 0;
         let ctr = 0;
+        let dmg = '';
         if (sessionStorage.getItem('win') == 1) {
             arr[0] = '';
             arr[1] = '';
@@ -2430,11 +2441,12 @@ class Round extends React.Component {
                     if (arr[0] == 'TAKEDOWN') {
                         arr[1] = this.getOppMsg1(arr[0]);
                         hit = this.getHit1(arr[0]);
+                        dmg = this.getDamage1(0, 'x');
                         if (hit > 0) {
-                            arr[2] = 'SUCCESSFUL';
+                            arr[2] = 'SUCCESSFUL! ' + dmg;
                         }
                         else {
-                            arr[2] = 'FAILED';
+                            arr[2] = 'FAILED! ' + dmg;
                         }
                         ctr = this.counterCalc1(this.getOppHitMax(arr[0]) - hit, arr[0]);
                         if (ctr > 0) {
@@ -2448,11 +2460,12 @@ class Round extends React.Component {
                     else if (arr[0] == 'FEINT') {
                         arr[1] = this.getOppMsg1(arr[0]);
                         hit = this.getHit1(arr[0]);
+                        dmg = this.getDamage1(0, 'x');
                         if (hit > 0) {
-                            arr[2] = 'SUCCESSFUL';
+                            arr[2] = 'SUCCESSFUL! ' + dmg;
                         }
                         else {
-                            arr[2] = 'FAILED';
+                            arr[2] = 'FAILED! ' + dmg;
                         }
                         arr[3] = '';
                         console.log(arr[0])
@@ -2476,11 +2489,12 @@ class Round extends React.Component {
                     if (arr[0] == 'TAKEDOWN') {
                         arr[1] = this.getOppMsg1(arr[0]);
                         hit = this.getHit1(arr[0]);
+                        dmg = this.getDamage1(0, 'x');
                         if (hit > 0) {
-                            arr[2] = 'SUCCESSFUL';
+                            arr[2] = 'SUCCESSFUL! ' + dmg;
                         }
                         else {
-                            arr[2] = 'FAILED';
+                            arr[2] = 'FAILED! ' + dmg;
                         }
                         ctr = this.counterCalc1(this.getOppHitMax(arr[0]) - hit, arr[0]);
                         if (ctr > 0) {
@@ -2494,11 +2508,12 @@ class Round extends React.Component {
                     else if (arr[0] == 'FEINT') {
                         arr[1] = this.getOppMsg1(arr[0]);
                         hit = this.getHit1(arr[0]);
+                        dmg = this.getDamage1(0, 'x');
                         if (hit > 0) {
-                            arr[2] = 'SUCCESSFUL';
+                            arr[2] = 'SUCCESSFUL! ' + dmg;
                         }
                         else {
-                            arr[2] = 'FAILED';
+                            arr[2] = 'FAILED! ' + dmg;
                         }
                         arr[3] = '';
                         console.log(arr[0])
@@ -2522,11 +2537,12 @@ class Round extends React.Component {
                     if (arr[0] == 'TAKEDOWN') {
                         arr[1] = this.getOppMsg1(arr[0]);
                         hit = this.getHit1(arr[0]);
+                        dmg = this.getDamage1(0, 'x');
                         if (hit > 0) {
-                            arr[2] = 'SUCCESSFUL';
+                            arr[2] = 'SUCCESSFUL! ' + dmg;
                         }
                         else {
-                            arr[2] = 'FAILED';
+                            arr[2] = 'FAILED! ' + dmg;
                         }
                         ctr = this.counterCalc1(this.getOppHitMax(arr[0]) - hit, arr[0]);
                         if (ctr > 0) {
@@ -2540,11 +2556,12 @@ class Round extends React.Component {
                     else if (arr[0] == 'FEINT') {
                         arr[1] = this.getOppMsg1(arr[0]);
                         hit = this.getHit1(arr[0]);
+                        dmg = this.getDamage1(0, 'x');
                         if (hit > 0) {
-                            arr[2] = 'SUCCESSFUL';
+                            arr[2] = 'SUCCESSFUL! ' + dmg;
                         }
                         else {
-                            arr[2] = 'FAILED';
+                            arr[2] = 'FAILED! ' + dmg;
                         }
                         arr[3] = '';
                         console.log(arr[0])
@@ -2583,11 +2600,12 @@ class Round extends React.Component {
                     if (arr[0] == 'TAKEDOWN') {
                         arr[1] = this.getOppMsg1(arr[0]);
                         hit = this.getHit1(arr[0]);
+                        dmg = this.getDamage1(0, 'x');
                         if (hit > 0) {
-                            arr[2] = 'SUCCESSFUL';
+                            arr[2] = 'SUCCESSFUL! ' + dmg;
                         }
                         else {
-                            arr[2] = 'FAILED';
+                            arr[2] = 'FAILED! ' + dmg;
                         }
                         ctr = this.counterCalc1(this.getOppHitMax(arr[0]) - hit, arr[0]);
                         if (ctr > 0) {
@@ -2601,11 +2619,12 @@ class Round extends React.Component {
                     else if (arr[0] == 'FEINT') {
                         arr[1] = this.getOppMsg1(arr[0]);
                         hit = this.getHit1(arr[0]);
+                        dmg = this.getDamage1(0, 'x');
                         if (hit > 0) {
-                            arr[2] = 'SUCCESSFUL';
+                            arr[2] = 'SUCCESSFUL! ' + dmg;
                         }
                         else {
-                            arr[2] = 'FAILED';
+                            arr[2] = 'FAILED! ' + dmg;
                         }
                         arr[3] = '';
                         console.log(arr[0])
@@ -2629,11 +2648,12 @@ class Round extends React.Component {
                     if (arr[0] == 'TAKEDOWN') {
                         arr[1] = this.getOppMsg1(arr[0]);
                         hit = this.getHit1(arr[0]);
+                        dmg = this.getDamage1(0, 'x');
                         if (hit > 0) {
-                            arr[2] = 'SUCCESSFUL';
+                            arr[2] = 'SUCCESSFUL! ' + dmg;
                         }
                         else {
-                            arr[2] = 'FAILED';
+                            arr[2] = 'FAILED! ' + dmg;
                         }
                         ctr = this.counterCalc1(this.getOppHitMax(arr[0]) - hit, arr[0]);
                         if (ctr > 0) {
@@ -2647,11 +2667,12 @@ class Round extends React.Component {
                     else if (arr[0] == 'FEINT') {
                         arr[1] = this.getOppMsg1(arr[0]);
                         hit = this.getHit1(arr[0]);
+                        dmg = this.getDamage1(0, 'x');
                         if (hit > 0) {
-                            arr[2] = 'SUCCESSFUL';
+                            arr[2] = 'SUCCESSFUL! ' + dmg;
                         }
                         else {
-                            arr[2] = 'FAILED';
+                            arr[2] = 'FAILED! ' + dmg;
                         }
                         arr[3] = '';
                         console.log(arr[0])
@@ -2675,11 +2696,12 @@ class Round extends React.Component {
                     if (arr[0] == 'TAKEDOWN') {
                         arr[1] = this.getOppMsg1(arr[0]);
                         hit = this.getHit1(arr[0]);
+                        dmg = this.getDamage1(0, 'x');
                         if (hit > 0) {
-                            arr[2] = 'SUCCESSFUL';
+                            arr[2] = 'SUCCESSFUL! ' + dmg;
                         }
                         else {
-                            arr[2] = 'FAILED';
+                            arr[2] = 'FAILED! ' + dmg;
                         }
                         ctr = this.counterCalc1(this.getOppHitMax(arr[0]) - hit, arr[0]);
                         if (ctr > 0) {
@@ -2693,11 +2715,12 @@ class Round extends React.Component {
                     else if (arr[0] == 'FEINT') {
                         arr[1] = this.getOppMsg1(arr[0]);
                         hit = this.getHit1(arr[0]);
+                        dmg = this.getDamage1(0, 'x');
                         if (hit > 0) {
-                            arr[2] = 'SUCCESSFUL';
+                            arr[2] = 'SUCCESSFUL! ' + dmg;
                         }
                         else {
-                            arr[2] = 'FAILED';
+                            arr[2] = 'FAILED! ' + dmg;
                         }
                         arr[3] = '';
                         console.log(arr[0])
@@ -2740,12 +2763,13 @@ class Round extends React.Component {
                     arr[0] = 'EXIT';
                     arr[1] = this.getOppMsg1(arr[0]);
                     hit = this.getHit1('EXIT');
-                    if (hit > 0) {
-                        arr[2] = 'SUCCESSFUL';
-                    }
-                    else {
-                        arr[2] = 'FAILED';
-                    }
+                    dmg = this.getDamage1(0, 'x');
+                        if (hit > 0) {
+                            arr[2] = 'SUCCESSFUL! ' + dmg;
+                        }
+                        else {
+                            arr[2] = 'FAILED! ' + dmg;
+                        }
                     arr[3] = '';
                     console.log(arr[0])
                 }
@@ -2753,12 +2777,13 @@ class Round extends React.Component {
                     arr[0] = 'TRIP';
                     arr[1] = this.getOppMsg1(arr[0]);
                     hit = this.getHit1('TRIP');
-                    if (hit > 0) {
-                        arr[2] = 'SUCCESSFUL';
-                    }
-                    else {
-                        arr[2] = 'FAILED';
-                    }
+                    dmg = this.getDamage1(0, 'x');
+                        if (hit > 0) {
+                            arr[2] = 'SUCCESSFUL! ' + dmg;
+                        }
+                        else {
+                            arr[2] = 'FAILED! ' + dmg;
+                        }
                     arr[3] = '';
                     console.log(arr[0])
                 }
@@ -2784,12 +2809,13 @@ class Round extends React.Component {
                     arr[0] = 'EXIT';
                     arr[1] = this.getOppMsg1(arr[0]);
                     hit = this.getHit1('EXIT');
-                    if (hit > 0) {
-                        arr[2] = 'SUCCESSFUL';
-                    }
-                    else {
-                        arr[2] = 'FAILED';
-                    }
+                    dmg = this.getDamage1(0, 'x');
+                        if (hit > 0) {
+                            arr[2] = 'SUCCESSFUL! ' + dmg;
+                        }
+                        else {
+                            arr[2] = 'FAILED! ' + dmg;
+                        }
                     arr[3] = '';
                     console.log(arr[0])
                 }
@@ -2797,12 +2823,13 @@ class Round extends React.Component {
                     arr[0] = 'TRIP';
                     arr[1] = this.getOppMsg1(arr[0]);
                     hit = this.getHit1('TRIP');
-                    if (hit > 0) {
-                        arr[2] = 'SUCCESSFUL';
-                    }
-                    else {
-                        arr[2] = 'FAILED';
-                    }
+                    dmg = this.getDamage1(0, 'x');
+                        if (hit > 0) {
+                            arr[2] = 'SUCCESSFUL! ' + dmg;
+                        }
+                        else {
+                            arr[2] = 'FAILED! ' + dmg;
+                        }
                     arr[3] = '';
                     console.log(arr[0])
                 }
@@ -2828,12 +2855,13 @@ class Round extends React.Component {
                     arr[0] = 'EXIT';
                     arr[1] = this.getOppMsg1(arr[0]);
                     hit = this.getHit1('EXIT');
-                    if (hit > 0) {
-                        arr[2] = 'SUCCESSFUL';
-                    }
-                    else {
-                        arr[2] = 'FAILED';
-                    }
+                    dmg = this.getDamage1(0, 'x');
+                        if (hit > 0) {
+                            arr[2] = 'SUCCESSFUL! ' + dmg;
+                        }
+                        else {
+                            arr[2] = 'FAILED! ' + dmg;
+                        }
                     arr[3] = '';
                     console.log(arr[0])
                 }
@@ -2841,12 +2869,13 @@ class Round extends React.Component {
                     arr[0] = 'TRIP';
                     arr[1] = this.getOppMsg1(arr[0]);
                     hit = this.getHit1('TRIP');
-                    if (hit > 0) {
-                        arr[2] = 'SUCCESSFUL';
-                    }
-                    else {
-                        arr[2] = 'FAILED';
-                    }
+                    dmg = this.getDamage1(0, 'x');
+                        if (hit > 0) {
+                            arr[2] = 'SUCCESSFUL! ' + dmg;
+                        }
+                        else {
+                            arr[2] = 'FAILED! ' + dmg;
+                        }
                     arr[3] = '';
                     console.log(arr[0])
                 }
@@ -2857,7 +2886,8 @@ class Round extends React.Component {
                 if (ran >= 50) {
                     arr[0] = 'STALL';
                     arr[1] = this.getOppMsg1(arr[0]);
-                    arr[2] = '';
+                    dmg = this.getDamage1(0, 'x');
+                    arr[2] = dmg;
                     arr[3] = '';
                     console.log(arr[0])
                 }
@@ -2865,7 +2895,8 @@ class Round extends React.Component {
                     arr[0] = 'GET UP';
                     arr[1] = this.getOppMsg1(arr[0]);
                     hit = this.getHit1('GET UP');
-                    arr[2] = '';
+                    dmg = this.getDamage1(0, 'x');
+                    arr[2] = dmg;
                     arr[3] = '';
                     console.log(arr[0])
                 }
@@ -2881,12 +2912,13 @@ class Round extends React.Component {
                     arr[0] = 'SUBMISSIONtop';
                     arr[1] = this.getOppMsg1(arr[0]);
                     hit = this.getHit1('SUBMISSIONtop');
+                    dmg = this.getDamage1(0, 'x');
                     if (hit > 0) {
-                        arr[2] = 'SUCCESSFUL';
+                        arr[2] = 'SUCCESSFUL!';
                         sessionStorage.setItem('win1', 1);
                     }
                     else {
-                        arr[2] = 'FAILED';
+                        arr[2] = 'FAILED! ' + dmg;
                     }
                     arr[3] = '';
                     console.log(arr[0])
@@ -2896,7 +2928,8 @@ class Round extends React.Component {
                 if (ran >= 95) {
                     arr[0] = 'STALL';
                     arr[1] = this.getOppMsg1(arr[0]);
-                    arr[2] = '';
+                    dmg = this.getDamage1(0, 'x');
+                    arr[2] = dmg;
                     arr[3] = '';
                     console.log(arr[0])
                 }
@@ -2904,7 +2937,8 @@ class Round extends React.Component {
                     arr[0] = 'GET UP';
                     arr[1] = this.getOppMsg1(arr[0]);
                     hit = this.getHit1('GET UP');
-                    arr[2] = '';
+                    dmg = this.getDamage1(0, 'x');
+                    arr[2] = dmg;
                     arr[3] = '';
                     console.log(arr[0])
                 }
@@ -2920,12 +2954,13 @@ class Round extends React.Component {
                     arr[0] = 'SUBMISSIONtop';
                     arr[1] = this.getOppMsg1(arr[0]);
                     hit = this.getHit1('SUBMISSIONtop');
+                    dmg = this.getDamage1(0, 'x');
                     if (hit > 0) {
-                        arr[2] = 'SUCCESSFUL';
+                        arr[2] = 'SUCCESSFUL!';
                         sessionStorage.setItem('win1', 1);
                     }
                     else {
-                        arr[2] = 'FAILED';
+                        arr[2] = 'FAILED! ' + dmg;
                     }
                     arr[3] = '';
                     console.log(arr[0])
@@ -2935,7 +2970,8 @@ class Round extends React.Component {
                 if (ran >= 90) {
                     arr[0] = 'STALL';
                     arr[1] = this.getOppMsg1(arr[0]);
-                    arr[2] = '';
+                    dmg = this.getDamage1(0, 'x');
+                    arr[2] = dmg;
                     arr[3] = '';
                     console.log(arr[0])
                 }
@@ -2943,7 +2979,8 @@ class Round extends React.Component {
                     arr[0] = 'GET UP';
                     arr[1] = this.getOppMsg1(arr[0]);
                     hit = this.getHit1('GET UP');
-                    arr[2] = '';
+                    dmg = this.getDamage1(0, 'x');
+                    arr[2] = dmg;
                     arr[3] = '';
                     console.log(arr[0])
                 }
@@ -2959,12 +2996,13 @@ class Round extends React.Component {
                     arr[0] = 'SUBMISSIONtop';
                     arr[1] = this.getOppMsg1(arr[0]);
                     hit = this.getHit1('SUBMISSIONtop');
+                    dmg = this.getDamage1(0, 'x');
                     if (hit > 0) {
-                        arr[2] = 'SUCCESSFUL';
+                        arr[2] = 'SUCCESSFUL!';
                         sessionStorage.setItem('win1', 1);
                     }
                     else {
-                        arr[2] = 'FAILED';
+                        arr[2] = 'FAILED! ' + dmg;
                     }
                     arr[3] = '';
                     console.log(arr[0])
@@ -2976,7 +3014,8 @@ class Round extends React.Component {
                 if (ran >= 70) {
                     arr[0] = 'STALL';
                     arr[1] = this.getOppMsg1(arr[0]);
-                    arr[2] = '';
+                    dmg = this.getDamage1(0, 'x');
+                    arr[2] = dmg;
                     arr[3] = '';
                     console.log(arr[0])
                     sessionStorage.setItem('oppStm', parseInt(sessionStorage.getItem('oppStm')) - 2);
@@ -2985,12 +3024,13 @@ class Round extends React.Component {
                     arr[0] = 'ESCAPE';
                     arr[1] = this.getOppMsg1(arr[0]);
                     hit = this.getHit1('ESCAPE');
-                    if (hit > 0) {
-                        arr[2] = 'SUCCESSFUL';
-                    }
-                    else {
-                        arr[2] = 'FAILED';
-                    }
+                    dmg = this.getDamage1(0, 'x');
+                        if (hit > 0) {
+                            arr[2] = 'SUCCESSFUL! ' + dmg;
+                        }
+                        else {
+                            arr[2] = 'FAILED! ' + dmg;
+                        }
                     arr[3] = '';
                     console.log(arr[0])
                 }
@@ -2998,12 +3038,13 @@ class Round extends React.Component {
                     arr[0] = 'REVERSE';
                     arr[1] = this.getOppMsg1(arr[0]);
                     hit = this.getHit1('REVERSE');
-                    if (hit > 0) {
-                        arr[2] = 'SUCCESSFUL';
-                    }
-                    else {
-                        arr[2] = 'FAILED';
-                    }
+                    dmg = this.getDamage1(0, 'x');
+                        if (hit > 0) {
+                            arr[2] = 'SUCCESSFUL! ' + dmg;
+                        }
+                        else {
+                            arr[2] = 'FAILED! ' + dmg;
+                        }
                     arr[3] = '';
                     console.log(arr[0])
                 }
@@ -3011,12 +3052,13 @@ class Round extends React.Component {
                     arr[0] = 'SUBMISSIONbot';
                     arr[1] = this.getOppMsg1(arr[0]);
                     hit = this.getHit1('SUBMISSIONbot');
+                    dmg = this.getDamage1(0, 'x');
                     if (hit > 0) {
-                        arr[2] = 'SUCCESSFUL';
+                        arr[2] = 'SUCCESSFUL!';
                         sessionStorage.setItem('win1', 1);
                     }
                     else {
-                        arr[2] = 'FAILED';
+                        arr[2] = 'FAILED! ' + dmg;
                     }
                     arr[3] = '';
                     console.log(arr[0])
@@ -3026,7 +3068,8 @@ class Round extends React.Component {
                 if (ran >= 95) {
                     arr[0] = 'STALL';
                     arr[1] = this.getOppMsg1(arr[0]);
-                    arr[2] = '';
+                    dmg = this.getDamage1(0, 'x');
+                    arr[2] = dmg;
                     arr[3] = '';
                     console.log(arr[0])
                     sessionStorage.setItem('oppStm', parseInt(sessionStorage.getItem('oppStm')) - 2);
@@ -3035,12 +3078,13 @@ class Round extends React.Component {
                     arr[0] = 'ESCAPE';
                     arr[1] = this.getOppMsg1(arr[0]);
                     hit = this.getHit1('ESCAPE');
-                    if (hit > 0) {
-                        arr[2] = 'SUCCESSFUL';
-                    }
-                    else {
-                        arr[2] = 'FAILED';
-                    }
+                    dmg = this.getDamage1(0, 'x');
+                        if (hit > 0) {
+                            arr[2] = 'SUCCESSFUL! ' + dmg;
+                        }
+                        else {
+                            arr[2] = 'FAILED! ' + dmg;
+                        }
                     arr[3] = '';
                     console.log(arr[0])
                 }
@@ -3048,12 +3092,13 @@ class Round extends React.Component {
                     arr[0] = 'REVERSE';
                     arr[1] = this.getOppMsg1(arr[0]);
                     hit = this.getHit1('REVERSE');
-                    if (hit > 0) {
-                        arr[2] = 'SUCCESSFUL';
-                    }
-                    else {
-                        arr[2] = 'FAILED';
-                    }
+                    dmg = this.getDamage1(0, 'x');
+                        if (hit > 0) {
+                            arr[2] = 'SUCCESSFUL! ' + dmg;
+                        }
+                        else {
+                            arr[2] = 'FAILED! ' + dmg;
+                        }
                     arr[3] = '';
                     console.log(arr[0])
                 }
@@ -3061,12 +3106,13 @@ class Round extends React.Component {
                     arr[0] = 'SUBMISSIONbot';
                     arr[1] = this.getOppMsg1(arr[0]);
                     hit = this.getHit1('SUBMISSIONbot');
+                    dmg = this.getDamage1(0, 'x');
                     if (hit > 0) {
-                        arr[2] = 'SUCCESSFUL';
+                        arr[2] = 'SUCCESSFUL!';
                         sessionStorage.setItem('win1', 1);
                     }
                     else {
-                        arr[2] = 'FAILED';
+                        arr[2] = 'FAILED! ' + dmg;
                     }
                     arr[3] = '';
                     console.log(arr[0])
@@ -3076,7 +3122,8 @@ class Round extends React.Component {
                 if (ran >= 90) {
                     arr[0] = 'STALL';
                     arr[1] = this.getOppMsg1(arr[0]);
-                    arr[2] = '';
+                    dmg = this.getDamage1(0, 'x');
+                    arr[2] = dmg;
                     arr[3] = '';
                     console.log(arr[0])
                     sessionStorage.setItem('oppStm', parseInt(sessionStorage.getItem('oppStm')) - 2);
@@ -3085,12 +3132,13 @@ class Round extends React.Component {
                     arr[0] = 'ESCAPE';
                     arr[1] = this.getOppMsg1(arr[0]);
                     hit = this.getHit1('ESCAPE');
-                    if (hit > 0) {
-                        arr[2] = 'SUCCESSFUL';
-                    }
-                    else {
-                        arr[2] = 'FAILED';
-                    }
+                    dmg = this.getDamage1(0, 'x');
+                        if (hit > 0) {
+                            arr[2] = 'SUCCESSFUL! ' + dmg;
+                        }
+                        else {
+                            arr[2] = 'FAILED! ' + dmg;
+                        }
                     arr[3] = '';
                     console.log(arr[0])
                 }
@@ -3098,12 +3146,13 @@ class Round extends React.Component {
                     arr[0] = 'REVERSE';
                     arr[1] = this.getOppMsg1(arr[0]);
                     hit = this.getHit1('REVERSE');
-                    if (hit > 0) {
-                        arr[2] = 'SUCCESSFUL';
-                    }
-                    else {
-                        arr[2] = 'FAILED';
-                    }
+                    dmg = this.getDamage1(0, 'x');
+                        if (hit > 0) {
+                            arr[2] = 'SUCCESSFUL! ' + dmg;
+                        }
+                        else {
+                            arr[2] = 'FAILED! ' + dmg;
+                        }
                     arr[3] = '';
                     console.log(arr[0])
                 }
@@ -3111,12 +3160,13 @@ class Round extends React.Component {
                     arr[0] = 'SUBMISSIONbot';
                     arr[1] = this.getOppMsg1(arr[0]);
                     hit = this.getHit1('SUBMISSIONbot');
+                    dmg = this.getDamage1(0, 'x');
                     if (hit > 0) {
-                        arr[2] = 'SUCCESSFUL';
+                        arr[2] = 'SUCCESSFUL!';
                         sessionStorage.setItem('win1', 1);
                     }
                     else {
-                        arr[2] = 'FAILED';
+                        arr[2] = 'FAILED! ' + dmg;
                     }
                     arr[3] = '';
                     console.log(arr[0])
@@ -3217,14 +3267,15 @@ class Round extends React.Component {
             sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 6);
 
             hit = this.getHit('ESCAPE');
+            dmg = this.getDamage(0, 'x');
 
             name = last;
             msg = 'ATTEMPTS TO STAND UP';
             if (hit > 0) {
-                info = 'SUCCESSFUL';
+                info = 'SUCCESSFUL! ' + dmg;
             }
             else {
-                info = 'FAILED';
+                info = 'FAILED! ' + dmg;
             }
             cinfo = '';
 
@@ -3236,11 +3287,11 @@ class Round extends React.Component {
         }
         else if (this.pos() == 3){
             hit = this.getHit('GET UP');
-            dmg = this.getDamage(hit, 'GET UP');
+            dmg = this.getDamage(0, 'x');
 
             name = last;
-            msg = 'LETS OPPONENT UP';
-            info = '';
+            msg = 'LETS OPPONENT UP ' + dmg;
+            info = dmg;
             cinfo = '';
 
             name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
@@ -3331,10 +3382,10 @@ class Round extends React.Component {
             name = last;
             msg = 'FEINTS A STRIKE';
             if (hit > 0) {
-                info = 'SUCCESSFUL';
+                info = 'SUCCESSFUL!';
             }
             else {
-                info = 'FAILED';
+                info = 'FAILED!';
             }
             cinfo = '';
 
@@ -3367,6 +3418,7 @@ class Round extends React.Component {
             sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 12);
             
             hit = this.getHit('TAKEDOWN');
+            dmg = this.getDamage(0, 'x');
             ctr = this.counterCalc(1 - hit, 'TAKEDOWN');
             ctrDmg = this.getDamage1(ctr, 'TAKEDOWN');
             
@@ -3374,11 +3426,11 @@ class Round extends React.Component {
             msg = 'ATTEMPTS A TAKEDOWN';
             name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
             if (hit > 0) {
-                info = 'SUCCESSFUL';
+                info = 'SUCCESSFUL! ' + dmg;
                 arr = this.getOppMsg();
             }
             else {
-                info = 'FAILED';
+                info = 'FAILED! ' + dmg;
                 arr = this.getOppMsg();
             }
             cinfo = this.counterInfo(ctr, ctrDmg);
@@ -3529,14 +3581,15 @@ class Round extends React.Component {
             sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 4);
 
             hit = this.getHit('EXIT');
+            dmg = this.getDamage(0, 'x');
 
             name = last;
             msg = 'ATTEMPTS TO EXIT CLINCH';
             if (hit > 0) {
-                info = 'SUCCESSFUL';
+                info = 'SUCCESSFUL! ' + dmg;
             }
             else {
-                info = 'FAILED';
+                info = 'FAILED! ' + dmg;
             }
             cinfo = '';
 
@@ -3550,14 +3603,15 @@ class Round extends React.Component {
             sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 10);
 
             hit = this.getHit('REVERSE');
+            dmg = this.getDamage(0, 'x');
 
             name = last;
             msg = 'ATTEMPTS A REVERSAL';
             if (hit > 0) {
-                info = 'SUCCESSFUL';
+                info = 'SUCCESSFUL! ' + dmg;
             }
             else {
-                info = 'FAILED';
+                info = 'FAILED! ' + dmg;
             }
             cinfo = '';
 
@@ -3666,10 +3720,10 @@ class Round extends React.Component {
             name = last;
             msg = 'FEINTS A STRIKE';
             if (hit > 0) {
-                info = 'SUCCESSFUL';
+                info = 'SUCCESSFUL!';
             }
             else {
-                info = 'FAILED';
+                info = 'FAILED!';
             }
             cinfo = '';
 
@@ -3702,6 +3756,7 @@ class Round extends React.Component {
             sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 12);
             
             hit = this.getHit('TAKEDOWN');
+            dmg = this.getDamage(0, 'x');
             ctr = this.counterCalc(1 - hit, 'TAKEDOWN');
             ctrDmg = this.getDamage1(ctr, 'TAKEDOWN');
             
@@ -3709,11 +3764,11 @@ class Round extends React.Component {
             msg = 'ATTEMPTS A TAKEDOWN';
             name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
             if (hit > 0) {
-                info = 'SUCCESSFUL';
+                info = 'SUCCESSFUL! ' + dmg;
                 arr = this.getOppMsg();
             }
             else {
-                info = 'FAILED';
+                info = 'FAILED! ' + dmg;
                 arr = this.getOppMsg();
             }
             cinfo = this.counterInfo(ctr, ctrDmg);
@@ -3864,14 +3919,15 @@ class Round extends React.Component {
             sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 4);
 
             hit = this.getHit('TRIP');
+            dmg = this.getDamage(0, 'x');
 
             name = last;
             msg = 'ATTEMPTS A TRIP';
             if (hit > 0) {
-                info = 'SUCCESSFUL';
+                info = 'SUCCESSFUL! ' + dmg;
             }
             else {
-                info = 'FAILED';
+                info = 'FAILED! ' + dmg;
             }
             cinfo = '';
 
@@ -3885,14 +3941,15 @@ class Round extends React.Component {
             sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 10);
 
             hit = this.getHit('SUBMISSIONbot');
+            dmg = this.getDamage(0, 'x');
 
             name = last;
             msg = 'ATTEMPTS A SUBMISSION FROM BOTTOM';
             if (hit > 0) {
-                info = 'SUCCESSFUL';
+                info = 'SUCCESSFUL!';
             }
             else {
-                info = 'FAILED';
+                info = 'FAILED! ' + dmg;
             }
             cinfo = '';
 
@@ -3906,14 +3963,15 @@ class Round extends React.Component {
             sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 10);
 
             hit = this.getHit('SUBMISSIONtop');
+            dmg = this.getDamage(0, 'x');
 
             name = last;
             msg = 'ATTEMPTS A SUBMISSION FROM TOP';
             if (hit > 0) {
-                info = 'SUCCESSFUL';
+                info = 'SUCCESSFUL!';
             }
             else {
-                info = 'FAILED';
+                info = 'FAILED! ' + dmg;
             }
             cinfo = '';
 
@@ -4005,10 +4063,10 @@ class Round extends React.Component {
             name = last;
             msg = 'FEINTS A STRIKE';
             if (hit > 0) {
-                info = 'SUCCESSFUL';
+                info = 'SUCCESSFUL!';
             }
             else {
-                info = 'FAILED';
+                info = 'FAILED!';
             }
             cinfo = '';
 
@@ -4041,6 +4099,7 @@ class Round extends React.Component {
             sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - 12);
             
             hit = this.getHit('TAKEDOWN');
+            dmg = this.getDamage(0, 'x');
             ctr = this.counterCalc(1 - hit, 'TAKEDOWN');
             ctrDmg = this.getDamage1(ctr, 'TAKEDOWN');
             
@@ -4048,11 +4107,11 @@ class Round extends React.Component {
             msg = 'ATTEMPTS A TAKEDOWN';
             name1 = (sessionStorage.getItem('win') == 0) ? sessionStorage.getItem('oppLast') : '';
             if (hit > 0) {
-                info = 'SUCCESSFUL';
+                info = 'SUCCESSFUL! ' + dmg;
                 arr = this.getOppMsg();
             }
             else {
-                info = 'FAILED';
+                info = 'FAILED! ' + dmg;
                 arr = this.getOppMsg();
             }
             cinfo = this.counterInfo(ctr, ctrDmg);
@@ -4406,6 +4465,7 @@ class Round extends React.Component {
                     <Link to='./round'><Button data-tip data-for="3" style={(sessionStorage.getItem('win') == 1 || sessionStorage.getItem('win1') == 1 || sessionStorage.getItem('bell') == 1) ? {border: '2px solid gray', color: 'gray'} : {}} onClick={this.mover3}>{(this.pos() == 0) ? sessionStorage.getItem('att3') : (this.pos() == 1) ? 'TRIP' : (this.pos() == 2) ? 'SUBMISSION' : 'SUBMISSION'}</Button></Link>
                     <ReactTooltip class="Membership" id="3" place="top" effect="float"><text style={{fontSize: 30}}>{(this.pos() == 0) ? this.attDesc3a() : (this.pos() == 1) ? 'TRIP' : (this.pos() == 2) ? 'SUBMISSION' : 'SUBMISSION'}</text> <text style={sessionStorage.getItem('feinted1') == 1 ? {color: 'green'} : {}}>{(this.pos() == 0) ? this.calcPer(sessionStorage.getItem('att3')) : (this.pos() == 1) ? this.calcPer('TRIP') : (this.pos() == 2) ? this.calcPer('SUBMISSIONbot') : this.calcPer('SUBMISSIONtop')}% ACC.</text><br/>{(this.pos() == 0) ? this.attDesc3b() : (this.pos() == 1) ? 'ATTEMPT TO BRING TO GROUND' : (this.pos() == 2) ? 'ATTEMPT SUBMISSION FROM BOTTOM POSITION' : 'ATTEMPT SUBMISSION FROM TOP POSITION'}<br/><b>{(this.pos() == 0) ? this.attDesc3c() : (this.pos() == 1) ? '6' : (this.pos() == 2) ? '10' : '10'} STAMINA</b></ReactTooltip>
                 </div>
+                
                 <div className="App-customize1a" style={{marginTop: 0}}>
                     <Link to={(sessionStorage.getItem('win') == 1 || sessionStorage.getItem('win1') == 1) ? './' : './round'}><Button style={(sessionStorage.getItem('win') == 0 && sessionStorage.getItem('win1') == 0 && sessionStorage.getItem('bell') == 0) ? {border: '2px solid gray', color: 'gray'} : {}} onClick={this.nextRound}><text>NEXT</text></Button></Link>
                 </div>
