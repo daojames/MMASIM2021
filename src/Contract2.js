@@ -857,8 +857,8 @@ class Contract2 extends React.Component {
 
         sessionStorage.setItem('playerStance', '?');
         sessionStorage.setItem('playerGuard', '?');
-        sessionStorage.setItem('playerStm', 150 + parseInt(sessionStorage.getItem('stm')));
-        sessionStorage.setItem('oppStm', 150 + parseInt(data.stamina));
+        sessionStorage.setItem('playerStm', 200 + ((parseInt(sessionStorage.getItem('stm')) - 50) * 1.5));
+        sessionStorage.setItem('oppStm', 200 + ((parseInt(data.stamina) - 50) * 1.5));
         sessionStorage.setItem('playerStatus', 1000);
         sessionStorage.setItem('oppStatus', 1000);
         
