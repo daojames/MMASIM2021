@@ -942,6 +942,21 @@ class Contract2 extends React.Component {
         sessionStorage.setItem('win', 0);
         sessionStorage.setItem('win1', 0);
         sessionStorage.setItem('bell', 0);
+        sessionStorage.setItem('dec', 0);
+        sessionStorage.setItem('control', 0);
+        sessionStorage.setItem('control1', 0);
+        sessionStorage.setItem('totalDmg', 0);
+        sessionStorage.setItem('totalDmg1', 0);
+        sessionStorage.setItem('round1', 0);
+        sessionStorage.setItem('round2', 0);
+        sessionStorage.setItem('round3', 0);
+        sessionStorage.setItem('round4', 0);
+        sessionStorage.setItem('round5', 0);
+        sessionStorage.setItem('sub', 0);
+        sessionStorage.setItem('ko', 0);
+        sessionStorage.setItem('tko', 0);
+        sessionStorage.setItem('points', 0);
+        sessionStorage.setItem('points1', 0);
     }
 
     ftin(hgt) {
@@ -1093,7 +1108,7 @@ class Contract2 extends React.Component {
                         <div className="App-customize2-0" style={{marginTop: 0}}>
                             <Button1cl><b>WEIGHTCLASS</b></Button1cl>
                             <Button1f></Button1f>
-                            <Button1cr>{data.weight}</Button1cr>
+                            <Button1cr>{(data.weight == 'WSTRAWWEIGHT') ? 'WOMEN\'S STRAWWEIGHT' : (data.weight == 'WFLYWEIGHT') ? 'WOMEN\'S FLYWEIGHT' : (data.weight == 'WBANTAMWEIGHT') ? 'WOMEN\'S BANTAMWEIGHT' : data.weight}</Button1cr>
                         </div>
                         <div className="App-customize2-0" style={{marginTop: 0}}>
                             <Button1cl><b>TITLE BOUT</b></Button1cl>
