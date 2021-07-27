@@ -971,7 +971,7 @@ class Round extends React.Component {
 
     playerSt(st) {
         if (st == 1000) {
-            return 'UNTOUCHED';
+            return 'UNTOUCHEDa';
         }
         if (st > 900) {
             return 'EXCEPTIONAL';
