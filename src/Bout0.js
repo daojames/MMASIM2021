@@ -923,22 +923,28 @@ class Bout0 extends React.Component {
     }
 
     playerSt(st) {
-        if (st >= 900) {
-            return 'HEALTHY';
+        if (st == 1000) {
+            return 'UNTOUCHED';
         }
-        else if (st >= 600) {
-            return 'CONSCIOUS'
+        if (st > 900) {
+            return 'EXCEPTIONAL';
         }
-        else if (st >= 300) {
+        else if (st > 700) {
+            return 'HEALTHY'
+        }
+        else if (st > 500) {
+            return 'CONSCIOUS';
+        }
+        else if (st > 300) {
             return 'WORN'
         }
-        else if (st >= 100) {
+        else if (st > 100) {
             return 'WEAK'
         }
-        else if (st >= 1) {
+        else if (st > 0) {
             return 'IN TROUBLE'
         }
-        else if (st < 1) {
+        else if (st <= 0) {
             return 'UNCONSCIOUS';
         }
     }

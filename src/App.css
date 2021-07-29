@@ -90,6 +90,21 @@ body {
   overflow: hidden;
 }
 
+.App-header2 {
+  user-select: none;
+  background-color: #212121;
+  height: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: top;
+  font-size: 60px;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  color: white;
+  overflow: hidden;
+}
+
 .App-twitter {
   user-select: none;
   background-color: #1DA1F2;
@@ -125,6 +140,21 @@ body {
   user-select: none;
   min-height: 100vh;
   height: 500px;
+  margin-top: -33.049040511vh;
+  margin-bottom: -42.64392324vh;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: top;
+  font-size: 60px;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  color: white;
+}
+
+.App-header-style1a {
+  user-select: none;
+  height: 200px;
   margin-top: -33.049040511vh;
   margin-bottom: -42.64392324vh;
   display: inline-flex;
@@ -195,6 +225,24 @@ body {
   align-items: top;
   justify-content: center;
   font-size: 40px;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  color: white;
+  overflow: hidden;
+}
+
+.Record {
+  user-select: none;
+  display:inline-flex;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  margin-left: 0px;
+  height: 50px;
+  width: 1200px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
   font-family: 'Roboto', sans-serif;
   font-style: italic;
   color: white;
@@ -352,6 +400,10 @@ body {
   font-style: italic;
   color: white;
   overflow: hidden;
+}
+
+.alignleft {
+  float: left;
 }
 
 .alignright {

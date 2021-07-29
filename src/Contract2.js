@@ -1035,22 +1035,180 @@ class Contract2 extends React.Component {
         }
     }
 
+    getOppNum() {
+        let num = sessionStorage.getItem('oppNum');
+        let money = 0;
+
+        if (num == 1){
+            let data = sessionStorage.getItem('nr1');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 2){
+            let data = sessionStorage.getItem('nr2');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 3){
+            let data = sessionStorage.getItem('nr3');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 4){
+            let data = sessionStorage.getItem('nr4');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 5){
+            let data = sessionStorage.getItem('nr5');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 6){
+            let data = sessionStorage.getItem('nr6');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 7){
+            let data = sessionStorage.getItem('nr7');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 8){
+            let data = sessionStorage.getItem('nr8');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 9){
+            let data = sessionStorage.getItem('nr9');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 10){
+            let data = sessionStorage.getItem('nr10');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 11){
+            let data = sessionStorage.getItem('nr11');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 12){
+            let data = sessionStorage.getItem('nr12');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 13){
+            let data = sessionStorage.getItem('nr13');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 14){
+            let data = sessionStorage.getItem('nr14');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 15){
+            let data = sessionStorage.getItem('nr15');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 16){
+            let data = sessionStorage.getItem('nr16');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 17){
+            let data = sessionStorage.getItem('nr17');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 18){
+            let data = sessionStorage.getItem('nr18');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 19){
+            let data = sessionStorage.getItem('nr19');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 20){
+            let data = sessionStorage.getItem('nr20');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 21){
+            let data = sessionStorage.getItem('nr21');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 101) {
+            let data = sessionStorage.getItem('nrf1');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 102) {
+            let data = sessionStorage.getItem('nrf2');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 103) {
+            let data = sessionStorage.getItem('nrf3');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 104) {
+            let data = sessionStorage.getItem('nrf4');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 105) {
+            let data = sessionStorage.getItem('nrf5');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 106) {
+            let data = sessionStorage.getItem('nrf6');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 107) {
+            let data = sessionStorage.getItem('nrf7');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 108) {
+            let data = sessionStorage.getItem('nrf8');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 109) {
+            let data = sessionStorage.getItem('nrf9');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+
+        return money;
+    }
+
     calcPay() {
         let rank = sessionStorage.getItem('rank');
         let followers = sessionStorage.getItem('followers');
         let pay = null;
         if (rank == 'NR'){
-            pay = followers * 2;
+            pay = this.getOppNum();
             sessionStorage.setItem('pay', pay);
             return pay;
         }
         else if (rank == 'C'){
-            pay = followers * 7.5;
+            pay = this.getOppNum() * 7.5;
             sessionStorage.setItem('pay', pay);
             return pay; 
         }
         else {
-            pay = followers * 5;
+            pay = this.getOppNum() * 5;
             sessionStorage.setItem('pay', pay);
             return pay; 
         }
@@ -1094,6 +1252,8 @@ class Contract2 extends React.Component {
         let year = sessionStorage.getItem('year');
         let data = sessionStorage.getItem('player');
         data = JSON.parse(data)
+        let num = sessionStorage.getItem('abc2');
+        sessionStorage.setItem('oppNum', num);
         let whitespace = "\xa0\xa0\xa0";
         return(
             <div className="App">
@@ -1129,10 +1289,10 @@ class Contract2 extends React.Component {
                         <div className="App-customize2-0" style={{marginTop: 0}}>
                             <Button1cl><b>WIN BONUS</b></Button1cl>
                             <Button1f></Button1f>
-                            <Button1cr>${this.calcPay()}</Button1cr>
+                            <Button1cr>${this.ifCwin()}</Button1cr>
                         </div>
                         <div className="App-customize2-0" style={{marginTop: 0}}>
-                            <Button1cl><b>KO BONUS</b></Button1cl>
+                            <Button1cl><b>POTN BONUS</b></Button1cl>
                             <Button1f></Button1f>
                             <Button1cr>$50000</Button1cr>
                         </div>

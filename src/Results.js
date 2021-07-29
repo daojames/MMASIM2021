@@ -4,6 +4,7 @@ import { Switch, Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from './mmasim2021logo.png';
 import './App.css';
+import {randomNR} from './RandomNR.js';
 
 const Button = styled.button`
 background-color: transparent;
@@ -239,6 +240,24 @@ transition: ease background-color 250ms;
 &:hover {
   background-color: #616161;
 }
+`
+
+const Button4a = styled.button`
+background-color: transparent;
+color: gray;
+padding: 0px;
+width: 275px;
+height: 50px;
+text-align: center;
+margin-top: -5px;
+margin-left: 160px;
+margin-right: 160px;
+font-size: 40px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 2px solid gray;
+border-radius: 2px;
+outline: 0;
 `
 
 const Button6 = styled.button`
@@ -790,174 +809,181 @@ class Results extends React.Component {
     }
 
     handleFight = (event) => {
-        let data = sessionStorage.getItem('ABC1');
-        data = JSON.parse(data);
-        sessionStorage.setItem('oppRank', data.rank);
-        sessionStorage.setItem('oppFirst', data.first);
-        sessionStorage.setItem('oppLast', data.last);
-        sessionStorage.setItem('oppHeight', data.height);
-        sessionStorage.setItem('oppWeight', data.weight);
-        sessionStorage.setItem('oppNation', data.nation);
-        sessionStorage.setItem('oppWin', data.win);
-        sessionStorage.setItem('oppLoss', data.loss);
-        sessionStorage.setItem('oppStrength', data.strength);
-        sessionStorage.setItem('oppSpeed', data.speed);
-        sessionStorage.setItem('oppStamina', data.stamina);
-        sessionStorage.setItem('oppPunching', data.punching);
-        sessionStorage.setItem('oppKicking', data.kicking);
-        sessionStorage.setItem('oppWrestling', data.wrestling);
-        sessionStorage.setItem('oppGrappling', data.grappling);
-        sessionStorage.setItem('oppClinch', data.clinch);
+        let payType = sessionStorage.getItem('payType');
 
-        sessionStorage.setItem('oppStance', '?');
-        sessionStorage.setItem('oppGuard', '?');
-        sessionStorage.setItem('oppAtt1', '?');
-        sessionStorage.setItem('oppAtt2', '?');
-        sessionStorage.setItem('oppAtt3', '?');
-
-        if (sessionStorage.getItem('injury') == 0) {
-            sessionStorage.setItem('playerStrength', sessionStorage.getItem('str'));
-            sessionStorage.setItem('playerSpeed', sessionStorage.getItem('spd'));
-            sessionStorage.setItem('playerStamina', sessionStorage.getItem('stm'));
+        if (payType == 1) {
+            sessionStorage.setItem('balance', parseInt(sessionStorage.getItem('balance')) + parseInt(this.calcPurse()));
+            sessionStorage.setItem('careerEarnings', parseInt(sessionStorage.getItem('careerEarnings')) + parseInt(this.calcPurse()));
         }
-        sessionStorage.setItem('playerPunching', parseInt(sessionStorage.getItem('punch')) + parseInt(sessionStorage.getItem('pnchBuff')));
-        sessionStorage.setItem('playerKicking', parseInt(sessionStorage.getItem('kick')) + parseInt(sessionStorage.getItem('kickBuff')));
-        sessionStorage.setItem('playerWrestling', parseInt(sessionStorage.getItem('wrestling')) + parseInt(sessionStorage.getItem('wrstBuff')));
-        sessionStorage.setItem('playerGrappling', parseInt(sessionStorage.getItem('grappling')) + parseInt(sessionStorage.getItem('grplBuff')));
-        sessionStorage.setItem('playerClinch', parseInt(sessionStorage.getItem('clinch')) + parseInt(sessionStorage.getItem('clnhBuff')));
+        else if (payType == 2) {
+            sessionStorage.setItem('balance', parseInt(sessionStorage.getItem('balance')) + (parseInt(this.calcPurse()) - parseInt(sessionStorage.getItem('gymCamp'))));
+            sessionStorage.setItem('careerEarnings', parseInt(sessionStorage.getItem('careerEarnings')) + (parseInt(this.calcPurse()) - parseInt(sessionStorage.getItem('gymCamp'))));
+        }
+        else if (payType == 3) {
+            sessionStorage.setItem('balance', parseInt(sessionStorage.getItem('balance')) + (parseInt(this.calcPurse()) - parseInt(sessionStorage.getItem('gymCamp'))));
+            sessionStorage.setItem('careerEarnings', parseInt(sessionStorage.getItem('careerEarnings')) + (parseInt(this.calcPurse()) - parseInt(sessionStorage.getItem('gymCamp'))));
+        }
+        else {
+            console.log('pay error')
+        }
 
-        sessionStorage.setItem('mmaBuff', 0);
-        sessionStorage.setItem('bladedBuff', 0);
-        sessionStorage.setItem('thaiBuff', 0);
+        sessionStorage.setItem('payType', 0);
 
-        sessionStorage.setItem('longBuff', 0);
-        sessionStorage.setItem('longNerf', 0);
-        sessionStorage.setItem('highBuff', 0);
-        sessionStorage.setItem('highNerf', 0);
-        sessionStorage.setItem('lowBuff', 0);
-        sessionStorage.setItem('lowNerf', 0);
-        sessionStorage.setItem('reactNerf', 0);
-        sessionStorage.setItem('feinted', 0);
-        sessionStorage.setItem('tookdown', 0);
-        sessionStorage.setItem('clinched', 0);
+        if (sessionStorage.getItem('win') == 1) {
+            sessionStorage.setItem('playerWin', parseInt(sessionStorage.getItem('playerWin')) + 1);
+            sessionStorage.setItem('prevFight', 1);
+            sessionStorage.setItem('winStreak', parseInt(sessionStorage.getItem('winStreak')) + 1);
+            sessionStorage.setItem('lossStreak', 0);
+        }
+        else {
+            sessionStorage.setItem('playerLoss', parseInt(sessionStorage.getItem('playerLoss')) + 1);
+            sessionStorage.setItem('prevFight', 2);
+            sessionStorage.setItem('lossStreak', parseInt(sessionStorage.getItem('lossStreak')) + 1);
+            sessionStorage.setItem('winStreak', 0);
+        }
 
-        sessionStorage.setItem('mmaBuff1', 0);
-        sessionStorage.setItem('bladedBuff1', 0);
-        sessionStorage.setItem('thaiBuff1', 0);
+        let ko = sessionStorage.getItem('ko');
+        let tko = sessionStorage.getItem('tko');
+        let sub = sessionStorage.getItem('sub');
 
-        sessionStorage.setItem('longBuff1', 0);
-        sessionStorage.setItem('longNerf1', 0);
-        sessionStorage.setItem('highBuff1', 0);
-        sessionStorage.setItem('highNerf1', 0);
-        sessionStorage.setItem('lowBuff1', 0);
-        sessionStorage.setItem('lowNerf1', 0);
-        sessionStorage.setItem('reactNerf1', 0);
-        sessionStorage.setItem('feinted1', 0);
-        sessionStorage.setItem('tookdown1', 0);
+        let round = parseInt(sessionStorage.getItem('round')) - 1;
+            switch(round) {
+                case 1:
+                    if (sessionStorage.getItem('win') == 1) {
+                        if (ko == 1 || tko == 1) {
+                            sessionStorage.setItem('winKO', parseInt(sessionStorage.getItem('winKO')) + 1);
+                            sessionStorage.setItem('fin1', parseInt(sessionStorage.getItem('fin1')) + 1);
+                        }
+                        else if (sub == 1){
+                            sessionStorage.setItem('winSUB', parseInt(sessionStorage.getItem('winSUB')) + 1);
+                            sessionStorage.setItem('fin1', parseInt(sessionStorage.getItem('fin1')) + 1);
+                        }
+                        else {
+                            sessionStorage.setItem('winDEC', parseInt(sessionStorage.getItem('winDEC')) + 1);
+                        }
+                    }
+                    else {
+                        if (ko == 1 || tko == 1) {
+                            sessionStorage.setItem('lossKO', parseInt(sessionStorage.getItem('lossKO')) + 1);
+                        }
+                        else if (sub == 1){
+                            sessionStorage.setItem('lossSUB', parseInt(sessionStorage.getItem('lossSUB')) + 1);
+                        }
+                        else {
+                            sessionStorage.setItem('lossDEC', parseInt(sessionStorage.getItem('lossDEC')) + 1);
+                        }
+                    }
+                break;
+                case 2:
+                    if (sessionStorage.getItem('win') == 1) {
+                        if (ko == 1 || tko == 1) {
+                            sessionStorage.setItem('winKO', parseInt(sessionStorage.getItem('winKO')) + 1);
+                            sessionStorage.setItem('fin2', parseInt(sessionStorage.getItem('fin2')) + 1);
+                        }
+                        else if (sub == 1){
+                            sessionStorage.setItem('winSUB', parseInt(sessionStorage.getItem('winSUB')) + 1);
+                            sessionStorage.setItem('fin2', parseInt(sessionStorage.getItem('fin2')) + 1);
+                        }
+                        else {
+                            sessionStorage.setItem('winDEC', parseInt(sessionStorage.getItem('winDEC')) + 1);
+                        }
+                    }
+                    else {
+                        if (ko == 1 || tko == 1) {
+                            sessionStorage.setItem('lossKO', parseInt(sessionStorage.getItem('lossKO')) + 1);
+                        }
+                        else if (sub == 1){
+                            sessionStorage.setItem('lossSUB', parseInt(sessionStorage.getItem('lossSUB')) + 1);
+                        }
+                        else {
+                            sessionStorage.setItem('lossDEC', parseInt(sessionStorage.getItem('lossDEC')) + 1);
+                        }
+                    }
+                break;
+                case 3:
+                    if (sessionStorage.getItem('win') == 1) {
+                        if (ko == 1 || tko == 1) {
+                            sessionStorage.setItem('winKO', parseInt(sessionStorage.getItem('winKO')) + 1);
+                            sessionStorage.setItem('fin3', parseInt(sessionStorage.getItem('fin3')) + 1);
+                        }
+                        else if (sub == 1){
+                            sessionStorage.setItem('winSUB', parseInt(sessionStorage.getItem('winSUB')) + 1);
+                            sessionStorage.setItem('fin3', parseInt(sessionStorage.getItem('fin3')) + 1);
+                        }
+                        else {
+                            sessionStorage.setItem('winDEC', parseInt(sessionStorage.getItem('winDEC')) + 1);
+                        }
+                    }
+                    else {
+                        if (ko == 1 || tko == 1) {
+                            sessionStorage.setItem('lossKO', parseInt(sessionStorage.getItem('lossKO')) + 1);
+                        }
+                        else if (sub == 1){
+                            sessionStorage.setItem('lossSUB', parseInt(sessionStorage.getItem('lossSUB')) + 1);
+                        }
+                        else {
+                            sessionStorage.setItem('lossDEC', parseInt(sessionStorage.getItem('lossDEC')) + 1);
+                        }
+                    }
+                break;
+                case 4:
+                    if (sessionStorage.getItem('win') == 1) {
+                        if (ko == 1 || tko == 1) {
+                            sessionStorage.setItem('winKO', parseInt(sessionStorage.getItem('winKO')) + 1);
+                            sessionStorage.setItem('fin4', parseInt(sessionStorage.getItem('fin4')) + 1);
+                        }
+                        else if (sub == 1){
+                            sessionStorage.setItem('winSUB', parseInt(sessionStorage.getItem('winSUB')) + 1);
+                            sessionStorage.setItem('fin4', parseInt(sessionStorage.getItem('fin4')) + 1);
+                        }
+                        else {
+                            sessionStorage.setItem('winDEC', parseInt(sessionStorage.getItem('winDEC')) + 1);
+                        }
+                    }
+                    else {
+                        if (ko == 1 || tko == 1) {
+                            sessionStorage.setItem('lossKO', parseInt(sessionStorage.getItem('lossKO')) + 1);
+                        }
+                        else if (sub == 1){
+                            sessionStorage.setItem('lossSUB', parseInt(sessionStorage.getItem('lossSUB')) + 1);
+                        }
+                        else {
+                            sessionStorage.setItem('lossDEC', parseInt(sessionStorage.getItem('lossDEC')) + 1);
+                        }
+                    }
+                break;
+                case 5:
+                    if (sessionStorage.getItem('win') == 1) {
+                        if (ko == 1 || tko == 1) {
+                            sessionStorage.setItem('winKO', parseInt(sessionStorage.getItem('winKO')) + 1);
+                            sessionStorage.setItem('fin5', parseInt(sessionStorage.getItem('fin5')) + 1);
+                        }
+                        else if (sub == 1){
+                            sessionStorage.setItem('winSUB', parseInt(sessionStorage.getItem('winSUB')) + 1);
+                            sessionStorage.setItem('fin5', parseInt(sessionStorage.getItem('fin5')) + 1);
+                        }
+                        else {
+                            sessionStorage.setItem('winDEC', parseInt(sessionStorage.getItem('winDEC')) + 1);
+                        }
+                    }
+                    else {
+                        if (ko == 1 || tko == 1) {
+                            sessionStorage.setItem('lossKO', parseInt(sessionStorage.getItem('lossKO')) + 1);
+                        }
+                        else if (sub == 1){
+                            sessionStorage.setItem('lossSUB', parseInt(sessionStorage.getItem('lossSUB')) + 1);
+                        }
+                        else {
+                            sessionStorage.setItem('lossDEC', parseInt(sessionStorage.getItem('lossDEC')) + 1);
+                        }
+                    }
+                break;
+            }
 
-        sessionStorage.setItem('playerStance', '?');
-        sessionStorage.setItem('playerGuard', '?');
-        sessionStorage.setItem('playerStm', 200 + ((parseInt(sessionStorage.getItem('stm')) - 50) * 1.5));
-        sessionStorage.setItem('oppStm', 200 + ((parseInt(data.stamina) - 50) * 1.5));
-        sessionStorage.setItem('playerStatus', 1000);
-        sessionStorage.setItem('oppStatus', 1000);
-
-        sessionStorage.setItem('stance1', false);
-        sessionStorage.setItem('stance2', false);
-        sessionStorage.setItem('stance3', false);
-        sessionStorage.setItem('guard1', false);
-        sessionStorage.setItem('guard2', false);
-        sessionStorage.setItem('guard3', false);
-        sessionStorage.setItem('attack1', false);
-        sessionStorage.setItem('attack2', false);
-        sessionStorage.setItem('attack3', false);
-        sessionStorage.setItem('attack4', false);
-        sessionStorage.setItem('attack5', false);
-        sessionStorage.setItem('attack6', false);
-        sessionStorage.setItem('attack7', false);
-        sessionStorage.setItem('attack8', false);
-
-        sessionStorage.setItem('att1', '?');
-        sessionStorage.setItem('att2', '?');
-        sessionStorage.setItem('att3', '?');
-        
-        sessionStorage.setItem('round', 1);
-
-        sessionStorage.setItem('mCount', 0);
-        sessionStorage.setItem('move01', '');
-        sessionStorage.setItem('move02', '');
-        sessionStorage.setItem('move03', '');
-        sessionStorage.setItem('move04', '');
-        sessionStorage.setItem('move05', '');
-        sessionStorage.setItem('move06', '');
-        sessionStorage.setItem('move07', '');
-        sessionStorage.setItem('move08', '');
-        sessionStorage.setItem('move09', '');
-        sessionStorage.setItem('move10', '');
-        sessionStorage.setItem('move11', '');
-        sessionStorage.setItem('move12', '');
-        sessionStorage.setItem('move13', '');
-        sessionStorage.setItem('move14', '');
-        sessionStorage.setItem('move15', '');
-        sessionStorage.setItem('move16', '');
-
-        sessionStorage.setItem('info01', '');
-        sessionStorage.setItem('info02', '');
-        sessionStorage.setItem('info03', '');
-        sessionStorage.setItem('info04', '');
-        sessionStorage.setItem('info05', '');
-        sessionStorage.setItem('info06', '');
-        sessionStorage.setItem('info07', '');
-        sessionStorage.setItem('info08', '');
-        sessionStorage.setItem('info09', '');
-        sessionStorage.setItem('info10', '');
-        sessionStorage.setItem('info11', '');
-        sessionStorage.setItem('info12', '');
-        sessionStorage.setItem('info13', '');
-        sessionStorage.setItem('info14', '');
-        sessionStorage.setItem('info15', '');
-        sessionStorage.setItem('info16', '');
-
-        sessionStorage.setItem('name01', '');
-        sessionStorage.setItem('name02', '');
-        sessionStorage.setItem('name03', '');
-        sessionStorage.setItem('name04', '');
-        sessionStorage.setItem('name05', '');
-        sessionStorage.setItem('name06', '');
-        sessionStorage.setItem('name07', '');
-        sessionStorage.setItem('name08', '');
-        sessionStorage.setItem('name09', '');
-        sessionStorage.setItem('name10', '');
-        sessionStorage.setItem('name11', '');
-        sessionStorage.setItem('name12', '');
-        sessionStorage.setItem('name13', '');
-        sessionStorage.setItem('name14', '');
-        sessionStorage.setItem('name15', '');
-        sessionStorage.setItem('name16', '');
-
-        sessionStorage.setItem('ctr01', '');
-        sessionStorage.setItem('ctr02', '');
-        sessionStorage.setItem('ctr03', '');
-        sessionStorage.setItem('ctr04', '');
-        sessionStorage.setItem('ctr05', '');
-        sessionStorage.setItem('ctr06', '');
-        sessionStorage.setItem('ctr07', '');
-        sessionStorage.setItem('ctr08', '');
-        sessionStorage.setItem('ctr09', '');
-        sessionStorage.setItem('ctr10', '');
-        sessionStorage.setItem('ctr11', '');
-        sessionStorage.setItem('ctr12', '');
-        sessionStorage.setItem('ctr13', '');
-        sessionStorage.setItem('ctr14', '');
-        sessionStorage.setItem('ctr15', '');
-        sessionStorage.setItem('ctr16', '');
-
-        sessionStorage.setItem('countering', 0);
-        sessionStorage.setItem('countering1', 0);
-        sessionStorage.setItem('win', 0);
-        sessionStorage.setItem('win1', 0);
-        sessionStorage.setItem('bell', 0);
-        sessionStorage.setItem('dec', 0);
+            if (sessionStorage.getItem('rank') == 'NR') {
+                sessionStorage.setItem('followers', parseInt(Math.pow(parseInt(sessionStorage.getItem('followers')), 1.015)));
+                randomNR();
+            }
     }
 
     ftin(hgt) {
@@ -1036,33 +1062,191 @@ class Results extends React.Component {
         }
     }
 
-    calcPay() {
-        let rank = sessionStorage.getItem('rank');
-        let followers = parseInt(sessionStorage.getItem('followers'));
-        let pay = 0;
-        if (rank == 'NR'){
-            pay = followers * 2;
-            sessionStorage.setItem('pay', pay);
-            return parseInt(pay);
+    getOppNum() {
+        let num = sessionStorage.getItem('oppNum');
+        let money = 0;
+
+        if (num == 1){
+            let data = sessionStorage.getItem('nr1');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
         }
-        else if (rank == 'C'){
-            pay = followers * 7.5;
-            sessionStorage.setItem('pay', pay);
-            return parseInt(pay); 
+        else if (num == 2){
+            let data = sessionStorage.getItem('nr2');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
         }
-        else {
-            pay = followers * 5;
-            sessionStorage.setItem('pay', pay);
-            return parseInt(pay); 
+        else if (num == 3){
+            let data = sessionStorage.getItem('nr3');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
         }
+        else if (num == 4){
+            let data = sessionStorage.getItem('nr4');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 5){
+            let data = sessionStorage.getItem('nr5');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 6){
+            let data = sessionStorage.getItem('nr6');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 7){
+            let data = sessionStorage.getItem('nr7');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 8){
+            let data = sessionStorage.getItem('nr8');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 9){
+            let data = sessionStorage.getItem('nr9');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 10){
+            let data = sessionStorage.getItem('nr10');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 11){
+            let data = sessionStorage.getItem('nr11');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 12){
+            let data = sessionStorage.getItem('nr12');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 13){
+            let data = sessionStorage.getItem('nr13');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 14){
+            let data = sessionStorage.getItem('nr14');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 15){
+            let data = sessionStorage.getItem('nr15');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 16){
+            let data = sessionStorage.getItem('nr16');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 17){
+            let data = sessionStorage.getItem('nr17');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 18){
+            let data = sessionStorage.getItem('nr18');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 19){
+            let data = sessionStorage.getItem('nr19');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 20){
+            let data = sessionStorage.getItem('nr20');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 21){
+            let data = sessionStorage.getItem('nr21');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 101) {
+            let data = sessionStorage.getItem('nrf1');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 102) {
+            let data = sessionStorage.getItem('nrf2');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 103) {
+            let data = sessionStorage.getItem('nrf3');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 104) {
+            let data = sessionStorage.getItem('nrf4');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 105) {
+            let data = sessionStorage.getItem('nrf5');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 106) {
+            let data = sessionStorage.getItem('nrf6');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 107) {
+            let data = sessionStorage.getItem('nrf7');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 108) {
+            let data = sessionStorage.getItem('nrf8');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+        else if (num == 109) {
+            let data = sessionStorage.getItem('nrf9');
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
+        }
+
+        return money;
     }
 
+    calcPay() {
+        let rank = sessionStorage.getItem('rank');
+        let followers = sessionStorage.getItem('followers');
+        let pay = null;
+        if (rank == 'NR'){
+            pay = this.getOppNum();
+            sessionStorage.setItem('pay', pay);
+            return pay;
+        }
+        else if (rank == 'C'){
+            pay = this.getOppNum() * 7.5;
+            sessionStorage.setItem('pay', pay);
+            return pay; 
+        }
+        else {
+            pay = this.getOppNum() * 5;
+            sessionStorage.setItem('pay', pay);
+            return pay; 
+        }
+    }
+    
     calcPurse() {
         let pay = parseInt(this.calcPay());
         if (sessionStorage.getItem('win') == 1) {
             pay = pay + parseInt(this.ifCwin());
         }
-        if (sessionStorage.getItem('ko') == 1 || sessionStorage.getItem('tko') == 1) {
+        if (parseInt(sessionStorage.getItem('playerStatus')) - parseInt(sessionStorage.getItem('oppStatus')) >= 500) {
             pay = pay + 50000;
         }
         if (sessionStorage.getItem('playerStatus') <= 500 && sessionStorage.getItem('oppStatus') <= 500) {
@@ -1083,10 +1267,12 @@ class Results extends React.Component {
 
     getGuaranteed0() {
         if (sessionStorage.getItem('gym') == 'NONE'){
+            sessionStorage.setItem('payType', 1);
             return '$' + this.calcPurse();
         }
         else {
             if (this.calcPay() >= sessionStorage.getItem('gymCamp')){
+                sessionStorage.setItem('payType', 2);
                 return '$' + (parseInt(this.calcPurse()) - parseInt(sessionStorage.getItem('gymCamp')));
             }
         }
@@ -1097,6 +1283,7 @@ class Results extends React.Component {
             return '';
         }
         else if (this.calcPay() < sessionStorage.getItem('gymCamp')){
+            sessionStorage.setItem('payType', 3);
             return '$' + (Math.abs(parseInt(this.calcPurse()) - parseInt(sessionStorage.getItem('gymCamp'))));
         }
     }
@@ -1166,6 +1353,7 @@ class Results extends React.Component {
         let month = sessionStorage.getItem('month');
         let year = sessionStorage.getItem('year');
         let data = sessionStorage.getItem('player');
+        sessionStorage.setItem('payType', 0);
         data = JSON.parse(data)
         let whitespace = "\xa0\xa0\xa0";
         return(
@@ -1198,12 +1386,12 @@ class Results extends React.Component {
                         <div className="App-customize2-0" style={{marginTop: 0}}>
                             <Button1cl><b>WIN BONUS</b></Button1cl>
                             <Button1f></Button1f>
-                            <Button1cr><text style={(sessionStorage.getItem('win') == 1) ? {color: 'green'} : {color: 'white'}}>${this.calcPay()}</text></Button1cr>
+                            <Button1cr><text style={(sessionStorage.getItem('win') == 1) ? {color: 'green'} : {color: 'white'}}>${this.ifCwin()}</text></Button1cr>
                         </div>
                         <div className="App-customize2-0" style={{marginTop: 0}}>
-                            <Button1cl><b>KO BONUS</b></Button1cl>
+                            <Button1cl><b>POTN BONUS</b></Button1cl>
                             <Button1f></Button1f>
-                            <Button1cr><text style={(sessionStorage.getItem('ko') == 1 || sessionStorage.getItem('tko') == 1) ? {color: 'green'} : {color: 'white'}}>$50000</text></Button1cr>
+                            <Button1cr><text style={(parseInt(sessionStorage.getItem('playerStatus')) - parseInt(sessionStorage.getItem('oppStatus')) >= 500) ? {color: 'green'} : {color: 'white'}}>$50000</text></Button1cr>
                         </div>
                         <div className="App-customize2-0" style={{marginTop: 0}}>
                             <Button1cl><b>FOTN BONUS</b></Button1cl>
@@ -1218,17 +1406,17 @@ class Results extends React.Component {
                         </div>
                         <div className="App-customize2-1" style={{marginTop: 0}}></div>
                         <div className="App-customize2-0" style={{marginTop: 0}}>
-                            <Button1cl><b>GUARANTEED PROFIT</b></Button1cl>
+                            <Button1cl><b>FIGHT PURSE</b></Button1cl>
                             <Button1f></Button1f>
                             <Button1cr><text style={{color: 'green'}}>{this.getGuaranteed0()}</text><text style={{color: 'red'}}>{this.getGuaranteed1()}</text></Button1cr>
                         </div>
                         <div className="App-customize3" style={{marginTop: 14, marginBottom: -306}}>
-                            <Link to='/bout0'><Button onClick={this.handleFight}>SIGN</Button></Link>
+                            <Link to='/home'><Button onClick={this.handleFight}>HOME</Button></Link>
                         </div>
                     </div>
                     <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 833 }}>
                         <Button3>${sessionStorage.getItem('balance')}</Button3>
-                        <Link to='./tale1'><Button4>BACK</Button4></Link>
+                        <Button4a>BACK</Button4a>
                         <Button3>{this.calcMonth(month)} {sessionStorage.getItem('year')}</Button3>
                     </div>
                 </div>

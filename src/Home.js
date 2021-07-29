@@ -1291,7 +1291,7 @@ class Home extends React.Component {
                         <img src={logo} alt='logo' className="App-logo1-HOME"/>
                         HOME<br/><br/>
                         <div className="Customize-desc1-HOME1"><b>{first} {last}</b><br/></div>
-                        <div className="Customize-desc1-HOME2">{sessionStorage.getItem('win')} - {sessionStorage.getItem('loss')}<br/></div>
+                        <div className="Customize-desc1-HOME2">{sessionStorage.getItem('playerWin')} - {sessionStorage.getItem('playerLoss')}<br/></div>
                         <div className="App-customize2-HOME0">
                             <Button1>FIGHT WEIGHT</Button1>
                             <Button1>WA WEIGHT</Button1>

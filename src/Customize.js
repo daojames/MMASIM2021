@@ -147,12 +147,13 @@ class Customize extends React.Component {
       sessionStorage.setItem('wc0', this.wc(cWeight));
       sessionStorage.setItem('player', JSON.stringify(obj));
       sessionStorage.setItem('first', 1);
-      sessionStorage.setItem('win', 0);
-      sessionStorage.setItem('loss', 0);
+      sessionStorage.setItem('playerWin', 0);
+      sessionStorage.setItem('playerLoss', 0);
       sessionStorage.setItem('month', 1);
       sessionStorage.setItem('year', 2021);
       sessionStorage.setItem('spd', 50);
       sessionStorage.setItem('balance', 100000);
+      sessionStorage.setItem('careerEarnings', 0);
       sessionStorage.setItem('followers', 5000);
       sessionStorage.setItem('rank', 'NR');
       sessionStorage.setItem('ppv', 1);
@@ -187,6 +188,21 @@ class Customize extends React.Component {
       sessionStorage.setItem('attack8', false);
       sessionStorage.setItem('gymMonth', 0);
       sessionStorage.setItem('gymCamp', 0);
+
+      sessionStorage.setItem('prevFight', 0);
+      sessionStorage.setItem('winStreak', 0);
+      sessionStorage.setItem('lossStreak', 0);
+      sessionStorage.setItem('winKO', 0);
+      sessionStorage.setItem('winSUB', 0);
+      sessionStorage.setItem('winDEC', 0);
+      sessionStorage.setItem('lossKO', 0);
+      sessionStorage.setItem('lossSUB', 0);
+      sessionStorage.setItem('lossDEC', 0);
+      sessionStorage.setItem('fin1', 0);
+      sessionStorage.setItem('fin2', 0);
+      sessionStorage.setItem('fin3', 0);
+      sessionStorage.setItem('fin4', 0);
+      sessionStorage.setItem('fin5', 0);
 
       let nr1 = {
         rank: 'NR',

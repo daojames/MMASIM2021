@@ -2324,8 +2324,9 @@ class Round extends React.Component {
                     }
                 }
             }
-
-            sessionStorage.setItem('oppStm', parseInt(sessionStorage.getItem('oppStm')) - (ctr + 2));
+            if (ctr > 0) {
+                sessionStorage.setItem('oppStm', parseInt(sessionStorage.getItem('oppStm')) - (ctr + 2));
+            }
             return ctr;
         }
     }
@@ -2347,8 +2348,9 @@ class Round extends React.Component {
                     }
                 }
             }
-
-            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - (ctr + 2));
+            if (ctr > 0) {
+                sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - (ctr + 2));
+            }
             return ctr;
         }
     }
