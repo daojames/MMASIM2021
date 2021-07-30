@@ -810,6 +810,18 @@ class Round extends React.Component {
         }
     }
 
+    getRounds() {
+        let rank = sessionStorage.getItem('rank');
+        let oppRank = sessionStorage.getItem('oppRank');
+
+        if (rank == 'C' || oppRank == 'C' || rank == '1' || oppRank == '1' || rank == '2' || oppRank == '2' || rank == '3' || oppRank == '3' || rank == '4' || oppRank == '4' || rank == '5' || oppRank == '5') {
+            return 5;
+        }
+        else {
+            return 3;
+        }
+    }
+
     getStrength() {
         let data = sessionStorage.getItem('ABC1');
         data = JSON.parse(data);
@@ -958,22 +970,28 @@ class Round extends React.Component {
     }
 
     playerSt(st) {
-        if (st >= 900) {
-            return 'HEALTHY';
+        if (st == 1000) {
+            return 'UNTOUCHED';
         }
-        else if (st >= 600) {
-            return 'CONSCIOUS'
+        if (st > 900) {
+            return 'EXCEPTIONAL';
         }
-        else if (st >= 300) {
+        else if (st > 700) {
+            return 'HEALTHY'
+        }
+        else if (st > 500) {
+            return 'CONSCIOUS';
+        }
+        else if (st > 300) {
             return 'WORN'
         }
-        else if (st >= 100) {
+        else if (st > 100) {
             return 'WEAK'
         }
-        else if (st >= 1) {
+        else if (st > 0) {
             return 'IN TROUBLE'
         }
-        else if (st < 1) {
+        else if (st <= 0) {
             return 'UNCONSCIOUS';
         }
     }
@@ -1225,6 +1243,11 @@ class Round extends React.Component {
         if (sessionStorage.getItem('win') == 1 || sessionStorage.getItem('win1') == 1 || sessionStorage.getItem('bell') == 1) {
             return;
         }
+        
+        if (sessionStorage.getItem('tookdown') == 1) {
+            sessionStorage.setItem('control1', parseInt(sessionStorage.getItem('control1')) + 1);
+        }
+
         sessionStorage.setItem('mCount', parseInt(sessionStorage.getItem('mCount')) + 2);
         let data = sessionStorage.getItem('player');
         data = JSON.parse(data);
@@ -1400,6 +1423,10 @@ class Round extends React.Component {
             sessionStorage.setItem('move16', msg1);
             sessionStorage.setItem('info16', info1);
             sessionStorage.setItem('ctr16', cinfo1);
+            
+            if (sessionStorage.getItem('round') == this.getRounds() && sessionStorage.getItem('tko') == 0) {
+                sessionStorage.setItem('dec', 1);
+            }
         }
     }
 
@@ -1782,6 +1809,7 @@ class Round extends React.Component {
             else if (ran1 <= sPer) {
                 ++hit;
                 sessionStorage.setItem('win', 1);
+                sessionStorage.setItem('sub', 1);
             }
         }
         else if (att == 'ESCAPE') {
@@ -1812,6 +1840,7 @@ class Round extends React.Component {
             else if (ran1 <= sPer) {
                 ++hit;
                 sessionStorage.setItem('win', 1);
+                sessionStorage.setItem('sub', 1);
             }
         }
         if (sessionStorage.getItem('oppStm') <= 0) {
@@ -2052,6 +2081,7 @@ class Round extends React.Component {
             else if (ran1 <= sPer) {
                 ++hit;
                 sessionStorage.setItem('win1', 1);
+                sessionStorage.setItem('sub', 1);
             }
         }
         else if (att == 'ESCAPE') {
@@ -2082,6 +2112,7 @@ class Round extends React.Component {
             else if (ran1 <= sPer) {
                 ++hit;
                 sessionStorage.setItem('win1', 1);
+                sessionStorage.setItem('sub', 1);
             }
         }
         if (sessionStorage.getItem('playerStm') <= 0) {
@@ -2152,9 +2183,14 @@ class Round extends React.Component {
         console.log('COUNTERING: ' + sessionStorage.getItem('countering'))
         sessionStorage.setItem('feinted1', 0);
 
+        if (!isNaN(dmg)) {
+            sessionStorage.setItem('totalDmg', parseInt(sessionStorage.getItem('totalDmg')) + dmg)
+        }
+
         if (kd == 1) {
             if (sessionStorage.getItem('oppStatus') <= 0) {
                 sessionStorage.setItem('win', 1);
+                sessionStorage.setItem('ko', 1);
                 return 'KNOCKOUT! ' + dmg;
             }
             else {
@@ -2164,13 +2200,16 @@ class Round extends React.Component {
         }
         else if (kd == 2) {
             sessionStorage.setItem('win', 1);
+            sessionStorage.setItem('ko', 1);
             return 'KNOCKOUT! ' + dmg;
         }
         else if (sessionStorage.getItem('oppStatus') <= 0) {
             sessionStorage.setItem('win', 1);
+            sessionStorage.setItem('tko', 1);
             return 'TKO! ' + dmg;
         }
-        else if (sessionStorage.getItem('win') == 1) {
+        else if (sessionStorage.getItem('oppStm') <= 0) {
+            sessionStorage.setItem('tko', 1);
             return 'TKO! ' + dmg;
         }
         return dmg;
@@ -2237,9 +2276,14 @@ class Round extends React.Component {
         console.log('COUNTERING1: ' + sessionStorage.getItem('countering1'))
         sessionStorage.setItem('feinted', 0);
 
+        if (!isNaN(dmg)) {
+            sessionStorage.setItem('totalDmg1', parseInt(sessionStorage.getItem('totalDmg1')) + dmg)
+        }
+
         if (kd == 1) {
             if (sessionStorage.getItem('playerStatus') <= 0) {
                 sessionStorage.setItem('win1', 1);
+                sessionStorage.setItem('ko', 1);
                 return 'KNOCKOUT! ' + dmg;
             }
             else {
@@ -2249,13 +2293,16 @@ class Round extends React.Component {
         }
         if (kd == 2) {
             sessionStorage.setItem('win1', 1);
+            sessionStorage.setItem('ko', 1);
             return 'KNOCKOUT! ' + dmg;
         }
         else if (sessionStorage.getItem('playerStatus') <= 0) {
             sessionStorage.setItem('win1', 1);
+            sessionStorage.setItem('tko', 1);
             return 'TKO! ' + dmg;
         }
-        else if (sessionStorage.getItem('win1') == 1) {
+        else if (sessionStorage.getItem('playerStm') <= 0) {
+            sessionStorage.setItem('tko', 1);
             return 'TKO! ' + dmg;
         }
         return dmg;
@@ -2277,8 +2324,9 @@ class Round extends React.Component {
                     }
                 }
             }
-
-            sessionStorage.setItem('oppStm', parseInt(sessionStorage.getItem('oppStm')) - (ctr + 2));
+            if (ctr > 0) {
+                sessionStorage.setItem('oppStm', parseInt(sessionStorage.getItem('oppStm')) - (ctr + 2));
+            }
             return ctr;
         }
     }
@@ -2300,8 +2348,9 @@ class Round extends React.Component {
                     }
                 }
             }
-
-            sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - (ctr + 2));
+            if (ctr > 0) {
+                sessionStorage.setItem('playerStm', parseInt(sessionStorage.getItem('playerStm')) - (ctr + 2));
+            }
             return ctr;
         }
     }
@@ -2410,6 +2459,10 @@ class Round extends React.Component {
     }
 
     getOppMsg() {
+        if (sessionStorage.getItem('tookdown1') == 1) {
+            sessionStorage.setItem('control', parseInt(sessionStorage.getItem('control')) + 1);
+        }
+
         let arr = new Array(4);
         let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
         let hit = 0;
@@ -2460,12 +2513,22 @@ class Round extends React.Component {
                     else if (arr[0] == 'FEINT') {
                         arr[1] = this.getOppMsg1(arr[0]);
                         hit = this.getHit1(arr[0]);
-                        dmg = this.getDamage1(0, 'x');
-                        if (hit > 0) {
-                            arr[2] = 'SUCCESSFUL! ' + dmg;
+                        if (sessionStorage.getItem('playerStm') <= 0) {
+                            sessionStorage.setItem('tko', 1);
+                            if (hit > 0) {
+                                arr[2] = 'SUCCESSFUL! TKO!';
+                            }
+                            else {
+                                arr[2] = 'FAILED! TKO!';
+                            }
                         }
                         else {
-                            arr[2] = 'FAILED! ' + dmg;
+                            if (hit > 0) {
+                                arr[2] = 'SUCCESSFUL!';
+                            }
+                            else {
+                                arr[2] = 'FAILED!';
+                            }
                         }
                         arr[3] = '';
                         console.log(arr[0])
@@ -2508,12 +2571,22 @@ class Round extends React.Component {
                     else if (arr[0] == 'FEINT') {
                         arr[1] = this.getOppMsg1(arr[0]);
                         hit = this.getHit1(arr[0]);
-                        dmg = this.getDamage1(0, 'x');
-                        if (hit > 0) {
-                            arr[2] = 'SUCCESSFUL! ' + dmg;
+                        if (sessionStorage.getItem('playerStm') <= 0) {
+                            sessionStorage.setItem('tko', 1);
+                            if (hit > 0) {
+                                arr[2] = 'SUCCESSFUL! TKO!';
+                            }
+                            else {
+                                arr[2] = 'FAILED! TKO!';
+                            }
                         }
                         else {
-                            arr[2] = 'FAILED! ' + dmg;
+                            if (hit > 0) {
+                                arr[2] = 'SUCCESSFUL!';
+                            }
+                            else {
+                                arr[2] = 'FAILED!';
+                            }
                         }
                         arr[3] = '';
                         console.log(arr[0])
@@ -2556,12 +2629,22 @@ class Round extends React.Component {
                     else if (arr[0] == 'FEINT') {
                         arr[1] = this.getOppMsg1(arr[0]);
                         hit = this.getHit1(arr[0]);
-                        dmg = this.getDamage1(0, 'x');
-                        if (hit > 0) {
-                            arr[2] = 'SUCCESSFUL! ' + dmg;
+                        if (sessionStorage.getItem('playerStm') <= 0) {
+                            sessionStorage.setItem('tko', 1);
+                            if (hit > 0) {
+                                arr[2] = 'SUCCESSFUL! TKO!';
+                            }
+                            else {
+                                arr[2] = 'FAILED! TKO!';
+                            }
                         }
                         else {
-                            arr[2] = 'FAILED! ' + dmg;
+                            if (hit > 0) {
+                                arr[2] = 'SUCCESSFUL!';
+                            }
+                            else {
+                                arr[2] = 'FAILED!';
+                            }
                         }
                         arr[3] = '';
                         console.log(arr[0])
@@ -2619,12 +2702,22 @@ class Round extends React.Component {
                     else if (arr[0] == 'FEINT') {
                         arr[1] = this.getOppMsg1(arr[0]);
                         hit = this.getHit1(arr[0]);
-                        dmg = this.getDamage1(0, 'x');
-                        if (hit > 0) {
-                            arr[2] = 'SUCCESSFUL! ' + dmg;
+                        if (sessionStorage.getItem('playerStm') <= 0) {
+                            sessionStorage.setItem('tko', 1);
+                            if (hit > 0) {
+                                arr[2] = 'SUCCESSFUL! TKO!';
+                            }
+                            else {
+                                arr[2] = 'FAILED! TKO!';
+                            }
                         }
                         else {
-                            arr[2] = 'FAILED! ' + dmg;
+                            if (hit > 0) {
+                                arr[2] = 'SUCCESSFUL!';
+                            }
+                            else {
+                                arr[2] = 'FAILED!';
+                            }
                         }
                         arr[3] = '';
                         console.log(arr[0])
@@ -2667,12 +2760,22 @@ class Round extends React.Component {
                     else if (arr[0] == 'FEINT') {
                         arr[1] = this.getOppMsg1(arr[0]);
                         hit = this.getHit1(arr[0]);
-                        dmg = this.getDamage1(0, 'x');
-                        if (hit > 0) {
-                            arr[2] = 'SUCCESSFUL! ' + dmg;
+                        if (sessionStorage.getItem('playerStm') <= 0) {
+                            sessionStorage.setItem('tko', 1);
+                            if (hit > 0) {
+                                arr[2] = 'SUCCESSFUL! TKO!';
+                            }
+                            else {
+                                arr[2] = 'FAILED! TKO!';
+                            }
                         }
                         else {
-                            arr[2] = 'FAILED! ' + dmg;
+                            if (hit > 0) {
+                                arr[2] = 'SUCCESSFUL!';
+                            }
+                            else {
+                                arr[2] = 'FAILED!';
+                            }
                         }
                         arr[3] = '';
                         console.log(arr[0])
@@ -2715,12 +2818,22 @@ class Round extends React.Component {
                     else if (arr[0] == 'FEINT') {
                         arr[1] = this.getOppMsg1(arr[0]);
                         hit = this.getHit1(arr[0]);
-                        dmg = this.getDamage1(0, 'x');
-                        if (hit > 0) {
-                            arr[2] = 'SUCCESSFUL! ' + dmg;
+                        if (sessionStorage.getItem('playerStm') <= 0) {
+                            sessionStorage.setItem('tko', 1);
+                            if (hit > 0) {
+                                arr[2] = 'SUCCESSFUL! TKO!';
+                            }
+                            else {
+                                arr[2] = 'FAILED! TKO!';
+                            }
                         }
                         else {
-                            arr[2] = 'FAILED! ' + dmg;
+                            if (hit > 0) {
+                                arr[2] = 'SUCCESSFUL!';
+                            }
+                            else {
+                                arr[2] = 'FAILED!';
+                            }
                         }
                         arr[3] = '';
                         console.log(arr[0])
@@ -3223,6 +3336,11 @@ class Round extends React.Component {
         if (sessionStorage.getItem('win') == 1 || sessionStorage.getItem('win1') == 1 || sessionStorage.getItem('bell') == 1) {
             return;
         }
+        
+        if (sessionStorage.getItem('tookdown') == 1) {
+            sessionStorage.setItem('control1', parseInt(sessionStorage.getItem('control1')) + 1);
+        }
+
         sessionStorage.setItem('mCount', parseInt(sessionStorage.getItem('mCount')) + 2);
         let data = sessionStorage.getItem('player');
         data = JSON.parse(data);
@@ -3381,11 +3499,22 @@ class Round extends React.Component {
 
             name = last;
             msg = 'FEINTS A STRIKE';
-            if (hit > 0) {
-                info = 'SUCCESSFUL!';
+            if (sessionStorage.getItem('oppStm') <= 0) {
+                sessionStorage.setItem('tko', 1);
+                if (hit > 0) {
+                    info = 'SUCCESSFUL! TKO!';
+                }
+                else {
+                    info = 'FAILED! TKO!';
+                }
             }
             else {
-                info = 'FAILED!';
+                if (hit > 0) {
+                    info = 'SUCCESSFUL!';
+                }
+                else {
+                    info = 'FAILED!';
+                }
             }
             cinfo = '';
 
@@ -3547,6 +3676,10 @@ class Round extends React.Component {
             sessionStorage.setItem('move16', msg1);
             sessionStorage.setItem('info16', info1);
             sessionStorage.setItem('ctr16', cinfo1);
+            
+            if (sessionStorage.getItem('round') == this.getRounds() && sessionStorage.getItem('tko') == 0) {
+                sessionStorage.setItem('dec', 1);
+            }
         }
     }
 
@@ -3554,6 +3687,11 @@ class Round extends React.Component {
         if (sessionStorage.getItem('win') == 1 || sessionStorage.getItem('win1') == 1 || sessionStorage.getItem('bell') == 1) {
             return;
         }
+        
+        if (sessionStorage.getItem('tookdown') == 1) {
+            sessionStorage.setItem('control1', parseInt(sessionStorage.getItem('control1')) + 1);
+        }
+
         sessionStorage.setItem('mCount', parseInt(sessionStorage.getItem('mCount')) + 2);
         let data = sessionStorage.getItem('player');
         data = JSON.parse(data);
@@ -3719,11 +3857,22 @@ class Round extends React.Component {
 
             name = last;
             msg = 'FEINTS A STRIKE';
-            if (hit > 0) {
-                info = 'SUCCESSFUL!';
+            if (sessionStorage.getItem('oppStm') <= 0) {
+                sessionStorage.setItem('tko', 1);
+                if (hit > 0) {
+                    info = 'SUCCESSFUL! TKO!';
+                }
+                else {
+                    info = 'FAILED! TKO!';
+                }
             }
             else {
-                info = 'FAILED!';
+                if (hit > 0) {
+                    info = 'SUCCESSFUL!';
+                }
+                else {
+                    info = 'FAILED!';
+                }
             }
             cinfo = '';
 
@@ -3885,6 +4034,10 @@ class Round extends React.Component {
             sessionStorage.setItem('move16', msg1);
             sessionStorage.setItem('info16', info1);
             sessionStorage.setItem('ctr16', cinfo1);
+            
+            if (sessionStorage.getItem('round') == this.getRounds() && sessionStorage.getItem('tko') == 0) {
+                sessionStorage.setItem('dec', 1);
+            }
         }
     }
     
@@ -3892,6 +4045,11 @@ class Round extends React.Component {
         if (sessionStorage.getItem('win') == 1 || sessionStorage.getItem('win1') == 1 || sessionStorage.getItem('bell') == 1) {
             return;
         }
+
+        if (sessionStorage.getItem('tookdown') == 1) {
+            sessionStorage.setItem('control1', parseInt(sessionStorage.getItem('control1')) + 1);
+        }
+
         sessionStorage.setItem('mCount', parseInt(sessionStorage.getItem('mCount')) + 2);
         let data = sessionStorage.getItem('player');
         data = JSON.parse(data);
@@ -4062,11 +4220,22 @@ class Round extends React.Component {
 
             name = last;
             msg = 'FEINTS A STRIKE';
-            if (hit > 0) {
-                info = 'SUCCESSFUL!';
+            if (sessionStorage.getItem('oppStm') <= 0) {
+                sessionStorage.setItem('tko', 1);
+                if (hit > 0) {
+                    info = 'SUCCESSFUL! TKO!';
+                }
+                else {
+                    info = 'FAILED! TKO!';
+                }
             }
             else {
-                info = 'FAILED!';
+                if (hit > 0) {
+                    info = 'SUCCESSFUL!';
+                }
+                else {
+                    info = 'FAILED!';
+                }
             }
             cinfo = '';
 
@@ -4228,11 +4397,15 @@ class Round extends React.Component {
             sessionStorage.setItem('move16', msg1);
             sessionStorage.setItem('info16', info1);
             sessionStorage.setItem('ctr16', cinfo1);
+            
+            if (sessionStorage.getItem('round') == this.getRounds() && sessionStorage.getItem('tko') == 0) {
+                sessionStorage.setItem('dec', 1);
+            }
         }
     }
 
     nextRound() {
-        if (sessionStorage.getItem('bell') == 0){
+        if (sessionStorage.getItem('bell') == 0 && sessionStorage.getItem('ko') == 0 && sessionStorage.getItem('tko') == 0 && sessionStorage.getItem('sub') == 0){
         }
         else {
             let round = parseInt(sessionStorage.getItem('round'));
@@ -4242,6 +4415,8 @@ class Round extends React.Component {
             sessionStorage.setItem('clinched', 0);
             sessionStorage.setItem('tookdown', 0);
             sessionStorage.setItem('tookdown1', 0);
+            sessionStorage.setItem('feinted', 0);
+            sessionStorage.setItem('feinted1', 0);
 
             sessionStorage.setItem('mCount', 0);
 
@@ -4324,6 +4499,300 @@ class Round extends React.Component {
             sessionStorage.setItem('move16', '');
             sessionStorage.setItem('info16', '');
             sessionStorage.setItem('ctr16', '');
+
+            let totalDmg = parseInt(sessionStorage.getItem('totalDmg'));
+            let totalDmg1 = parseInt(sessionStorage.getItem('totalDmg1'));
+            let control = parseInt(sessionStorage.getItem('control'));
+            let control1 = parseInt(sessionStorage.getItem('control1'));
+            if ((Math.abs(totalDmg - totalDmg1)) < 40) {
+                if (control > control1) {
+                    switch(round) {
+                        case 1:
+                            sessionStorage.setItem('round1', 1);
+                        break;
+                        case 2:
+                            sessionStorage.setItem('round2', 1);
+                        break;
+                        case 3:
+                            sessionStorage.setItem('round3', 1);
+                        break;
+                        case 4:
+                            sessionStorage.setItem('round4', 1);
+                        break;
+                        case 5:
+                            sessionStorage.setItem('round5', 1);
+                        break;
+                    }
+                    console.log('PLAYER WON ROUND')
+                }
+                else if (control < control1) {
+                    switch(round) {
+                        case 1:
+                            sessionStorage.setItem('round1', 2);
+                        break;
+                        case 2:
+                            sessionStorage.setItem('round2', 2);
+                        break;
+                        case 3:
+                            sessionStorage.setItem('round3', 2);
+                        break;
+                        case 4:
+                            sessionStorage.setItem('round4', 2);
+                        break;
+                        case 5:
+                            sessionStorage.setItem('round5', 2);
+                        break;
+                    }
+                    console.log('OPP WON ROUND')
+                }
+                else {
+                    if (totalDmg < totalDmg1) {
+                        switch(round) {
+                            case 1:
+                                sessionStorage.setItem('round1', 2);
+                            break;
+                            case 2:
+                                sessionStorage.setItem('round2', 2);
+                            break;
+                            case 3:
+                                sessionStorage.setItem('round3', 2);
+                            break;
+                            case 4:
+                                sessionStorage.setItem('round4', 2);
+                            break;
+                            case 5:
+                                sessionStorage.setItem('round5', 2);
+                            break;
+                        }
+                        console.log('OPP WON ROUND')
+                    }
+                    else {
+                        switch(round) {
+                            case 1:
+                                sessionStorage.setItem('round1', 1);
+                            break;
+                            case 2:
+                                sessionStorage.setItem('round2', 1);
+                            break;
+                            case 3:
+                                sessionStorage.setItem('round3', 1);
+                            break;
+                            case 4:
+                                sessionStorage.setItem('round4', 1);
+                            break;
+                            case 5:
+                                sessionStorage.setItem('round5', 1);
+                            break;
+                        }
+                        console.log('PLAYER WON ROUND')
+                    }
+                }
+            }
+            else if (Math.abs(totalDmg - totalDmg1) > 350) {
+                if (totalDmg > totalDmg1) {
+                    switch(round) {
+                        case 1:
+                            sessionStorage.setItem('round1', 3);
+                        break;
+                        case 2:
+                            sessionStorage.setItem('round2', 3);
+                        break;
+                        case 3:
+                            sessionStorage.setItem('round3', 3);
+                        break;
+                        case 4:
+                            sessionStorage.setItem('round4', 3);
+                        break;
+                        case 5:
+                            sessionStorage.setItem('round5', 3);
+                        break;
+                    }
+                    console.log('PLAYER WON ROUND***')
+                }
+                else {
+                    switch(round) {
+                        case 1:
+                            sessionStorage.setItem('round1', 4);
+                        break;
+                        case 2:
+                            sessionStorage.setItem('round2', 4);
+                        break;
+                        case 3:
+                            sessionStorage.setItem('round3', 4);
+                        break;
+                        case 4:
+                            sessionStorage.setItem('round4', 4);
+                        break;
+                        case 5:
+                            sessionStorage.setItem('round5', 4);
+                        break;
+                    }
+                    console.log('OPP WON ROUND***')
+                }
+            }
+            else {
+                if (totalDmg > totalDmg1) {
+                    switch(round) {
+                        case 1:
+                            sessionStorage.setItem('round1', 1);
+                        break;
+                        case 2:
+                            sessionStorage.setItem('round2', 1);
+                        break;
+                        case 3:
+                            sessionStorage.setItem('round3', 1);
+                        break;
+                        case 4:
+                            sessionStorage.setItem('round4', 1);
+                        break;
+                        case 5:
+                            sessionStorage.setItem('round5', 1);
+                        break;
+                    }
+                    console.log('PLAYER WON ROUND')
+                }
+                else {
+                    switch(round) {
+                        case 1:
+                            sessionStorage.setItem('round1', 2);
+                        break;
+                        case 2:
+                            sessionStorage.setItem('round2', 2);
+                        break;
+                        case 3:
+                            sessionStorage.setItem('round3', 2);
+                        break;
+                        case 4:
+                            sessionStorage.setItem('round4', 2);
+                        break;
+                        case 5:
+                            sessionStorage.setItem('round5', 2);
+                        break;
+                    }
+                    console.log('OPP WON ROUND')
+                }
+            }
+
+            if (sessionStorage.getItem('win') == 0 && sessionStorage.getItem('win1') == 0) {
+                let points = parseInt(sessionStorage.getItem('points'));
+                let points1 = parseInt(sessionStorage.getItem('points1'));
+
+                if (round == 1) {
+                    switch(parseInt(sessionStorage.getItem('round1'))) {
+                        case 1:
+                            points = points + 10;
+                            points1 = points1 + 9;
+                        break;
+                        case 2:
+                            points = points + 9;
+                            points1 = points1 + 10;
+                        break;
+                        case 3:
+                            points = points + 10;
+                            points1 = points1 + 8;
+                        break;
+                        case 4:
+                            points = points + 8;
+                            points1 = points1 + 10;
+                        break;
+                    }
+                }
+                else if (round == 2) {
+                    switch(parseInt(sessionStorage.getItem('round2'))) {
+                        case 1:
+                            points = points + 10;
+                            points1 = points1 + 9;
+                        break;
+                        case 2:
+                            points = points + 9;
+                            points1 = points1 + 10;
+                        break;
+                        case 3:
+                            points = points + 10;
+                            points1 = points1 + 8;
+                        break;
+                        case 4:
+                            points = points + 8;
+                            points1 = points1 + 10;
+                        break;
+                    }
+                }
+                else if (round == 3) {
+                    switch(parseInt(sessionStorage.getItem('round3'))) {
+                        case 1:
+                            points = points + 10;
+                            points1 = points1 + 9;
+                        break;
+                        case 2:
+                            points = points + 9;
+                            points1 = points1 + 10;
+                        break;
+                        case 3:
+                            points = points + 10;
+                            points1 = points1 + 8;
+                        break;
+                        case 4:
+                            points = points + 8;
+                            points1 = points1 + 10;
+                        break;
+                    }
+                }
+                else if (round == 4) {
+                    switch(parseInt(sessionStorage.getItem('round4'))) {
+                        case 1:
+                            points = points + 10;
+                            points1 = points1 + 9;
+                        break;
+                        case 2:
+                            points = points + 9;
+                            points1 = points1 + 10;
+                        break;
+                        case 3:
+                            points = points + 10;
+                            points1 = points1 + 8;
+                        break;
+                        case 4:
+                            points = points + 8;
+                            points1 = points1 + 10;
+                        break;
+                    }
+                }
+                else if (round == 5) {
+                    switch(parseInt(sessionStorage.getItem('round5'))) {
+                        case 1:
+                            points = points + 10;
+                            points1 = points1 + 9;
+                        break;
+                        case 2:
+                            points = points + 9;
+                            points1 = points1 + 10;
+                        break;
+                        case 3:
+                            points = points + 10;
+                            points1 = points1 + 8;
+                        break;
+                        case 4:
+                            points = points + 8;
+                            points1 = points1 + 10;
+                        break;
+                    }
+                }
+
+                sessionStorage.setItem('points', points);
+                sessionStorage.setItem('points1', points1);
+
+                if (sessionStorage.getItem('dec') == 1) {
+                    if (points > points1) {
+                        sessionStorage.setItem('win', 1);
+                    }
+                    else {
+                        sessionStorage.setItem('win1', 1);
+                    }
+                }
+
+                sessionStorage.setItem('totalDmg', 0);
+                sessionStorage.setItem('totalDmg1', 0);
+            }
         }
     }
 
@@ -4466,7 +4935,7 @@ class Round extends React.Component {
                     <ReactTooltip class="Membership" id="3" place="top" effect="float"><text style={{fontSize: 30}}>{(this.pos() == 0) ? this.attDesc3a() : (this.pos() == 1) ? 'TRIP' : (this.pos() == 2) ? 'SUBMISSION' : 'SUBMISSION'}</text> <text style={sessionStorage.getItem('feinted1') == 1 ? {color: 'green'} : {}}>{(this.pos() == 0) ? this.calcPer(sessionStorage.getItem('att3')) : (this.pos() == 1) ? this.calcPer('TRIP') : (this.pos() == 2) ? this.calcPer('SUBMISSIONbot') : this.calcPer('SUBMISSIONtop')}% ACC.</text><br/>{(this.pos() == 0) ? this.attDesc3b() : (this.pos() == 1) ? 'ATTEMPT TO BRING TO GROUND' : (this.pos() == 2) ? 'ATTEMPT SUBMISSION FROM BOTTOM POSITION' : 'ATTEMPT SUBMISSION FROM TOP POSITION'}<br/><b>{(this.pos() == 0) ? this.attDesc3c() : (this.pos() == 1) ? '6' : (this.pos() == 2) ? '10' : '10'} STAMINA</b></ReactTooltip>
                 </div>
                 <div className="App-customize1a" style={{marginTop: 0}}>
-                    <Link to={(sessionStorage.getItem('win') == 1 || sessionStorage.getItem('win1') == 1) ? './' : './round'}><Button style={(sessionStorage.getItem('win') == 0 && sessionStorage.getItem('win1') == 0 && sessionStorage.getItem('bell') == 0) ? {border: '2px solid gray', color: 'gray'} : {}} onClick={this.nextRound}><text>NEXT</text></Button></Link>
+                    <Link to={(sessionStorage.getItem('win') == 1 || sessionStorage.getItem('win1') == 1 || sessionStorage.getItem('dec') == 1) ? './results' : './round'}><Button style={(sessionStorage.getItem('win') == 0 && sessionStorage.getItem('win1') == 0 && sessionStorage.getItem('bell') == 0) ? {border: '2px solid gray', color: 'gray'} : {}} onClick={this.nextRound}><text>NEXT</text></Button></Link>
                 </div>
             </div>
         )

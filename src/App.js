@@ -60,6 +60,8 @@ import Contract4 from './Contract4.js';
 import Contract5 from './Contract5.js';
 import Bout0 from './Bout0.js';
 import Round from './Round.js';
+import Results from './Results.js';
+import Record from './Record.js';
 
 const Button = styled.button`
   background-color: transparent;
@@ -134,6 +136,8 @@ function App() {
           <Route path="/contract5" exact component={Contract5} />
           <Route path="/bout0" exact component={Bout0} />
           <Route path="/round" exact component={Round} />
+          <Route path="/results" exact component={Results} />
+          <Route path="/record" exact component={Record} />
         </Switch>
       </div>
     </Router>

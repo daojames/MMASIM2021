@@ -1077,7 +1077,7 @@ class Tale2 extends React.Component {
                             <Button1cr><text style={{color: 'grey'}}>{this.getRank()}</text> <b>{this.getFirst()} {this.getLast()}</b></Button1cr>
                         </div>
                         <div className="App-customize2" style={{marginTop: 0}}>
-                            <Button1al>{sessionStorage.getItem('win')} - {sessionStorage.getItem('loss')}</Button1al>
+                            <Button1al>{sessionStorage.getItem('playerWin')} - {sessionStorage.getItem('playerLoss')}</Button1al>
                             <Button1b><b>RECORD</b></Button1b>
                             <Button1ar>{this.getWin()} - {this.getLoss()}</Button1ar>
                         </div>
