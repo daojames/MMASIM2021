@@ -151,7 +151,7 @@ const Button5 = styled.button`
 background-color: #00ff7f;
 color: black;
 padding: 0px;
-width: 1200px;
+width: 1300px;
 height: 50px;
 text-align: left;
 margin: 0px;
@@ -168,7 +168,7 @@ const Button5a = styled.button`
 background-color: #00ff7f;
 color: black;
 padding: 0px;
-width: 100px;
+width: 150px;
 height: 50px;
 text-align: left;
 margin: 0px;
@@ -236,7 +236,7 @@ const Button5e = styled.button`
 background-color: #00ff7f;
 color: black;
 padding: 0px;
-width: 215px;
+width: 265px;
 height: 50px;
 text-align: right;
 margin: 0px;
@@ -253,7 +253,7 @@ const Button6 = styled.button`
 background-color: #ff3939;
 color: white;
 padding: 0px;
-width: 1200px;
+width: 1300px;
 height: 50px;
 text-align: left;
 margin: 0px;
@@ -269,7 +269,7 @@ const Button6a = styled.button`
 background-color: #ff3939;
 color: white;
 padding: 0px;
-width: 100px;
+width: 150px;
 height: 50px;
 text-align: left;
 margin: 0px;
@@ -333,7 +333,7 @@ const Button6e = styled.button`
 background-color: #ff3939;
 color: white;
 padding: 0px;
-width: 215px;
+width: 265px;
 height: 50px;
 text-align: right;
 margin: 0px;
@@ -349,7 +349,7 @@ const Button7 = styled.button`
 background-color: transparent;
 color: white;
 padding: 0px;
-width: 1200px;
+width: 1300px;
 height: 50px;
 text-align: left;
 margin: 0px;
@@ -1481,47 +1481,47 @@ class Record extends React.Component {
             <div className="App">
                 <div className="App-header">
                     <div className="App-header2">
-                        <img src={logo} alt='logo' className="App-logo1" style={{ marginTop: 23 }} />
+                        <img src={logo} alt='logo' className="App-logo1" style={{ marginTop: 20 }} />
                         CAREER<br/>
                         <div className="Record" style={{ marginTop: 10 }}>
-                            {(sessionStorage.getItem('recRes1') == 'WIN') ? <div><Button5a>{w}{sessionStorage.getItem('recRec1')}</Button5a><Button5b>{sessionStorage.getItem('recNam1')}</Button5b><Button5c>{sessionStorage.getItem('recRes1')} • {sessionStorage.getItem('recMet1')} • R{sessionStorage.getItem('recRou1')}</Button5c><Button5d>UFC {sessionStorage.getItem('recUfc1')}</Button5d><Button5e>{sessionStorage.getItem('recDat1')}{w}</Button5e></div> : (sessionStorage.getItem('recRes1') == 'LOSS') ? <div><Button6a>{w}{sessionStorage.getItem('recRec1')}</Button6a><Button6b>{sessionStorage.getItem('recNam1')}</Button6b><Button6c>{sessionStorage.getItem('recRes1')} • {sessionStorage.getItem('recMet1')} • R{sessionStorage.getItem('recRou1')}</Button6c><Button6d>UFC {sessionStorage.getItem('recUfc1')}</Button6d><Button6e>{sessionStorage.getItem('recDat1')}{w}</Button6e></div> : <Button7></Button7>}
+                            {(sessionStorage.getItem('recRes1') == 'WIN') ? <div><Button5a>{w2}{sessionStorage.getItem('recRec1')}</Button5a><Button5b>{sessionStorage.getItem('recNam1')}</Button5b><Button5c>{sessionStorage.getItem('recRes1')} • {sessionStorage.getItem('recMet1')} • R{sessionStorage.getItem('recRou1')}</Button5c><Button5d>UFC {sessionStorage.getItem('recUfc1')}</Button5d><Button5e>{sessionStorage.getItem('recDat1')}{w}</Button5e></div> : (sessionStorage.getItem('recRes1') == 'LOSS') ? <div><Button6a>{w}{sessionStorage.getItem('recRec1')}</Button6a><Button6b>{sessionStorage.getItem('recNam1')}</Button6b><Button6c>{sessionStorage.getItem('recRes1')} • {sessionStorage.getItem('recMet1')} • R{sessionStorage.getItem('recRou1')}</Button6c><Button6d>UFC {sessionStorage.getItem('recUfc1')}</Button6d><Button6e>{sessionStorage.getItem('recDat1')}{w}</Button6e></div> : <Button7></Button7>}
                         </div>
                         <div className="Record">
-                            {(sessionStorage.getItem('recRes2') == 'WIN') ? <div><Button5a>{w}{sessionStorage.getItem('recRec2')}</Button5a><Button5b>{sessionStorage.getItem('recNam2')}</Button5b><Button5c>{sessionStorage.getItem('recRes2')} • {sessionStorage.getItem('recMet2')} • R{sessionStorage.getItem('recRou2')}</Button5c><Button5d>UFC {sessionStorage.getItem('recUfc2')}</Button5d><Button5e>{sessionStorage.getItem('recDat2')}{w}</Button5e></div> : (sessionStorage.getItem('recRes2') == 'LOSS') ? <div><Button6a>{w}{sessionStorage.getItem('recRec2')}</Button6a><Button6b>{sessionStorage.getItem('recNam2')}</Button6b><Button6c>{sessionStorage.getItem('recRes2')} • {sessionStorage.getItem('recMet2')} • R{sessionStorage.getItem('recRou2')}</Button6c><Button6d>UFC {sessionStorage.getItem('recUfc2')}</Button6d><Button6e>{sessionStorage.getItem('recDat2')}{w}</Button6e></div> : <Button7></Button7>}
+                            {(sessionStorage.getItem('recRes2') == 'WIN') ? <div><Button5a>{w2}{sessionStorage.getItem('recRec2')}</Button5a><Button5b>{sessionStorage.getItem('recNam2')}</Button5b><Button5c>{sessionStorage.getItem('recRes2')} • {sessionStorage.getItem('recMet2')} • R{sessionStorage.getItem('recRou2')}</Button5c><Button5d>UFC {sessionStorage.getItem('recUfc2')}</Button5d><Button5e>{sessionStorage.getItem('recDat2')}{w}</Button5e></div> : (sessionStorage.getItem('recRes2') == 'LOSS') ? <div><Button6a>{w}{sessionStorage.getItem('recRec2')}</Button6a><Button6b>{sessionStorage.getItem('recNam2')}</Button6b><Button6c>{sessionStorage.getItem('recRes2')} • {sessionStorage.getItem('recMet2')} • R{sessionStorage.getItem('recRou2')}</Button6c><Button6d>UFC {sessionStorage.getItem('recUfc2')}</Button6d><Button6e>{sessionStorage.getItem('recDat2')}{w}</Button6e></div> : <Button7></Button7>}
                         </div>
                         <div className="Record">
-                            {(sessionStorage.getItem('recRes3') == 'WIN') ? <div><Button5a>{w}{sessionStorage.getItem('recRec3')}</Button5a><Button5b>{sessionStorage.getItem('recNam3')}</Button5b><Button5c>{sessionStorage.getItem('recRes3')} • {sessionStorage.getItem('recMet3')} • R{sessionStorage.getItem('recRou3')}</Button5c><Button5d>UFC {sessionStorage.getItem('recUfc3')}</Button5d><Button5e>{sessionStorage.getItem('recDat3')}{w}</Button5e></div> : (sessionStorage.getItem('recRes3') == 'LOSS') ? <div><Button6a>{w}{sessionStorage.getItem('recRec3')}</Button6a><Button6b>{sessionStorage.getItem('recNam3')}</Button6b><Button6c>{sessionStorage.getItem('recRes3')} • {sessionStorage.getItem('recMet3')} • R{sessionStorage.getItem('recRou3')}</Button6c><Button6d>UFC {sessionStorage.getItem('recUfc3')}</Button6d><Button6e>{sessionStorage.getItem('recDat3')}{w}</Button6e></div> : <Button7></Button7>}
+                            {(sessionStorage.getItem('recRes3') == 'WIN') ? <div><Button5a>{w2}{sessionStorage.getItem('recRec3')}</Button5a><Button5b>{sessionStorage.getItem('recNam3')}</Button5b><Button5c>{sessionStorage.getItem('recRes3')} • {sessionStorage.getItem('recMet3')} • R{sessionStorage.getItem('recRou3')}</Button5c><Button5d>UFC {sessionStorage.getItem('recUfc3')}</Button5d><Button5e>{sessionStorage.getItem('recDat3')}{w}</Button5e></div> : (sessionStorage.getItem('recRes3') == 'LOSS') ? <div><Button6a>{w}{sessionStorage.getItem('recRec3')}</Button6a><Button6b>{sessionStorage.getItem('recNam3')}</Button6b><Button6c>{sessionStorage.getItem('recRes3')} • {sessionStorage.getItem('recMet3')} • R{sessionStorage.getItem('recRou3')}</Button6c><Button6d>UFC {sessionStorage.getItem('recUfc3')}</Button6d><Button6e>{sessionStorage.getItem('recDat3')}{w}</Button6e></div> : <Button7></Button7>}
                         </div>
                         <div className="Record">
-                            {(sessionStorage.getItem('recRes4') == 'WIN') ? <div><Button5a>{w}{sessionStorage.getItem('recRec4')}</Button5a><Button5b>{sessionStorage.getItem('recNam4')}</Button5b><Button5c>{sessionStorage.getItem('recRes4')} • {sessionStorage.getItem('recMet4')} • R{sessionStorage.getItem('recRou4')}</Button5c><Button5d>UFC {sessionStorage.getItem('recUfc4')}</Button5d><Button5e>{sessionStorage.getItem('recDat4')}{w}</Button5e></div> : (sessionStorage.getItem('recRes4') == 'LOSS') ? <div><Button6a>{w}{sessionStorage.getItem('recRec4')}</Button6a><Button6b>{sessionStorage.getItem('recNam4')}</Button6b><Button6c>{sessionStorage.getItem('recRes4')} • {sessionStorage.getItem('recMet4')} • R{sessionStorage.getItem('recRou4')}</Button6c><Button6d>UFC {sessionStorage.getItem('recUfc4')}</Button6d><Button6e>{sessionStorage.getItem('recDat4')}{w}</Button6e></div> : <Button7></Button7>}
+                            {(sessionStorage.getItem('recRes4') == 'WIN') ? <div><Button5a>{w2}{sessionStorage.getItem('recRec4')}</Button5a><Button5b>{sessionStorage.getItem('recNam4')}</Button5b><Button5c>{sessionStorage.getItem('recRes4')} • {sessionStorage.getItem('recMet4')} • R{sessionStorage.getItem('recRou4')}</Button5c><Button5d>UFC {sessionStorage.getItem('recUfc4')}</Button5d><Button5e>{sessionStorage.getItem('recDat4')}{w}</Button5e></div> : (sessionStorage.getItem('recRes4') == 'LOSS') ? <div><Button6a>{w}{sessionStorage.getItem('recRec4')}</Button6a><Button6b>{sessionStorage.getItem('recNam4')}</Button6b><Button6c>{sessionStorage.getItem('recRes4')} • {sessionStorage.getItem('recMet4')} • R{sessionStorage.getItem('recRou4')}</Button6c><Button6d>UFC {sessionStorage.getItem('recUfc4')}</Button6d><Button6e>{sessionStorage.getItem('recDat4')}{w}</Button6e></div> : <Button7></Button7>}
                         </div>
                         <div className="Record">
-                            {(sessionStorage.getItem('recRes5') == 'WIN') ? <div><Button5a>{w}{sessionStorage.getItem('recRec5')}</Button5a><Button5b>{sessionStorage.getItem('recNam5')}</Button5b><Button5c>{sessionStorage.getItem('recRes5')} • {sessionStorage.getItem('recMet5')} • R{sessionStorage.getItem('recRou5')}</Button5c><Button5d>UFC {sessionStorage.getItem('recUfc5')}</Button5d><Button5e>{sessionStorage.getItem('recDat5')}{w}</Button5e></div> : (sessionStorage.getItem('recRes5') == 'LOSS') ? <div><Button6a>{w}{sessionStorage.getItem('recRec5')}</Button6a><Button6b>{sessionStorage.getItem('recNam5')}</Button6b><Button6c>{sessionStorage.getItem('recRes5')} • {sessionStorage.getItem('recMet5')} • R{sessionStorage.getItem('recRou5')}</Button6c><Button6d>UFC {sessionStorage.getItem('recUfc5')}</Button6d><Button6e>{sessionStorage.getItem('recDat5')}{w}</Button6e></div> : <Button7></Button7>}
+                            {(sessionStorage.getItem('recRes5') == 'WIN') ? <div><Button5a>{w2}{sessionStorage.getItem('recRec5')}</Button5a><Button5b>{sessionStorage.getItem('recNam5')}</Button5b><Button5c>{sessionStorage.getItem('recRes5')} • {sessionStorage.getItem('recMet5')} • R{sessionStorage.getItem('recRou5')}</Button5c><Button5d>UFC {sessionStorage.getItem('recUfc5')}</Button5d><Button5e>{sessionStorage.getItem('recDat5')}{w}</Button5e></div> : (sessionStorage.getItem('recRes5') == 'LOSS') ? <div><Button6a>{w}{sessionStorage.getItem('recRec5')}</Button6a><Button6b>{sessionStorage.getItem('recNam5')}</Button6b><Button6c>{sessionStorage.getItem('recRes5')} • {sessionStorage.getItem('recMet5')} • R{sessionStorage.getItem('recRou5')}</Button6c><Button6d>UFC {sessionStorage.getItem('recUfc5')}</Button6d><Button6e>{sessionStorage.getItem('recDat5')}{w}</Button6e></div> : <Button7></Button7>}
                         </div>
                         <div className="Record">
-                            {(sessionStorage.getItem('recRes6') == 'WIN') ? <div><Button5a>{w}{sessionStorage.getItem('recRec6')}</Button5a><Button5b>{sessionStorage.getItem('recNam6')}</Button5b><Button5c>{sessionStorage.getItem('recRes6')} • {sessionStorage.getItem('recMet6')} • R{sessionStorage.getItem('recRou6')}</Button5c><Button5d>UFC {sessionStorage.getItem('recUfc6')}</Button5d><Button5e>{sessionStorage.getItem('recDat6')}{w}</Button5e></div> : (sessionStorage.getItem('recRes6') == 'LOSS') ? <div><Button6a>{w}{sessionStorage.getItem('recRec6')}</Button6a><Button6b>{sessionStorage.getItem('recNam6')}</Button6b><Button6c>{sessionStorage.getItem('recRes6')} • {sessionStorage.getItem('recMet6')} • R{sessionStorage.getItem('recRou6')}</Button6c><Button6d>UFC {sessionStorage.getItem('recUfc6')}</Button6d><Button6e>{sessionStorage.getItem('recDat6')}{w}</Button6e></div> : <Button7></Button7>}
+                            {(sessionStorage.getItem('recRes6') == 'WIN') ? <div><Button5a>{w2}{sessionStorage.getItem('recRec6')}</Button5a><Button5b>{sessionStorage.getItem('recNam6')}</Button5b><Button5c>{sessionStorage.getItem('recRes6')} • {sessionStorage.getItem('recMet6')} • R{sessionStorage.getItem('recRou6')}</Button5c><Button5d>UFC {sessionStorage.getItem('recUfc6')}</Button5d><Button5e>{sessionStorage.getItem('recDat6')}{w}</Button5e></div> : (sessionStorage.getItem('recRes6') == 'LOSS') ? <div><Button6a>{w}{sessionStorage.getItem('recRec6')}</Button6a><Button6b>{sessionStorage.getItem('recNam6')}</Button6b><Button6c>{sessionStorage.getItem('recRes6')} • {sessionStorage.getItem('recMet6')} • R{sessionStorage.getItem('recRou6')}</Button6c><Button6d>UFC {sessionStorage.getItem('recUfc6')}</Button6d><Button6e>{sessionStorage.getItem('recDat6')}{w}</Button6e></div> : <Button7></Button7>}
                         </div>
                         <div className="Record">
-                            {(sessionStorage.getItem('recRes7') == 'WIN') ? <div><Button5a>{w}{sessionStorage.getItem('recRec7')}</Button5a><Button5b>{sessionStorage.getItem('recNam7')}</Button5b><Button5c>{sessionStorage.getItem('recRes7')} • {sessionStorage.getItem('recMet7')} • R{sessionStorage.getItem('recRou7')}</Button5c><Button5d>UFC {sessionStorage.getItem('recUfc7')}</Button5d><Button5e>{sessionStorage.getItem('recDat7')}{w}</Button5e></div> : (sessionStorage.getItem('recRes7') == 'LOSS') ? <div><Button6a>{w}{sessionStorage.getItem('recRec7')}</Button6a><Button6b>{sessionStorage.getItem('recNam7')}</Button6b><Button6c>{sessionStorage.getItem('recRes7')} • {sessionStorage.getItem('recMet7')} • R{sessionStorage.getItem('recRou7')}</Button6c><Button6d>UFC {sessionStorage.getItem('recUfc7')}</Button6d><Button6e>{sessionStorage.getItem('recDat7')}{w}</Button6e></div> : <Button7></Button7>}
+                            {(sessionStorage.getItem('recRes7') == 'WIN') ? <div><Button5a>{w2}{sessionStorage.getItem('recRec7')}</Button5a><Button5b>{sessionStorage.getItem('recNam7')}</Button5b><Button5c>{sessionStorage.getItem('recRes7')} • {sessionStorage.getItem('recMet7')} • R{sessionStorage.getItem('recRou7')}</Button5c><Button5d>UFC {sessionStorage.getItem('recUfc7')}</Button5d><Button5e>{sessionStorage.getItem('recDat7')}{w}</Button5e></div> : (sessionStorage.getItem('recRes7') == 'LOSS') ? <div><Button6a>{w}{sessionStorage.getItem('recRec7')}</Button6a><Button6b>{sessionStorage.getItem('recNam7')}</Button6b><Button6c>{sessionStorage.getItem('recRes7')} • {sessionStorage.getItem('recMet7')} • R{sessionStorage.getItem('recRou7')}</Button6c><Button6d>UFC {sessionStorage.getItem('recUfc7')}</Button6d><Button6e>{sessionStorage.getItem('recDat7')}{w}</Button6e></div> : <Button7></Button7>}
                         </div>
                         <div className="Record">
-                            {(sessionStorage.getItem('recRes8') == 'WIN') ? <div><Button5a>{w}{sessionStorage.getItem('recRec8')}</Button5a><Button5b>{sessionStorage.getItem('recNam8')}</Button5b><Button5c>{sessionStorage.getItem('recRes8')} • {sessionStorage.getItem('recMet8')} • R{sessionStorage.getItem('recRou8')}</Button5c><Button5d>UFC {sessionStorage.getItem('recUfc8')}</Button5d><Button5e>{sessionStorage.getItem('recDat8')}{w}</Button5e></div> : (sessionStorage.getItem('recRes8') == 'LOSS') ? <div><Button6a>{w}{sessionStorage.getItem('recRec8')}</Button6a><Button6b>{sessionStorage.getItem('recNam8')}</Button6b><Button6c>{sessionStorage.getItem('recRes8')} • {sessionStorage.getItem('recMet8')} • R{sessionStorage.getItem('recRou8')}</Button6c><Button6d>UFC {sessionStorage.getItem('recUfc8')}</Button6d><Button6e>{sessionStorage.getItem('recDat8')}{w}</Button6e></div> : <Button7></Button7>}
+                            {(sessionStorage.getItem('recRes8') == 'WIN') ? <div><Button5a>{w2}{sessionStorage.getItem('recRec8')}</Button5a><Button5b>{sessionStorage.getItem('recNam8')}</Button5b><Button5c>{sessionStorage.getItem('recRes8')} • {sessionStorage.getItem('recMet8')} • R{sessionStorage.getItem('recRou8')}</Button5c><Button5d>UFC {sessionStorage.getItem('recUfc8')}</Button5d><Button5e>{sessionStorage.getItem('recDat8')}{w}</Button5e></div> : (sessionStorage.getItem('recRes8') == 'LOSS') ? <div><Button6a>{w}{sessionStorage.getItem('recRec8')}</Button6a><Button6b>{sessionStorage.getItem('recNam8')}</Button6b><Button6c>{sessionStorage.getItem('recRes8')} • {sessionStorage.getItem('recMet8')} • R{sessionStorage.getItem('recRou8')}</Button6c><Button6d>UFC {sessionStorage.getItem('recUfc8')}</Button6d><Button6e>{sessionStorage.getItem('recDat8')}{w}</Button6e></div> : <Button7></Button7>}
                         </div>
                         <div className="Record">
-                            {(sessionStorage.getItem('recRes9') == 'WIN') ? <div><Button5a>{w}{sessionStorage.getItem('recRec9')}</Button5a><Button5b>{sessionStorage.getItem('recNam9')}</Button5b><Button5c>{sessionStorage.getItem('recRes9')} • {sessionStorage.getItem('recMet9')} • R{sessionStorage.getItem('recRou9')}</Button5c><Button5d>UFC {sessionStorage.getItem('recUfc9')}</Button5d><Button5e>{sessionStorage.getItem('recDat9')}{w}</Button5e></div> : (sessionStorage.getItem('recRes9') == 'LOSS') ? <div><Button6a>{w}{sessionStorage.getItem('recRec9')}</Button6a><Button6b>{sessionStorage.getItem('recNam9')}</Button6b><Button6c>{sessionStorage.getItem('recRes9')} • {sessionStorage.getItem('recMet9')} • R{sessionStorage.getItem('recRou9')}</Button6c><Button6d>UFC {sessionStorage.getItem('recUfc9')}</Button6d><Button6e>{sessionStorage.getItem('recDat9')}{w}</Button6e></div> : <Button7></Button7>}
+                            {(sessionStorage.getItem('recRes9') == 'WIN') ? <div><Button5a>{w2}{sessionStorage.getItem('recRec9')}</Button5a><Button5b>{sessionStorage.getItem('recNam9')}</Button5b><Button5c>{sessionStorage.getItem('recRes9')} • {sessionStorage.getItem('recMet9')} • R{sessionStorage.getItem('recRou9')}</Button5c><Button5d>UFC {sessionStorage.getItem('recUfc9')}</Button5d><Button5e>{sessionStorage.getItem('recDat9')}{w}</Button5e></div> : (sessionStorage.getItem('recRes9') == 'LOSS') ? <div><Button6a>{w}{sessionStorage.getItem('recRec9')}</Button6a><Button6b>{sessionStorage.getItem('recNam9')}</Button6b><Button6c>{sessionStorage.getItem('recRes9')} • {sessionStorage.getItem('recMet9')} • R{sessionStorage.getItem('recRou9')}</Button6c><Button6d>UFC {sessionStorage.getItem('recUfc9')}</Button6d><Button6e>{sessionStorage.getItem('recDat9')}{w}</Button6e></div> : <Button7></Button7>}
                         </div>
                         <div className="Record">
-                            {(sessionStorage.getItem('recRes10') == 'WIN') ? <div><Button5a>{w}{sessionStorage.getItem('recRec10')}</Button5a><Button5b>{sessionStorage.getItem('recNam10')}</Button5b><Button5c>{sessionStorage.getItem('recRes10')} • {sessionStorage.getItem('recMet10')} • R{sessionStorage.getItem('recRou10')}</Button5c><Button5d>UFC {sessionStorage.getItem('recUfc10')}</Button5d><Button5e>{sessionStorage.getItem('recDat10')}{w}</Button5e></div> : (sessionStorage.getItem('recRes10') == 'LOSS') ? <div><Button6a>{w}{sessionStorage.getItem('recRec10')}</Button6a><Button6b>{sessionStorage.getItem('recNam10')}</Button6b><Button6c>{sessionStorage.getItem('recRes10')} • {sessionStorage.getItem('recMet10')} • R{sessionStorage.getItem('recRou10')}</Button6c><Button6d>UFC {sessionStorage.getItem('recUfc10')}</Button6d><Button6e>{sessionStorage.getItem('recDat10')}{w}</Button6e></div> : <Button7></Button7>}
+                            {(sessionStorage.getItem('recRes10') == 'WIN') ? <div><Button5a>{w2}{sessionStorage.getItem('recRec10')}</Button5a><Button5b>{sessionStorage.getItem('recNam10')}</Button5b><Button5c>{sessionStorage.getItem('recRes10')} • {sessionStorage.getItem('recMet10')} • R{sessionStorage.getItem('recRou10')}</Button5c><Button5d>UFC {sessionStorage.getItem('recUfc10')}</Button5d><Button5e>{sessionStorage.getItem('recDat10')}{w}</Button5e></div> : (sessionStorage.getItem('recRes10') == 'LOSS') ? <div><Button6a>{w}{sessionStorage.getItem('recRec10')}</Button6a><Button6b>{sessionStorage.getItem('recNam10')}</Button6b><Button6c>{sessionStorage.getItem('recRes10')} • {sessionStorage.getItem('recMet10')} • R{sessionStorage.getItem('recRou10')}</Button6c><Button6d>UFC {sessionStorage.getItem('recUfc10')}</Button6d><Button6e>{sessionStorage.getItem('recDat10')}{w}</Button6e></div> : <Button7></Button7>}
                         </div>
                         <div className="Record" style={{marginBottom: 1}}>
-                            {(sessionStorage.getItem('recRes11') == 'WIN') ? <div><Button5a>{w}{sessionStorage.getItem('recRec11')}</Button5a><Button5b>{sessionStorage.getItem('recNam11')}</Button5b><Button5c>{sessionStorage.getItem('recRes11')} • {sessionStorage.getItem('recMet11')} • R{sessionStorage.getItem('recRou11')}</Button5c><Button5d>UFC {sessionStorage.getItem('recUfc11')}</Button5d><Button5e>{sessionStorage.getItem('recDat11')}{w}</Button5e></div> : (sessionStorage.getItem('recRes11') == 'LOSS') ? <div><Button6a>{w}{sessionStorage.getItem('recRec11')}</Button6a><Button6b>{sessionStorage.getItem('recNam11')}</Button6b><Button6c>{sessionStorage.getItem('recRes11')} • {sessionStorage.getItem('recMet11')} • R{sessionStorage.getItem('recRou11')}</Button6c><Button6d>UFC {sessionStorage.getItem('recUfc11')}</Button6d><Button6e>{sessionStorage.getItem('recDat11')}{w}</Button6e></div> : <Button7></Button7>}
+                            {(sessionStorage.getItem('recRes11') == 'WIN') ? <div><Button5a>{w2}{sessionStorage.getItem('recRec11')}</Button5a><Button5b>{sessionStorage.getItem('recNam11')}</Button5b><Button5c>{sessionStorage.getItem('recRes11')} • {sessionStorage.getItem('recMet11')} • R{sessionStorage.getItem('recRou11')}</Button5c><Button5d>UFC {sessionStorage.getItem('recUfc11')}</Button5d><Button5e>{sessionStorage.getItem('recDat11')}{w}</Button5e></div> : (sessionStorage.getItem('recRes11') == 'LOSS') ? <div><Button6a>{w}{sessionStorage.getItem('recRec11')}</Button6a><Button6b>{sessionStorage.getItem('recNam11')}</Button6b><Button6c>{sessionStorage.getItem('recRes11')} • {sessionStorage.getItem('recMet11')} • R{sessionStorage.getItem('recRou11')}</Button6c><Button6d>UFC {sessionStorage.getItem('recUfc11')}</Button6d><Button6e>{sessionStorage.getItem('recDat11')}{w}</Button6e></div> : <Button7></Button7>}
                         </div>
                     </div><br/>
-                    <div className="App-header-style1a" style={{marginTop: -88}}>
+                    <div className="App-header-style1a" style={{marginTop: -92}}>
                         <Link to='./career'><Button>STATS</Button></Link>
                         <Link to='./record'><ButtonG>RECORD</ButtonG></Link>
                     </div>
-                    <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 368, fontSize: 30 }}>
+                    <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 369, fontSize: 30 }}>
                         <Button3>${sessionStorage.getItem('balance')}</Button3>
                         <Link to='./home'><Button4>BACK</Button4></Link>
                         <Button3>{this.calcMonth(month)} {sessionStorage.getItem('year')}</Button3>
