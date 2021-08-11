@@ -282,6 +282,13 @@ class Customize extends React.Component {
       sessionStorage.setItem('recUfc11', 0);
       sessionStorage.setItem('recDat11', 0);
 
+      sessionStorage.setItem('sigStrikes', 0);
+      sessionStorage.setItem('totalStrikes', 0);
+      sessionStorage.setItem('knockdowns', 0);
+      sessionStorage.setItem('takedowns', 0);
+      sessionStorage.setItem('takedownsTried', 0);
+      sessionStorage.setItem('takedownsSuccess', 0);
+
       let nr1 = {
         rank: 'NR',
         first: 'SANCHIT',

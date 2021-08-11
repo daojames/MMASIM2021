@@ -1245,6 +1245,32 @@ class Career extends React.Component {
         sessionStorage.setItem('month', (parseInt(sessionStorage.getItem('month')) + 1));
     }
 
+    getStrikeAcc() {
+        let per = ((parseInt(sessionStorage.getItem('sigStrikes'))/(parseInt(sessionStorage.getItem('totalStrikes')))) * 100).toFixed(0);
+        if (per >= 0) {
+            return per;
+        }
+        else {
+            return 0;
+        }
+    }
+
+    getTakedownAcc() {
+        let per = (((parseInt(sessionStorage.getItem('takedownsTried')) - parseInt(sessionStorage.getItem('takedownsSuccess')))/(parseInt(sessionStorage.getItem('takedownsTried')))) * 100).toFixed(0);
+        if (parseInt(sessionStorage.getItem('takedownsTried')) == 0) {
+            return 100;
+        }
+        else if (parseInt(sessionStorage.getItem('takedownsTried')) == parseInt(sessionStorage.getItem('takedownsSuccess'))) {
+            return 100;
+        }
+        else if (per >= 0) {
+            return per;
+        }
+        else {
+            return 0;
+        }
+    }
+
     render() {
         let data = sessionStorage.getItem('player');
         data = JSON.parse(data);
@@ -1309,11 +1335,11 @@ class Career extends React.Component {
                             <Button1>TAKEDOWN DEF.</Button1>
                         </div>
                         <div className="App-customize3" style={{marginTop: -20}}>
-                            <Button2><b>{sessionStorage.getItem('fin1')}</b></Button2>
-                            <Button2><b>{sessionStorage.getItem('fin2')}</b></Button2>
-                            <Button2><b>{sessionStorage.getItem('fin3')}</b></Button2>
-                            <Button2><b>{sessionStorage.getItem('fin4')}</b></Button2>
-                            <Button2><b>{sessionStorage.getItem('fin5')}</b></Button2>
+                            <Button2><b>{sessionStorage.getItem('sigStrikes')}</b></Button2>
+                            <Button2><b>{this.getStrikeAcc()}%</b></Button2>
+                            <Button2><b>{sessionStorage.getItem('knockdowns')}</b></Button2>
+                            <Button2><b>{sessionStorage.getItem('takedowns')}</b></Button2>
+                            <Button2><b>{this.getTakedownAcc()}%</b></Button2>
                         </div>
                     </div>
                     <div className="App-header-style" style={{marginTop: 300}}>
