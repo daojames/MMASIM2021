@@ -249,6 +249,24 @@ body {
   overflow: hidden;
 }
 
+.Record1 {
+  user-select: none;
+  display:inline-flex;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  margin-left: 0px;
+  height: 50px;
+  width: 1500px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  color: white;
+  overflow: hidden;
+}
+
 .App-customize1b {
   user-select: none;
   display:inline-block;

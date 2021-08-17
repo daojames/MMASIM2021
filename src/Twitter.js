@@ -266,6 +266,7 @@ class Twitter extends React.Component {
         let whitespace = "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0";
         let ws = "\xa0\xa0\xa0\xa0";
         let ws1 = "\xa0";
+        let ws2 = "\xa0\xa0";
         let twt1 = sessionStorage.getItem('twt1');
         twt1 = JSON.parse(twt1);
         let twt2 = sessionStorage.getItem('twt2');
@@ -287,14 +288,14 @@ class Twitter extends React.Component {
                         <Button6><b>MMA TRENDING</b></Button6>
                     </div>
                     <div className="App-customize4" style={{marginTop: -645}}>
-                        <Link to='./replies1'><Button7><text class="alignleft">{ws}<b>{first} {last}</b> @{this.uncapitalize(first)}{this.uncapitalize(last)}mma<text class="alignright">{twt1.month} {twt1.year}{ws}{ws}</text><br/>{ws}{twt1.msg}<br/>{ws}<text style={{fontSize: 20}}><b>{twt1.replies} REPLIES</b></text></text></Button7></Link>
-                        <Link to='./gym'><Button7><text class="alignleft">{ws}<b>ARIEL HELWANI</b> @arielhelwani<text class="alignright">JAN 2021{ws}{ws}</text><br/>{ws}THE QUICK BROWN FOX JUMPED OVER THE LAZY DOG<br/>{ws}<text style={{fontSize: 20}}><b>0 REPLIES</b></text></text></Button7></Link>
-                        <Link to='./replies2'><Button7><text class="alignleft">{ws}<b>{first} {last}</b> @{this.uncapitalize(first)}{this.uncapitalize(last)}mma<text class="alignright">{twt2.month} {twt2.year}{ws}{ws}</text><br/>{ws}{twt2.msg}<br/>{ws}<text style={{fontSize: 20}}><b>{twt2.replies} REPLIES</b></text></text></Button7></Link>
-                        <Link to='./gym'><Button7><text class="alignleft">{ws}<b>BRETT OKAMOTO</b> @bokamotoESPN<text class="alignright">JAN 2021{ws}{ws}</text><br/>{ws}THE QUICK BROWN FOX JUMPED OVER THE LAZY DOG<br/>{ws}<text style={{fontSize: 20}}><b>0 REPLIES</b></text></text></Button7></Link>
-                        <Link to='./replies3'><Button7><text class="alignleft">{ws}<b>{first} {last}</b> @{this.uncapitalize(first)}{this.uncapitalize(last)}mma<text class="alignright">{twt3.month} {twt3.year}{ws}{ws}</text><br/>{ws}{twt3.msg}<br/>{ws}<text style={{fontSize: 20}}><b>{twt3.replies} REPLIES</b></text></text></Button7></Link>
-                        <Link to='./gym'><Button7><text class="alignleft">{ws}<b>THE SCHMO</b> @TheSchmo312<text class="alignright">JAN 2021{ws}{ws}</text><br/>{ws}THE QUICK BROWN FOX JUMPED OVER THE LAZY DOG<br/>{ws}<text style={{fontSize: 20}}><b>0 REPLIES</b></text></text></Button7></Link>
-                        <Link to='./replies4'><Button7><text class="alignleft">{ws}<b>{first} {last}</b> @{this.uncapitalize(first)}{this.uncapitalize(last)}mma<text class="alignright">{twt4.month} {twt4.year}{ws}{ws}</text><br/>{ws}{twt4.msg}<br/>{ws}<text style={{fontSize: 20}}><b>{twt4.replies} REPLIES</b></text></text></Button7></Link>
-                        <Link to='./gym'><Button7><text class="alignleft">{ws}<b>THE SCHMO</b> @TheSchmo312<text class="alignright">JAN 2021{ws}{ws}</text><br/>{ws}THE QUICK BROWN FOX JUMPED OVER THE LAZY DOG<br/>{ws}<text style={{fontSize: 20}}><b>0 REPLIES</b></text></text></Button7></Link>
+                        <Link to='./replies1'><Button7><text class="alignleft">{ws}<b>{first} {last}</b> @{this.uncapitalize(first)}{this.uncapitalize(last)}mma<br/>{ws}{twt1.msg}<br/>{ws}<text style={{fontSize: 20}}><b>{twt1.month} {twt1.year}{ws2}•{ws2}{twt1.replies} REPLIES</b></text></text></Button7></Link>
+                        <Link to='./gym'><Button7><text class="alignleft">{ws}<b>ARIEL HELWANI</b> @arielhelwani<br/>{ws}THE QUICK BROWN FOX JUMPED OVER THE LAZY DOG<br/>{ws}<text style={{fontSize: 20}}><b>JAN 2021{ws2}•{ws2}0 REPLIES</b></text></text></Button7></Link>
+                        <Link to='./replies2'><Button7><text class="alignleft">{ws}<b>{first} {last}</b> @{this.uncapitalize(first)}{this.uncapitalize(last)}mma<br/>{ws}{twt2.msg}<br/>{ws}<text style={{fontSize: 20}}><b>{twt2.month} {twt2.year}{ws2}•{ws2}{twt2.replies} REPLIES</b></text></text></Button7></Link>
+                        <Link to='./gym'><Button7><text class="alignleft">{ws}<b>BRETT OKAMOTO</b> @bokamotoESPN<br/>{ws}THE QUICK BROWN FOX JUMPED OVER THE LAZY DOG<br/>{ws}<text style={{fontSize: 20}}><b>JAN 2021{ws2}•{ws2}0 REPLIES</b></text></text></Button7></Link>
+                        <Link to='./replies3'><Button7><text class="alignleft">{ws}<b>{first} {last}</b> @{this.uncapitalize(first)}{this.uncapitalize(last)}mma<br/>{ws}{twt3.msg}<br/>{ws}<text style={{fontSize: 20}}><b>{twt3.month} {twt3.year}{ws2}•{ws2}{twt3.replies} REPLIES</b></text></text></Button7></Link>
+                        <Link to='./gym'><Button7><text class="alignleft">{ws}<b>THE SCHMO</b> @TheSchmo312<br/>{ws}THE QUICK BROWN FOX JUMPED OVER THE LAZY DOG<br/>{ws}<text style={{fontSize: 20}}><b>JAN 2021{ws2}•{ws2}0 REPLIES</b></text></text></Button7></Link>
+                        <Link to='./replies4'><Button7><text class="alignleft">{ws}<b>{first} {last}</b> @{this.uncapitalize(first)}{this.uncapitalize(last)}mma<br/>{ws}{twt4.msg}<br/>{ws}<text style={{fontSize: 20}}><b>{twt4.month} {twt4.year}{ws2}•{ws2}{twt4.replies} REPLIES</b></text></text></Button7></Link>
+                        <Link to='./gym'><Button7><text class="alignleft">{ws}<b>THE SCHMO</b> @TheSchmo312<br/>{ws}THE QUICK BROWN FOX JUMPED OVER THE LAZY DOG<br/>{ws}<text style={{fontSize: 20}}><b>JAN 2021{ws2}•{ws2}0 REPLIES</b></text></text></Button7></Link>
                     </div>
                     <div className="App-customize4" style={{marginLeft: 0, marginTop: -123}}>
                         <Button9>

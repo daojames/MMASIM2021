@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import logo from './mmasim2021logo.png';
 import './App.css';
 import {randomNR} from './RandomNR.js';
+import {updateRecNR} from './UpdateRecNR';
+import {fightMatcher} from './FightMatcher';
 
 const Button = styled.button`
 background-color: transparent;
@@ -1106,10 +1108,72 @@ class Results extends React.Component {
 
             sessionStorage.setItem('month', parseInt(sessionStorage.getItem('month')) + 1);
 
-            if (sessionStorage.getItem('rank') == 'NR') {
-                sessionStorage.setItem('followers', parseInt(Math.pow(parseInt(sessionStorage.getItem('followers')), 1.015)));
-                randomNR();
+            if (sessionStorage.getItem('win') == 1) {
+                let fanPer = 1.005;
+                if (ko == 1) {
+                    fanPer += 0.025;
+                }
+                else if (tko == 1) {
+                    fanPer += 0.01;
+                }
+                else if (sub == 1) {
+                    fanPer += 0.005;
+                }
+                if (parseInt(sessionStorage.getItem('playerStatus')) - parseInt(sessionStorage.getItem('oppStatus')) >= 500) {
+                    fanPer += 0.005;
+                }
+                else if (parseInt(sessionStorage.getItem('playerStatus')) <= 500 && parseInt(sessionStorage.getItem('oppStatus')) <= 500) {
+                    fanPer += 0.005;
+                }
+
+                sessionStorage.setItem('followers', parseInt(Math.pow(parseInt(sessionStorage.getItem('followers')), fanPer)));
             }
+            else {
+                let fanPer = 1.0;
+                if (parseInt(sessionStorage.getItem('playerStatus')) <= 500 && parseInt(sessionStorage.getItem('oppStatus')) <= 500) {
+                    fanPer += 0.005;
+                }
+
+                sessionStorage.setItem('followers', parseInt(Math.pow(parseInt(sessionStorage.getItem('followers')), fanPer)));
+            }
+            randomNR();
+            updateRecNR();
+            fightMatcher();
+    }
+
+    fansGained() {
+        let ko = sessionStorage.getItem('ko');
+        let tko = sessionStorage.getItem('tko');
+        let sub = sessionStorage.getItem('sub');
+
+        if (sessionStorage.getItem('win') == 1) {
+            let fanPer = 1.005;
+            if (ko == 1) {
+                fanPer += 0.025;
+            }
+            else if (tko == 1) {
+                fanPer += 0.01;
+            }
+            else if (sub == 1) {
+                fanPer += 0.005;
+            }
+            if (parseInt(sessionStorage.getItem('playerStatus')) - parseInt(sessionStorage.getItem('oppStatus')) >= 500) {
+                fanPer += 0.005;
+            }
+            else if (parseInt(sessionStorage.getItem('playerStatus')) <= 500 && parseInt(sessionStorage.getItem('oppStatus')) <= 500) {
+                fanPer += 0.005;
+            }
+
+            return parseInt(Math.pow(parseInt(sessionStorage.getItem('followers')), fanPer) - parseInt(sessionStorage.getItem('followers')));
+        }
+        else {
+            let fanPer = 1.0;
+            if (parseInt(sessionStorage.getItem('playerStatus')) <= 500 && parseInt(sessionStorage.getItem('oppStatus')) <= 500) {
+                fanPer += 0.005;
+            }
+
+            return parseInt(Math.pow(parseInt(sessionStorage.getItem('followers')), fanPer) - parseInt(sessionStorage.getItem('followers')));
+        }
     }
 
     record(rec, nam, res, met, rou, ufc, dat) {
@@ -1279,160 +1343,110 @@ class Results extends React.Component {
     }
 
     getOppNum() {
-        let num = sessionStorage.getItem('oppNum');
+        let rank = sessionStorage.getItem('rank');
         let money = 0;
 
-        if (num == 1){
-            let data = sessionStorage.getItem('nr1');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 2){
-            let data = sessionStorage.getItem('nr2');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 3){
-            let data = sessionStorage.getItem('nr3');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 4){
-            let data = sessionStorage.getItem('nr4');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 5){
-            let data = sessionStorage.getItem('nr5');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 6){
-            let data = sessionStorage.getItem('nr6');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 7){
-            let data = sessionStorage.getItem('nr7');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 8){
-            let data = sessionStorage.getItem('nr8');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 9){
-            let data = sessionStorage.getItem('nr9');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 10){
-            let data = sessionStorage.getItem('nr10');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 11){
-            let data = sessionStorage.getItem('nr11');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 12){
-            let data = sessionStorage.getItem('nr12');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 13){
-            let data = sessionStorage.getItem('nr13');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 14){
-            let data = sessionStorage.getItem('nr14');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 15){
-            let data = sessionStorage.getItem('nr15');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 16){
-            let data = sessionStorage.getItem('nr16');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 17){
-            let data = sessionStorage.getItem('nr17');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 18){
-            let data = sessionStorage.getItem('nr18');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 19){
-            let data = sessionStorage.getItem('nr19');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 20){
-            let data = sessionStorage.getItem('nr20');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 21){
-            let data = sessionStorage.getItem('nr21');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 101) {
-            let data = sessionStorage.getItem('nrf1');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 102) {
-            let data = sessionStorage.getItem('nrf2');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 103) {
-            let data = sessionStorage.getItem('nrf3');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 104) {
-            let data = sessionStorage.getItem('nrf4');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 105) {
-            let data = sessionStorage.getItem('nrf5');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 106) {
-            let data = sessionStorage.getItem('nrf6');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 107) {
-            let data = sessionStorage.getItem('nrf7');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 108) {
-            let data = sessionStorage.getItem('nrf8');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 109) {
-            let data = sessionStorage.getItem('nrf9');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
+        if (rank == 'NR') {
+            let num = parseInt(sessionStorage.getItem('oppNum'));
+            let no = null;
 
+            switch(num) {
+                case 1:
+                    no = 'nr1';
+                break;
+                case 2:
+                    no = 'nr2';
+                break;
+                case 3:
+                    no = 'nr3';
+                break;
+                case 4:
+                    no = 'nr4';
+                break;
+                case 5:
+                    no = 'nr5';
+                break;
+                case 6:
+                    no = 'nr6';
+                break;
+                case 7:
+                    no = 'nr7';
+                break;
+                case 8:
+                    no = 'nr8';
+                break;
+                case 9:
+                    no = 'nr9';
+                break;
+                case 10:
+                    no = 'nr10';
+                break;
+                case 11:
+                    no = 'nr11';
+                break;
+                case 12:
+                    no = 'nr12';
+                break;
+                case 13:
+                    no = 'nr13';
+                break;
+                case 14:
+                    no = 'nr14';
+                break;
+                case 15:
+                    no = 'nr15';
+                break;
+                case 16:
+                    no = 'nr16';
+                break;
+                case 17:
+                    no = 'nr17';
+                break;
+                case 18:
+                    no = 'nr18';
+                break;
+                case 19:
+                    no = 'nr19';
+                break;
+                case 20:
+                    no = 'nr20';
+                break;
+                case 21:
+                    no = 'nr21';
+                break;
+                case 101:
+                    no = 'nrf1';
+                break;
+                case 102:
+                    no = 'nrf2';
+                break;
+                case 103:
+                    no = 'nrf3';
+                break;
+                case 104:
+                    no = 'nrf4';
+                break;
+                case 105:
+                    no = 'nrf5';
+                break;
+                case 106:
+                    no = 'nrf6';
+                break;
+                case 107:
+                    no = 'nrf7';
+                break;
+                case 108:
+                    no = 'nrf8';
+                break;
+                case 109:
+                    no = 'nrf9';
+                break;
+            }
+            let data = sessionStorage.getItem(no);
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 1) + (2000 * parseInt(data.win));
+        }
+        
         return money;
     }
 
@@ -1487,7 +1501,7 @@ class Results extends React.Component {
             return '$' + this.calcPurse();
         }
         else {
-            if (this.calcPay() >= sessionStorage.getItem('gymCamp')){
+            if (this.calcPurse() >= sessionStorage.getItem('gymCamp')){
                 sessionStorage.setItem('payType', 2);
                 return '$' + (parseInt(this.calcPurse()) - parseInt(sessionStorage.getItem('gymCamp')));
             }
@@ -1498,7 +1512,7 @@ class Results extends React.Component {
         if (sessionStorage.getItem('gym') == 'NONE') {
             return '';
         }
-        else if (this.calcPay() < sessionStorage.getItem('gymCamp')){
+        else if (this.calcPurse() < sessionStorage.getItem('gymCamp')){
             sessionStorage.setItem('payType', 3);
             return '$' + (Math.abs(parseInt(this.calcPurse()) - parseInt(sessionStorage.getItem('gymCamp'))));
         }
@@ -1588,11 +1602,6 @@ class Results extends React.Component {
                             <Button1cl><center>{this.getPoints()}</center></Button1cl>
                         </div>
                         <div className="App-customize2-1" style={{marginTop: 0}}></div>
-                        <div className="App-customize2-0" style={{marginTop: 0}}>
-                            <Button1cl><b>ROUNDS</b></Button1cl>
-                            <Button1f></Button1f>
-                            <Button1cr>{this.ifCrounds()}</Button1cr>
-                        </div>
                         <div className="App-customize2-1" style={{marginTop: 0}}></div>
                         <div className="App-customize2-0" style={{marginTop: 0}}>
                             <Button1cl><b>TO SHOW</b></Button1cl>
@@ -1602,17 +1611,17 @@ class Results extends React.Component {
                         <div className="App-customize2-0" style={{marginTop: 0}}>
                             <Button1cl><b>WIN BONUS</b></Button1cl>
                             <Button1f></Button1f>
-                            <Button1cr><text style={(sessionStorage.getItem('win') == 1) ? {color: 'green'} : {color: 'white'}}>${this.ifCwin()}</text></Button1cr>
+                            <Button1cr><text style={(sessionStorage.getItem('win') == 1) ? {color: 'green'} : {color: 'gray'}}>${this.ifCwin()}</text></Button1cr>
                         </div>
                         <div className="App-customize2-0" style={{marginTop: 0}}>
                             <Button1cl><b>POTN BONUS</b></Button1cl>
                             <Button1f></Button1f>
-                            <Button1cr><text style={(parseInt(sessionStorage.getItem('playerStatus')) - parseInt(sessionStorage.getItem('oppStatus')) >= 500) ? {color: 'green'} : {color: 'white'}}>$50000</text></Button1cr>
+                            <Button1cr><text style={(parseInt(sessionStorage.getItem('playerStatus')) - parseInt(sessionStorage.getItem('oppStatus')) >= 500) ? {color: 'green'} : {color: 'gray'}}>$50000</text></Button1cr>
                         </div>
                         <div className="App-customize2-0" style={{marginTop: 0}}>
                             <Button1cl><b>FOTN BONUS</b></Button1cl>
                             <Button1f></Button1f>
-                            <Button1cr><text style={(parseInt(sessionStorage.getItem('playerStatus')) <= 500 && parseInt(sessionStorage.getItem('oppStatus')) <= 500) ? {color: 'green'} : {color: 'white'}}>$50000</text></Button1cr>
+                            <Button1cr><text style={(parseInt(sessionStorage.getItem('playerStatus')) <= 500 && parseInt(sessionStorage.getItem('oppStatus')) <= 500) ? {color: 'green'} : {color: 'gray'}}>$50000</text></Button1cr>
                         </div>
                         <div className="App-customize2-1" style={{marginTop: 0}}></div>
                         <div className="App-customize2-0" style={{marginTop: 0}}>
@@ -1625,6 +1634,11 @@ class Results extends React.Component {
                             <Button1cl><b>FIGHT PURSE</b></Button1cl>
                             <Button1f></Button1f>
                             <Button1cr><text style={{color: 'green'}}>{this.getGuaranteed0()}</text><text style={{color: 'red'}}>{this.getGuaranteed1()}</text></Button1cr>
+                        </div>
+                        <div className="App-customize2-0" style={{marginTop: 0}}>
+                            <Button1cl><b>FANS GAINED</b></Button1cl>
+                            <Button1f></Button1f>
+                            <Button1cr><text style={{color: '#1DA1F2'}}>+{this.fansGained()}</text></Button1cr>
                         </div>
                         <div className="App-customize3" style={{marginTop: 14, marginBottom: -306}}>
                             <Link to='/home'><Button onClick={this.handleFight}>HOME</Button></Link>

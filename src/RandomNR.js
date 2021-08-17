@@ -1,573 +1,34 @@
 export function randomNR() {
-    let nr1 = {
-        rank: 'NR',
-        first: 'SANCHIT',
-        last: 'JAIN',
-        height: '2',
-        weight: '0',
-        nation: 'INDIA',
-        win: '0',
-        loss: '0',
-        strength: '35',
-        speed: '60',
-        stamina: '60',
-        punching: '65',
-        kicking: '45',
-        wrestling: '35',
-        grappling: '30',
-        clinch: '40'
-      }
-
-      let nr2 = {
-        rank: 'NR',
-        first: 'KHOA',
-        last: 'DIEP',
-        height: '3',
-        weight: '0',
-        nation: 'CANADA',
-        win: '0',
-        loss: '0',
-        strength: '50',
-        speed: '50',
-        stamina: '50',
-        punching: '50',
-        kicking: '40',
-        wrestling: '50',
-        grappling: '50',
-        clinch: '30'
-      }
-
-      let nr3 = {
-        rank: 'NR',
-        first: 'BRYAN',
-        last: 'HUYNH',
-        height: '2',
-        weight: '0',
-        nation: 'VIETNAM',
-        win: '0',
-        loss: '0',
-        strength: '45',
-        speed: '50',
-        stamina: '60',
-        punching: '65',
-        kicking: '45',
-        wrestling: '35',
-        grappling: '30',
-        clinch: '40'
-      }
-
-      let nr4 = {
-        rank: 'NR',
-        first: 'STEVE',
-        last: 'JOHN',
-        height: '2',
-        weight: '0',
-        nation: 'USA',
-        win: '0',
-        loss: '0',
-        strength: '35',
-        speed: '50',
-        stamina: '70',
-        punching: '85',
-        kicking: '25',
-        wrestling: '35',
-        grappling: '30',
-        clinch: '40'
-      }
-
-      let nr5 = {
-        rank: 'NR',
-        first: 'BEN',
-        last: 'GRAY',
-        height: '2',
-        weight: '0',
-        nation: 'USA',
-        win: '0',
-        loss: '0',
-        strength: '85',
-        speed: '40',
-        stamina: '30',
-        punching: '25',
-        kicking: '25',
-        wrestling: '85',
-        grappling: '40',
-        clinch: '40'
-      }
-
-      let nr6 = {
-        rank: 'NR',
-        first: 'ABDUS',
-        last: 'QUADRI',
-        height: '3',
-        weight: '0',
-        nation: 'USA',
-        win: '0',
-        loss: '0',
-        strength: '40',
-        speed: '50',
-        stamina: '60',
-        punching: '30',
-        kicking: '30',
-        wrestling: '80',
-        grappling: '40',
-        clinch: '40'
-      }
-
-      let nr7 = {
-        rank: 'NR',
-        first: 'HAMAAD',
-        last: 'AKBAR',
-        height: '1',
-        weight: '0',
-        nation: 'PAKISTAN',
-        win: '0',
-        loss: '0',
-        strength: '45',
-        speed: '50',
-        stamina: '70',
-        punching: '35',
-        kicking: '35',
-        wrestling: '45',
-        grappling: '30',
-        clinch: '60'
-      }
-
-      let nr8 = {
-        rank: 'NR',
-        first: 'ABDUL',
-        last: 'ELSALEH',
-        height: '3',
-        weight: '0',
-        nation: 'PALESTINE',
-        win: '0',
-        loss: '0',
-        strength: '40',
-        speed: '50',
-        stamina: '60',
-        punching: '70',
-        kicking: '50',
-        wrestling: '30',
-        grappling: '30',
-        clinch: '40'
-      }
-
-      let nr9 = {
-        rank: 'NR',
-        first: 'BRENDAN',
-        last: 'FROST',
-        height: '5',
-        weight: '0',
-        nation: 'USA',
-        win: '0',
-        loss: '0',
-        strength: '35',
-        speed: '50',
-        stamina: '50',
-        punching: '45',
-        kicking: '45',
-        wrestling: '35',
-        grappling: '80',
-        clinch: '30'
-      }
-
-      let nr10 = {
-        rank: 'NR',
-        first: 'TYRONE',
-        last: 'FORD',
-        height: '5',
-        weight: '0',
-        nation: 'MEXICO',
-        win: '0',
-        loss: '0',
-        strength: '35',
-        speed: '50',
-        stamina: '50',
-        punching: '65',
-        kicking: '65',
-        wrestling: '15',
-        grappling: '30',
-        clinch: '60'
-      }
-
-      let nr11 = {
-        rank: 'NR',
-        first: 'LEVI',
-        last: 'GOLDING',
-        height: '1',
-        weight: '0',
-        nation: 'USA',
-        win: '0',
-        loss: '0',
-        strength: '75',
-        speed: '50',
-        stamina: '40',
-        punching: '15',
-        kicking: '15',
-        wrestling: '65',
-        grappling: '80',
-        clinch: '30'
-      }
-
-      let nr12 = {
-        rank: 'NR',
-        first: 'ERICK',
-        last: 'DIEGO',
-        height: '3',
-        weight: '0',
-        nation: 'MEXICO',
-        win: '0',
-        loss: '0',
-        strength: '60',
-        speed: '50',
-        stamina: '40',
-        punching: '30',
-        kicking: '30',
-        wrestling: '50',
-        grappling: '80',
-        clinch: '30'
-      }
-
-      let nr13 = {
-        rank: 'NR',
-        first: 'JOHN',
-        last: 'NGUYEN',
-        height: '3',
-        weight: '0',
-        nation: 'USA',
-        win: '0',
-        loss: '0',
-        strength: '90',
-        speed: '30',
-        stamina: '30',
-        punching: '90',
-        kicking: '30',
-        wrestling: '30',
-        grappling: '30',
-        clinch: '40'
-      }
-
-      let nr14 = {
-        rank: 'NR',
-        first: 'JAMES',
-        last: 'DAO',
-        height: '3',
-        weight: '0',
-        nation: 'USA',
-        win: '0',
-        loss: '0',
-        strength: '40',
-        speed: '50',
-        stamina: '60',
-        punching: '90',
-        kicking: '30',
-        wrestling: '30',
-        grappling: '30',
-        clinch: '40'
-      }
-
-      let nr15 = {
-        rank: 'NR',
-        first: 'ERIK',
-        last: 'DUY-NGUYEN',
-        height: '3',
-        weight: '0',
-        nation: 'USA',
-        win: '0',
-        loss: '0',
-        strength: '40',
-        speed: '50',
-        stamina: '60',
-        punching: '50',
-        kicking: '50',
-        wrestling: '30',
-        grappling: '30',
-        clinch: '60'
-      }
-
-      let nr16 = {
-        rank: 'NR',
-        first: 'MICHAEL',
-        last: 'DORSETT',
-        height: '2',
-        weight: '0',
-        nation: 'USA',
-        win: '0',
-        loss: '0',
-        strength: '45',
-        speed: '50',
-        stamina: '60',
-        punching: '25',
-        kicking: '25',
-        wrestling: '85',
-        grappling: '40',
-        clinch: '40'
-      }
-
-      let nr17 = {
-        rank: 'NR',
-        first: 'OMAR',
-        last: 'AGUILAR',
-        height: '2',
-        weight: '0',
-        nation: 'MEXICO',
-        win: '0',
-        loss: '0',
-        strength: '75',
-        speed: '50',
-        stamina: '30',
-        punching: '85',
-        kicking: '25',
-        wrestling: '35',
-        grappling: '30',
-        clinch: '40'
-      }
-
-      let nr18 = {
-        rank: 'NR',
-        first: 'ETHAN',
-        last: 'NGUYEN',
-        height: '2',
-        weight: '0',
-        nation: 'VIETNAM',
-        win: '0',
-        loss: '0',
-        strength: '20',
-        speed: '65',
-        stamina: '70',
-        punching: '65',
-        kicking: '45',
-        wrestling: '35',
-        grappling: '30',
-        clinch: '40'
-      }
-
-      let nr19 = {
-        rank: 'NR',
-        first: 'JIMMY',
-        last: 'TRAN',
-        height: '3',
-        weight: '0',
-        nation: 'USA',
-        win: '0',
-        loss: '0',
-        strength: '60',
-        speed: '50',
-        stamina: '40',
-        punching: '90',
-        kicking: '30',
-        wrestling: '30',
-        grappling: '30',
-        clinch: '40'
-      }
-
-      let nr20 = {
-        rank: 'NR',
-        first: 'AARON',
-        last: 'CHAN',
-        height: '4',
-        weight: '0',
-        nation: 'USA',
-        win: '0',
-        loss: '0',
-        strength: '45',
-        speed: '50',
-        stamina: '50',
-        punching: '55',
-        kicking: '55',
-        wrestling: '25',
-        grappling: '30',
-        clinch: '60'
-      }
-
-      let nr21 = {
-        rank: 'NR',
-        first: 'ELVIS',
-        last: 'PHAM',
-        height: '3',
-        weight: '0',
-        nation: 'USA',
-        win: '0',
-        loss: '0',
-        strength: '60',
-        speed: '50',
-        stamina: '40',
-        punching: '90',
-        kicking: '30',
-        wrestling: '30',
-        grappling: '30',
-        clinch: '40'
-      }
-
-      let nrf1 = {
-        rank: 'NR',
-        first: 'KAREN',
-        last: 'NGUYEN',
-        height: '3',
-        weight: '0',
-        nation: 'USA',
-        win: '0',
-        loss: '0',
-        strength: '40',
-        speed: '50',
-        stamina: '60',
-        punching: '50',
-        kicking: '40',
-        wrestling: '50',
-        grappling: '50',
-        clinch: '30'
-      }
-
-      let nrf2 = {
-        rank: 'NR',
-        first: 'GIOVANNA',
-        last: 'RIVAS',
-        height: '5',
-        weight: '0',
-        nation: 'MEXICO',
-        win: '0',
-        loss: '0',
-        strength: '45',
-        speed: '50',
-        stamina: '40',
-        punching: '100',
-        kicking: '50',
-        wrestling: '15',
-        grappling: '30',
-        clinch: '40'
-      }
-
-      let nrf3 = {
-        rank: 'NR',
-        first: 'JENNIFER',
-        last: 'NGUYEN',
-        height: '3',
-        weight: '0',
-        nation: 'USA',
-        win: '0',
-        loss: '0',
-        strength: '30',
-        speed: '50',
-        stamina: '70',
-        punching: '30',
-        kicking: '30',
-        wrestling: '80',
-        grappling: '40',
-        clinch: '40'
-      }
-
-      let nrf4 = {
-        rank: 'NR',
-        first: 'TIFFANY',
-        last: 'NGUYEN',
-        height: '5',
-        weight: '0',
-        nation: 'USA',
-        win: '0',
-        loss: '0',
-        strength: '35',
-        speed: '50',
-        stamina: '50',
-        punching: '65',
-        kicking: '55',
-        wrestling: '35',
-        grappling: '50',
-        clinch: '30'
-      }
-
-      let nrf5 = {
-        rank: 'NR',
-        first: 'SIERRA',
-        last: 'PHAM',
-        height: '2',
-        weight: '0',
-        nation: 'USA',
-        win: '0',
-        loss: '0',
-        strength: '55',
-        speed: '50',
-        stamina: '50',
-        punching: '45',
-        kicking: '45',
-        wrestling: '35',
-        grappling: '30',
-        clinch: '60'
-      }
-
-      let nrf6 = {
-        rank: 'NR',
-        first: 'SIYEON',
-        last: 'KIM',
-        height: '4',
-        weight: '0',
-        nation: 'USA',
-        win: '0',
-        loss: '0',
-        strength: '65',
-        speed: '50',
-        stamina: '30',
-        punching: '55',
-        kicking: '45',
-        wrestling: '45',
-        grappling: '50',
-        clinch: '30'
-      }
-
-      let nrf7 = {
-        rank: 'NR',
-        first: 'KAITLYN',
-        last: 'NGUYEN',
-        height: '4',
-        weight: '0',
-        nation: 'USA',
-        win: '0',
-        loss: '0',
-        strength: '25',
-        speed: '50',
-        stamina: '70',
-        punching: '55',
-        kicking: '55',
-        wrestling: '25',
-        grappling: '30',
-        clinch: '60'
-      }
-
-      let nrf8 = {
-        rank: 'NR',
-        first: 'CHRISTINE',
-        last: 'LUU',
-        height: '3',
-        weight: '0',
-        nation: 'USA',
-        win: '0',
-        loss: '0',
-        strength: '70',
-        speed: '50',
-        stamina: '30',
-        punching: '30',
-        kicking: '30',
-        wrestling: '80',
-        grappling: '40',
-        clinch: '40'
-      }
-
-      let nrf9 = {
-        rank: 'NR',
-        first: 'SAVANNA',
-        last: 'PHAM',
-        height: '1',
-        weight: '0',
-        nation: 'USA',
-        win: '0',
-        loss: '0',
-        strength: '55',
-        speed: '50',
-        stamina: '60',
-        punching: '75',
-        kicking: '15',
-        wrestling: '45',
-        grappling: '30',
-        clinch: '40'
-      }
+      let nr1 = sessionStorage.getItem('nr1');
+      let nr2 = sessionStorage.getItem('nr2');
+      let nr3 = sessionStorage.getItem('nr3');
+      let nr4 = sessionStorage.getItem('nr4');
+      let nr5 = sessionStorage.getItem('nr5');
+      let nr6 = sessionStorage.getItem('nr6');
+      let nr7 = sessionStorage.getItem('nr7');
+      let nr8 = sessionStorage.getItem('nr8');
+      let nr9 = sessionStorage.getItem('nr9');
+      let nr10 = sessionStorage.getItem('nr10');
+      let nr11 = sessionStorage.getItem('nr11');
+      let nr12 = sessionStorage.getItem('nr12');
+      let nr13 = sessionStorage.getItem('nr13');
+      let nr14 = sessionStorage.getItem('nr14');
+      let nr15 = sessionStorage.getItem('nr15');
+      let nr16 = sessionStorage.getItem('nr16');
+      let nr17 = sessionStorage.getItem('nr17');
+      let nr18 = sessionStorage.getItem('nr18');
+      let nr19 = sessionStorage.getItem('nr19');
+      let nr20 = sessionStorage.getItem('nr20');
+      let nr21 = sessionStorage.getItem('nr21');
+      let nrf1 = sessionStorage.getItem('nrf1');
+      let nrf2 = sessionStorage.getItem('nrf2');
+      let nrf3 = sessionStorage.getItem('nrf3');
+      let nrf4 = sessionStorage.getItem('nrf4');
+      let nrf5 = sessionStorage.getItem('nrf5');
+      let nrf6 = sessionStorage.getItem('nrf6');
+      let nrf7 = sessionStorage.getItem('nrf7');
+      let nrf8 = sessionStorage.getItem('nrf8');
+      let nrf9 = sessionStorage.getItem('nrf9');
 
       let data = sessionStorage.getItem('player');
         data = JSON.parse(data);
@@ -629,145 +90,145 @@ export function randomNR() {
         sessionStorage.setItem('abc5', ran5);
 
         if (ran1 == 101){
-          sessionStorage.setItem('ABC1', JSON.stringify(nrf1));
+          sessionStorage.setItem('ABC1', nrf1);
         }
         else if (ran1 == 102){
-          sessionStorage.setItem('ABC1', JSON.stringify(nrf2));
+          sessionStorage.setItem('ABC1', nrf2);
         }
         else if (ran1 == 103){
-          sessionStorage.setItem('ABC1', JSON.stringify(nrf3));
+          sessionStorage.setItem('ABC1', nrf3);
         }
         else if (ran1 == 104){
-          sessionStorage.setItem('ABC1', JSON.stringify(nrf4));
+          sessionStorage.setItem('ABC1', nrf4);
         }
         else if (ran1 == 105){
-          sessionStorage.setItem('ABC1', JSON.stringify(nrf5));
+          sessionStorage.setItem('ABC1', nrf5);
         }
         else if (ran1 == 106){
-          sessionStorage.setItem('ABC1', JSON.stringify(nrf6));
+          sessionStorage.setItem('ABC1', nrf6);
         }
         else if (ran1 == 107){
-          sessionStorage.setItem('ABC1', JSON.stringify(nrf7));
+          sessionStorage.setItem('ABC1', nrf7);
         }
         else if (ran1 == 108){
-          sessionStorage.setItem('ABC1', JSON.stringify(nrf8));
+          sessionStorage.setItem('ABC1', nrf8);
         }
         else if (ran1 == 109){
-          sessionStorage.setItem('ABC1', JSON.stringify(nrf9));
+          sessionStorage.setItem('ABC1', nrf9);
         }
         let gas = sessionStorage.getItem('ABC1');
         gas = JSON.parse(gas);
         console.log(gas.first)
         if (ran2 == 101){
-          sessionStorage.setItem('ABC2', JSON.stringify(nrf1));
+          sessionStorage.setItem('ABC2', nrf1);
         }
         else if (ran2 == 102){
-          sessionStorage.setItem('ABC2', JSON.stringify(nrf2));
+          sessionStorage.setItem('ABC2', nrf2);
         }
         else if (ran2 == 103){
-          sessionStorage.setItem('ABC2', JSON.stringify(nrf3));
+          sessionStorage.setItem('ABC2', nrf3);
         }
         else if (ran2 == 104){
-          sessionStorage.setItem('ABC2', JSON.stringify(nrf4));
+          sessionStorage.setItem('ABC2', nrf4);
         }
         else if (ran2 == 105){
-          sessionStorage.setItem('ABC2', JSON.stringify(nrf5));
+          sessionStorage.setItem('ABC2', nrf5);
         }
         else if (ran2 == 106){
-          sessionStorage.setItem('ABC2', JSON.stringify(nrf6));
+          sessionStorage.setItem('ABC2', nrf6);
         }
         else if (ran2 == 107){
-          sessionStorage.setItem('ABC2', JSON.stringify(nrf7));
+          sessionStorage.setItem('ABC2', nrf7);
         }
         else if (ran2 == 108){
-          sessionStorage.setItem('ABC2', JSON.stringify(nrf8));
+          sessionStorage.setItem('ABC2', nrf8);
         }
         else if (ran2 == 109){
-          sessionStorage.setItem('ABC2', JSON.stringify(nrf9));
+          sessionStorage.setItem('ABC2', nrf9);
         }
   
         if (ran3 == 101){
-          sessionStorage.setItem('ABC3', JSON.stringify(nrf1));
+          sessionStorage.setItem('ABC3', nrf1);
         }
         else if (ran3 == 102){
-          sessionStorage.setItem('ABC3', JSON.stringify(nrf2));
+          sessionStorage.setItem('ABC3', nrf2);
         }
         else if (ran3 == 103){
-          sessionStorage.setItem('ABC3', JSON.stringify(nrf3));
+          sessionStorage.setItem('ABC3', nrf3);
         }
         else if (ran3 == 104){
-          sessionStorage.setItem('ABC3', JSON.stringify(nrf4));
+          sessionStorage.setItem('ABC3', nrf4);
         }
         else if (ran3 == 105){
-          sessionStorage.setItem('ABC3', JSON.stringify(nrf5));
+          sessionStorage.setItem('ABC3', nrf5);
         }
         else if (ran3 == 106){
-          sessionStorage.setItem('ABC3', JSON.stringify(nrf6));
+          sessionStorage.setItem('ABC3', nrf6);
         }
         else if (ran3 == 107){
-          sessionStorage.setItem('ABC3', JSON.stringify(nrf7));
+          sessionStorage.setItem('ABC3', nrf7);
         }
         else if (ran3 == 108){
-          sessionStorage.setItem('ABC3', JSON.stringify(nrf8));
+          sessionStorage.setItem('ABC3', nrf8);
         }
         else if (ran3 == 109){
-          sessionStorage.setItem('ABC3', JSON.stringify(nrf9));
+          sessionStorage.setItem('ABC3', nrf9);
         }
   
         if (ran4 == 101){
-          sessionStorage.setItem('ABC4', JSON.stringify(nrf1));
+          sessionStorage.setItem('ABC4', nrf1);
         }
         else if (ran4 == 102){
-          sessionStorage.setItem('ABC4', JSON.stringify(nrf2));
+          sessionStorage.setItem('ABC4', nrf2);
         }
         else if (ran4 == 103){
-          sessionStorage.setItem('ABC4', JSON.stringify(nrf3));
+          sessionStorage.setItem('ABC4', nrf3);
         }
         else if (ran4 == 104){
-          sessionStorage.setItem('ABC4', JSON.stringify(nrf4));
+          sessionStorage.setItem('ABC4', nrf4);
         }
         else if (ran4 == 105){
-          sessionStorage.setItem('ABC4', JSON.stringify(nrf5));
+          sessionStorage.setItem('ABC4', nrf5);
         }
         else if (ran4 == 106){
-          sessionStorage.setItem('ABC4', JSON.stringify(nrf6));
+          sessionStorage.setItem('ABC4', nrf6);
         }
         else if (ran4 == 107){
-          sessionStorage.setItem('ABC4', JSON.stringify(nrf7));
+          sessionStorage.setItem('ABC4', nrf7);
         }
         else if (ran4 == 108){
-          sessionStorage.setItem('ABC4', JSON.stringify(nrf8));
+          sessionStorage.setItem('ABC4', nrf8);
         }
         else if (ran4 == 109){
-          sessionStorage.setItem('ABC4', JSON.stringify(nrf9));
+          sessionStorage.setItem('ABC4', nrf9);
         }
   
         if (ran5 == 101){
-          sessionStorage.setItem('ABC5', JSON.stringify(nrf1));
+          sessionStorage.setItem('ABC5', nrf1);
         }
         else if (ran5 == 102){
-          sessionStorage.setItem('ABC5', JSON.stringify(nrf2));
+          sessionStorage.setItem('ABC5', nrf2);
         }
         else if (ran5 == 103){
-          sessionStorage.setItem('ABC5', JSON.stringify(nrf3));
+          sessionStorage.setItem('ABC5', nrf3);
         }
         else if (ran5 == 104){
-          sessionStorage.setItem('ABC5', JSON.stringify(nrf4));
+          sessionStorage.setItem('ABC5', nrf4);
         }
         else if (ran5 == 105){
-          sessionStorage.setItem('ABC5', JSON.stringify(nrf5));
+          sessionStorage.setItem('ABC5', nrf5);
         }
         else if (ran5 == 106){
-          sessionStorage.setItem('ABC5', JSON.stringify(nrf6));
+          sessionStorage.setItem('ABC5', nrf6);
         }
         else if (ran5 == 107){
-          sessionStorage.setItem('ABC5', JSON.stringify(nrf7));
+          sessionStorage.setItem('ABC5', nrf7);
         }
         else if (ran5 == 108){
-          sessionStorage.setItem('ABC5', JSON.stringify(nrf8));
+          sessionStorage.setItem('ABC5', nrf8);
         }
         else if (ran5 == 109){
-          sessionStorage.setItem('ABC5', JSON.stringify(nrf9));
+          sessionStorage.setItem('ABC5', nrf9);
         }
       }
       else {
@@ -817,325 +278,325 @@ export function randomNR() {
         sessionStorage.setItem('abc5', ran5);
       
         if (ran1 == 1){
-          sessionStorage.setItem('ABC1', JSON.stringify(nr1));
+          sessionStorage.setItem('ABC1', nr1);
         }
         else if (ran1 == 2){
-          sessionStorage.setItem('ABC1', JSON.stringify(nr2));
+          sessionStorage.setItem('ABC1', nr2);
         }
         else if (ran1 == 3){
-          sessionStorage.setItem('ABC1', JSON.stringify(nr3));
+          sessionStorage.setItem('ABC1', nr3);
         }
         else if (ran1 == 4){
-          sessionStorage.setItem('ABC1', JSON.stringify(nr4));
+          sessionStorage.setItem('ABC1', nr4);
         }
         else if (ran1 == 5){
-          sessionStorage.setItem('ABC1', JSON.stringify(nr5));
+          sessionStorage.setItem('ABC1', nr5);
         }
         else if (ran1 == 6){
-          sessionStorage.setItem('ABC1', JSON.stringify(nr6));
+          sessionStorage.setItem('ABC1', nr6);
         }
         else if (ran1 == 7){
-          sessionStorage.setItem('ABC1', JSON.stringify(nr7));
+          sessionStorage.setItem('ABC1', nr7);
         }
         else if (ran1 == 8){
-          sessionStorage.setItem('ABC1', JSON.stringify(nr8));
+          sessionStorage.setItem('ABC1', nr8);
         }
         else if (ran1 == 9){
-          sessionStorage.setItem('ABC1', JSON.stringify(nr9));
+          sessionStorage.setItem('ABC1', nr9);
         }
         else if (ran1 == 10){
-          sessionStorage.setItem('ABC1', JSON.stringify(nr10));
+          sessionStorage.setItem('ABC1', nr10);
         }
         else if (ran1 == 11){
-          sessionStorage.setItem('ABC1', JSON.stringify(nr11));
+          sessionStorage.setItem('ABC1', nr11);
         }
         else if (ran1 == 12){
-          sessionStorage.setItem('ABC1', JSON.stringify(nr12));
+          sessionStorage.setItem('ABC1', nr12);
         }
         else if (ran1 == 13){
-          sessionStorage.setItem('ABC1', JSON.stringify(nr13));
+          sessionStorage.setItem('ABC1', nr13);
         }
         else if (ran1 == 14){
-          sessionStorage.setItem('ABC1', JSON.stringify(nr14));
+          sessionStorage.setItem('ABC1', nr14);
         }
         else if (ran1 == 15){
-          sessionStorage.setItem('ABC1', JSON.stringify(nr15));
+          sessionStorage.setItem('ABC1', nr15);
         }
         else if (ran1 == 16){
-          sessionStorage.setItem('ABC1', JSON.stringify(nr16));
+          sessionStorage.setItem('ABC1', nr16);
         }
         else if (ran1 == 17){
-          sessionStorage.setItem('ABC1', JSON.stringify(nr17));
+          sessionStorage.setItem('ABC1', nr17);
         }
         else if (ran1 == 18){
-          sessionStorage.setItem('ABC1', JSON.stringify(nr18));
+          sessionStorage.setItem('ABC1', nr18);
         }
         else if (ran1 == 19){
-          sessionStorage.setItem('ABC1', JSON.stringify(nr19));
+          sessionStorage.setItem('ABC1', nr19);
         }
         else if (ran1 == 20){
-          sessionStorage.setItem('ABC1', JSON.stringify(nr20));
+          sessionStorage.setItem('ABC1', nr20);
         }
         else if (ran1 == 21){
-          sessionStorage.setItem('ABC1', JSON.stringify(nr21));
+          sessionStorage.setItem('ABC1', nr21);
         }
         let gas = sessionStorage.getItem('ABC1');
         gas = JSON.parse(gas);
         console.log(gas.first)
         if (ran2 == 1){
-          sessionStorage.setItem('ABC2', JSON.stringify(nr1));
+          sessionStorage.setItem('ABC2', nr1);
         }
         else if (ran2 == 2){
-          sessionStorage.setItem('ABC2', JSON.stringify(nr2));
+          sessionStorage.setItem('ABC2', nr2);
         }
         else if (ran2 == 3){
-          sessionStorage.setItem('ABC2', JSON.stringify(nr3));
+          sessionStorage.setItem('ABC2', nr3);
         }
         else if (ran2 == 4){
-          sessionStorage.setItem('ABC2', JSON.stringify(nr4));
+          sessionStorage.setItem('ABC2', nr4);
         }
         else if (ran2 == 5){
-          sessionStorage.setItem('ABC2', JSON.stringify(nr5));
+          sessionStorage.setItem('ABC2', nr5);
         }
         else if (ran2 == 6){
-          sessionStorage.setItem('ABC2', JSON.stringify(nr6));
+          sessionStorage.setItem('ABC2', nr6);
         }
         else if (ran2 == 7){
-          sessionStorage.setItem('ABC2', JSON.stringify(nr7));
+          sessionStorage.setItem('ABC2', nr7);
         }
         else if (ran2 == 8){
-          sessionStorage.setItem('ABC2', JSON.stringify(nr8));
+          sessionStorage.setItem('ABC2', nr8);
         }
         else if (ran2 == 9){
-          sessionStorage.setItem('ABC2', JSON.stringify(nr9));
+          sessionStorage.setItem('ABC2', nr9);
         }
         else if (ran2 == 10){
-          sessionStorage.setItem('ABC2', JSON.stringify(nr10));
+          sessionStorage.setItem('ABC2', nr10);
         }
         else if (ran2 == 11){
-          sessionStorage.setItem('ABC2', JSON.stringify(nr11));
+          sessionStorage.setItem('ABC2', nr11);
         }
         else if (ran2 == 12){
-          sessionStorage.setItem('ABC2', JSON.stringify(nr12));
+          sessionStorage.setItem('ABC2', nr12);
         }
         else if (ran2 == 13){
-          sessionStorage.setItem('ABC2', JSON.stringify(nr13));
+          sessionStorage.setItem('ABC2', nr13);
         }
         else if (ran2 == 14){
-          sessionStorage.setItem('ABC2', JSON.stringify(nr14));
+          sessionStorage.setItem('ABC2', nr14);
         }
         else if (ran2 == 15){
-          sessionStorage.setItem('ABC2', JSON.stringify(nr15));
+          sessionStorage.setItem('ABC2', nr15);
         }
         else if (ran2 == 16){
-          sessionStorage.setItem('ABC2', JSON.stringify(nr16));
+          sessionStorage.setItem('ABC2', nr16);
         }
         else if (ran2 == 17){
-          sessionStorage.setItem('ABC2', JSON.stringify(nr17));
+          sessionStorage.setItem('ABC2', nr17);
         }
         else if (ran2 == 18){
-          sessionStorage.setItem('ABC2', JSON.stringify(nr18));
+          sessionStorage.setItem('ABC2', nr18);
         }
         else if (ran2 == 19){
-          sessionStorage.setItem('ABC2', JSON.stringify(nr19));
+          sessionStorage.setItem('ABC2', nr19);
         }
         else if (ran2 == 20){
-          sessionStorage.setItem('ABC2', JSON.stringify(nr20));
+          sessionStorage.setItem('ABC2', nr20);
         }
         else if (ran2 == 21){
-          sessionStorage.setItem('ABC2', JSON.stringify(nr21));
+          sessionStorage.setItem('ABC2', nr21);
         }
   
         if (ran3 == 1){
-          sessionStorage.setItem('ABC3', JSON.stringify(nr1));
+          sessionStorage.setItem('ABC3', nr1);
         }
         else if (ran3 == 2){
-          sessionStorage.setItem('ABC3', JSON.stringify(nr2));
+          sessionStorage.setItem('ABC3', nr2);
         }
         else if (ran3 == 3){
-          sessionStorage.setItem('ABC3', JSON.stringify(nr3));
+          sessionStorage.setItem('ABC3', nr3);
         }
         else if (ran3 == 4){
-          sessionStorage.setItem('ABC3', JSON.stringify(nr4));
+          sessionStorage.setItem('ABC3', nr4);
         }
         else if (ran3 == 5){
-          sessionStorage.setItem('ABC3', JSON.stringify(nr5));
+          sessionStorage.setItem('ABC3', nr5);
         }
         else if (ran3 == 6){
-          sessionStorage.setItem('ABC3', JSON.stringify(nr6));
+          sessionStorage.setItem('ABC3', nr6);
         }
         else if (ran3 == 7){
-          sessionStorage.setItem('ABC3', JSON.stringify(nr7));
+          sessionStorage.setItem('ABC3', nr7);
         }
         else if (ran3 == 8){
-          sessionStorage.setItem('ABC3', JSON.stringify(nr8));
+          sessionStorage.setItem('ABC3', nr8);
         }
         else if (ran3 == 9){
-          sessionStorage.setItem('ABC3', JSON.stringify(nr9));
+          sessionStorage.setItem('ABC3', nr9);
         }
         else if (ran3 == 10){
-          sessionStorage.setItem('ABC3', JSON.stringify(nr10));
+          sessionStorage.setItem('ABC3', nr10);
         }
         else if (ran3 == 11){
-          sessionStorage.setItem('ABC3', JSON.stringify(nr11));
+          sessionStorage.setItem('ABC3', nr11);
         }
         else if (ran3 == 12){
-          sessionStorage.setItem('ABC3', JSON.stringify(nr12));
+          sessionStorage.setItem('ABC3', nr12);
         }
         else if (ran3 == 13){
-          sessionStorage.setItem('ABC3', JSON.stringify(nr13));
+          sessionStorage.setItem('ABC3', nr13);
         }
         else if (ran3 == 14){
-          sessionStorage.setItem('ABC3', JSON.stringify(nr14));
+          sessionStorage.setItem('ABC3', nr14);
         }
         else if (ran3 == 15){
-          sessionStorage.setItem('ABC3', JSON.stringify(nr15));
+          sessionStorage.setItem('ABC3', nr15);
         }
         else if (ran3 == 16){
-          sessionStorage.setItem('ABC3', JSON.stringify(nr16));
+          sessionStorage.setItem('ABC3', nr16);
         }
         else if (ran3 == 17){
-          sessionStorage.setItem('ABC3', JSON.stringify(nr17));
+          sessionStorage.setItem('ABC3', nr17);
         }
         else if (ran3 == 18){
-          sessionStorage.setItem('ABC3', JSON.stringify(nr18));
+          sessionStorage.setItem('ABC3', nr18);
         }
         else if (ran3 == 19){
-          sessionStorage.setItem('ABC3', JSON.stringify(nr19));
+          sessionStorage.setItem('ABC3', nr19);
         }
         else if (ran3 == 20){
-          sessionStorage.setItem('ABC3', JSON.stringify(nr20));
+          sessionStorage.setItem('ABC3', nr20);
         }
         else if (ran3 == 21){
-          sessionStorage.setItem('ABC3', JSON.stringify(nr21));
+          sessionStorage.setItem('ABC3', nr21);
         }
   
         if (ran4 == 1){
-          sessionStorage.setItem('ABC4', JSON.stringify(nr1));
+          sessionStorage.setItem('ABC4', nr1);
         }
         else if (ran4 == 2){
-          sessionStorage.setItem('ABC4', JSON.stringify(nr2));
+          sessionStorage.setItem('ABC4', nr2);
         }
         else if (ran4 == 3){
-          sessionStorage.setItem('ABC4', JSON.stringify(nr3));
+          sessionStorage.setItem('ABC4', nr3);
         }
         else if (ran4 == 4){
-          sessionStorage.setItem('ABC4', JSON.stringify(nr4));
+          sessionStorage.setItem('ABC4', nr4);
         }
         else if (ran4 == 5){
-          sessionStorage.setItem('ABC4', JSON.stringify(nr5));
+          sessionStorage.setItem('ABC4', nr5);
         }
         else if (ran4 == 6){
-          sessionStorage.setItem('ABC4', JSON.stringify(nr6));
+          sessionStorage.setItem('ABC4', nr6);
         }
         else if (ran4 == 7){
-          sessionStorage.setItem('ABC4', JSON.stringify(nr7));
+          sessionStorage.setItem('ABC4', nr7);
         }
         else if (ran4 == 8){
-          sessionStorage.setItem('ABC4', JSON.stringify(nr8));
+          sessionStorage.setItem('ABC4', nr8);
         }
         else if (ran4 == 9){
-          sessionStorage.setItem('ABC4', JSON.stringify(nr9));
+          sessionStorage.setItem('ABC4', nr9);
         }
         else if (ran4 == 10){
-          sessionStorage.setItem('ABC4', JSON.stringify(nr10));
+          sessionStorage.setItem('ABC4', nr10);
         }
         else if (ran4 == 11){
-          sessionStorage.setItem('ABC4', JSON.stringify(nr11));
+          sessionStorage.setItem('ABC4', nr11);
         }
         else if (ran4 == 12){
-          sessionStorage.setItem('ABC4', JSON.stringify(nr12));
+          sessionStorage.setItem('ABC4', nr12);
         }
         else if (ran4 == 13){
-          sessionStorage.setItem('ABC4', JSON.stringify(nr13));
+          sessionStorage.setItem('ABC4', nr13);
         }
         else if (ran4 == 14){
-          sessionStorage.setItem('ABC4', JSON.stringify(nr14));
+          sessionStorage.setItem('ABC4', nr14);
         }
         else if (ran4 == 15){
-          sessionStorage.setItem('ABC4', JSON.stringify(nr15));
+          sessionStorage.setItem('ABC4', nr15);
         }
         else if (ran4 == 16){
-          sessionStorage.setItem('ABC4', JSON.stringify(nr16));
+          sessionStorage.setItem('ABC4', nr16);
         }
         else if (ran4 == 17){
-          sessionStorage.setItem('ABC4', JSON.stringify(nr17));
+          sessionStorage.setItem('ABC4', nr17);
         }
         else if (ran4 == 18){
-          sessionStorage.setItem('ABC4', JSON.stringify(nr18));
+          sessionStorage.setItem('ABC4', nr18);
         }
         else if (ran4 == 19){
-          sessionStorage.setItem('ABC4', JSON.stringify(nr19));
+          sessionStorage.setItem('ABC4', nr19);
         }
         else if (ran4 == 20){
-          sessionStorage.setItem('ABC4', JSON.stringify(nr20));
+          sessionStorage.setItem('ABC4', nr20);
         }
         else if (ran4 == 21){
-          sessionStorage.setItem('ABC4', JSON.stringify(nr21));
+          sessionStorage.setItem('ABC4', nr21);
         }
   
         if (ran5 == 1){
-          sessionStorage.setItem('ABC5', JSON.stringify(nr1));
+          sessionStorage.setItem('ABC5', nr1);
         }
         else if (ran5 == 2){
-          sessionStorage.setItem('ABC5', JSON.stringify(nr2));
+          sessionStorage.setItem('ABC5', nr2);
         }
         else if (ran5 == 3){
-          sessionStorage.setItem('ABC5', JSON.stringify(nr3));
+          sessionStorage.setItem('ABC5', nr3);
         }
         else if (ran5 == 4){
-          sessionStorage.setItem('ABC5', JSON.stringify(nr4));
+          sessionStorage.setItem('ABC5', nr4);
         }
         else if (ran5 == 5){
-          sessionStorage.setItem('ABC5', JSON.stringify(nr5));
+          sessionStorage.setItem('ABC5', nr5);
         }
         else if (ran5 == 6){
-          sessionStorage.setItem('ABC5', JSON.stringify(nr6));
+          sessionStorage.setItem('ABC5', nr6);
         }
         else if (ran5 == 7){
-          sessionStorage.setItem('ABC5', JSON.stringify(nr7));
+          sessionStorage.setItem('ABC5', nr7);
         }
         else if (ran5 == 8){
-          sessionStorage.setItem('ABC5', JSON.stringify(nr8));
+          sessionStorage.setItem('ABC5', nr8);
         }
         else if (ran5 == 9){
-          sessionStorage.setItem('ABC5', JSON.stringify(nr9));
+          sessionStorage.setItem('ABC5', nr9);
         }
         else if (ran5 == 10){
-          sessionStorage.setItem('ABC5', JSON.stringify(nr10));
+          sessionStorage.setItem('ABC5', nr10);
         }
         else if (ran5 == 11){
-          sessionStorage.setItem('ABC5', JSON.stringify(nr11));
+          sessionStorage.setItem('ABC5', nr11);
         }
         else if (ran5 == 12){
-          sessionStorage.setItem('ABC5', JSON.stringify(nr12));
+          sessionStorage.setItem('ABC5', nr12);
         }
         else if (ran5 == 13){
-          sessionStorage.setItem('ABC5', JSON.stringify(nr13));
+          sessionStorage.setItem('ABC5', nr13);
         }
         else if (ran5 == 14){
-          sessionStorage.setItem('ABC5', JSON.stringify(nr14));
+          sessionStorage.setItem('ABC5', nr14);
         }
         else if (ran5 == 15){
-          sessionStorage.setItem('ABC5', JSON.stringify(nr15));
+          sessionStorage.setItem('ABC5', nr15);
         }
         else if (ran5 == 16){
-          sessionStorage.setItem('ABC5', JSON.stringify(nr16));
+          sessionStorage.setItem('ABC5', nr16);
         }
         else if (ran5 == 17){
-          sessionStorage.setItem('ABC5', JSON.stringify(nr17));
+          sessionStorage.setItem('ABC5', nr17);
         }
         else if (ran5 == 18){
-          sessionStorage.setItem('ABC5', JSON.stringify(nr18));
+          sessionStorage.setItem('ABC5', nr18);
         }
         else if (ran5 == 19){
-          sessionStorage.setItem('ABC5', JSON.stringify(nr19));
+          sessionStorage.setItem('ABC5', nr19);
         }
         else if (ran5 == 20){
-          sessionStorage.setItem('ABC5', JSON.stringify(nr20));
+          sessionStorage.setItem('ABC5', nr20);
         }
         else if (ran5 == 21){
-          sessionStorage.setItem('ABC5', JSON.stringify(nr21));
+          sessionStorage.setItem('ABC5', nr21);
         }
       }
 }

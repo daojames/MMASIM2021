@@ -1271,6 +1271,32 @@ class Career extends React.Component {
         }
     }
 
+    getStatus() {
+        let fans = sessionStorage.getItem('followers');
+
+        if (fans >= 1000000) {
+            return 'SUPERSTAR';
+        }
+        else if (fans >= 500000) {
+            return 'STAR';
+        }
+        else if (fans >= 250000) {
+            return 'MAIN EVENT';
+        }
+        else if (fans >= 125000) {
+            return 'MAIN CARD';
+        }
+        else if (fans >= 50000) {
+            return 'PRELIMINARY';
+        }
+        else if (fans >= 25000) {
+            return 'EARLY PRELIM';
+        }
+        else {
+            return 'NO NAME';
+        }
+    }
+
     render() {
         let data = sessionStorage.getItem('player');
         data = JSON.parse(data);
@@ -1297,7 +1323,7 @@ class Career extends React.Component {
                         </div>
                         <div className="App-customize3" style={{marginTop: -20}}>
                             <Button2a><b>${sessionStorage.getItem('careerEarnings')}</b></Button2a>
-                            <Button2a><b>SUPERSTAR</b></Button2a>
+                            <Button2a><b>{this.getStatus()}</b></Button2a>
                         </div>
                         <div className="App-customize2" style={{marginTop: 20}}>
                             <Button1>WINS</Button1>
@@ -1336,10 +1362,10 @@ class Career extends React.Component {
                         </div>
                         <div className="App-customize3" style={{marginTop: -20}}>
                             <Button2><b>{sessionStorage.getItem('sigStrikes')}</b></Button2>
-                            <Button2><b>{this.getStrikeAcc()}%</b></Button2>
+                            <Button2><b>{this.getStrikeAcc()}</b>%</Button2>
                             <Button2><b>{sessionStorage.getItem('knockdowns')}</b></Button2>
                             <Button2><b>{sessionStorage.getItem('takedowns')}</b></Button2>
-                            <Button2><b>{this.getTakedownAcc()}%</b></Button2>
+                            <Button2><b>{this.getTakedownAcc()}</b>%</Button2>
                         </div>
                     </div>
                     <div className="App-header-style" style={{marginTop: 300}}>

@@ -1964,7 +1964,7 @@ class Fight1 extends React.Component {
                     </div>
                     <div className="App-header-style1" style={{marginTop: -410, marginRight: 0}}>
                         <Link to='./fight'><ButtonWO>OFFERS</ButtonWO></Link>
-                        <Link to='./fight1'><ButtonW>CARD</ButtonW></Link>
+                        <Link to='./card'><ButtonW>CARD</ButtonW></Link>
                         <Link to='./fight1'><ButtonW1>125</ButtonW1></Link>
                         <Link to='./fight2'><ButtonW>135</ButtonW></Link>
                         <Link to='./fight3'><ButtonW>145</ButtonW></Link>

@@ -289,6 +289,46 @@ class Customize extends React.Component {
       sessionStorage.setItem('takedownsTried', 0);
       sessionStorage.setItem('takedownsSuccess', 0);
 
+      sessionStorage.setItem('card1', null);
+      sessionStorage.setItem('card2', null);
+      sessionStorage.setItem('card3', null);
+      sessionStorage.setItem('card4', null);
+      sessionStorage.setItem('card5', null);
+      sessionStorage.setItem('card6', null);
+      sessionStorage.setItem('card7', null);
+      sessionStorage.setItem('card8', null);
+      sessionStorage.setItem('card9', null);
+      sessionStorage.setItem('card10', null);
+      sessionStorage.setItem('card11', null);
+
+      sessionStorage.setItem('card1a', null);
+      sessionStorage.setItem('card2a', null);
+      sessionStorage.setItem('card3a', null);
+      sessionStorage.setItem('card4a', null);
+      sessionStorage.setItem('card5a', null);
+      sessionStorage.setItem('card6a', null);
+      sessionStorage.setItem('card7a', null);
+      sessionStorage.setItem('card8a', null);
+      sessionStorage.setItem('card9a', null);
+      sessionStorage.setItem('card10a', null);
+      sessionStorage.setItem('card11a', null);
+
+      sessionStorage.setItem('card1w', null);
+      sessionStorage.setItem('card2w', null);
+      sessionStorage.setItem('card3w', null);
+      sessionStorage.setItem('card4w', null);
+      sessionStorage.setItem('card5w', null);
+      sessionStorage.setItem('card6w', null);
+      sessionStorage.setItem('card7w', null);
+      sessionStorage.setItem('card8w', null);
+      sessionStorage.setItem('card9w', null);
+      sessionStorage.setItem('card10w', null);
+      sessionStorage.setItem('card11w', null);
+
+      sessionStorage.setItem('oppName', null);
+      sessionStorage.setItem('ranWeight1', null);
+      sessionStorage.setItem('ranWeight2', null);
+
       let nr1 = {
         rank: 'NR',
         first: 'SANCHIT',

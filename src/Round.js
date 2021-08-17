@@ -1217,13 +1217,13 @@ class Round extends React.Component {
             return '6';
         }
         else if (sessionStorage.getItem('att3') == 'BLITZ'){
-            return '6';
+            return '8';
         }
         else if (sessionStorage.getItem('att3') == 'PRESSURE'){
             return '12';
         }
         else if (sessionStorage.getItem('att3') == 'POWER'){
-            return '18';
+            return '16';
         }
         else if (sessionStorage.getItem('att3') == 'FEINT'){
             return '1';
@@ -1470,33 +1470,42 @@ class Round extends React.Component {
         let oppReactNerf = parseInt(sessionStorage.getItem('reactNerf1'));
 
         let per = 0;
-        per = (1.5 * (playerPunching + playerBladedBuff) - 1.5 * (oppPunching + oppBladedBuff + oppHighBuff - oppLongNerf)) + (.8 * (playerSpd - oppSpd));
+        per = (1.5 * (playerPunching) - 1.5 * (oppPunching)) + (.8 * (playerSpd - oppSpd));
         if (att == 'STICK') {
             if (per >= 0){
-                return Math.round(70 + (Math.pow(per, .63)) + this.getFeinted1());
+                return Math.round(70 + (Math.pow(per, .63)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1());
             }
             else {
                 let per1 = Math.abs(per);
-                return Math.round(70 - (Math.pow(per1, .63)) + this.getFeinted1());
+                return Math.round(70 - (Math.pow(per1, .63)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1());
             }
         }
-        else if (att == 'BRAWL' || att == 'POWER' || att == 'PRESSURE'){
+        else if (att == 'BRAWL' || att == 'PRESSURE'){
             if (per >= 0){
-                return Math.round(30 + (Math.pow(per, .63)) + this.getFeinted1());
+                return Math.round(30 + (Math.pow(per, .63)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1());
             }
             else {
                 let per1 = Math.abs(per);
-                return Math.round(30 - (Math.pow(per1, .63)) + this.getFeinted1());
+                return Math.round(30 - (Math.pow(per1, .63)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1());
+            }
+        }
+        else if (att == 'POWER'){
+            if (per >= 0){
+                return Math.round(20 + (Math.pow(per, .45)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1());
+            }
+            else {
+                let per1 = Math.abs(per);
+                return Math.round(20 - (Math.pow(per1, .45)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1());
             }
         }
         else if (att == 'BLITZ'){
-            let bPer = ((playerSpd * 2) - (oppSpd + oppPunching + oppBladedBuff + oppHighBuff - oppLowNerf - oppLongNerf));
+            let bPer = ((playerSpd * 2) - (oppSpd + oppPunching));
             if (bPer >= 0){
-                return Math.round(30 + (Math.pow(bPer, .63)) + this.getFeinted1());
+                return Math.round(30 + (Math.pow(bPer, .63)) - oppBladedBuff - oppHighBuff + oppLowNerf + oppLongNerf + this.getFeinted1());
             }
             else {
                 let bPer1 = Math.abs(bPer);
-                return Math.round(30 - (Math.pow(bPer1, .63)) + this.getFeinted1());
+                return Math.round(30 - (Math.pow(bPer1, .63)) - oppBladedBuff - oppHighBuff + oppLowNerf + oppLongNerf + this.getFeinted1());
             }
         }
         else if (att == 'FEINT'){
@@ -1504,13 +1513,13 @@ class Round extends React.Component {
             return fPer;
         }
         else if (att == 'LOW KICK'){
-            let kPer = (1.5 * (playerKicking + playerThaiBuff) - 1.5 * (oppKicking + oppThaiBuff + oppLongBuff)) + (.8 * (playerSpd - oppSpd));
+            let kPer = (1.5 * (playerKicking) - 1.5 * (oppKicking)) + (.8 * (playerSpd - oppSpd));
             if (kPer >= 0) {
-                return Math.round(70 + (Math.pow(kPer, .63)) + this.getFeinted1());
+                return Math.round(70 + (Math.pow(kPer, .63)) + playerThaiBuff - oppThaiBuff - oppLongBuff + this.getFeinted1());
             }
             else {
                 let per1 = Math.abs(kPer);
-                return Math.round(70 - (Math.pow(per1, .63)) + this.getFeinted1());
+                return Math.round(70 - (Math.pow(per1, .63)) + playerThaiBuff - oppThaiBuff - oppLongBuff + this.getFeinted1());
             }
         }
         else if (att == 'TAKEDOWN'){
@@ -1641,7 +1650,7 @@ class Round extends React.Component {
             }
             sessionStorage.setItem('totalStrikes', parseInt(sessionStorage.getItem('totalStrikes')) + 2);
         }
-        else if (att == 'BRAWL' || att == 'POWER'){
+        else if (att == 'BRAWL'){
             for (let i = 0; i < 4; ++i){
                 let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
                 if (per >= 0){
@@ -1655,6 +1664,27 @@ class Round extends React.Component {
                     let per1 = Math.abs(per);
                     if (ran1 <= 30 - (Math.pow(per1, .63)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1()) {
                         console.log(30 - (Math.pow(per1, .63)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1())
+                        ++hit;
+                        sessionStorage.setItem('sigStrikes', parseInt(sessionStorage.getItem('sigStrikes')) + 1);
+                    }
+                }
+            }
+            sessionStorage.setItem('totalStrikes', parseInt(sessionStorage.getItem('totalStrikes')) + 4);
+        }
+        else if (att == 'POWER'){
+            for (let i = 0; i < 4; ++i){
+                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                if (per >= 0){
+                    if (ran1 <= 20 + (Math.pow(per, .45)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1()) {
+                        console.log(20 + (Math.pow(per, .45)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1())
+                        ++hit;
+                        sessionStorage.setItem('sigStrikes', parseInt(sessionStorage.getItem('sigStrikes')) + 1);
+                    }
+                }
+                else {
+                    let per1 = Math.abs(per);
+                    if (ran1 <= 20 - (Math.pow(per1, .45)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1()) {
+                        console.log(20 - (Math.pow(per1, .45)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1())
                         ++hit;
                         sessionStorage.setItem('sigStrikes', parseInt(sessionStorage.getItem('sigStrikes')) + 1);
                     }
@@ -1936,7 +1966,7 @@ class Round extends React.Component {
                 }
             }
         }
-        else if (att == 'BRAWL' || att == 'POWER'){
+        else if (att == 'BRAWL'){
             for (let i = 0; i < 4; ++i){
                 let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
                 if (per >= 0){
@@ -1949,6 +1979,24 @@ class Round extends React.Component {
                     let per1 = Math.abs(per);
                     if (ran1 <= 30 - (Math.pow(per1, .63)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted()) {
                         console.log(30 - (Math.pow(per1, .63)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted())
+                        ++hit;
+                    }
+                }
+            }
+        }
+        else if (att == 'POWER'){
+            for (let i = 0; i < 4; ++i){
+                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                if (per >= 0){
+                    if (ran1 <= 20 + (Math.pow(per, .45)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted()) {
+                        console.log(20 + (Math.pow(per, .45)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted())
+                        ++hit;
+                    }
+                }
+                else {
+                    let per1 = Math.abs(per);
+                    if (ran1 <= 20 - (Math.pow(per1, .45)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted()) {
+                        console.log(20 - (Math.pow(per1, .45)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted())
                         ++hit;
                     }
                 }
@@ -2166,13 +2214,17 @@ class Round extends React.Component {
         let kd = 0;
 
         if (att == 'POWER'){
+            let koChance = playerStr / 12;
+            let kdChance = (playerStr / 6) + koChance;
+            console.log('koChance: ' + koChance)
+            console.log('kdChance: ' + kdChance)
             for (let i = 0; i < hit; ++i){
                 let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
-                if (ran1 <= 5) {
+                if (ran1 <= koChance) {
                     dmg += 1000;
                     kd = 2;
                 }
-                else if (ran1 <= 15) {
+                else if (ran1 <= kdChance) {
                     dmg += 200;
                     kd = 1;
                 }
@@ -2260,13 +2312,15 @@ class Round extends React.Component {
         let kd = 0;
 
         if (att == 'POWER'){
+            let koChance = oppStr / 12;
+            let kdChance = (oppStr / 6) + koChance;
             for (let i = 0; i < hit; ++i){
                 let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
-                if (ran1 <= 5) {
+                if (ran1 <= koChance) {
                     dmg += 1000;
                     kd = 2;
                 }
-                else if (ran1 <= 15) {
+                else if (ran1 <= kdChance) {
                     dmg += 200;
                     kd = 1;
                 }

@@ -1036,160 +1036,110 @@ class Contract2 extends React.Component {
     }
 
     getOppNum() {
-        let num = sessionStorage.getItem('oppNum');
+        let rank = sessionStorage.getItem('rank');
         let money = 0;
 
-        if (num == 1){
-            let data = sessionStorage.getItem('nr1');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 2){
-            let data = sessionStorage.getItem('nr2');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 3){
-            let data = sessionStorage.getItem('nr3');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 4){
-            let data = sessionStorage.getItem('nr4');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 5){
-            let data = sessionStorage.getItem('nr5');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 6){
-            let data = sessionStorage.getItem('nr6');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 7){
-            let data = sessionStorage.getItem('nr7');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 8){
-            let data = sessionStorage.getItem('nr8');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 9){
-            let data = sessionStorage.getItem('nr9');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 10){
-            let data = sessionStorage.getItem('nr10');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 11){
-            let data = sessionStorage.getItem('nr11');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 12){
-            let data = sessionStorage.getItem('nr12');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 13){
-            let data = sessionStorage.getItem('nr13');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 14){
-            let data = sessionStorage.getItem('nr14');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 15){
-            let data = sessionStorage.getItem('nr15');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 16){
-            let data = sessionStorage.getItem('nr16');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 17){
-            let data = sessionStorage.getItem('nr17');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 18){
-            let data = sessionStorage.getItem('nr18');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 19){
-            let data = sessionStorage.getItem('nr19');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 20){
-            let data = sessionStorage.getItem('nr20');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 21){
-            let data = sessionStorage.getItem('nr21');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 101) {
-            let data = sessionStorage.getItem('nrf1');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 102) {
-            let data = sessionStorage.getItem('nrf2');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 103) {
-            let data = sessionStorage.getItem('nrf3');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 104) {
-            let data = sessionStorage.getItem('nrf4');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 105) {
-            let data = sessionStorage.getItem('nrf5');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 106) {
-            let data = sessionStorage.getItem('nrf6');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 107) {
-            let data = sessionStorage.getItem('nrf7');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 108) {
-            let data = sessionStorage.getItem('nrf8');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
-        else if (num == 109) {
-            let data = sessionStorage.getItem('nrf9');
-            data = JSON.parse(data);
-            money = (parseInt(sessionStorage.getItem('followers')) * 2) + (2000 * parseInt(data.win));
-        }
+        if (rank == 'NR') {
+            let num = parseInt(sessionStorage.getItem('oppNum'));
+            let no = null;
 
+            switch(num) {
+                case 1:
+                    no = 'nr1';
+                break;
+                case 2:
+                    no = 'nr2';
+                break;
+                case 3:
+                    no = 'nr3';
+                break;
+                case 4:
+                    no = 'nr4';
+                break;
+                case 5:
+                    no = 'nr5';
+                break;
+                case 6:
+                    no = 'nr6';
+                break;
+                case 7:
+                    no = 'nr7';
+                break;
+                case 8:
+                    no = 'nr8';
+                break;
+                case 9:
+                    no = 'nr9';
+                break;
+                case 10:
+                    no = 'nr10';
+                break;
+                case 11:
+                    no = 'nr11';
+                break;
+                case 12:
+                    no = 'nr12';
+                break;
+                case 13:
+                    no = 'nr13';
+                break;
+                case 14:
+                    no = 'nr14';
+                break;
+                case 15:
+                    no = 'nr15';
+                break;
+                case 16:
+                    no = 'nr16';
+                break;
+                case 17:
+                    no = 'nr17';
+                break;
+                case 18:
+                    no = 'nr18';
+                break;
+                case 19:
+                    no = 'nr19';
+                break;
+                case 20:
+                    no = 'nr20';
+                break;
+                case 21:
+                    no = 'nr21';
+                break;
+                case 101:
+                    no = 'nrf1';
+                break;
+                case 102:
+                    no = 'nrf2';
+                break;
+                case 103:
+                    no = 'nrf3';
+                break;
+                case 104:
+                    no = 'nrf4';
+                break;
+                case 105:
+                    no = 'nrf5';
+                break;
+                case 106:
+                    no = 'nrf6';
+                break;
+                case 107:
+                    no = 'nrf7';
+                break;
+                case 108:
+                    no = 'nrf8';
+                break;
+                case 109:
+                    no = 'nrf9';
+                break;
+            }
+            let data = sessionStorage.getItem(no);
+            data = JSON.parse(data);
+            money = (parseInt(sessionStorage.getItem('followers')) * 1) + (2000 * parseInt(data.win));
+        }
+        
         return money;
     }
 

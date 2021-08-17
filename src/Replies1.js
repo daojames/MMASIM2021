@@ -291,6 +291,17 @@ class Replies1 extends React.Component {
         }
     }
 
+    rDat(twt) {
+        if (twt.rmsg == 'NO REPLIES'){
+            return '';
+        }
+        else {
+            let ws2 = "\xa0\xa0";
+            let str = twt.month + ' ' + twt.year + ws2 + '•' + ws2;
+            return str;
+        }
+    }
+
     render() {
         let strength = sessionStorage.getItem('str');
         let speed = sessionStorage.getItem('spd');
@@ -309,6 +320,7 @@ class Replies1 extends React.Component {
         let whitespace = "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0";
         let ws = "\xa0\xa0\xa0\xa0";
         let ws1 = "\xa0";
+        let ws2 = "\xa0\xa0";
         let twt1 = sessionStorage.getItem('twt1');
         twt1 = JSON.parse(twt1);
         return(
@@ -320,10 +332,10 @@ class Replies1 extends React.Component {
                         <img src={twitterLogo} alt='logo' className="App-logo2" style={{ marginTop: -70 }} />
                     </div>
                     <div className="App-customize4" style={{marginTop: 160}}>
-                        <Button7R><text class="alignleft">{ws}<b>{first} {last}</b> @{this.uncapitalize(first)}{this.uncapitalize(last)}mma<text class="alignright">{twt1.month} {twt1.year}{ws}{ws}</text><br/>{ws}{twt1.msg}<br/>{ws}<text style={{fontSize: 20}}><b>{twt1.replies} REPLIES</b></text></text></Button7R>
+                        <Button7R><text class="alignleft">{ws}<b>{first} {last}</b> @{this.uncapitalize(first)}{this.uncapitalize(last)}mma<br/>{ws}{twt1.msg}<br/>{ws}<text style={{fontSize: 20}}><b>{twt1.month} {twt1.year}{ws2}•{ws2}{twt1.replies} REPLIES</b></text></text></Button7R>
                     </div>
                     <div className="App-customize4" style={{marginTop: -550}}>
-                        <Button7><text class="alignleft">{ws}<b>{twt1.rfirst} {twt1.rlast}</b> {this.rTag(twt1)}<text class="alignright">{twt1.rmonth} {twt1.ryear}{ws}{ws}</text><br/>{ws}{twt1.rmsg}<br/>{ws}<text style={{fontSize: 20}}><b>{this.rRep(twt1)}</b></text></text></Button7>
+                        <Button7><text class="alignleft">{ws}<b>{twt1.rfirst} {twt1.rlast}</b> {this.rTag(twt1)}<br/>{ws}{twt1.rmsg}<br/>{ws}<text style={{fontSize: 20}}><b>{this.rDat(twt1)}{this.rRep(twt1)}</b></text></text></Button7>
                     </div>
                     <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: -173, fontSize: 30 }}>
                         <Button3>${sessionStorage.getItem('balance')}</Button3>
