@@ -4,7 +4,7 @@ export function fightMatcher() {
     let ranArr1 = [num];
 
 
-    for (let j = 0; j < 12; ++j) {
+    for (let j = 0; j < 10; ++j) {
         while(true) {
             let match = false;
             let ran = Math.floor(Math.random() * (21 - 1 + 1) + 1);
@@ -44,8 +44,8 @@ export function fightMatcher() {
 
     for (let i = 1; i < 10; ++i) {
         ++i;
-        let fighter1 = JSON.parse(getFighter(ranArr[i - 1]));
-        let fighter2 = JSON.parse(getFighter(ranArr[i]));
+        let fighter1 = getFighter(ranArr[i - 1]);
+        let fighter2 = getFighter(ranArr[i]);
         let name1 = fighter1.first + ' ' + fighter1.last;
         let name2 = fighter2.first + ' ' + fighter2.last;
         
@@ -73,14 +73,14 @@ export function fightMatcher() {
                 stg = 'card9a';
             break;
         }
-        sessionStorage.setItem(str, name1);
-        sessionStorage.setItem(stg, name2);
+        sessionStorage.setItem(str, fighter1);
+        sessionStorage.setItem(stg, fighter2);
     }
 
     for (let i = 1; i < 4; i + 2) {
         ++i;
-        let fighter1 = JSON.parse(getFighter(ranArr1[i - 1]));
-        let fighter2 = JSON.parse(getFighter(ranArr1[i]));
+        let fighter1 = getFighter(ranArr1[i - 1]);
+        let fighter2 = getFighter(ranArr1[i]);
         let name1 = fighter1.first + ' ' + fighter1.last;
         let name2 = fighter2.first + ' ' + fighter2.last;
         
@@ -96,8 +96,8 @@ export function fightMatcher() {
                 stg = 'card11a';
             break;
         }
-        sessionStorage.setItem(str, name1);
-        sessionStorage.setItem(stg, name2);
+        sessionStorage.setItem(str, fighter1);
+        sessionStorage.setItem(stg, fighter2);
     }
 
     for (let i = 1; i < 5; ++i) {

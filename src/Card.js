@@ -1783,20 +1783,20 @@ class Card extends React.Component {
         let ko = '\xa0\xa0';
         let w2 = '\xa0\xa0\xa0';
 
-        let card5 = sessionStorage.getItem('card5');
-        let card5a = sessionStorage.getItem('card5a');
-        let card6 = sessionStorage.getItem('card6');
-        let card6a = sessionStorage.getItem('card6a');
-        let card7 = sessionStorage.getItem('card7');
-        let card7a = sessionStorage.getItem('card7a');
-        let card8 = sessionStorage.getItem('card8');
-        let card8a = sessionStorage.getItem('card8a');
-        let card9 = sessionStorage.getItem('card9');
-        let card9a = sessionStorage.getItem('card9a');
-        let card10 = sessionStorage.getItem('card10');
-        let card10a = sessionStorage.getItem('card10a');
-        let card11 = sessionStorage.getItem('card11');
-        let card11a = sessionStorage.getItem('card11a');
+        let card5 = JSON.parse(sessionStorage.getItem('card5'));
+        let card5a = JSON.parse(sessionStorage.getItem('card5a'));
+        let card6 = JSON.parse(sessionStorage.getItem('card6'));
+        let card6a = JSON.parse(sessionStorage.getItem('card6a'));
+        let card7 = JSON.parse(sessionStorage.getItem('card7'));
+        let card7a = JSON.parse(sessionStorage.getItem('card7a'));
+        let card8 = JSON.parse(sessionStorage.getItem('card8'));
+        let card8a = JSON.parse(sessionStorage.getItem('card8a'));
+        let card9 = JSON.parse(sessionStorage.getItem('card9'));
+        let card9a = JSON.parse(sessionStorage.getItem('card9a'));
+        let card10 = JSON.parse(sessionStorage.getItem('card10'));
+        let card10a = JSON.parse(sessionStorage.getItem('card10a'));
+        let card11 = JSON.parse(sessionStorage.getItem('card11'));
+        let card11a = JSON.parse(sessionStorage.getItem('card11a'));
         let oppName = sessionStorage.getItem('oppName');
         return(
             <div className="App">
@@ -1817,25 +1817,25 @@ class Card extends React.Component {
                             <div><Button9a>{w}<b>{this.getWeight()}</b></Button9a><Button9b><b>NR. {data.first} {data.last}</b></Button9b><Button9c><b>DEF.</b></Button9c><Button9d><b>NR. {oppName}</b></Button9d><Button9e><b>TKO • R5</b>{w}</Button9e></div>
                         </div>
                         <div className="Record1">
-                            <div><Button9a>{w}<b>{this.getWeight()}</b></Button9a><Button9b><b>NR. {card5}</b></Button9b><Button9c><b>DEF.</b></Button9c><Button9d><b>NR. {card5a}</b></Button9d><Button9e><b>TKO • R5</b>{w}</Button9e></div>
+                            <div><Button9a>{w}<b>{this.getWeight()}</b></Button9a><Button9b><b>NR. {card5.first} {card5.last}</b></Button9b><Button9c><b>DEF.</b></Button9c><Button9d><b>NR. {card5a.first} {card5a.last}</b></Button9d><Button9e><b>TKO • R5</b>{w}</Button9e></div>
                         </div>
                         <div className="Record1">
-                            <div><Button9a>{w}<b>{this.getWeight()}</b></Button9a><Button9b><b>NR. {card6}</b></Button9b><Button9c><b>DEF.</b></Button9c><Button9d><b>NR. {card6a}</b></Button9d><Button9e><b>TKO • R5</b>{w}</Button9e></div>
+                            <div><Button9a>{w}<b>{this.getWeight()}</b></Button9a><Button9b><b>NR. {card6.first} {card6.last}</b></Button9b><Button9c><b>DEF.</b></Button9c><Button9d><b>NR. {card6a.first} {card6a.last}</b></Button9d><Button9e><b>TKO • R5</b>{w}</Button9e></div>
                         </div>
                         <div className="Record1">
-                            <div><Button9a>{w}<b>{this.getWeight()}</b></Button9a><Button9b><b>NR. {card7}</b></Button9b><Button9c><b>DEF.</b></Button9c><Button9d><b>NR. {card7a}</b></Button9d><Button9e><b>TKO • R5</b>{w}</Button9e></div>
+                            <div><Button9a>{w}<b>{this.getWeight()}</b></Button9a><Button9b><b>NR. {card7.first} {card7.last}</b></Button9b><Button9c><b>DEF.</b></Button9c><Button9d><b>NR. {card7a.first} {card7a.last}</b></Button9d><Button9e><b>TKO • R5</b>{w}</Button9e></div>
                         </div>
                         <div className="Record1">
-                            <div><Button9a>{w}<b>{this.getWeight()}</b></Button9a><Button9b><b>NR. {card8}</b></Button9b><Button9c><b>DEF.</b></Button9c><Button9d><b>NR. {card8a}</b></Button9d><Button9e><b>TKO • R5</b>{w}</Button9e></div>
+                            <div><Button9a>{w}<b>{this.getWeight()}</b></Button9a><Button9b><b>NR. {card8.first} {card8.last}</b></Button9b><Button9c><b>DEF.</b></Button9c><Button9d><b>NR. {card8a.first} {card8a.last}</b></Button9d><Button9e><b>TKO • R5</b>{w}</Button9e></div>
                         </div>
                         <div className="Record1">
-                            <div><Button9a>{w}<b>{this.getWeight()}</b></Button9a><Button9b><b>NR. {card9}</b></Button9b><Button9c><b>DEF.</b></Button9c><Button9d><b>NR. {card9a}</b></Button9d><Button9e><b>TKO • R5</b>{w}</Button9e></div>
+                            <div><Button9a>{w}<b>{this.getWeight()}</b></Button9a><Button9b><b>NR. {card9.first} {card9.last}</b></Button9b><Button9c><b>DEF.</b></Button9c><Button9d><b>NR. {card9a.first} {card9a.last}</b></Button9d><Button9e><b>TKO • R5</b>{w}</Button9e></div>
                         </div>
                         <div className="Record1">
-                            <div><Button9a>{w}<b>W. {sessionStorage.getItem('ranWeight1')}</b></Button9a><Button9b><b>NR. {card10}</b></Button9b><Button9c><b>DEF.</b></Button9c><Button9d><b>NR. {card10a}</b></Button9d><Button9e><b>TKO • R5</b>{w}</Button9e></div>
+                            <div><Button9a>{w}<b>W. {sessionStorage.getItem('ranWeight1')}</b></Button9a><Button9b><b>NR. {card10.first} {card10.last}</b></Button9b><Button9c><b>DEF.</b></Button9c><Button9d><b>NR. {card10a.first} {card10a.last}</b></Button9d><Button9e><b>TKO • R5</b>{w}</Button9e></div>
                         </div>
                         <div className="Record1" style={{marginBottom: 1}}>
-                            <div><Button9a>{w}<b>W. {sessionStorage.getItem('ranWeight2')}</b></Button9a><Button9b><b>NR. {card11}</b></Button9b><Button9c><b>DEF.</b></Button9c><Button9d><b>NR. {card11a}</b></Button9d><Button9e><b>TKO • R5</b>{w}</Button9e></div>
+                            <div><Button9a>{w}<b>W. {sessionStorage.getItem('ranWeight2')}</b></Button9a><Button9b><b>NR. {card11.first} {card11.last}</b></Button9b><Button9c><b>DEF.</b></Button9c><Button9d><b>NR. {card11a.first} {card11a.last}</b></Button9d><Button9e><b>TKO • R5</b>{w}</Button9e></div>
                         </div>
                     </div><br/>
                     <div className="App-header-style1" style={{marginTop: -45, marginRight: 0}}>

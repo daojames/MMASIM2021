@@ -511,21 +511,21 @@ class Customize extends React.Component {
 
       let nr10 = {
         rank: 'NR',
-        first: 'TYRONE',
-        last: 'FORD',
-        height: '5',
+        first: 'KUSH',
+        last: 'JAIN',
+        height: '3',
         weight: '0',
-        nation: 'MEXICO',
+        nation: 'INDIA',
         win: '0',
         loss: '0',
-        strength: '35',
-        speed: '50',
-        stamina: '50',
-        punching: '65',
-        kicking: '65',
-        wrestling: '15',
+        strength: '25',
+        speed: '60',
+        stamina: '60',
+        punching: '95',
+        kicking: '35',
+        wrestling: '25',
         grappling: '30',
-        clinch: '60'
+        clinch: '40'
       }
       sessionStorage.setItem('nr10', JSON.stringify(nr10));
 
