@@ -20,6 +20,9 @@ export function randomNR() {
       let nr19 = sessionStorage.getItem('nr19');
       let nr20 = sessionStorage.getItem('nr20');
       let nr21 = sessionStorage.getItem('nr21');
+      let nr22 = sessionStorage.getItem('nr22');
+      let nr23 = sessionStorage.getItem('nr23');
+      let nr24 = sessionStorage.getItem('nr24');
       let nrf1 = sessionStorage.getItem('nrf1');
       let nrf2 = sessionStorage.getItem('nrf2');
       let nrf3 = sessionStorage.getItem('nrf3');
@@ -29,6 +32,9 @@ export function randomNR() {
       let nrf7 = sessionStorage.getItem('nrf7');
       let nrf8 = sessionStorage.getItem('nrf8');
       let nrf9 = sessionStorage.getItem('nrf9');
+      let nrf10 = sessionStorage.getItem('nrf10');
+      let nrf11 = sessionStorage.getItem('nrf11');
+      let nrf12 = sessionStorage.getItem('nrf12');
 
       let data = sessionStorage.getItem('player');
         data = JSON.parse(data);
@@ -44,48 +50,48 @@ export function randomNR() {
       let num = sessionStorage.getItem('oppNum');
 
       if (wc == 9 || wc == 10 || wc == 11) {
-        let ran1 = Math.floor(Math.random() * (110 - 101) + 101);
+        let ran1 = Math.floor(Math.random() * (113 - 101) + 101);
         while(true) {
           if (ran1 != xyz1 && ran1 != xyz2 && ran1 != num) {
             break;
           }
-          ran1 = Math.floor(Math.random() * (110 - 101) + 101);
+          ran1 = Math.floor(Math.random() * (113 - 101) + 101);
         }
         sessionStorage.setItem('abc1', ran1);
 
-        let ran2 = Math.floor(Math.random() * (110 - 101) + 101);
+        let ran2 = Math.floor(Math.random() * (113 - 101) + 101);
         while(true) {
           if (ran2 != ran1 && ran2 != xyz1 && ran2 != xyz2 && ran2 != num) {
             break;
           }
-          ran2 = Math.floor(Math.random() * (110 - 101) + 101);
+          ran2 = Math.floor(Math.random() * (113 - 101) + 101);
         }
         sessionStorage.setItem('abc2', ran2);
 
-        let ran3 = Math.floor(Math.random() * (110 - 101) + 101);
+        let ran3 = Math.floor(Math.random() * (113 - 101) + 101);
         while(true) {
           if (ran3 != ran1 && ran3 != ran2 && ran3 != xyz1 && ran3 != xyz2 && ran3 != num) {
             break;
           }
-          ran3 = Math.floor(Math.random() * (110 - 101) + 101);
+          ran3 = Math.floor(Math.random() * (113 - 101) + 101);
         }
         sessionStorage.setItem('abc3', ran3);
 
-        let ran4 = Math.floor(Math.random() * (110 - 101) + 101);
+        let ran4 = Math.floor(Math.random() * (113 - 101) + 101);
         while(true) {
           if (ran4 != ran1 && ran4 != ran2 && ran4 != ran3 && ran4 != xyz1 && ran4 != xyz2 && ran4 != num) {
             break;
           }
-          ran4 = Math.floor(Math.random() * (110 - 101) + 101);
+          ran4 = Math.floor(Math.random() * (113 - 101) + 101);
         }
         sessionStorage.setItem('abc4', ran4);
 
-        let ran5 = Math.floor(Math.random() * (110 - 101) + 101);
+        let ran5 = Math.floor(Math.random() * (113 - 101) + 101);
         while(true) {
           if (ran5 != ran1 && ran5 != ran2 && ran5 != ran3 && ran5 != ran4 && ran5 != xyz1 && ran5 != xyz2 && ran5 != num) {
             break;
           }
-          ran5 = Math.floor(Math.random() * (110 - 101) + 101);
+          ran5 = Math.floor(Math.random() * (113 - 101) + 101);
         }
         sessionStorage.setItem('abc5', ran5);
 
@@ -115,6 +121,15 @@ export function randomNR() {
         }
         else if (ran1 == 109){
           sessionStorage.setItem('ABC1', nrf9);
+        }
+        else if (ran1 == 110){
+          sessionStorage.setItem('ABC1', nrf10);
+        }
+        else if (ran1 == 111){
+          sessionStorage.setItem('ABC1', nrf11);
+        }
+        else if (ran1 == 112){
+          sessionStorage.setItem('ABC1', nrf12);
         }
         let gas = sessionStorage.getItem('ABC1');
         gas = JSON.parse(gas);
@@ -146,6 +161,15 @@ export function randomNR() {
         else if (ran2 == 109){
           sessionStorage.setItem('ABC2', nrf9);
         }
+        else if (ran1 == 110){
+          sessionStorage.setItem('ABC2', nrf10);
+        }
+        else if (ran1 == 111){
+          sessionStorage.setItem('ABC2', nrf11);
+        }
+        else if (ran1 == 112){
+          sessionStorage.setItem('ABC2', nrf12);
+        }
   
         if (ran3 == 101){
           sessionStorage.setItem('ABC3', nrf1);
@@ -173,6 +197,15 @@ export function randomNR() {
         }
         else if (ran3 == 109){
           sessionStorage.setItem('ABC3', nrf9);
+        }
+        else if (ran1 == 110){
+          sessionStorage.setItem('ABC3', nrf10);
+        }
+        else if (ran1 == 111){
+          sessionStorage.setItem('ABC3', nrf11);
+        }
+        else if (ran1 == 112){
+          sessionStorage.setItem('ABC3', nrf12);
         }
   
         if (ran4 == 101){
@@ -202,6 +235,15 @@ export function randomNR() {
         else if (ran4 == 109){
           sessionStorage.setItem('ABC4', nrf9);
         }
+        else if (ran1 == 110){
+          sessionStorage.setItem('ABC4', nrf10);
+        }
+        else if (ran1 == 111){
+          sessionStorage.setItem('ABC4', nrf11);
+        }
+        else if (ran1 == 112){
+          sessionStorage.setItem('ABC4', nrf12);
+        }
   
         if (ran5 == 101){
           sessionStorage.setItem('ABC5', nrf1);
@@ -230,50 +272,59 @@ export function randomNR() {
         else if (ran5 == 109){
           sessionStorage.setItem('ABC5', nrf9);
         }
+        else if (ran1 == 110){
+          sessionStorage.setItem('ABC5', nrf10);
+        }
+        else if (ran1 == 111){
+          sessionStorage.setItem('ABC5', nrf11);
+        }
+        else if (ran1 == 112){
+          sessionStorage.setItem('ABC5', nrf12);
+        }
       }
       else {
-        let ran1 = Math.floor(Math.random() * (22 - 1) + 1);
+        let ran1 = Math.floor(Math.random() * (25 - 1) + 1);
         while(true) {
           if (ran1 != xyz1 && ran1 != xyz2 && ran1 != xyz3 && ran1 != xyz4 && ran1 != xyz5) {
             break;
           }
-          ran1 = Math.floor(Math.random() * (22 - 1) + 1);
+          ran1 = Math.floor(Math.random() * (25 - 1) + 1);
         }
         sessionStorage.setItem('abc1', ran1);
 
-        let ran2 = Math.floor(Math.random() * (22 - 1) + 1);
+        let ran2 = Math.floor(Math.random() * (25 - 1) + 1);
         while(true) {
           if (ran2 != ran1 && ran2 != xyz1 && ran2 != xyz2 && ran2 != xyz3 && ran2 != xyz4 && ran2 != xyz5) {
             break;
           }
-          ran2 = Math.floor(Math.random() * (22 - 1) + 1);
+          ran2 = Math.floor(Math.random() * (25 - 1) + 1);
         }
         sessionStorage.setItem('abc2', ran2);
 
-        let ran3 = Math.floor(Math.random() * (22 - 1) + 1);
+        let ran3 = Math.floor(Math.random() * (25 - 1) + 1);
         while(true) {
           if (ran3 != ran1 && ran3 != ran2 && ran3 != xyz1 && ran3 != xyz2 && ran3 != xyz3 && ran3 != xyz4 && ran3 != xyz5) {
             break;
           }
-          ran3 = Math.floor(Math.random() * (22 - 1) + 1);
+          ran3 = Math.floor(Math.random() * (25 - 1) + 1);
         }
         sessionStorage.setItem('abc3', ran3);
 
-        let ran4 = Math.floor(Math.random() * (22 - 1) + 1);
+        let ran4 = Math.floor(Math.random() * (25 - 1) + 1);
         while(true) {
           if (ran4 != ran1 && ran4 != ran2 && ran4 != ran3 && ran4 != xyz1 && ran4 != xyz2 && ran4 != xyz3 && ran4 != xyz4 && ran4 != xyz5) {
             break;
           }
-          ran4 = Math.floor(Math.random() * (22 - 1) + 1);
+          ran4 = Math.floor(Math.random() * (25 - 1) + 1);
         }
         sessionStorage.setItem('abc4', ran4);
 
-        let ran5 = Math.floor(Math.random() * (22 - 1) + 1);
+        let ran5 = Math.floor(Math.random() * (25 - 1) + 1);
         while(true) {
           if (ran5 != ran1 && ran5 != ran2 && ran5 != ran3 && ran5 != ran4 && ran5 != xyz1 && ran5 != xyz2 && ran5 != xyz3 && ran5 != xyz4 && ran5 != xyz5) {
             break;
           }
-          ran5 = Math.floor(Math.random() * (22 - 1) + 1);
+          ran5 = Math.floor(Math.random() * (25 - 1) + 1);
         }
         sessionStorage.setItem('abc5', ran5);
       
@@ -339,6 +390,15 @@ export function randomNR() {
         }
         else if (ran1 == 21){
           sessionStorage.setItem('ABC1', nr21);
+        }
+        else if (ran1 == 22){
+          sessionStorage.setItem('ABC1', nr22);
+        }
+        else if (ran1 == 23){
+          sessionStorage.setItem('ABC1', nr23);
+        }
+        else if (ran1 == 24){
+          sessionStorage.setItem('ABC1', nr24);
         }
         let gas = sessionStorage.getItem('ABC1');
         gas = JSON.parse(gas);
@@ -406,6 +466,15 @@ export function randomNR() {
         else if (ran2 == 21){
           sessionStorage.setItem('ABC2', nr21);
         }
+        else if (ran1 == 22){
+          sessionStorage.setItem('ABC2', nr22);
+        }
+        else if (ran1 == 23){
+          sessionStorage.setItem('ABC2', nr23);
+        }
+        else if (ran1 == 24){
+          sessionStorage.setItem('ABC2', nr24);
+        }
   
         if (ran3 == 1){
           sessionStorage.setItem('ABC3', nr1);
@@ -469,6 +538,15 @@ export function randomNR() {
         }
         else if (ran3 == 21){
           sessionStorage.setItem('ABC3', nr21);
+        }
+        else if (ran1 == 22){
+          sessionStorage.setItem('ABC3', nr22);
+        }
+        else if (ran1 == 23){
+          sessionStorage.setItem('ABC3', nr23);
+        }
+        else if (ran1 == 24){
+          sessionStorage.setItem('ABC3', nr24);
         }
   
         if (ran4 == 1){
@@ -534,6 +612,15 @@ export function randomNR() {
         else if (ran4 == 21){
           sessionStorage.setItem('ABC4', nr21);
         }
+        else if (ran1 == 22){
+          sessionStorage.setItem('ABC4', nr22);
+        }
+        else if (ran1 == 23){
+          sessionStorage.setItem('ABC4', nr23);
+        }
+        else if (ran1 == 24){
+          sessionStorage.setItem('ABC4', nr24);
+        }
   
         if (ran5 == 1){
           sessionStorage.setItem('ABC5', nr1);
@@ -597,6 +684,15 @@ export function randomNR() {
         }
         else if (ran5 == 21){
           sessionStorage.setItem('ABC5', nr21);
+        }
+        else if (ran1 == 22){
+          sessionStorage.setItem('ABC5', nr22);
+        }
+        else if (ran1 == 23){
+          sessionStorage.setItem('ABC5', nr23);
+        }
+        else if (ran1 == 24){
+          sessionStorage.setItem('ABC5', nr24);
         }
       }
 }

@@ -158,6 +158,7 @@ class Customize extends React.Component {
       sessionStorage.setItem('rank', 'NR');
       sessionStorage.setItem('ppv', 1);
       sessionStorage.setItem('gym', 'NONE');
+      sessionStorage.setItem('org', 0);
       sessionStorage.setItem('pnchBuff', 0);
       sessionStorage.setItem('kickBuff', 0);
       sessionStorage.setItem('wrstBuff', 0);
@@ -415,7 +416,7 @@ class Customize extends React.Component {
         last: 'GRAY',
         height: '2',
         weight: '0',
-        nation: 'USA',
+        nation: 'TAIWAN',
         win: '0',
         loss: '0',
         strength: '85',
@@ -435,7 +436,7 @@ class Customize extends React.Component {
         last: 'QUADRI',
         height: '3',
         weight: '0',
-        nation: 'USA',
+        nation: 'RHODESIA',
         win: '0',
         loss: '0',
         strength: '40',
@@ -715,7 +716,7 @@ class Customize extends React.Component {
         last: 'CHAN',
         height: '4',
         weight: '0',
-        nation: 'USA',
+        nation: 'CHINA',
         win: '0',
         loss: '0',
         strength: '45',
@@ -748,6 +749,66 @@ class Customize extends React.Component {
         clinch: '40'
       }
       sessionStorage.setItem('nr21', JSON.stringify(nr21));
+
+      let nr22 = {
+        rank: 'NR',
+        first: 'TYRONE',
+        last: 'FORD',
+        height: '5',
+        weight: '0',
+        nation: 'NIGERIA',
+        win: '0',
+        loss: '0',
+        strength: '35',
+        speed: '50',
+        stamina: '50',
+        punching: '65',
+        kicking: '65',
+        wrestling: '15',
+        grappling: '30',
+        clinch: '60'
+      }
+      sessionStorage.setItem('nr22', JSON.stringify(nr22));
+
+      let nr23 = {
+        rank: 'NR',
+        first: 'ALEX',
+        last: 'DUONG',
+        height: '3',
+        weight: '0',
+        nation: 'USA',
+        win: '0',
+        loss: '0',
+        strength: '70',
+        speed: '50',
+        stamina: '30',
+        punching: '50',
+        kicking: '40',
+        wrestling: '50',
+        grappling: '50',
+        clinch: '30'
+      }
+      sessionStorage.setItem('nr23', JSON.stringify(nr23));
+
+      let nr24 = {
+        rank: 'NR',
+        first: 'KUSHAGRA',
+        last: 'DABRAL',
+        height: '5',
+        weight: '0',
+        nation: 'INDIA',
+        win: '0',
+        loss: '0',
+        strength: '35',
+        speed: '50',
+        stamina: '50',
+        punching: '65',
+        kicking: '55',
+        wrestling: '35',
+        grappling: '50',
+        clinch: '30'
+      }
+      sessionStorage.setItem('nr24', JSON.stringify(nr24));
 
       let nrf1 = {
         rank: 'NR',
@@ -835,7 +896,7 @@ class Customize extends React.Component {
         last: 'PHAM',
         height: '2',
         weight: '0',
-        nation: 'USA',
+        nation: 'VIETNAM',
         win: '0',
         loss: '0',
         strength: '55',
@@ -855,7 +916,7 @@ class Customize extends React.Component {
         last: 'KIM',
         height: '4',
         weight: '0',
-        nation: 'USA',
+        nation: 'KOREA',
         win: '0',
         loss: '0',
         strength: '65',
@@ -895,7 +956,7 @@ class Customize extends React.Component {
         last: 'LUU',
         height: '3',
         weight: '0',
-        nation: 'USA',
+        nation: 'VIETNAM',
         win: '0',
         loss: '0',
         strength: '70',
@@ -915,7 +976,7 @@ class Customize extends React.Component {
         last: 'PHAM',
         height: '1',
         weight: '0',
-        nation: 'USA',
+        nation: 'VIETNAM',
         win: '0',
         loss: '0',
         strength: '55',
@@ -929,43 +990,103 @@ class Customize extends React.Component {
       }
       sessionStorage.setItem('nrf9', JSON.stringify(nrf9));
 
+      let nrf10 = {
+        rank: 'NR',
+        first: 'PRIYA',
+        last: 'KANDRU',
+        height: '3',
+        weight: '0',
+        nation: 'INDIA',
+        win: '0',
+        loss: '0',
+        strength: '50',
+        speed: '50',
+        stamina: '50',
+        punching: '90',
+        kicking: '30',
+        wrestling: '30',
+        grappling: '30',
+        clinch: '40'
+      }
+      sessionStorage.setItem('nrf10', JSON.stringify(nrf10));
+
+      let nrf11 = {
+        rank: 'NR',
+        first: 'JOVITA',
+        last: 'ROMANIZ',
+        height: '2',
+        weight: '0',
+        nation: 'MEXICO',
+        win: '0',
+        loss: '0',
+        strength: '75',
+        speed: '50',
+        stamina: '30',
+        punching: '65',
+        kicking: '45',
+        wrestling: '35',
+        grappling: '30',
+        clinch: '40'
+      }
+      sessionStorage.setItem('nrf11', JSON.stringify(nrf11));
+
+      let nrf12 = {
+        rank: 'NR',
+        first: 'AMANDA',
+        last: 'YANG',
+        height: '4',
+        weight: '0',
+        nation: 'CHINA',
+        win: '0',
+        loss: '0',
+        strength: '25',
+        speed: '50',
+        stamina: '70',
+        punching: '35',
+        kicking: '35',
+        wrestling: '45',
+        grappling: '80',
+        clinch: '30'
+      }
+      sessionStorage.setItem('nrf12', JSON.stringify(nrf12));
+
       if (this.state.weight == 'WSTRAWWEIGHT' || this.state.weight == 'WFLYWEIGHT' || this.state.weight == 'WBANTAMWEIGHT') {
-        let ran1 = Math.floor(Math.random() * (110 - 101) + 101);
+        let ran1 = Math.floor(Math.random() * (113 - 101) + 101);
         sessionStorage.setItem('abc1', ran1);
 
-        let ran2 = Math.floor(Math.random() * (110 - 101) + 101);
+        let ran2 = Math.floor(Math.random() * (113 - 101) + 101);
         while(true) {
           if (ran2 != ran1) {
             break;
           }
-          ran2 = Math.floor(Math.random() * (110 - 101) + 101);
+          ran2 = Math.floor(Math.random() * (113 - 101) + 101);
         }
         sessionStorage.setItem('abc2', ran2);
 
-        let ran3 = Math.floor(Math.random() * (110 - 101) + 101);
+        let ran3 = Math.floor(Math.random() * (113 - 101) + 101);
         while(true) {
           if (ran3 != ran1 && ran3 != ran2) {
             break;
           }
-          ran3 = Math.floor(Math.random() * (110 - 101) + 101);
+          ran3 = Math.floor(Math.random() * (113 - 101) + 101);
         }
         sessionStorage.setItem('abc3', ran3);
 
-        let ran4 = Math.floor(Math.random() * (110 - 101) + 101);
+        let ran4 = Math.floor(Math.random() * (113 - 101) + 101);
         while(true) {
           if (ran4 != ran1 && ran4 != ran2 && ran4 != ran3) {
             break;
           }
-          ran4 = Math.floor(Math.random() * (110 - 101) + 101);
+          ran4 = Math.floor(Math.random() * (113 - 101) + 101);
         }
         sessionStorage.setItem('abc4', ran4);
 
-        let ran5 = Math.floor(Math.random() * (110 - 101) + 101);
+        let ran5 = Math.floor(Math.random() * (113 - 101) + 101);
         while(true) {
           if (ran5 != ran1 && ran5 != ran2 && ran5 != ran3 && ran5 != ran4) {
             break;
           }
-          ran5 = Math.floor(Math.random() * (110 - 101) + 101);
+          ran5 = Math.floor(Math.random() * (113 - 101) + 101);
         }
         sessionStorage.setItem('abc5', ran5);
 
@@ -995,6 +1116,15 @@ class Customize extends React.Component {
         }
         else if (ran1 == 109){
           sessionStorage.setItem('ABC1', JSON.stringify(nrf9));
+        }
+        else if (ran1 == 110){
+          sessionStorage.setItem('ABC1', JSON.stringify(nrf10));
+        }
+        else if (ran1 == 111){
+          sessionStorage.setItem('ABC1', JSON.stringify(nrf11));
+        }
+        else if (ran1 == 112){
+          sessionStorage.setItem('ABC1', JSON.stringify(nrf12));
         }
         let gas = sessionStorage.getItem('ABC1');
         gas = JSON.parse(gas);
@@ -1026,6 +1156,15 @@ class Customize extends React.Component {
         else if (ran2 == 109){
           sessionStorage.setItem('ABC2', JSON.stringify(nrf9));
         }
+        else if (ran2 == 110){
+          sessionStorage.setItem('ABC2', JSON.stringify(nrf10));
+        }
+        else if (ran2 == 111){
+          sessionStorage.setItem('ABC2', JSON.stringify(nrf11));
+        }
+        else if (ran2 == 112){
+          sessionStorage.setItem('ABC2', JSON.stringify(nrf12));
+        }
   
         if (ran3 == 101){
           sessionStorage.setItem('ABC3', JSON.stringify(nrf1));
@@ -1053,6 +1192,15 @@ class Customize extends React.Component {
         }
         else if (ran3 == 109){
           sessionStorage.setItem('ABC3', JSON.stringify(nrf9));
+        }
+        else if (ran3 == 110){
+          sessionStorage.setItem('ABC3', JSON.stringify(nrf10));
+        }
+        else if (ran3 == 111){
+          sessionStorage.setItem('ABC3', JSON.stringify(nrf11));
+        }
+        else if (ran3 == 112){
+          sessionStorage.setItem('ABC3', JSON.stringify(nrf12));
         }
   
         if (ran4 == 101){
@@ -1082,6 +1230,15 @@ class Customize extends React.Component {
         else if (ran4 == 109){
           sessionStorage.setItem('ABC4', JSON.stringify(nrf9));
         }
+        else if (ran4 == 110){
+          sessionStorage.setItem('ABC4', JSON.stringify(nrf10));
+        }
+        else if (ran4 == 111){
+          sessionStorage.setItem('ABC4', JSON.stringify(nrf11));
+        }
+        else if (ran4 == 112){
+          sessionStorage.setItem('ABC4', JSON.stringify(nrf12));
+        }
   
         if (ran5 == 101){
           sessionStorage.setItem('ABC5', JSON.stringify(nrf1));
@@ -1110,44 +1267,53 @@ class Customize extends React.Component {
         else if (ran5 == 109){
           sessionStorage.setItem('ABC5', JSON.stringify(nrf9));
         }
+        else if (ran5 == 110){
+          sessionStorage.setItem('ABC5', JSON.stringify(nrf10));
+        }
+        else if (ran5 == 111){
+          sessionStorage.setItem('ABC5', JSON.stringify(nrf11));
+        }
+        else if (ran5 == 112){
+          sessionStorage.setItem('ABC5', JSON.stringify(nrf12));
+        }
       }
       else {
-        let ran1 = Math.floor(Math.random() * (22 - 1) + 1);
+        let ran1 = Math.floor(Math.random() * (25 - 1) + 1);
         sessionStorage.setItem('abc1', ran1);
 
-        let ran2 = Math.floor(Math.random() * (22 - 1) + 1);
+        let ran2 = Math.floor(Math.random() * (25 - 1) + 1);
         while(true) {
           if (ran2 != ran1) {
             break;
           }
-          ran2 = Math.floor(Math.random() * (22 - 1) + 1);
+          ran2 = Math.floor(Math.random() * (25 - 1) + 1);
         }
         sessionStorage.setItem('abc2', ran2);
 
-        let ran3 = Math.floor(Math.random() * (22 - 1) + 1);
+        let ran3 = Math.floor(Math.random() * (25 - 1) + 1);
         while(true) {
           if (ran3 != ran1 && ran3 != ran2) {
             break;
           }
-          ran3 = Math.floor(Math.random() * (22 - 1) + 1);
+          ran3 = Math.floor(Math.random() * (25 - 1) + 1);
         }
         sessionStorage.setItem('abc3', ran3);
 
-        let ran4 = Math.floor(Math.random() * (22 - 1) + 1);
+        let ran4 = Math.floor(Math.random() * (25 - 1) + 1);
         while(true) {
           if (ran4 != ran1 && ran4 != ran2 && ran4 != ran3) {
             break;
           }
-          ran4 = Math.floor(Math.random() * (22 - 1) + 1);
+          ran4 = Math.floor(Math.random() * (25 - 1) + 1);
         }
         sessionStorage.setItem('abc4', ran4);
 
-        let ran5 = Math.floor(Math.random() * (22 - 1) + 1);
+        let ran5 = Math.floor(Math.random() * (25 - 1) + 1);
         while(true) {
           if (ran5 != ran1 && ran5 != ran2 && ran5 != ran3 && ran5 != ran4) {
             break;
           }
-          ran5 = Math.floor(Math.random() * (22 - 1) + 1);
+          ran5 = Math.floor(Math.random() * (25 - 1) + 1);
         }
         sessionStorage.setItem('abc5', ran5);
       
@@ -1213,6 +1379,15 @@ class Customize extends React.Component {
         }
         else if (ran1 == 21){
           sessionStorage.setItem('ABC1', JSON.stringify(nr21));
+        }
+        else if (ran1 == 22){
+          sessionStorage.setItem('ABC1', JSON.stringify(nr22));
+        }
+        else if (ran1 == 23){
+          sessionStorage.setItem('ABC1', JSON.stringify(nr23));
+        }
+        else if (ran1 == 24){
+          sessionStorage.setItem('ABC1', JSON.stringify(nr24));
         }
         let gas = sessionStorage.getItem('ABC1');
         gas = JSON.parse(gas);
@@ -1280,6 +1455,15 @@ class Customize extends React.Component {
         else if (ran2 == 21){
           sessionStorage.setItem('ABC2', JSON.stringify(nr21));
         }
+        else if (ran1 == 22){
+          sessionStorage.setItem('ABC2', JSON.stringify(nr22));
+        }
+        else if (ran1 == 23){
+          sessionStorage.setItem('ABC2', JSON.stringify(nr23));
+        }
+        else if (ran1 == 24){
+          sessionStorage.setItem('ABC2', JSON.stringify(nr24));
+        }
   
         if (ran3 == 1){
           sessionStorage.setItem('ABC3', JSON.stringify(nr1));
@@ -1343,6 +1527,15 @@ class Customize extends React.Component {
         }
         else if (ran3 == 21){
           sessionStorage.setItem('ABC3', JSON.stringify(nr21));
+        }
+        else if (ran1 == 22){
+          sessionStorage.setItem('ABC3', JSON.stringify(nr22));
+        }
+        else if (ran1 == 23){
+          sessionStorage.setItem('ABC3', JSON.stringify(nr23));
+        }
+        else if (ran1 == 24){
+          sessionStorage.setItem('ABC3', JSON.stringify(nr24));
         }
   
         if (ran4 == 1){
@@ -1408,6 +1601,15 @@ class Customize extends React.Component {
         else if (ran4 == 21){
           sessionStorage.setItem('ABC4', JSON.stringify(nr21));
         }
+        else if (ran1 == 22){
+          sessionStorage.setItem('ABC4', JSON.stringify(nr22));
+        }
+        else if (ran1 == 23){
+          sessionStorage.setItem('ABC4', JSON.stringify(nr23));
+        }
+        else if (ran1 == 24){
+          sessionStorage.setItem('ABC4', JSON.stringify(nr24));
+        }
   
         if (ran5 == 1){
           sessionStorage.setItem('ABC5', JSON.stringify(nr1));
@@ -1471,6 +1673,15 @@ class Customize extends React.Component {
         }
         else if (ran5 == 21){
           sessionStorage.setItem('ABC5', JSON.stringify(nr21));
+        }
+        else if (ran1 == 22){
+          sessionStorage.setItem('ABC5', JSON.stringify(nr22));
+        }
+        else if (ran1 == 23){
+          sessionStorage.setItem('ABC5', JSON.stringify(nr23));
+        }
+        else if (ran1 == 24){
+          sessionStorage.setItem('ABC5', JSON.stringify(nr24));
         }
       }   
 

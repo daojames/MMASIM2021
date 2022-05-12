@@ -2131,6 +2131,21 @@ class Fight extends React.Component {
                 data = JSON.parse(data);
                 str = '(' + data.win + ' - ' + data.loss + ')';
             }
+            else if (num == 22) {
+                let data = sessionStorage.getItem('nr22');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 23) {
+                let data = sessionStorage.getItem('nr23');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 24) {
+                let data = sessionStorage.getItem('nr24');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
             else if (num == 101) {
                 let data = sessionStorage.getItem('nrf1');
                 data = JSON.parse(data);
@@ -2173,6 +2188,21 @@ class Fight extends React.Component {
             }
             else if (num == 109) {
                 let data = sessionStorage.getItem('nrf9');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 110) {
+                let data = sessionStorage.getItem('nrf10');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 111) {
+                let data = sessionStorage.getItem('nrf11');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 112) {
+                let data = sessionStorage.getItem('nrf12');
                 data = JSON.parse(data);
                 str = '(' + data.win + ' - ' + data.loss + ')';
             }
@@ -2290,6 +2320,21 @@ class Fight extends React.Component {
                 data = JSON.parse(data);
                 str = '(' + data.win + ' - ' + data.loss + ')';
             }
+            else if (num == 22) {
+                let data = sessionStorage.getItem('nr22');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 23) {
+                let data = sessionStorage.getItem('nr23');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 24) {
+                let data = sessionStorage.getItem('nr24');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
             else if (num == 101) {
                 let data = sessionStorage.getItem('nrf1');
                 data = JSON.parse(data);
@@ -2332,6 +2377,21 @@ class Fight extends React.Component {
             }
             else if (num == 109) {
                 let data = sessionStorage.getItem('nrf9');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 110) {
+                let data = sessionStorage.getItem('nrf10');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 111) {
+                let data = sessionStorage.getItem('nrf11');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 112) {
+                let data = sessionStorage.getItem('nrf12');
                 data = JSON.parse(data);
                 str = '(' + data.win + ' - ' + data.loss + ')';
             }
@@ -2449,6 +2509,21 @@ class Fight extends React.Component {
                 data = JSON.parse(data);
                 str = '(' + data.win + ' - ' + data.loss + ')';
             }
+            else if (num == 22) {
+                let data = sessionStorage.getItem('nr22');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 23) {
+                let data = sessionStorage.getItem('nr23');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 24) {
+                let data = sessionStorage.getItem('nr24');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
             else if (num == 101) {
                 let data = sessionStorage.getItem('nrf1');
                 data = JSON.parse(data);
@@ -2491,6 +2566,21 @@ class Fight extends React.Component {
             }
             else if (num == 109) {
                 let data = sessionStorage.getItem('nrf9');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 110) {
+                let data = sessionStorage.getItem('nrf10');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 111) {
+                let data = sessionStorage.getItem('nrf11');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 112) {
+                let data = sessionStorage.getItem('nrf12');
                 data = JSON.parse(data);
                 str = '(' + data.win + ' - ' + data.loss + ')';
             }
@@ -2608,6 +2698,21 @@ class Fight extends React.Component {
                 data = JSON.parse(data);
                 str = '(' + data.win + ' - ' + data.loss + ')';
             }
+            else if (num == 22) {
+                let data = sessionStorage.getItem('nr22');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 23) {
+                let data = sessionStorage.getItem('nr23');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 24) {
+                let data = sessionStorage.getItem('nr24');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
             else if (num == 101) {
                 let data = sessionStorage.getItem('nrf1');
                 data = JSON.parse(data);
@@ -2650,6 +2755,21 @@ class Fight extends React.Component {
             }
             else if (num == 109) {
                 let data = sessionStorage.getItem('nrf9');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 110) {
+                let data = sessionStorage.getItem('nrf10');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 111) {
+                let data = sessionStorage.getItem('nrf11');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 112) {
+                let data = sessionStorage.getItem('nrf12');
                 data = JSON.parse(data);
                 str = '(' + data.win + ' - ' + data.loss + ')';
             }
@@ -2767,6 +2887,21 @@ class Fight extends React.Component {
                 data = JSON.parse(data);
                 str = '(' + data.win + ' - ' + data.loss + ')';
             }
+            else if (num == 22) {
+                let data = sessionStorage.getItem('nr22');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 23) {
+                let data = sessionStorage.getItem('nr23');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 24) {
+                let data = sessionStorage.getItem('nr24');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
             else if (num == 101) {
                 let data = sessionStorage.getItem('nrf1');
                 data = JSON.parse(data);
@@ -2809,6 +2944,21 @@ class Fight extends React.Component {
             }
             else if (num == 109) {
                 let data = sessionStorage.getItem('nrf9');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 110) {
+                let data = sessionStorage.getItem('nrf10');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 111) {
+                let data = sessionStorage.getItem('nrf11');
+                data = JSON.parse(data);
+                str = '(' + data.win + ' - ' + data.loss + ')';
+            }
+            else if (num == 112) {
+                let data = sessionStorage.getItem('nrf12');
                 data = JSON.parse(data);
                 str = '(' + data.win + ' - ' + data.loss + ')';
             }
@@ -2926,6 +3076,21 @@ class Fight extends React.Component {
                 data = JSON.parse(data);
                 str = data.first + ' ' + data.last;
             }
+            else if (num == 22) {
+                let data = sessionStorage.getItem('nr22');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 23) {
+                let data = sessionStorage.getItem('nr23');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 24) {
+                let data = sessionStorage.getItem('nr24');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
             else if (num == 101) {
                 let data = sessionStorage.getItem('nrf1');
                 data = JSON.parse(data);
@@ -2968,6 +3133,21 @@ class Fight extends React.Component {
             }
             else if (num == 109) {
                 let data = sessionStorage.getItem('nrf9');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 110) {
+                let data = sessionStorage.getItem('nrf10');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 111) {
+                let data = sessionStorage.getItem('nrf11');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 112) {
+                let data = sessionStorage.getItem('nrf12');
                 data = JSON.parse(data);
                 str = data.first + ' ' + data.last;
             }
@@ -3085,6 +3265,21 @@ class Fight extends React.Component {
                 data = JSON.parse(data);
                 str = data.first + ' ' + data.last;
             }
+            else if (num == 22) {
+                let data = sessionStorage.getItem('nr22');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 23) {
+                let data = sessionStorage.getItem('nr23');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 24) {
+                let data = sessionStorage.getItem('nr24');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
             else if (num == 101) {
                 let data = sessionStorage.getItem('nrf1');
                 data = JSON.parse(data);
@@ -3127,6 +3322,21 @@ class Fight extends React.Component {
             }
             else if (num == 109) {
                 let data = sessionStorage.getItem('nrf9');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 110) {
+                let data = sessionStorage.getItem('nrf10');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 111) {
+                let data = sessionStorage.getItem('nrf11');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 112) {
+                let data = sessionStorage.getItem('nrf12');
                 data = JSON.parse(data);
                 str = data.first + ' ' + data.last;
             }
@@ -3244,6 +3454,21 @@ class Fight extends React.Component {
                 data = JSON.parse(data);
                 str = data.first + ' ' + data.last;
             }
+            else if (num == 22) {
+                let data = sessionStorage.getItem('nr22');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 23) {
+                let data = sessionStorage.getItem('nr23');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 24) {
+                let data = sessionStorage.getItem('nr24');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
             else if (num == 101) {
                 let data = sessionStorage.getItem('nrf1');
                 data = JSON.parse(data);
@@ -3286,6 +3511,21 @@ class Fight extends React.Component {
             }
             else if (num == 109) {
                 let data = sessionStorage.getItem('nrf9');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 110) {
+                let data = sessionStorage.getItem('nrf10');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 111) {
+                let data = sessionStorage.getItem('nrf11');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 112) {
+                let data = sessionStorage.getItem('nrf12');
                 data = JSON.parse(data);
                 str = data.first + ' ' + data.last;
             }
@@ -3403,6 +3643,21 @@ class Fight extends React.Component {
                 data = JSON.parse(data);
                 str = data.first + ' ' + data.last;
             }
+            else if (num == 22) {
+                let data = sessionStorage.getItem('nr22');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 23) {
+                let data = sessionStorage.getItem('nr23');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 24) {
+                let data = sessionStorage.getItem('nr24');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
             else if (num == 101) {
                 let data = sessionStorage.getItem('nrf1');
                 data = JSON.parse(data);
@@ -3445,6 +3700,21 @@ class Fight extends React.Component {
             }
             else if (num == 109) {
                 let data = sessionStorage.getItem('nrf9');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 110) {
+                let data = sessionStorage.getItem('nrf10');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 111) {
+                let data = sessionStorage.getItem('nrf11');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 112) {
+                let data = sessionStorage.getItem('nrf12');
                 data = JSON.parse(data);
                 str = data.first + ' ' + data.last;
             }
@@ -3562,6 +3832,21 @@ class Fight extends React.Component {
                 data = JSON.parse(data);
                 str = data.first + ' ' + data.last;
             }
+            else if (num == 22) {
+                let data = sessionStorage.getItem('nr22');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 23) {
+                let data = sessionStorage.getItem('nr23');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 24) {
+                let data = sessionStorage.getItem('nr24');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
             else if (num == 101) {
                 let data = sessionStorage.getItem('nrf1');
                 data = JSON.parse(data);
@@ -3604,6 +3889,21 @@ class Fight extends React.Component {
             }
             else if (num == 109) {
                 let data = sessionStorage.getItem('nrf9');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 110) {
+                let data = sessionStorage.getItem('nrf10');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 111) {
+                let data = sessionStorage.getItem('nrf11');
+                data = JSON.parse(data);
+                str = data.first + ' ' + data.last;
+            }
+            else if (num == 112) {
+                let data = sessionStorage.getItem('nrf12');
                 data = JSON.parse(data);
                 str = data.first + ' ' + data.last;
             }
@@ -3683,6 +3983,15 @@ class Fight extends React.Component {
                 case 21:
                     no = 'nr21';
                 break;
+                case 22:
+                    no = 'nr22';
+                break;
+                case 23:
+                    no = 'nr23';
+                break;
+                case 24:
+                    no = 'nr24';
+                break;
                 case 101:
                     no = 'nrf1';
                 break;
@@ -3709,6 +4018,15 @@ class Fight extends React.Component {
                 break;
                 case 109:
                     no = 'nrf9';
+                break;
+                case 110:
+                    no = 'nrf10';
+                break;
+                case 111:
+                    no = 'nrf11';
+                break;
+                case 112:
+                    no = 'nrf12';
                 break;
             }
             let data = sessionStorage.getItem(no);
@@ -3791,6 +4109,15 @@ class Fight extends React.Component {
                 case 21:
                     no = 'nr21';
                 break;
+                case 22:
+                    no = 'nr22';
+                break;
+                case 23:
+                    no = 'nr23';
+                break;
+                case 24:
+                    no = 'nr24';
+                break;
                 case 101:
                     no = 'nrf1';
                 break;
@@ -3817,6 +4144,15 @@ class Fight extends React.Component {
                 break;
                 case 109:
                     no = 'nrf9';
+                break;
+                case 110:
+                    no = 'nrf10';
+                break;
+                case 111:
+                    no = 'nrf11';
+                break;
+                case 112:
+                    no = 'nrf12';
                 break;
             }
             let data = sessionStorage.getItem(no);
@@ -3899,6 +4235,15 @@ class Fight extends React.Component {
                 case 21:
                     no = 'nr21';
                 break;
+                case 22:
+                    no = 'nr22';
+                break;
+                case 23:
+                    no = 'nr23';
+                break;
+                case 24:
+                    no = 'nr24';
+                break;
                 case 101:
                     no = 'nrf1';
                 break;
@@ -3925,6 +4270,15 @@ class Fight extends React.Component {
                 break;
                 case 109:
                     no = 'nrf9';
+                break;
+                case 110:
+                    no = 'nrf10';
+                break;
+                case 111:
+                    no = 'nrf11';
+                break;
+                case 112:
+                    no = 'nrf12';
                 break;
             }
             let data = sessionStorage.getItem(no);
@@ -4007,6 +4361,15 @@ class Fight extends React.Component {
                 case 21:
                     no = 'nr21';
                 break;
+                case 22:
+                    no = 'nr22';
+                break;
+                case 23:
+                    no = 'nr23';
+                break;
+                case 24:
+                    no = 'nr24';
+                break;
                 case 101:
                     no = 'nrf1';
                 break;
@@ -4033,6 +4396,15 @@ class Fight extends React.Component {
                 break;
                 case 109:
                     no = 'nrf9';
+                break;
+                case 110:
+                    no = 'nrf10';
+                break;
+                case 111:
+                    no = 'nrf11';
+                break;
+                case 112:
+                    no = 'nrf12';
                 break;
             }
             let data = sessionStorage.getItem(no);
@@ -4115,6 +4487,15 @@ class Fight extends React.Component {
                 case 21:
                     no = 'nr21';
                 break;
+                case 22:
+                    no = 'nr22';
+                break;
+                case 23:
+                    no = 'nr23';
+                break;
+                case 24:
+                    no = 'nr24';
+                break;
                 case 101:
                     no = 'nrf1';
                 break;
@@ -4141,6 +4522,15 @@ class Fight extends React.Component {
                 break;
                 case 109:
                     no = 'nrf9';
+                break;
+                case 110:
+                    no = 'nrf10';
+                break;
+                case 111:
+                    no = 'nrf11';
+                break;
+                case 112:
+                    no = 'nrf12';
                 break;
             }
             let data = sessionStorage.getItem(no);

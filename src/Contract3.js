@@ -1107,33 +1107,51 @@ class Contract3 extends React.Component {
                 case 21:
                     no = 'nr21';
                 break;
-                case 101:
-                    no = 'nrf1';
-                break;
-                case 102:
-                    no = 'nrf2';
-                break;
-                case 103:
-                    no = 'nrf3';
-                break;
-                case 104:
-                    no = 'nrf4';
-                break;
-                case 105:
-                    no = 'nrf5';
-                break;
-                case 106:
-                    no = 'nrf6';
-                break;
-                case 107:
-                    no = 'nrf7';
-                break;
-                case 108:
-                    no = 'nrf8';
-                break;
-                case 109:
-                    no = 'nrf9';
-                break;
+                case 22:
+                no = 'nr22';
+            break;
+            case 23:
+                no = 'nr23';
+            break;
+            case 24:
+                no = 'nr24';
+            break;
+            case 101:
+                no = 'nrf1';
+            break;
+            case 102:
+                no = 'nrf2';
+            break;
+            case 103:
+                no = 'nrf3';
+            break;
+            case 104:
+                no = 'nrf4';
+            break;
+            case 105:
+                no = 'nrf5';
+            break;
+            case 106:
+                no = 'nrf6';
+            break;
+            case 107:
+                no = 'nrf7';
+            break;
+            case 108:
+                no = 'nrf8';
+            break;
+            case 109:
+                no = 'nrf9';
+            break;
+            case 110:
+                no = 'nrf10';
+            break;
+            case 111:
+                no = 'nrf11';
+            break;
+            case 112:
+                no = 'nrf12';
+            break;
             }
             let data = sessionStorage.getItem(no);
             data = JSON.parse(data);

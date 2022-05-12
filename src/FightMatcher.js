@@ -7,7 +7,7 @@ export function fightMatcher() {
     for (let j = 0; j < 10; ++j) {
         while(true) {
             let match = false;
-            let ran = Math.floor(Math.random() * (21 - 1 + 1) + 1);
+            let ran = Math.floor(Math.random() * (24 - 1 + 1) + 1);
             for (let i = 0; i < ranArr.length; ++i) {
                 if (ran == ranArr[i]) {
                     match = true;
@@ -22,7 +22,7 @@ export function fightMatcher() {
     for (let j = 0; j < 4; ++j) {
         while(true) {
             let match = false;
-            let ran = Math.floor(Math.random() * (9) + 101);
+            let ran = Math.floor(Math.random() * (12) + 101);
             for (let i = 0; i < ranArr1.length; ++i) {
                 if (ran == ranArr1[i]) {
                     match = true;
@@ -129,6 +129,9 @@ function getFighter(num) {
     let nr19 = sessionStorage.getItem('nr19');
     let nr20 = sessionStorage.getItem('nr20');
     let nr21 = sessionStorage.getItem('nr21');
+    let nr22 = sessionStorage.getItem('nr22');
+    let nr23 = sessionStorage.getItem('nr23');
+    let nr24 = sessionStorage.getItem('nr24');
     let nrf1 = sessionStorage.getItem('nrf1');
     let nrf2 = sessionStorage.getItem('nrf2');
     let nrf3 = sessionStorage.getItem('nrf3');
@@ -138,6 +141,9 @@ function getFighter(num) {
     let nrf7 = sessionStorage.getItem('nrf7');
     let nrf8 = sessionStorage.getItem('nrf8');
     let nrf9 = sessionStorage.getItem('nrf9');
+    let nrf10 = sessionStorage.getItem('nrf10');
+    let nrf11 = sessionStorage.getItem('nrf11');
+    let nrf12 = sessionStorage.getItem('nrf12');
 
     switch(num) {
         case 1:
@@ -203,6 +209,15 @@ function getFighter(num) {
         case 21:
             return nr21;
         break;
+        case 22:
+            return nr22;
+        break;
+        case 23:
+            return nr23;
+        break;
+        case 24:
+            return nr24;
+        break;
         case 101:
             return nrf1;
         break;
@@ -229,6 +244,15 @@ function getFighter(num) {
         break;
         case 109:
             return nrf9;
+        break;
+        case 110:
+            return nrf10;
+        break;
+        case 111:
+            return nrf11;
+        break;
+        case 112:
+            return nrf12;
         break;
     }
 }

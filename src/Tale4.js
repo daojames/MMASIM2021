@@ -884,6 +884,15 @@ class Tale4 extends React.Component {
             case 21:
                 no = 'nr21';
             break;
+            case 22:
+                no = 'nr22';
+            break;
+            case 23:
+                no = 'nr23';
+            break;
+            case 24:
+                no = 'nr24';
+            break;
             case 101:
                 no = 'nrf1';
             break;
@@ -910,6 +919,15 @@ class Tale4 extends React.Component {
             break;
             case 109:
                 no = 'nrf9';
+            break;
+            case 110:
+                no = 'nrf10';
+            break;
+            case 111:
+                no = 'nrf11';
+            break;
+            case 112:
+                no = 'nrf12';
             break;
         }
         let data = sessionStorage.getItem(no);
