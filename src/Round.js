@@ -2249,13 +2249,40 @@ class Round extends React.Component {
             dmg = hit * (((playerStr - 50) / 5) + 30);
         }
         else if (att == 'G&P') {
-            dmg = hit * (((playerStr - 50) / 10) + 10);
+            let koChance = playerStr / 20;
+            console.log('koChance: ' + koChance)
+            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            for (let i = 0; i < hit; ++i){
+                if (ran1 <= koChance) {
+                    dmg += 1000;
+                }
+                else {
+                    dmg += (((playerStr - 50) / 10) + 10);
+                }
+            }
         }
         else if (att == 'x') {
             dmg = '';
         }
         else {
-            dmg = hit * (((playerStr - 50) / 5) + 20 + playerBladedBuff + oppReactNerf);
+            let koChance = playerStr / 35;
+            let kdChance = (playerStr / 12) + koChance;
+            console.log('koChance: ' + koChance)
+            console.log('kdChance: ' + kdChance)
+            for (let i = 0; i < hit; ++i){
+                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                if (ran1 <= koChance) {
+                    dmg += 1000;
+                    kd = 2;
+                }
+                else if (ran1 <= kdChance) {
+                    dmg += 200;
+                    kd = 1;
+                }
+                else {
+                    dmg += (((playerStr - 50) / 5) + 20 + playerBladedBuff + oppReactNerf);
+                }
+            }
         }
 
         if (dmg != '') {
@@ -2345,13 +2372,37 @@ class Round extends React.Component {
             dmg = hit * (((oppStr - 50) / 5) + 30);
         }
         else if (att == 'G&P') {
-            dmg = hit * (((oppStr - 50) / 10) + 10);
+            let koChance = oppStr / 20;
+            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            for (let i = 0; i < hit; ++i){
+                if (ran1 <= koChance) {
+                    dmg += 1000;
+                }
+                else {
+                    dmg += (((oppStr - 50) / 10) + 10);
+                }
+            }
         }
         else if (att == 'x') {
             dmg = '';
         }
         else {
-            dmg = hit * (((oppStr - 50) / 5) + 20 + oppBladedBuff + playerReactNerf);
+            let koChance = playerStr / 35;
+            let kdChance = (playerStr / 12) + koChance;
+            for (let i = 0; i < hit; ++i){
+                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                if (ran1 <= koChance) {
+                    dmg += 1000;
+                    kd = 2;
+                }
+                else if (ran1 <= kdChance) {
+                    dmg += 200;
+                    kd = 1;
+                }
+                else {
+                    dmg += (((oppStr - 50) / 5) + 20 + oppBladedBuff + playerReactNerf);
+                }
+            }
         }
 
         if (dmg != '') {
