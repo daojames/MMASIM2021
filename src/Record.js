@@ -1520,6 +1520,7 @@ class Record extends React.Component {
                     <div className="App-header-style1a" style={{marginTop: -92}}>
                         <Link to='./career'><Button>STATS</Button></Link>
                         <Link to='./record'><ButtonG>RECORD</ButtonG></Link>
+                        <Link to='./org'><Button>ORG</Button></Link>
                     </div>
                     <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 369, fontSize: 30 }}>
                         <Button3>${sessionStorage.getItem('balance')}</Button3>

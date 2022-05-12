@@ -147,7 +147,33 @@ transition: ease background-color 250ms;
 }
 `
 
-class Career extends React.Component {
+class Org extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            mma: ((sessionStorage.getItem('org') == 0) ? true : false),
+            ufc: ((sessionStorage.getItem('org') == 1) ? true : false)
+        }
+        this.orgMMA = this.orgMMA.bind(this);
+        this.orgUFC = this.orgUFC.bind(this);
+    }
+
+    orgMMA = (event) => {
+        sessionStorage.setItem('org', 0);
+            this.setState({
+                mma: true,
+                ufc: false
+            })
+    }
+
+    orgUFC = (event) => {
+        sessionStorage.setItem('org', 1);
+            this.setState({
+                mma: false,
+                ufc: true
+            })
+    }
+
     weightCalc(str) {
         if(str == "FLYWEIGHT"){
             return '125';
@@ -1315,65 +1341,21 @@ class Career extends React.Component {
             <div className="App">
                 <div className="App-header">
                     <div className="App-header-styleTop">
-                        <img src={logo} alt='logo' className="App-logo1" style={{ marginTop: -180 }} />
+                        <img src={logo} alt='logo' className="App-logo1" style={{ marginTop: -730 }} />
                         CAREER<br/><br/>
-                        <div className="App-customize2" style={{marginTop: -70}}>
-                            <Button1a>CAREER EARNINGS</Button1a>
-                            <Button1a>PPV STATUS</Button1a>
-                        </div>
-                        <div className="App-customize3" style={{marginTop: -20}}>
-                            <Button2a><b>${sessionStorage.getItem('careerEarnings')}</b></Button2a>
-                            <Button2a><b>{this.getStatus()}</b></Button2a>
-                        </div>
-                        <div className="App-customize2" style={{marginTop: 20}}>
-                            <Button1>WINS</Button1>
-                            <Button1>VIA KO</Button1>
-                            <Button1>VIA SUB</Button1>
-                            <Button1>VIA DEC</Button1>
-                            <Button1>WIN STREAK</Button1>
-                        </div>
-                        <div className="App-customize3" style={{marginTop: -20}}>
-                            <Button2><b>{sessionStorage.getItem('playerWin')}</b></Button2>
-                            <Button2><b>{sessionStorage.getItem('winKO')}</b></Button2>
-                            <Button2><b>{sessionStorage.getItem('winSUB')}</b></Button2>
-                            <Button2><b>{sessionStorage.getItem('winDEC')}</b></Button2>
-                            <Button2><b>{sessionStorage.getItem('winStreak')}</b></Button2>
-                        </div>
-                        <div className="App-customize2" style={{marginTop: 20}}>
-                            <Button1>LOSSES</Button1>
-                            <Button1>VIA KO</Button1>
-                            <Button1>VIA SUB</Button1>
-                            <Button1>VIA DEC</Button1>
-                            <Button1>LOSE STREAK</Button1>
-                        </div>
-                        <div className="App-customize3" style={{marginTop: -20}}>
-                            <Button2><b>{sessionStorage.getItem('playerLoss')}</b></Button2>
-                            <Button2><b>{sessionStorage.getItem('lossKO')}</b></Button2>
-                            <Button2><b>{sessionStorage.getItem('lossSUB')}</b></Button2>
-                            <Button2><b>{sessionStorage.getItem('lossDEC')}</b></Button2>
-                            <Button2><b>{sessionStorage.getItem('lossStreak')}</b></Button2>
-                        </div>
-                        <div className="App-customize2" style={{marginTop: 20}}>
-                            <Button1>SIG. STRIKES</Button1>
-                            <Button1>STRIKING ACC.</Button1>
-                            <Button1>KNOCKDOWNS</Button1>
-                            <Button1>TAKEDOWNS</Button1>
-                            <Button1>TAKEDOWN DEF.</Button1>
-                        </div>
-                        <div className="App-customize3" style={{marginTop: -20}}>
-                            <Button2><b>{sessionStorage.getItem('sigStrikes')}</b></Button2>
-                            <Button2><b>{this.getStrikeAcc()}</b>%</Button2>
-                            <Button2><b>{sessionStorage.getItem('knockdowns')}</b></Button2>
-                            <Button2><b>{sessionStorage.getItem('takedowns')}</b></Button2>
-                            <Button2><b>{this.getTakedownAcc()}</b>%</Button2>
-                        </div>
                     </div>
-                    <div className="App-header-style" style={{marginTop: 300}}>
-                        <Link to='./career'><ButtonG>STATS</ButtonG></Link>
+                    <div className="Fight-offer" style={{ marginTop: 330 }}>
+                        <Button data-tip data-for="1" className={this.state.mma ? "att1" : "att0"} onClick={this.orgMMA}>MMASIM</Button>
+                        <ReactTooltip class="Membership" id="1" place="top" effect="solid"><u>LEAGUE-STYLED FORMAT</u><br/><br/><b>LOW</b> COMPETITION,<br/><b>${parseInt(sessionStorage.getItem('followers'))}</b> BASE PAY<br/><br/>CLICK TO SIGN</ReactTooltip>
+                        <Button data-tip data-for="2" className={this.state.ufc ? "att1" : "att0"} onClick={this.orgUFC}>UFC</Button>
+                        <ReactTooltip class="Membership" id="2" place="top" effect="solid"><u>RANK-BASED FORMAT</u><br/><br/><b>HIGH</b> COMPETITION,<br/><b>${2 * parseInt(sessionStorage.getItem('followers'))}</b> BASE PAY<br/><br/>CLICK TO SIGN</ReactTooltip>
+                    </div>
+                    <div className="App-header-style1" style={{ marginTop: -618, marginBottom: 0 }}>
+                        <Link to='./career'><Button>STATS</Button></Link>
                         <Link to='./record'><Button>RECORD</Button></Link>
-                        <Link to='./org'><Button>ORG</Button></Link>
+                        <Link to='./org'><ButtonG>ORG</ButtonG></Link>
                     </div>
-                    <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 0, fontSize: 30 }}>
+                    <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 5, fontSize: 30 }}>
                         <Button3>${sessionStorage.getItem('balance')}</Button3>
                         <Link to='./home'><Button4>BACK</Button4></Link>
                         <Button3>{this.calcMonth(month)} {sessionStorage.getItem('year')}</Button3>
@@ -1384,4 +1366,4 @@ class Career extends React.Component {
     }
 }
 
-export default Career;
+export default Org;

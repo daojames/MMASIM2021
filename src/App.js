@@ -63,6 +63,7 @@ import Round from './Round.js';
 import Results from './Results.js';
 import Record from './Record.js';
 import Card from './Card.js';
+import Org from './Org.js';
 
 const Button = styled.button`
   background-color: transparent;
@@ -140,6 +141,7 @@ function App() {
           <Route path="/results" exact component={Results} />
           <Route path="/record" exact component={Record} />
           <Route path="/card" exact component={Card} />
+          <Route path="/org" exact component={Org} />
         </Switch>
       </div>
     </Router>
