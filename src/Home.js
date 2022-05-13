@@ -1331,7 +1331,7 @@ class Home extends React.Component {
                         <Link to='./twitter'><Button onClick={this.notFirst}>TWITTER</Button></Link>
                         <Link to='./gym'><Button onClick={this.notFirst}>GYM</Button></Link>
                         <Link to='./career'><Button onClick={this.notFirst}>CAREER</Button></Link>
-                        <Link to='./fight'><Button onClick={this.notFirst}>FIGHT</Button></Link>
+                        <Link to={(sessionStorage.getItem('org') == 0) ? './schedule' : './fight'}><Button onClick={this.notFirst}>FIGHT</Button></Link>
                     </div>
                     <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 0, fontSize: 30 }}>
                         <Button3>${sessionStorage.getItem('balance')}</Button3>

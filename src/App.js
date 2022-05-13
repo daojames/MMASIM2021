@@ -64,6 +64,7 @@ import Results from './Results.js';
 import Record from './Record.js';
 import Card from './Card.js';
 import Org from './Org.js';
+import Schedule from './Schedule.js';
 
 const Button = styled.button`
   background-color: transparent;
@@ -142,6 +143,7 @@ function App() {
           <Route path="/record" exact component={Record} />
           <Route path="/card" exact component={Card} />
           <Route path="/org" exact component={Org} />
+          <Route path="/schedule" exact component={Schedule} />
         </Switch>
       </div>
     </Router>

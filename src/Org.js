@@ -1345,7 +1345,7 @@ class Org extends React.Component {
                         CAREER<br/><br/>
                     </div>
                     <div className="Fight-offer" style={{ marginTop: 330 }}>
-                        <Button data-tip data-for="1" className={this.state.mma ? "att1" : "att0"} onClick={this.orgMMA}>MMASIM</Button>
+                        <Button data-tip data-for="1" className={this.state.mma ? "att1" : "att0"} onClick={this.orgMMA}>PFL</Button>
                         <ReactTooltip class="Membership" id="1" place="top" effect="solid"><u>LEAGUE-STYLED FORMAT</u><br/><br/><b>LOW</b> COMPETITION,<br/><b>${parseInt(sessionStorage.getItem('followers'))}</b> BASE PAY<br/><br/>CLICK TO SIGN</ReactTooltip>
                         <Button data-tip data-for="2" className={this.state.ufc ? "att1" : "att0"} onClick={this.orgUFC}>UFC</Button>
                         <ReactTooltip class="Membership" id="2" place="top" effect="solid"><u>RANK-BASED FORMAT</u><br/><br/><b>HIGH</b> COMPETITION,<br/><b>${2 * parseInt(sessionStorage.getItem('followers'))}</b> BASE PAY<br/><br/>CLICK TO SIGN</ReactTooltip>

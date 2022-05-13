@@ -158,7 +158,8 @@ class Customize extends React.Component {
       sessionStorage.setItem('rank', 'NR');
       sessionStorage.setItem('ppv', 1);
       sessionStorage.setItem('gym', 'NONE');
-      sessionStorage.setItem('org', 0);
+      sessionStorage.setItem('org', 1);
+      sessionStorage.setItem('playoffs', 0);
       sessionStorage.setItem('pnchBuff', 0);
       sessionStorage.setItem('kickBuff', 0);
       sessionStorage.setItem('wrstBuff', 0);
@@ -1688,13 +1689,13 @@ class Customize extends React.Component {
       let twt1 = {
         month: 'JAN',
         year: 2021,
-        msg: 'HAPPY TO SAY THAT I HAVE SIGNED WITH MMASIM!',
+        msg: 'HAPPY TO SAY THAT I HAVE SIGNED WITH PFL!',
         replies: 1,
-        rfirst: 'DANA',
-        rlast: 'WHITE',
+        rfirst: 'PFL',
+        rlast: 'BOT',
         rmonth: 'JAN',
         ryear: '2021',
-        rmsg: 'PUT TOGETHER A WIN STREAK TO ENTER THE RANKINGS'
+        rmsg: 'WIN THE 2021 PFL CHAMPIONSHIP FOR A LARGE REWARD!'
       }
       sessionStorage.setItem('twt1', JSON.stringify(twt1));
 

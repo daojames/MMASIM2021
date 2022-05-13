@@ -299,7 +299,7 @@ class Twitter extends React.Component {
                     </div>
                     <div className="App-customize4" style={{marginLeft: 0, marginTop: -123}}>
                         <Button9>
-                            <Link to='./tweet2'><TweetMode data-tip data-for="tweetModeTip2">TALK SHIT</TweetMode></Link>
+                            <Link to={(sessionStorage.getItem('org') == 0) ? './twitter' : './tweet2'}><TweetMode data-tip data-for="tweetModeTip2" style={(sessionStorage.getItem('org') == 0) ? {border: '2px solid gray', color: 'gray'} : {}}>TALK SHIT</TweetMode></Link>
                             <ReactTooltip id="tweetModeTip2" place="top" effect="solid">CALL OUT A FIGHTER, GAIN FOLLOWERS</ReactTooltip>
                         </Button9>
                     </div>
