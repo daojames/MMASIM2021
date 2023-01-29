@@ -4956,7 +4956,7 @@ class Round extends React.Component {
         let playerStm = sessionStorage.getItem('playerStm');
         let oppStm = sessionStorage.getItem('oppStm');
         let playerStatus = sessionStorage.getItem('playerStatus');
-        let oppStatus = sessionStorage.getItem('oppStatus');
+        let oppStatus = sessionStorage.getItem('oppStatus');       
         return(
             <div className="App-header1">
                 <div className="App-header-styleTop">

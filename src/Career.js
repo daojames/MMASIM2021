@@ -1371,7 +1371,8 @@ class Career extends React.Component {
                     <div className="App-header-style" style={{marginTop: 300}}>
                         <Link to='./career'><ButtonG>STATS</ButtonG></Link>
                         <Link to='./record'><Button>RECORD</Button></Link>
-                        <Link to='./org'><Button>ORG</Button></Link>
+                        <Link to={(sessionStorage.getItem('month') == 12) ? './org' : './career'}><Button data-tip data-for="1" style={(sessionStorage.getItem('month') != 12) ? {border: '2px solid gray', color: 'gray'} : {}}>UFC</Button></Link>
+                        <ReactTooltip id="1" place="top" effect="solid">CAN ONLY SWITCH ORGANIZATIONS IN DECEMBER</ReactTooltip>
                     </div>
                     <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 0, fontSize: 30 }}>
                         <Button3>${sessionStorage.getItem('balance')}</Button3>

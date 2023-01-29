@@ -1382,7 +1382,7 @@ class Bout0 extends React.Component {
                     <ReactTooltip class="Membership" id="5" place="top" effect="float"><text style={{fontSize: 30}}>TAKEDOWN</text><br/>TAKE OPPONENT DOWN TO GROUND<br/><b>✓{w}DOMINANT POSITON</b><br/><b>✘{w}HIGH ENERGY</b><br/><b>★{w}12 STAMINA</b></ReactTooltip>
                 </div>
                 <div className="App-customize1a" style={{marginTop: 0}}>
-                    <Link to='./round'><Button disabled={this.ready()} onClick={this.oppInfo}>FIGHT</Button></Link>
+                    <Link to={(parseInt(sessionStorage.getItem('org')) == 0) ? './sround' : './round'}><Button disabled={this.ready()} onClick={this.oppInfo}>FIGHT</Button></Link>
                 </div>
             </div>
         )

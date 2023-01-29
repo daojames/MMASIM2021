@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import logo from './mmasim2021logo.png';
 import './App.css';
 import './AppHome.css';
+import randomSchedule from "./RandomSchedule";
+import ReactTooltip from "react-tooltip";
 
 const Button = styled.button`
 background-color: transparent;
@@ -1270,6 +1272,33 @@ class Home extends React.Component {
         sessionStorage.setItem('month', (parseInt(sessionStorage.getItem('month')) + 1));
     }
 
+    nr0() {
+        let data = sessionStorage.getItem('player');
+        data = JSON.parse(data);
+        let nr0 = {
+            rank: 'NR',
+            first: data.first,
+            last: data.last,
+            height: data.height,
+            weight: data.weight,
+            nation: data.nation,
+            win: '0',
+            loss: '0',
+            strength: this.strengthCalc(data.height, data.cut),
+            speed: sessionStorage.getItem('spd'),
+            stamina: this.staminaCalc(data.cut),
+            punching: this.calcPunch(sessionStorage.getItem('style'), data.height),
+            kicking: this.calcKick(sessionStorage.getItem('style'), data.height),
+            wrestling: this.calcWrestling(sessionStorage.getItem('style'), data.height),
+            grappling: this.calcGrappling(sessionStorage.getItem('style')),
+            clinch: this.calcClinch(sessionStorage.getItem('style')),
+            swin: '0',
+            sloss: '0',
+            pts: '0'
+          }
+          sessionStorage.setItem('nr0', JSON.stringify(nr0));
+    }
+
     render() {
         let data = sessionStorage.getItem('player');
         data = JSON.parse(data);
@@ -1284,6 +1313,12 @@ class Home extends React.Component {
         let loss = sessionStorage.getItem('loss');
         let month = sessionStorage.getItem('month');
         let year = sessionStorage.getItem('year');
+        if (parseInt(sessionStorage.getItem('first')) == 1){
+            this.nr0();
+        }
+        if (parseInt(sessionStorage.getItem('newSchedule')) == 1) {
+            randomSchedule();
+        }
         return(
             <div className="App">
                 <div className="App-header">
@@ -1328,7 +1363,8 @@ class Home extends React.Component {
                         </div>
                     </div>
                     <div className="App-header-style-HOME">
-                        <Link to='./twitter'><Button onClick={this.notFirst}>TWITTER</Button></Link>
+                        <Link to={(sessionStorage.getItem('org') == 1) ? './twitter' : './home'}><Button data-tip data-for="1" style={(sessionStorage.getItem('org') == 0) ? {border: '2px solid gray', color: 'gray'} : {}}>TWITTER</Button></Link>
+                        <ReactTooltip id="1" place="top" effect="solid">MUST BE SIGNED WITH UFC TO ACCESS TWITTER</ReactTooltip>
                         <Link to='./gym'><Button onClick={this.notFirst}>GYM</Button></Link>
                         <Link to='./career'><Button onClick={this.notFirst}>CAREER</Button></Link>
                         <Link to={(sessionStorage.getItem('org') == 0) ? './schedule' : './fight'}><Button onClick={this.notFirst}>FIGHT</Button></Link>

@@ -1604,6 +1604,7 @@ class Results extends React.Component {
         sessionStorage.setItem('payType', 0);
         data = JSON.parse(data)
         let whitespace = "\xa0\xa0\xa0";
+        console.log('results');
         return(
             <div className="App">
                 <div className="App-header">

@@ -668,7 +668,7 @@ class Offer1 extends React.Component {
                             <Button2><b>{this.getClinch()}</b></Button2>
                         </div>
                         <div className="App-customize3" style={{marginTop: 15, marginBottom: -113}}>
-                            <Link to='/tale1'><Button onClick={this.handleFight}>TAPE</Button></Link>
+                            <Link to='/tale1'><Button onClick={this.handleFight}>FIGHT</Button></Link>
                         </div>
                     </div>
                     <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 833 }}>

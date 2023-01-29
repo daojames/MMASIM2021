@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import logo from './mmasim2021logo.png';
 import ReactTooltip from "react-tooltip";
 import './App.css';
+import randomSchedule from "./RandomSchedule";
 
 const Button = styled.button`
 background-color: transparent;
@@ -23,6 +24,21 @@ transition: ease background-color 250ms;
 &:hover {
   background-color: #616161;
 }
+`
+
+const ButtonA = styled.button`
+background-color: transparent;
+color: white;
+padding: 20px;
+width: 775px;
+text-align: center;
+margin: 10px;
+font-size: 40px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 2px;
+outline: 0;
 `
 
 const ButtonG = styled.button`
@@ -164,6 +180,7 @@ class Org extends React.Component {
                 mma: true,
                 ufc: false
             })
+        randomSchedule();
     }
 
     orgUFC = (event) => {
@@ -1344,16 +1361,17 @@ class Org extends React.Component {
                         <img src={logo} alt='logo' className="App-logo1" style={{ marginTop: -730 }} />
                         CAREER<br/><br/>
                     </div>
-                    <div className="Fight-offer" style={{ marginTop: 330 }}>
-                        <Button data-tip data-for="1" className={this.state.mma ? "att1" : "att0"} onClick={this.orgMMA}>PFL</Button>
-                        <ReactTooltip class="Membership" id="1" place="top" effect="solid"><u>LEAGUE-STYLED FORMAT</u><br/><br/><b>LOW</b> COMPETITION,<br/><b>${parseInt(sessionStorage.getItem('followers'))}</b> BASE PAY<br/><br/>CLICK TO SIGN</ReactTooltip>
-                        <Button data-tip data-for="2" className={this.state.ufc ? "att1" : "att0"} onClick={this.orgUFC}>UFC</Button>
-                        <ReactTooltip class="Membership" id="2" place="top" effect="solid"><u>RANK-BASED FORMAT</u><br/><br/><b>HIGH</b> COMPETITION,<br/><b>${2 * parseInt(sessionStorage.getItem('followers'))}</b> BASE PAY<br/><br/>CLICK TO SIGN</ReactTooltip>
+                    <div className="Fight-offer" style={{ marginTop: 250, marginBotton: 0 }}>
+                        <ButtonA>SIGN WITH THE UFC</ButtonA>
+                    </div>
+                    <div className="Fight-offer" style={{ marginTop: -920 }}>
+                        <Button data-tip data-for="2" className={this.state.ufc ? "att1" : "att0"} onClick={this.orgUFC}>SIGN</Button>
+                        <ReactTooltip class="Membership" id="2" place="bottom" effect="solid">The UFC is the most prestigious MMA promotion; it holds the highest level of competition.<br/>Instead of having a league-styled format like the PFL, the UFC utilizes the traditional rankings-based format.<br/>Fighter pay is significantly higher and is not a fixed rate, but rather is based on multiple factors such as<br/>the fight's outcome, the level of competitiveness, and the fighter's popularity.<br/>Fighters have the ability to choose who/when they fight, talk shit on Twitter, and transfer weight classes.</ReactTooltip>
                     </div>
                     <div className="App-header-style1" style={{ marginTop: -618, marginBottom: 0 }}>
                         <Link to='./career'><Button>STATS</Button></Link>
                         <Link to='./record'><Button>RECORD</Button></Link>
-                        <Link to='./org'><ButtonG>ORG</ButtonG></Link>
+                        <Link to='./org'><ButtonG>UFC</ButtonG></Link>
                     </div>
                     <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 5, fontSize: 30 }}>
                         <Button3>${sessionStorage.getItem('balance')}</Button3>
