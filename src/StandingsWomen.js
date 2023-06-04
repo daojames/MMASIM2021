@@ -384,70 +384,75 @@ class StandingsWomen extends React.Component {
     }
 
     view1() {
-        let data = sessionStorage.getItem('player');
-        data = JSON.parse(data);
-        let unv1 = JSON.parse('[' + sessionStorage.getItem('pflf') + ']');
-        if (data.weight == "WSTRAWWEIGHT" || data.weight == "WFLYWEIGHT" || data.weight == "WBANTAMWEIGHT") {
-            sessionStorage.setItem('sfighter', 12345);
-        }
-        else {
-            sessionStorage.setItem('sfighter', unv1[0]);
-        }
+        let rankList = JSON.parse(sessionStorage.getItem('standingsF'));
+        let num = (rankList[0].code).substring(3);
+        sessionStorage.setItem('sfighter', num);
     }
 
     view2() {
-        let unv1 = JSON.parse('[' + sessionStorage.getItem('pflf') + ']');
-        sessionStorage.setItem('sfighter', unv1[1]);
+        let rankList = JSON.parse(sessionStorage.getItem('standingsF'));
+        let num = (rankList[1].code).substring(3);
+        sessionStorage.setItem('sfighter', num);
     }
 
     view3() {
-        let unv1 = JSON.parse('[' + sessionStorage.getItem('pflf') + ']');
-        sessionStorage.setItem('sfighter', unv1[2]);
+        let rankList = JSON.parse(sessionStorage.getItem('standingsF'));
+        let num = (rankList[2].code).substring(3);
+        sessionStorage.setItem('sfighter', num);
     }
     
     view4() {
-        let unv1 = JSON.parse('[' + sessionStorage.getItem('pflf') + ']');
-        sessionStorage.setItem('sfighter', unv1[3]);
+        let rankList = JSON.parse(sessionStorage.getItem('standingsF'));
+        let num = (rankList[3].code).substring(3);
+        sessionStorage.setItem('sfighter', num);
     }
     
     view5() {
-        let unv1 = JSON.parse('[' + sessionStorage.getItem('pflf') + ']');
-        sessionStorage.setItem('sfighter', unv1[4]);
+        let rankList = JSON.parse(sessionStorage.getItem('standingsF'));
+        let num = (rankList[4].code).substring(3);
+        sessionStorage.setItem('sfighter', num);
     }
     
     view6() {
-        let unv1 = JSON.parse('[' + sessionStorage.getItem('pflf') + ']');
-        sessionStorage.setItem('sfighter', unv1[5]);
+        let rankList = JSON.parse(sessionStorage.getItem('standingsF'));
+        let num = (rankList[5].code).substring(3);
+        sessionStorage.setItem('sfighter', num);
     }
     
     view7() {
-        let unv1 = JSON.parse('[' + sessionStorage.getItem('pflf') + ']');
-        sessionStorage.setItem('sfighter', unv1[6]);
+        let rankList = JSON.parse(sessionStorage.getItem('standingsF'));
+        let num = (rankList[6].code).substring(3);
+        sessionStorage.setItem('sfighter', num);
     }
     
     view8() {
-        let unv1 = JSON.parse('[' + sessionStorage.getItem('pflf') + ']');
-        sessionStorage.setItem('sfighter', unv1[7]);
+        let rankList = JSON.parse(sessionStorage.getItem('standingsF'));
+        let num = (rankList[7].code).substring(3);
+        sessionStorage.setItem('sfighter', num);
     }
     
     view9() {
-        let unv1 = JSON.parse('[' + sessionStorage.getItem('pflf') + ']');
-        sessionStorage.setItem('sfighter', unv1[8]);
+        let rankList = JSON.parse(sessionStorage.getItem('standingsF'));
+        let num = (rankList[8].code).substring(3);
+        sessionStorage.setItem('sfighter', num);
     }
     
     view10() {
-        let unv1 = JSON.parse('[' + sessionStorage.getItem('pflf') + ']');
-        sessionStorage.setItem('sfighter', unv1[9]);
+        let rankList = JSON.parse(sessionStorage.getItem('standingsF'));
+        let num = (rankList[9].code).substring(3);
+        sessionStorage.setItem('sfighter', num);
     }
     
     view11() {
-        let unv1 = JSON.parse('[' + sessionStorage.getItem('pflf') + ']');
-        sessionStorage.setItem('sfighter', unv1[10]);
+        let rankList = JSON.parse(sessionStorage.getItem('standingsF'));
+        let num = (rankList[10].code).substring(3);
+        sessionStorage.setItem('sfighter', num);
     }
     
     view12() {
-        let unv1 = JSON.parse('[' + sessionStorage.getItem('pflf') + ']');
-        sessionStorage.setItem('sfighter', unv1[11]);
+        let rankList = JSON.parse(sessionStorage.getItem('standingsF'));
+        let num = (rankList[11].code).substring(3);
+        sessionStorage.setItem('sfighter', num);
     }
 
     render() {
@@ -474,6 +479,7 @@ class StandingsWomen extends React.Component {
         let firstName = JSON.parse(returnFighterF(unv2[0])).first + ' ' + JSON.parse(returnFighterF(unv2[0])).last;
         let botRec = '(' + JSON.parse(returnFighterF(unv2[0])).swin + ' - ' + JSON.parse(returnFighterF(unv2[0])).sloss + ')';
         let botPts = JSON.parse(returnFighterF(unv2[0])).pts;
+        let rankList = JSON.parse(sessionStorage.getItem('standingsF'));
         return(
             <div className="App">
                 <div className="App-header">
@@ -487,18 +493,18 @@ class StandingsWomen extends React.Component {
                         <Button9>{space}RANK{whitespace}{whitespace}{whitespace}{whitespace}{whitespace}{whitespace}{whitespace}{whitespace}{whitespace}{whitespace}{whitespace}{whitespace}{whitespace}{whitespace}{whitespace}{whitespace}SEASON REC.{whitespace}{whitespace}PTS</Button9>
                     </div>
                     <div className="App-customize4" style={{marginTop: -638}}>
-                        <Link to='./sfighterf'><Button8 onClick={this.view1}>{whitespace}1.{white}{whitespace}{(data.weight == "WSTRAWWEIGHT" || data.weight == "WFLYWEIGHT" || data.weight == "WBANTAMWEIGHT") ? <text>{yourName}</text> : <text>{firstName}</text>}<text class='alignright'>{whitespace}{whitespace}{whitespace}{whitespace}{space}{(data.weight == "WSTRAWWEIGHT" || data.weight == "WFLYWEIGHT" || data.weight == "WBANTAMWEIGHT") ? <text>{sessionStorage.getItem('playerPts')}</text> : <text>{botPts}</text>}{whitespace}</text><text class='alignright' style={{color: 'gray'}}>{(data.weight == "WSTRAWWEIGHT" || data.weight == "WFLYWEIGHT" || data.weight == "WBANTAMWEIGHT") ? <text>({sessionStorage.getItem('playerSwin')} - {sessionStorage.getItem('playerSloss')})</text> : <text>{botRec}</text>}</text></Button8></Link>
-                        <Link to='./sfighterf'><Button8 onClick={this.view5}>{whitespace}5.{white}{whitespace}{JSON.parse(returnFighterF(unv2[4])).first} {JSON.parse(returnFighterF(unv2[4])).last}<text class='alignright'>{whitespace}{whitespace}{whitespace}{whitespace}{space}{JSON.parse(returnFighterF(unv2[4])).pts}{whitespace}</text><text class='alignright' style={{color: 'gray'}}>({JSON.parse(returnFighterF(unv2[4])).swin} - {JSON.parse(returnFighterF(unv2[4])).sloss})</text></Button8></Link>
-                        <Link to='./sfighterf'><Button8a onClick={this.view9}>{whitespace}9.{white}{whitespace}{JSON.parse(returnFighterF(unv2[8])).first} {JSON.parse(returnFighterF(unv2[8])).last}<text class='alignright'>{whitespace}{whitespace}{whitespace}{whitespace}{space}{JSON.parse(returnFighterF(unv2[8])).pts}{whitespace}</text><text class='alignright' style={{color: 'gray'}}>({JSON.parse(returnFighterF(unv2[8])).swin} - {JSON.parse(returnFighterF(unv2[8])).sloss})</text></Button8a></Link>
-                        <Link to='./sfighterf'><Button8 onClick={this.view2}>{whitespace}2.{white}{whitespace}{JSON.parse(returnFighterF(unv2[1])).first} {JSON.parse(returnFighterF(unv2[1])).last}<text class='alignright'>{whitespace}{whitespace}{whitespace}{whitespace}{space}{JSON.parse(returnFighterF(unv2[1])).pts}{whitespace}</text><text class='alignright' style={{color: 'gray'}}>({JSON.parse(returnFighterF(unv2[1])).swin} - {JSON.parse(returnFighterF(unv2[1])).sloss})</text></Button8></Link>
-                        <Link to='./sfighterf'><Button8 onClick={this.view6}>{whitespace}6.{white}{whitespace}{JSON.parse(returnFighterF(unv2[5])).first} {JSON.parse(returnFighterF(unv2[5])).last}<text class='alignright'>{whitespace}{whitespace}{whitespace}{whitespace}{space}{JSON.parse(returnFighterF(unv2[5])).pts}{whitespace}</text><text class='alignright' style={{color: 'gray'}}>({JSON.parse(returnFighterF(unv2[5])).swin} - {JSON.parse(returnFighterF(unv2[5])).sloss})</text></Button8></Link>
-                        <Link to='./sfighterf'><Button8a onClick={this.view10}>{whitespace}10.{whitespace}{JSON.parse(returnFighterF(unv2[9])).first} {JSON.parse(returnFighterF(unv2[9])).last}<text class='alignright'>{whitespace}{whitespace}{whitespace}{whitespace}{space}{JSON.parse(returnFighterF(unv2[9])).pts}{whitespace}</text><text class='alignright' style={{color: 'gray'}}>({JSON.parse(returnFighterF(unv2[9])).swin} - {JSON.parse(returnFighterF(unv2[9])).sloss})</text></Button8a></Link>
-                        <Link to='./sfighterf'><Button8 onClick={this.view3}>{whitespace}3.{white}{whitespace}{JSON.parse(returnFighterF(unv2[2])).first} {JSON.parse(returnFighterF(unv2[2])).last}<text class='alignright'>{whitespace}{whitespace}{whitespace}{whitespace}{space}{JSON.parse(returnFighterF(unv2[2])).pts}{whitespace}</text><text class='alignright' style={{color: 'gray'}}>({JSON.parse(returnFighterF(unv2[2])).swin} - {JSON.parse(returnFighterF(unv2[2])).sloss})</text></Button8></Link>
-                        <Link to='./sfighterf'><Button8 onClick={this.view7}>{whitespace}7.{white}{whitespace}{JSON.parse(returnFighterF(unv2[6])).first} {JSON.parse(returnFighterF(unv2[6])).last}<text class='alignright'>{whitespace}{whitespace}{whitespace}{whitespace}{space}{JSON.parse(returnFighterF(unv2[6])).pts}{whitespace}</text><text class='alignright' style={{color: 'gray'}}>({JSON.parse(returnFighterF(unv2[6])).swin} - {JSON.parse(returnFighterF(unv2[6])).sloss})</text></Button8></Link>
-                        <Link to='./sfighterf'><Button8a onClick={this.view11}>{whitespace}11.{whitespace}{JSON.parse(returnFighterF(unv2[10])).first} {JSON.parse(returnFighterF(unv2[10])).last}<text class='alignright'>{whitespace}{whitespace}{whitespace}{whitespace}{space}{JSON.parse(returnFighterF(unv2[10])).pts}{whitespace}</text><text class='alignright' style={{color: 'gray'}}>({JSON.parse(returnFighterF(unv2[10])).swin} - {JSON.parse(returnFighterF(unv2[10])).sloss})</text></Button8a></Link>
-                        <Link to='./sfighterf'><Button8 onClick={this.view4}>{whitespace}4.{white}{whitespace}{JSON.parse(returnFighterF(unv2[3])).first} {JSON.parse(returnFighterF(unv2[3])).last}<text class='alignright'>{whitespace}{whitespace}{whitespace}{whitespace}{space}{JSON.parse(returnFighterF(unv2[3])).pts}{whitespace}</text><text class='alignright' style={{color: 'gray'}}>({JSON.parse(returnFighterF(unv2[3])).swin} - {JSON.parse(returnFighterF(unv2[3])).sloss})</text></Button8></Link>
-                        <Link to='./sfighterf'><Button8 onClick={this.view8}>{whitespace}8.{white}{whitespace}{JSON.parse(returnFighterF(unv2[7])).first} {JSON.parse(returnFighterF(unv2[7])).last}<text class='alignright'>{whitespace}{whitespace}{whitespace}{whitespace}{space}{JSON.parse(returnFighterF(unv2[7])).pts}{whitespace}</text><text class='alignright' style={{color: 'gray'}}>({JSON.parse(returnFighterF(unv2[7])).swin} - {JSON.parse(returnFighterF(unv2[7])).sloss})</text></Button8></Link>
-                        <Link to='./sfighterf'><Button8a onClick={this.view12}>{whitespace}12.{whitespace}{JSON.parse(returnFighterF(unv2[11])).first} {JSON.parse(returnFighterF(unv2[11])).last}<text class='alignright'>{whitespace}{whitespace}{whitespace}{whitespace}{space}{JSON.parse(returnFighterF(unv2[11])).pts}{whitespace}</text><text class='alignright' style={{color: 'gray'}}>({JSON.parse(returnFighterF(unv2[11])).swin} - {JSON.parse(returnFighterF(unv2[11])).sloss})</text></Button8a></Link>
+                        <Link to='./sfighterf'><Button8 onClick={this.view1}>{whitespace}1.{white}{whitespace}{rankList[0].first} {rankList[0].last}<text class='alignright'>{whitespace}{whitespace}{whitespace}{white}{parseInt(rankList[0].pts) < 10 ? white : ''}{rankList[0].pts}{whitespace}</text><text class='alignright' style={{color: 'gray'}}>({rankList[0].swin} - {rankList[0].sloss})</text></Button8></Link>
+                        <Link to='./sfighterf'><Button8 onClick={this.view5}>{whitespace}5.{white}{whitespace}{rankList[4].first} {rankList[4].last}<text class='alignright'>{whitespace}{whitespace}{whitespace}{white}{parseInt(rankList[4].pts) < 10 ? white : ''}{rankList[4].pts}{whitespace}</text><text class='alignright' style={{color: 'gray'}}>({rankList[4].swin} - {rankList[4].sloss})</text></Button8></Link>
+                        <Link to='./sfighterf'><Button8a onClick={this.view9}>{whitespace}9.{white}{whitespace}{rankList[8].first} {rankList[8].last}<text class='alignright'>{whitespace}{whitespace}{whitespace}{white}{parseInt(rankList[8].pts) < 10 ? white : ''}{rankList[8].pts}{whitespace}</text><text class='alignright' style={{color: 'gray'}}>({rankList[8].swin} - {rankList[8].sloss})</text></Button8a></Link>
+                        <Link to='./sfighterf'><Button8 onClick={this.view2}>{whitespace}2.{white}{whitespace}{rankList[1].first} {rankList[1].last}<text class='alignright'>{whitespace}{whitespace}{whitespace}{white}{parseInt(rankList[1].pts) < 10 ? white : ''}{rankList[1].pts}{whitespace}</text><text class='alignright' style={{color: 'gray'}}>({rankList[1].swin} - {rankList[1].sloss})</text></Button8></Link>
+                        <Link to='./sfighterf'><Button8 onClick={this.view6}>{whitespace}6.{white}{whitespace}{rankList[5].first} {rankList[5].last}<text class='alignright'>{whitespace}{whitespace}{whitespace}{white}{parseInt(rankList[5].pts) < 10 ? white : ''}{rankList[5].pts}{whitespace}</text><text class='alignright' style={{color: 'gray'}}>({rankList[5].swin} - {rankList[5].sloss})</text></Button8></Link>
+                        <Link to='./sfighterf'><Button8a onClick={this.view10}>{whitespace}10.{whitespace}{rankList[9].first} {rankList[9].last}<text class='alignright'>{whitespace}{whitespace}{whitespace}{white}{parseInt(rankList[9].pts) < 10 ? white : ''}{rankList[9].pts}{whitespace}</text><text class='alignright' style={{color: 'gray'}}>({rankList[9].swin} - {rankList[9].sloss})</text></Button8a></Link>
+                        <Link to='./sfighterf'><Button8 onClick={this.view3}>{whitespace}3.{white}{whitespace}{rankList[2].first} {rankList[2].last}<text class='alignright'>{whitespace}{whitespace}{whitespace}{white}{parseInt(rankList[2].pts) < 10 ? white : ''}{rankList[2].pts}{whitespace}</text><text class='alignright' style={{color: 'gray'}}>({rankList[2].swin} - {rankList[2].sloss})</text></Button8></Link>
+                        <Link to='./sfighterf'><Button8 onClick={this.view7}>{whitespace}7.{white}{whitespace}{rankList[6].first} {rankList[6].last}<text class='alignright'>{whitespace}{whitespace}{whitespace}{white}{parseInt(rankList[6].pts) < 10 ? white : ''}{rankList[6].pts}{whitespace}</text><text class='alignright' style={{color: 'gray'}}>({rankList[6].swin} - {rankList[6].sloss})</text></Button8></Link>
+                        <Link to='./sfighterf'><Button8a onClick={this.view11}>{whitespace}11.{whitespace}{rankList[10].first} {rankList[10].last}<text class='alignright'>{whitespace}{whitespace}{whitespace}{white}{parseInt(rankList[10].pts) < 10 ? white : ''}{rankList[10].pts}{whitespace}</text><text class='alignright' style={{color: 'gray'}}>({rankList[10].swin} - {rankList[10].sloss})</text></Button8a></Link>
+                        <Link to='./sfighterf'><Button8 onClick={this.view4}>{whitespace}4.{white}{whitespace}{rankList[3].first} {rankList[3].last}<text class='alignright'>{whitespace}{whitespace}{whitespace}{white}{parseInt(rankList[3].pts) < 10 ? white : ''}{rankList[3].pts}{whitespace}</text><text class='alignright' style={{color: 'gray'}}>({rankList[3].swin} - {rankList[3].sloss})</text></Button8></Link>
+                        <Link to='./sfighterf'><Button8 onClick={this.view8}>{whitespace}8.{white}{whitespace}{rankList[7].first} {rankList[7].last}<text class='alignright'>{whitespace}{whitespace}{whitespace}{white}{parseInt(rankList[7].pts) < 10 ? white : ''}{rankList[7].pts}{whitespace}</text><text class='alignright' style={{color: 'gray'}}>({rankList[7].swin} - {rankList[7].sloss})</text></Button8></Link>
+                        <Link to='./sfighterf'><Button8a onClick={this.view12}>{whitespace}12.{whitespace}{rankList[11].first} {rankList[11].last}<text class='alignright'>{whitespace}{whitespace}{whitespace}{white}{parseInt(rankList[11].pts) < 10 ? white : ''}{rankList[11].pts}{whitespace}</text><text class='alignright' style={{color: 'gray'}}>({rankList[11].swin} - {rankList[11].sloss})</text></Button8a></Link>
                     </div>
                     <div className="App-header-style1" style={{marginTop: -257, marginRight: 0}}>
                         <Link to='./opponent'><Button>FIGHT</Button></Link>

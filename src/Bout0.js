@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import ReactTooltip from "react-tooltip";
 import logo from './mmasim2021logo.png';
 import './App.css';
+import Random from './Random.js';
 
 const Button = styled.button`
 background-color: transparent;
@@ -961,8 +962,8 @@ class Bout0 extends React.Component {
     }
 
     oppInfo() {
-        let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
-        let ran2 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+        let ran1 = Random();
+        let ran2 = Random();
 
         let arr = [
             {type: 'punching', value: sessionStorage.getItem('oppPunching')},
@@ -981,7 +982,7 @@ class Bout0 extends React.Component {
 
         if (ran1 <= 70) {
             if (opp1 == 'punching'){
-                let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                let ran = Random();
                 if (ran <= 50){
                     sessionStorage.setItem('oppStance', 'MMA');
                     sessionStorage.setItem('mmaBuff1', 5);
@@ -992,7 +993,7 @@ class Bout0 extends React.Component {
                 }
             }
             else if (opp1 == 'kicking'){
-                let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                let ran = Random();
                 if (ran <= 50){
                     sessionStorage.setItem('oppStance', 'MMA');
                     sessionStorage.setItem('mmaBuff1', 5);
@@ -1032,7 +1033,7 @@ class Bout0 extends React.Component {
 
         if (ran2 <= 50) {
             if (opp4 == 'punching'){
-                let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                let ran = Random();
                 if (ran <= 70){
                     sessionStorage.setItem('oppGuard', 'HIGH');
                     sessionStorage.setItem('highBuff1', 5);
@@ -1045,7 +1046,7 @@ class Bout0 extends React.Component {
                 }
             }
             else if (opp4 == 'kicking'){
-                let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                let ran = Random();
                 if (ran <= 60){
                     sessionStorage.setItem('oppGuard', 'HIGH');
                     sessionStorage.setItem('highBuff1', 5);
@@ -1070,7 +1071,7 @@ class Bout0 extends React.Component {
         }
         else {
             if (opp1 == 'punching'){
-                let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                let ran = Random();
                 if (ran <= 50){
                     sessionStorage.setItem('oppGuard', 'HIGH');
                     sessionStorage.setItem('highBuff1', 5);
@@ -1082,7 +1083,7 @@ class Bout0 extends React.Component {
                 }
             }
             else if (opp1 == 'kicking'){
-                let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                let ran = Random();
                 if (ran <= 65){
                     sessionStorage.setItem('oppGuard', 'LONG');
                     sessionStorage.setItem('longBuff1', 5);
@@ -1094,7 +1095,7 @@ class Bout0 extends React.Component {
                 }
             }
             else if (opp1 == 'wrestling'){
-                let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                let ran = Random();
                 if (ran <= 75){
                     sessionStorage.setItem('oppGuard', 'LOW');
                     sessionStorage.setItem('lowBuff1', 5);
@@ -1107,7 +1108,7 @@ class Bout0 extends React.Component {
                 }
             }
             else if (opp1 == 'grappling'){
-                let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                let ran = Random();
                 if (ran <= 75){
                     sessionStorage.setItem('oppGuard', 'LOW');
                     sessionStorage.setItem('lowBuff1', 5);
@@ -1121,7 +1122,7 @@ class Bout0 extends React.Component {
         }
         
         if (opp1 == 'punching'){
-            let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            let ran = Random();
             if (ran <= 20){
                 sessionStorage.setItem('oppAtt1', 'BRAWL');
                 sessionStorage.setItem('oppAtt2', 'BLITZ');
@@ -1154,7 +1155,7 @@ class Bout0 extends React.Component {
             }
         }
         else if (opp1 == 'kicking'){
-            let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            let ran = Random();
             if (ran <= 20){
                 sessionStorage.setItem('oppAtt1', 'BRAWL');
                 sessionStorage.setItem('oppAtt2', 'LOW KICK');
@@ -1187,7 +1188,7 @@ class Bout0 extends React.Component {
             }
         }
         else if (opp1 == 'wrestling'){
-            let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            let ran = Random();
             if (ran <= 20){
                 sessionStorage.setItem('oppAtt1', 'BRAWL');
                 sessionStorage.setItem('oppAtt2', 'BLITZ');
@@ -1220,7 +1221,7 @@ class Bout0 extends React.Component {
             }
         }
         else if (opp1 == 'grappling'){
-            let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            let ran = Random();
             if (ran <= 20){
                 sessionStorage.setItem('oppAtt1', 'BRAWL');
                 sessionStorage.setItem('oppAtt2', 'BLITZ');

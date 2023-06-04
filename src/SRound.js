@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import ReactTooltip from "react-tooltip";
 import logo from './mmasim2021logo.png';
 import './App.css';
+import Random from './Random.js';
 
 const Button = styled.button`
 background-color: transparent;
@@ -1631,7 +1632,7 @@ class Round extends React.Component {
         per = (1.5 * (playerPunching) - 1.5 * (oppPunching)) + (.8 * (playerSpd - oppSpd));
         if (att == 'STICK') {
             for (let i = 0; i < 2; ++i) {
-                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                let ran1 = Random();
                 if (per >= 0){
                     if (ran1 <= 70 + (Math.pow(per, .63)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1()) {
                         console.log(70 + (Math.pow(per, .63)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1())
@@ -1652,7 +1653,7 @@ class Round extends React.Component {
         }
         else if (att == 'BRAWL'){
             for (let i = 0; i < 4; ++i){
-                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                let ran1 = Random();
                 if (per >= 0){
                     if (ran1 <= 30 + (Math.pow(per, .63)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1()) {
                         console.log(30 + (Math.pow(per, .63)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1())
@@ -1673,7 +1674,7 @@ class Round extends React.Component {
         }
         else if (att == 'POWER'){
             for (let i = 0; i < 4; ++i){
-                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                let ran1 = Random();
                 if (per >= 0){
                     if (ran1 <= 20 + (Math.pow(per, .45)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1()) {
                         console.log(20 + (Math.pow(per, .45)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1())
@@ -1694,7 +1695,7 @@ class Round extends React.Component {
         }
         else if (att == 'PRESSURE'){
             for (let i = 0; i < 8; ++i){
-                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                let ran1 = Random();
                 if (per >= 0){
                     if (ran1 <= 30 + (Math.pow(per, .63)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1()) {
                         console.log(30 + (Math.pow(per, .63)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1())
@@ -1716,7 +1717,7 @@ class Round extends React.Component {
         else if (att == 'BLITZ'){
             let bPer = ((playerSpd * 2) - (oppSpd + oppPunching));
             for (let i = 0; i < 4; ++i){
-                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                let ran1 = Random();
                 if (bPer >= 0){
                     if (ran1 <= 30 + (Math.pow(bPer, .63)) - oppBladedBuff - oppHighBuff + oppLowNerf + oppLongNerf + this.getFeinted1()) {
                         console.log(30 + (Math.pow(bPer, .63)) - oppBladedBuff - oppHighBuff + oppLowNerf + oppLongNerf + this.getFeinted1())
@@ -1737,7 +1738,7 @@ class Round extends React.Component {
         }
         else if (att == 'LOW KICK'){
             let kPer = (1.5 * (playerKicking) - 1.5 * (oppKicking)) + (.8 * (playerSpd - oppSpd));
-            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            let ran1 = Random();
             if (kPer >= 0){
                 if (ran1 <= 70 + (Math.pow(kPer, .63)) + playerThaiBuff - oppThaiBuff - oppLongBuff + this.getFeinted1()) {
                     console.log(70 + (Math.pow(kPer, .63)) + playerThaiBuff - oppThaiBuff - oppLongBuff + this.getFeinted1())
@@ -1757,7 +1758,7 @@ class Round extends React.Component {
         }
         else if (att == 'FEINT') {
             let fPer = parseInt(25 + Math.pow(playerPunching, .9));
-            let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            let ran = Random();
             if (ran <= fPer) {
                 ++hit;
                 sessionStorage.setItem('feinted1', 1);
@@ -1765,7 +1766,7 @@ class Round extends React.Component {
         }
         else if (att == 'TAKEDOWN') {
             let tPer = parseInt(35 + Math.pow(playerWrestling, .75) - Math.pow(oppWrestling, .75) + this.getFeinted1() + playerMmaBuff - oppMmaBuff - oppLowBuff + oppHighNerf + (.8 * (playerSpd - oppSpd)) + (.8 * (playerStr - oppStr)));
-            let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            let ran = Random();
             if (tPer < 0) {
             }
             else if (ran <= tPer) {
@@ -1776,7 +1777,7 @@ class Round extends React.Component {
         }
         else if (att == 'CLINCH'){
             for (let i = 0; i < 2; ++i){
-                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                let ran1 = Random();
                 if (per >= 0){
                     if (ran1 <= 30 + (Math.pow(per, .63)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1()) {
                         console.log(30 + (Math.pow(per, .63)) + playerBladedBuff - oppBladedBuff - oppHighBuff + oppLongNerf + this.getFeinted1())
@@ -1798,7 +1799,7 @@ class Round extends React.Component {
         }
         else if (att == 'KNEE') {
             let cPer = parseInt(60 + Math.pow(playerClinch, .9) - Math.pow(oppClinch, .9) + (.8 * (playerSpd - oppSpd)));
-            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            let ran1 = Random();
             if (cPer >= 0){
                 if (ran1 <= cPer) {
                     console.log(cPer)
@@ -1810,7 +1811,7 @@ class Round extends React.Component {
         }
         else if (att == 'ELBOW') {
             let cPer = parseInt(40 + Math.pow(playerClinch, .9) - Math.pow(oppClinch, .9) + (.8 * (playerSpd - oppSpd)));
-            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            let ran1 = Random();
             if (cPer >= 0){
                 if (ran1 <= cPer) {
                     console.log(cPer)
@@ -1822,7 +1823,7 @@ class Round extends React.Component {
         }
         else if (att == 'EXIT') {
             let cPer = parseInt(35 + Math.pow(playerClinch, .9) - Math.pow(oppClinch, .9) + (.8 * (playerSpd - oppSpd)) + (.8 * (playerStr - oppStr)));
-            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            let ran1 = Random();
             if (cPer >= 0){
                 if (ran1 <= cPer) {
                     console.log(cPer)
@@ -1833,7 +1834,7 @@ class Round extends React.Component {
         }
         else if (att == 'TRIP') {
             let cPer = parseInt(25 + Math.pow(playerClinch, .9) - Math.pow(oppClinch, .9) + (.8 * (playerSpd - oppSpd)) + (.8 * (playerStr - oppStr)));
-            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            let ran1 = Random();
             if (cPer >= 0){
                 if (ran1 <= cPer) {
                     console.log(cPer)
@@ -1849,7 +1850,7 @@ class Round extends React.Component {
         }
         else if (att == 'G&P') {
             for (let i = 0; i < 4; ++i) {
-                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                let ran1 = Random();
                 if (ran1 <= 80) {
                     ++hit;
                     sessionStorage.setItem('sigStrikes', parseInt(sessionStorage.getItem('sigStrikes')) + 1);
@@ -1859,7 +1860,7 @@ class Round extends React.Component {
         }
         else if (att == 'SUBMISSIONtop') {
             let sPer = parseInt(15 + Math.pow(playerGrappling, .65) - Math.pow(oppGrappling, .65));
-            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            let ran1 = Random();
             if (sPer <= 0) {
             }
             else if (ran1 <= sPer) {
@@ -1870,7 +1871,7 @@ class Round extends React.Component {
         }
         else if (att == 'ESCAPE') {
             let ePer = 5 + parseInt(30 + Math.pow(playerWrestling, .75) - Math.pow(oppWrestling, .75) + (.8 * (playerSpd - oppSpd)) + (.8 * (playerStr - oppStr)));
-            let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            let ran = Random();
             if (ePer < 0) {
             }
             else if (ran <= ePer) {
@@ -1880,7 +1881,7 @@ class Round extends React.Component {
         }
         else if (att == 'REVERSE') {
             let ePer = parseInt(20 + Math.pow(playerWrestling, .6) - Math.pow(oppWrestling, .6) + (.8 * (playerSpd - oppSpd)) + (.8 * (playerStr - oppStr)));
-            let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            let ran = Random();
             if (ePer < 0) {
             }
             else if (ran <= ePer) {
@@ -1890,7 +1891,7 @@ class Round extends React.Component {
         }
         else if (att == 'SUBMISSIONbot') {
             let sPer = parseInt(10 + Math.pow(playerGrappling, .55) - Math.pow(oppGrappling, .55));
-            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            let ran1 = Random();
             if (sPer <= 0) {
             }
             else if (ran1 <= sPer) {
@@ -1950,7 +1951,7 @@ class Round extends React.Component {
         per = (1.5 * (oppPunching) - 1.5 * (playerPunching)) + (.8 * (oppSpd - playerSpd));
         if (att == 'STICK') {
             for (let i = 0; i < 2; ++i) {
-                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                let ran1 = Random();
                 if (per >= 0){
                     if (ran1 <= 70 + (Math.pow(per, .63)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted()) {
                         console.log(70 + (Math.pow(per, .63)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted())
@@ -1968,7 +1969,7 @@ class Round extends React.Component {
         }
         else if (att == 'BRAWL'){
             for (let i = 0; i < 4; ++i){
-                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                let ran1 = Random();
                 if (per >= 0){
                     if (ran1 <= 30 + (Math.pow(per, .63)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted()) {
                         console.log(30 + (Math.pow(per, .63)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted())
@@ -1986,7 +1987,7 @@ class Round extends React.Component {
         }
         else if (att == 'POWER'){
             for (let i = 0; i < 4; ++i){
-                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                let ran1 = Random();
                 if (per >= 0){
                     if (ran1 <= 20 + (Math.pow(per, .45)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted()) {
                         console.log(20 + (Math.pow(per, .45)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted())
@@ -2004,7 +2005,7 @@ class Round extends React.Component {
         }
         else if (att == 'PRESSURE'){
             for (let i = 0; i < 8; ++i){
-                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                let ran1 = Random();
                 if (per >= 0){
                     if (ran1 <= 30 + (Math.pow(per, .63)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted()) {
                         console.log(30 + (Math.pow(per, .63)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted())
@@ -2023,7 +2024,7 @@ class Round extends React.Component {
         else if (att == 'BLITZ'){
             let bPer = ((oppSpd * 2) - (playerSpd + playerPunching));
             for (let i = 0; i < 4; ++i){
-                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                let ran1 = Random();
                 if (bPer >= 0){
                     if (ran1 <= 30 + (Math.pow(bPer, .63)) - playerBladedBuff - playerHighBuff + playerLowNerf + playerLongNerf + this.getFeinted()) {
                         console.log(30 + (Math.pow(bPer, .63)) - playerBladedBuff - playerHighBuff + playerLowNerf + playerLongNerf + this.getFeinted())
@@ -2041,7 +2042,7 @@ class Round extends React.Component {
         }
         else if (att == 'LOW KICK'){
             let kPer = (1.5 * (oppKicking) - 1.5 * (playerKicking)) + (.8 * (oppSpd - playerSpd));
-            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            let ran1 = Random();
             if (kPer >= 0){
                 if (ran1 <= 70 + (Math.pow(kPer, .63)) + oppThaiBuff - playerThaiBuff - playerLongBuff + this.getFeinted()) {
                     console.log(70 + (Math.pow(kPer, .63)) + oppThaiBuff - playerThaiBuff - playerLongBuff + this.getFeinted())
@@ -2058,7 +2059,7 @@ class Round extends React.Component {
         }
         else if (att == 'FEINT') {
             let fPer = parseInt(25 + Math.pow(oppPunching, .9));
-            let ran = Math.floor(Math.random() * (100 -1 + 1) + 1);
+            let ran = Random();
             if (ran <= fPer) {
                 ++hit;
                 sessionStorage.setItem('feinted', 1);
@@ -2066,7 +2067,7 @@ class Round extends React.Component {
         }
         else if (att == 'TAKEDOWN') {
             let tPer = parseInt(35 + Math.pow(oppWrestling, .75) - Math.pow(playerWrestling, .75) + this.getFeinted() - playerMmaBuff + oppMmaBuff + playerHighNerf - playerLowBuff + (.8 * (oppSpd - playerSpd)) + (.8 * (oppStr - playerStr)));
-            let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            let ran = Random();
             if (tPer < 0) {
             }
             else if (ran <= tPer) {
@@ -2078,7 +2079,7 @@ class Round extends React.Component {
         }
         else if (att == 'CLINCH'){
             for (let i = 0; i < 2; ++i){
-                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                let ran1 = Random();
                 if (per >= 0){
                     if (ran1 <= 30 + (Math.pow(per, .63)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted()) {
                         console.log(30 + (Math.pow(per, .63)) + oppBladedBuff - playerBladedBuff - playerHighBuff + playerLongBuff + this.getFeinted())
@@ -2097,7 +2098,7 @@ class Round extends React.Component {
         }
         else if (att == 'KNEE') {
             let cPer = parseInt(60 + Math.pow(oppClinch, .9) - Math.pow(playerClinch, .9) + (.8 * (oppSpd - playerSpd)));
-            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            let ran1 = Random();
             if (cPer >= 0){
                 if (ran1 <= cPer) {
                     console.log(cPer)
@@ -2107,7 +2108,7 @@ class Round extends React.Component {
         }
         else if (att == 'ELBOW') {
             let cPer = parseInt(40 + Math.pow(oppClinch, .9) - Math.pow(playerClinch, .9) + (.8 * (oppSpd - playerSpd)));
-            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            let ran1 = Random();
             if (cPer >= 0){
                 if (ran1 <= cPer) {
                     console.log(cPer)
@@ -2117,7 +2118,7 @@ class Round extends React.Component {
         }
         else if (att == 'EXIT') {
             let cPer = parseInt(35 + Math.pow(oppClinch, .9) - Math.pow(playerClinch, .9) + (.8 * (oppSpd - playerSpd)) + (.8 * (oppStr - playerStr)));
-            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            let ran1 = Random();
             if (cPer >= 0){
                 if (ran1 <= cPer) {
                     console.log(cPer)
@@ -2128,7 +2129,7 @@ class Round extends React.Component {
         }
         else if (att == 'TRIP') {
             let cPer = parseInt(25 + Math.pow(oppClinch, .9) - Math.pow(playerClinch, .9) + (.8 * (oppSpd - playerSpd)) + (.8 * (oppStr - playerStr)));
-            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            let ran1 = Random();
             if (cPer >= 0){
                 if (ran1 <= cPer) {
                     console.log(cPer)
@@ -2144,7 +2145,7 @@ class Round extends React.Component {
         }
         else if (att == 'G&P') {
             for (let i = 0; i < 4; ++i) {
-                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                let ran1 = Random();
                 if (ran1 <= 80) {
                     ++hit;
                 }
@@ -2152,7 +2153,7 @@ class Round extends React.Component {
         }
         else if (att == 'SUBMISSIONtop') {
             let sPer = parseInt(15 + Math.pow(oppGrappling, .65) - Math.pow(playerGrappling, .65));
-            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            let ran1 = Random();
             if (sPer <= 0) {
             }
             else if (ran1 <= sPer) {
@@ -2163,7 +2164,7 @@ class Round extends React.Component {
         }
         else if (att == 'ESCAPE') {
             let ePer = parseInt(35 + Math.pow(oppWrestling, .75) - Math.pow(playerWrestling, .75) + (.8 * (oppSpd - playerSpd)) + (.8 * (oppStr - playerStr)));
-            let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            let ran = Random();
             if (ePer < 0) {
             }
             else if (ran <= ePer) {
@@ -2173,7 +2174,7 @@ class Round extends React.Component {
         }
         else if (att == 'REVERSE') {
             let ePer = parseInt(20 + Math.pow(oppWrestling, .6) - Math.pow(playerWrestling, .6) + (.8 * (oppSpd - playerSpd)) + (.8 * (oppStr - playerStr)));
-            let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            let ran = Random();
             if (ePer < 0) {
             }
             else if (ran <= ePer) {
@@ -2183,7 +2184,7 @@ class Round extends React.Component {
         }
         else if (att == 'SUBMISSIONbot') {
             let sPer = parseInt(10 + Math.pow(oppGrappling, .55) - Math.pow(playerGrappling, .55));
-            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            let ran1 = Random();
             if (sPer <= 0) {
             }
             else if (ran1 <= sPer) {
@@ -2219,7 +2220,7 @@ class Round extends React.Component {
             console.log('koChance: ' + koChance)
             console.log('kdChance: ' + kdChance)
             for (let i = 0; i < hit; ++i){
-                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                let ran1 = Random();
                 if (ran1 <= koChance) {
                     dmg += 1000;
                     kd = 2;
@@ -2251,7 +2252,7 @@ class Round extends React.Component {
         else if (att == 'G&P') {
             let koChance = playerStr / 20;
             console.log('koChance: ' + koChance)
-            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            let ran1 = Random();
             for (let i = 0; i < hit; ++i){
                 if (ran1 <= koChance) {
                     dmg += 1000;
@@ -2270,7 +2271,7 @@ class Round extends React.Component {
             console.log('koChance: ' + koChance)
             console.log('kdChance: ' + kdChance)
             for (let i = 0; i < hit; ++i){
-                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                let ran1 = Random();
                 if (ran1 <= koChance) {
                     dmg += 1000;
                     kd = 2;
@@ -2342,7 +2343,7 @@ class Round extends React.Component {
             let koChance = oppStr / 12;
             let kdChance = (oppStr / 6) + koChance;
             for (let i = 0; i < hit; ++i){
-                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                let ran1 = Random();
                 if (ran1 <= koChance) {
                     dmg += 1000;
                     kd = 2;
@@ -2373,7 +2374,7 @@ class Round extends React.Component {
         }
         else if (att == 'G&P') {
             let koChance = oppStr / 20;
-            let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+            let ran1 = Random();
             for (let i = 0; i < hit; ++i){
                 if (ran1 <= koChance) {
                     dmg += 1000;
@@ -2390,7 +2391,7 @@ class Round extends React.Component {
             let koChance = playerStr / 35;
             let kdChance = (playerStr / 12) + koChance;
             for (let i = 0; i < hit; ++i){
-                let ran1 = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                let ran1 = Random();
                 if (ran1 <= koChance) {
                     dmg += 1000;
                     kd = 2;
@@ -2453,7 +2454,7 @@ class Round extends React.Component {
         else {
             if (att == 'BRAWL' || att == 'PRESSURE' || att == 'POWER' || att == 'LOW KICK' || att == 'CLINCH' || att == 'TAKEDOWN') {
                 for (let i = 0; i < re; ++i) {
-                    let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                    let ran = Random();
                     if (ran <= per) {
                         ++ctr;
                     }
@@ -2477,7 +2478,7 @@ class Round extends React.Component {
         else {
             if (att == 'BRAWL' || att == 'PRESSURE' || att == 'POWER' || att == 'LOW KICK' || att == 'CLINCH' || att == 'TAKEDOWN') {
                 for (let i = 0; i < re; ++i) {
-                    let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+                    let ran = Random();
                     if (ran <= per) {
                         ++ctr;
                     }
@@ -2599,7 +2600,7 @@ class Round extends React.Component {
         }
 
         let arr = new Array(4);
-        let ran = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+        let ran = Random();
         let hit = 0;
         let ctr = 0;
         let dmg = '';

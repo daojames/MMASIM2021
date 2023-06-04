@@ -9,6 +9,7 @@ import {updateRecNR} from './UpdateRecNR';
 import {fightMatcher} from './FightMatcher';
 import returnFighterM from './ReturnFighterM';
 import returnFighterF from './ReturnFighterF';
+import AutoFight from './AutoFight.js';
 
 const Button = styled.button`
 background-color: transparent;
@@ -1254,6 +1255,7 @@ class Results extends React.Component {
             randomNR();
             updateRecNR();
             fightMatcher();
+            AutoFight();
     }
 
     fansGained() {

@@ -137,14 +137,26 @@ class Customize extends React.Component {
       const cHeight = this.state.height
       const cNation = this.capitalize(this.state.nation)
       let obj = {
+        rank: 'NR',
         first: cFirst,
         last: cLast,
         weight: cWeight,
         cut: cCut,
         height: cHeight,
-        nation: cNation
+        nation: cNation,
+        win: '0',
+        loss: '0',
+        swin: '0',
+        sloss: '0',
+        pts: '0',
+				strk: '0',
+        code: (this.wc(cWeight) > 8 ? 'nrf0' : 'nr0')
       }
-      
+
+      sessionStorage.setItem('nr0', null);
+      sessionStorage.setItem('nrf0', null);
+      sessionStorage.setItem('playerNR', null);
+      sessionStorage.setItem('playerNRF', null);
       sessionStorage.setItem('wc', this.wc(cWeight));
       sessionStorage.setItem('wc0', this.wc(cWeight));
       sessionStorage.setItem('player', JSON.stringify(obj));
@@ -351,22 +363,24 @@ class Customize extends React.Component {
         rank: 'NR',
         first: 'SANCHIT',
         last: 'JAIN',
-        height: '2',
+        height: '1',
         weight: '0',
         nation: 'INDIA',
         win: '0',
         loss: '0',
-        strength: '35',
-        speed: '60',
+        strength: '30',
+        speed: '100',
         stamina: '60',
-        punching: '65',
-        kicking: '45',
-        wrestling: '35',
+        punching: '55',
+        kicking: '35',
+        wrestling: '30',
         grappling: '30',
-        clinch: '40',
+        clinch: '30',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nr1'
       }
       sessionStorage.setItem('nr1', JSON.stringify(nr1));
 
@@ -379,9 +393,9 @@ class Customize extends React.Component {
         nation: 'CANADA',
         win: '0',
         loss: '0',
-        strength: '50',
+        strength: '40',
         speed: '50',
-        stamina: '50',
+        stamina: '60',
         punching: '50',
         kicking: '40',
         wrestling: '50',
@@ -389,7 +403,9 @@ class Customize extends React.Component {
         clinch: '30',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nr2'
       }
       sessionStorage.setItem('nr2', JSON.stringify(nr2));
 
@@ -412,7 +428,9 @@ class Customize extends React.Component {
         clinch: '40',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nr3'
       }
       sessionStorage.setItem('nr3', JSON.stringify(nr3));
 
@@ -422,7 +440,7 @@ class Customize extends React.Component {
         last: 'JOHN',
         height: '2',
         weight: '0',
-        nation: 'USA',
+        nation: 'OMAN',
         win: '0',
         loss: '0',
         strength: '35',
@@ -435,7 +453,9 @@ class Customize extends React.Component {
         clinch: '40',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nr4'
       }
       sessionStorage.setItem('nr4', JSON.stringify(nr4));
 
@@ -448,17 +468,19 @@ class Customize extends React.Component {
         nation: 'TAIWAN',
         win: '0',
         loss: '0',
-        strength: '85',
-        speed: '40',
-        stamina: '30',
+        strength: '95',
+        speed: '25',
+        stamina: '25',
         punching: '25',
         kicking: '25',
-        wrestling: '85',
+        wrestling: '95',
         grappling: '40',
         clinch: '40',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nr5'
       }
       sessionStorage.setItem('nr5', JSON.stringify(nr5));
 
@@ -471,9 +493,9 @@ class Customize extends React.Component {
         nation: 'RHODESIA',
         win: '0',
         loss: '0',
-        strength: '40',
+        strength: '50',
         speed: '50',
-        stamina: '60',
+        stamina: '50',
         punching: '30',
         kicking: '30',
         wrestling: '80',
@@ -481,7 +503,9 @@ class Customize extends React.Component {
         clinch: '40',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nr6'
       }
       sessionStorage.setItem('nr6', JSON.stringify(nr6));
 
@@ -504,7 +528,9 @@ class Customize extends React.Component {
         clinch: '60',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nr7'
       }
       sessionStorage.setItem('nr7', JSON.stringify(nr7));
 
@@ -517,9 +543,9 @@ class Customize extends React.Component {
         nation: 'PALESTINE',
         win: '0',
         loss: '0',
-        strength: '40',
+        strength: '60',
         speed: '50',
-        stamina: '60',
+        stamina: '40',
         punching: '70',
         kicking: '50',
         wrestling: '30',
@@ -527,7 +553,9 @@ class Customize extends React.Component {
         clinch: '40',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nr8'
       }
       sessionStorage.setItem('nr8', JSON.stringify(nr8));
 
@@ -535,22 +563,24 @@ class Customize extends React.Component {
         rank: 'NR',
         first: 'BRENDAN',
         last: 'FROST',
-        height: '5',
+        height: '4',
         weight: '0',
         nation: 'USA',
         win: '0',
         loss: '0',
-        strength: '35',
+        strength: '45',
         speed: '50',
         stamina: '50',
-        punching: '45',
-        kicking: '45',
-        wrestling: '35',
+        punching: '35',
+        kicking: '35',
+        wrestling: '45',
         grappling: '80',
         clinch: '30',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nr9'
       }
       sessionStorage.setItem('nr9', JSON.stringify(nr9));
 
@@ -563,24 +593,26 @@ class Customize extends React.Component {
         nation: 'INDIA',
         win: '0',
         loss: '0',
-        strength: '25',
-        speed: '60',
-        stamina: '60',
-        punching: '95',
-        kicking: '35',
-        wrestling: '25',
+        strength: '30',
+        speed: '50',
+        stamina: '70',
+        punching: '90',
+        kicking: '30',
+        wrestling: '30',
         grappling: '30',
         clinch: '40',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nr10'
       }
       sessionStorage.setItem('nr10', JSON.stringify(nr10));
 
       let nr11 = {
         rank: 'NR',
-        first: 'LEVI',
-        last: 'GOLDING',
+        first: 'HENRY',
+        last: 'NGUYEN',
         height: '1',
         weight: '0',
         nation: 'USA',
@@ -589,14 +621,16 @@ class Customize extends React.Component {
         strength: '75',
         speed: '50',
         stamina: '40',
-        punching: '15',
-        kicking: '15',
-        wrestling: '65',
-        grappling: '80',
-        clinch: '30',
+        punching: '40',
+        kicking: '40',
+        wrestling: '35',
+        grappling: '30',
+        clinch: '60',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nr11'
       }
       sessionStorage.setItem('nr11', JSON.stringify(nr11));
 
@@ -619,7 +653,9 @@ class Customize extends React.Component {
         clinch: '30',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nr12'
       }
       sessionStorage.setItem('nr12', JSON.stringify(nr12));
 
@@ -642,7 +678,9 @@ class Customize extends React.Component {
         clinch: '40',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nr13'
       }
       sessionStorage.setItem('nr13', JSON.stringify(nr13));
 
@@ -655,9 +693,9 @@ class Customize extends React.Component {
         nation: 'USA',
         win: '0',
         loss: '0',
-        strength: '40',
+        strength: '50',
         speed: '50',
-        stamina: '60',
+        stamina: '50',
         punching: '90',
         kicking: '30',
         wrestling: '30',
@@ -665,30 +703,34 @@ class Customize extends React.Component {
         clinch: '40',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nr14'
       }
       sessionStorage.setItem('nr14', JSON.stringify(nr14));
 
       let nr15 = {
         rank: 'NR',
-        first: 'ERIK',
-        last: 'DUY-NGUYEN',
-        height: '3',
+        first: 'ANDREW',
+        last: 'NGUYEN',
+        height: '2',
         weight: '0',
-        nation: 'USA',
+        nation: 'VIETNAM',
         win: '0',
         loss: '0',
-        strength: '40',
+        strength: '55',
         speed: '50',
-        stamina: '60',
-        punching: '50',
-        kicking: '50',
-        wrestling: '30',
+        stamina: '50',
+        punching: '45',
+        kicking: '45',
+        wrestling: '35',
         grappling: '30',
         clinch: '60',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nr15'
       }
       sessionStorage.setItem('nr15', JSON.stringify(nr15));
 
@@ -711,14 +753,16 @@ class Customize extends React.Component {
         clinch: '40',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nr16'
       }
       sessionStorage.setItem('nr16', JSON.stringify(nr16));
 
       let nr17 = {
         rank: 'NR',
-        first: 'OMAR',
-        last: 'AGUILAR',
+        first: 'DANIEL',
+        last: 'MORALES',
         height: '2',
         weight: '0',
         nation: 'MEXICO',
@@ -727,6 +771,31 @@ class Customize extends React.Component {
         strength: '75',
         speed: '50',
         stamina: '30',
+        punching: '45',
+        kicking: '45',
+        wrestling: '35',
+        grappling: '30',
+        clinch: '60',
+        swin: '0',
+        sloss: '0',
+        pts: '0',
+				strk: '0',
+        code: 'nr17'
+      }
+      sessionStorage.setItem('nr17', JSON.stringify(nr17));
+
+      let nr18 = {
+        rank: 'NR',
+        first: 'HARRISON',
+        last: 'EAGLE',
+        height: '2',
+        weight: '0',
+        nation: 'USA',
+        win: '0',
+        loss: '0',
+        strength: '55',
+        speed: '50',
+        stamina: '50',
         punching: '85',
         kicking: '25',
         wrestling: '35',
@@ -734,30 +803,9 @@ class Customize extends React.Component {
         clinch: '40',
         swin: '0',
         sloss: '0',
-        pts: '0'
-      }
-      sessionStorage.setItem('nr17', JSON.stringify(nr17));
-
-      let nr18 = {
-        rank: 'NR',
-        first: 'ETHAN',
-        last: 'NGUYEN',
-        height: '2',
-        weight: '0',
-        nation: 'VIETNAM',
-        win: '0',
-        loss: '0',
-        strength: '20',
-        speed: '65',
-        stamina: '70',
-        punching: '65',
-        kicking: '45',
-        wrestling: '35',
-        grappling: '30',
-        clinch: '40',
-        swin: '0',
-        sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nr18'
       }
       sessionStorage.setItem('nr18', JSON.stringify(nr18));
 
@@ -780,30 +828,34 @@ class Customize extends React.Component {
         clinch: '40',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nr19'
       }
       sessionStorage.setItem('nr19', JSON.stringify(nr19));
 
       let nr20 = {
         rank: 'NR',
-        first: 'AARON',
-        last: 'CHAN',
-        height: '4',
+        first: 'KENT',
+        last: 'EDSTROM',
+        height: '3',
         weight: '0',
-        nation: 'CHINA',
+        nation: 'SWEDEN',
         win: '0',
         loss: '0',
-        strength: '45',
+        strength: '50',
         speed: '50',
         stamina: '50',
-        punching: '55',
-        kicking: '55',
-        wrestling: '25',
+        punching: '90',
+        kicking: '30',
+        wrestling: '30',
         grappling: '30',
-        clinch: '60',
+        clinch: '40',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nr20'
       }
       sessionStorage.setItem('nr20', JSON.stringify(nr20));
 
@@ -826,53 +878,59 @@ class Customize extends React.Component {
         clinch: '40',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nr21'
       }
       sessionStorage.setItem('nr21', JSON.stringify(nr21));
 
       let nr22 = {
         rank: 'NR',
         first: 'TYRONE',
-        last: 'FORD',
+        last: 'MALDONADO',
         height: '5',
         weight: '0',
-        nation: 'NIGERIA',
+        nation: 'PUERTO RICO',
         win: '0',
         loss: '0',
-        strength: '35',
-        speed: '50',
-        stamina: '50',
+        strength: '75',
+        speed: '60',
+        stamina: '20',
         punching: '65',
         kicking: '65',
-        wrestling: '15',
-        grappling: '30',
-        clinch: '60',
+        wrestling: '30',
+        grappling: '10',
+        clinch: '45',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nr22'
       }
       sessionStorage.setItem('nr22', JSON.stringify(nr22));
 
       let nr23 = {
         rank: 'NR',
         first: 'ALEX',
-        last: 'DUONG',
-        height: '3',
+        last: 'VAN LAERE',
+        height: '4',
         weight: '0',
         nation: 'USA',
         win: '0',
         loss: '0',
-        strength: '70',
+        strength: '55',
         speed: '50',
-        stamina: '30',
-        punching: '50',
-        kicking: '40',
-        wrestling: '50',
-        grappling: '50',
-        clinch: '30',
+        stamina: '40',
+        punching: '95',
+        kicking: '35',
+        wrestling: '25',
+        grappling: '30',
+        clinch: '40',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nr23'
       }
       sessionStorage.setItem('nr23', JSON.stringify(nr23));
 
@@ -895,7 +953,9 @@ class Customize extends React.Component {
         clinch: '30',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nr24'
       }
       sessionStorage.setItem('nr24', JSON.stringify(nr24));
 
@@ -918,7 +978,9 @@ class Customize extends React.Component {
         clinch: '30',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nrf1'
       }
       sessionStorage.setItem('nrf1', JSON.stringify(nrf1));
 
@@ -941,7 +1003,9 @@ class Customize extends React.Component {
         clinch: '40',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nrf2'
       }
       sessionStorage.setItem('nrf2', JSON.stringify(nrf2));
 
@@ -964,7 +1028,9 @@ class Customize extends React.Component {
         clinch: '40',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nrf3'
       }
       sessionStorage.setItem('nrf3', JSON.stringify(nrf3));
 
@@ -987,7 +1053,9 @@ class Customize extends React.Component {
         clinch: '30',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nrf4'
       }
       sessionStorage.setItem('nrf4', JSON.stringify(nrf4));
 
@@ -1010,7 +1078,9 @@ class Customize extends React.Component {
         clinch: '60',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nrf5'
       }
       sessionStorage.setItem('nrf5', JSON.stringify(nrf5));
 
@@ -1033,7 +1103,9 @@ class Customize extends React.Component {
         clinch: '30',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nrf6'
       }
       sessionStorage.setItem('nrf6', JSON.stringify(nrf6));
 
@@ -1056,7 +1128,9 @@ class Customize extends React.Component {
         clinch: '60',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nrf7'
       }
       sessionStorage.setItem('nrf7', JSON.stringify(nrf7));
 
@@ -1079,7 +1153,9 @@ class Customize extends React.Component {
         clinch: '40',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nrf8'
       }
       sessionStorage.setItem('nrf8', JSON.stringify(nrf8));
 
@@ -1102,7 +1178,9 @@ class Customize extends React.Component {
         clinch: '40',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nrf9'
       }
       sessionStorage.setItem('nrf9', JSON.stringify(nrf9));
 
@@ -1125,7 +1203,9 @@ class Customize extends React.Component {
         clinch: '40',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nrf10'
       }
       sessionStorage.setItem('nrf10', JSON.stringify(nrf10));
 
@@ -1148,7 +1228,9 @@ class Customize extends React.Component {
         clinch: '40',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nrf11'
       }
       sessionStorage.setItem('nrf11', JSON.stringify(nrf11));
 
@@ -1171,7 +1253,9 @@ class Customize extends React.Component {
         clinch: '30',
         swin: '0',
         sloss: '0',
-        pts: '0'
+        pts: '0',
+				strk: '0',
+        code: 'nrf12'
       }
       sessionStorage.setItem('nrf12', JSON.stringify(nrf12));
 

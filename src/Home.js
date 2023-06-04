@@ -1272,7 +1272,43 @@ class Home extends React.Component {
         sessionStorage.setItem('month', (parseInt(sessionStorage.getItem('month')) + 1));
     }
 
-    nr0() {
+    wc(str) {
+        if (str == 'FLYWEIGHT'){
+            return 1;
+        }
+        else if (str == 'BANTAMWEIGHT'){
+            return 2;
+        }
+        else if (str == 'FEATHERWEIGHT'){
+            return 3;
+        }
+        else if (str == 'LIGHTWEIGHT'){
+            return 4;
+        }
+        else if (str == 'WELTERWEIGHT'){
+            return 5;
+        }
+        else if (str == 'MIDDLEWEIGHT'){
+            return 6;
+        }
+        else if (str == 'LIGHT HEAVYWEIGHT'){
+            return 7;
+        }
+        else if (str == 'HEAVYWEIGHT'){
+            return 8;
+        }
+        else if (str == 'WSTRAWWEIGHT'){
+            return 9;
+        }
+        else if (str == 'WFLYWEIGHT'){
+            return 10;
+        }
+        else if (str == 'WBANTAMWEIGHT'){
+            return 11;
+        }
+    }
+
+    nr0First() {
         let data = sessionStorage.getItem('player');
         data = JSON.parse(data);
         let nr0 = {
@@ -1294,9 +1330,38 @@ class Home extends React.Component {
             clinch: this.calcClinch(sessionStorage.getItem('style')),
             swin: '0',
             sloss: '0',
-            pts: '0'
+            pts: '0',
+            code: (this.wc(data.weight) > 8 ? 'nrf0' : 'nr0')
           }
-          sessionStorage.setItem('nr0', JSON.stringify(nr0));
+          sessionStorage.setItem(nr0.code, JSON.stringify(nr0));
+    }
+    
+    nr0() {
+        let data = sessionStorage.getItem('player');
+        data = JSON.parse(data);
+        let nr0 = {
+            rank: sessionStorage.getItem('rank'),
+            first: data.first,
+            last: data.last,
+            height: data.height,
+            weight: data.weight,
+            nation: data.nation,
+            win: sessionStorage.getItem('playerWin'),
+            loss: sessionStorage.getItem('playerLoss'),
+            strength: sessionStorage.getItem('str'),
+            speed: sessionStorage.getItem('spd'),
+            stamina: sessionStorage.getItem('stm'),
+            punching: sessionStorage.getItem('punch'),
+            kicking: sessionStorage.getItem('kick'),
+            wrestling: sessionStorage.getItem('wrestling'),
+            grappling: sessionStorage.getItem('grappling'),
+            clinch: sessionStorage.getItem('clinch'),
+            swin: sessionStorage.getItem('playerSwin'),
+            sloss: sessionStorage.getItem('playerSloss'),
+            pts: sessionStorage.getItem('playerPts'),
+            code: (this.wc(data.weight) > 8 ? 'nrf0' : 'nr0')
+          }
+          sessionStorage.setItem(nr0.code, JSON.stringify(nr0));
     }
 
     render() {
@@ -1314,6 +1379,9 @@ class Home extends React.Component {
         let month = sessionStorage.getItem('month');
         let year = sessionStorage.getItem('year');
         if (parseInt(sessionStorage.getItem('first')) == 1){
+            this.nr0First();
+        }
+        else {
             this.nr0();
         }
         if (parseInt(sessionStorage.getItem('newSchedule')) == 1) {

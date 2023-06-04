@@ -77,21 +77,23 @@ export function randomSchedule() {
     let nrf11 = JSON.parse(sessionStorage.getItem('nrf11'));
     let nrf12 = JSON.parse(sessionStorage.getItem('nrf12'));
 
-    const array1 = [nr1.first, nr2.first, nr3.first, nr4.first, nr5.first, nr6.first, nr7.first, nr8.first, nr9.first, nr10.first, nr11.first, nr12.first, nr13.first, nr14.first, nr15.first, nr16.first, nr17.first, nr18.first, nr19.first, nr20.first, nr21.first, nr22.first, nr23.first, nr24.first];
-    const array2 = [nrf1.first, nrf2.first, nrf3.first, nrf4.first, nrf5.first, nrf6.first, nrf7.first, nrf8.first, nrf9.first, nrf10.first, nrf11.first, nrf12.first];
+    const array1 = [nr1.first + ' ' + nr1.last, nr2.first + ' ' + nr2.last, nr3.first + ' ' + nr3.last, nr4.first + ' ' + nr4.last, nr5.first + ' ' + nr5.last, nr6.first + ' ' + nr6.last, nr7.first + ' ' + nr7.last, nr8.first + ' ' + nr8.last, nr9.first + ' ' + nr9.last, nr10.first + ' ' + nr10.last, nr11.first + ' ' + nr11.last, nr12.first + ' ' + nr12.last, nr13.first + ' ' + nr13.last, nr14.first + ' ' + nr14.last, nr15.first + ' ' + nr15.last, nr16.first + ' ' + nr16.last, nr17.first + ' ' + nr17.last, nr18.first + ' ' + nr18.last, nr19.first + ' ' + nr19.last, nr20.first + ' ' + nr20.last, nr21.first + ' ' + nr21.last, nr22.first + ' ' + nr22.last, nr23.first + ' ' + nr23.last, nr24.first + ' ' + nr24.last];
+    const array2 = [nrf1.first + ' ' + nrf1.last, nrf2.first + ' ' + nrf2.last, nrf3.first + ' ' + nrf3.last, nrf4.first + ' ' + nrf4.last, nrf5.first + ' ' + nrf5.last, nrf6.first + ' ' + nrf6.last, nrf7.first + ' ' + nrf7.last, nrf8.first + ' ' + nrf8.last, nrf9.first + ' ' + nrf9.last, nrf10.first + ' ' + nrf10.last, nrf11.first + ' ' + nrf11.last, nrf12.first + ' ' + nrf12.last];
     let dup1 = null;
     let dup2 = null;
     const unv1 = new Array();
     const unv2 = new Array();
     let full1 = false;
     let full2 = false;
+    let name = data.first + ' ' + data.last;
 
     // Men's
     if (weight == 0) {
         // Find player name duplicate
         for (let i = 0; i < 24; ++i) {
-            if (data.first == array1[i]) {
+            if (name == array1[i]) {
                 dup1 = i + 1;
+                sessionStorage.setItem('playerNR', dup1);
                 unv1.push(dup1);
                 while(true) {
                     let ran1 = Math.floor(Math.random() * (25 - 1) + 1);
@@ -105,6 +107,7 @@ export function randomSchedule() {
         // If no duplicate, pick spot for player and opponent
         if (dup1 == null) {
             let ran1 = Math.floor(Math.random() * (25 - 1) + 1);
+            sessionStorage.setItem('playerNR', ran1);
             unv1.push(ran1);
 
             while(true){
@@ -135,8 +138,9 @@ export function randomSchedule() {
     if (weight == 1) {
         // Find player name duplicate
         for (let i = 0; i < 12; ++i) {
-            if (data.first == array2[i]) {
+            if (name == array2[i]) {
                 dup2 = i + 1;
+                sessionStorage.setItem('playerNRF', dup2);
                 unv2.push(dup2);
                 while(true) {
                     let ran1 = Math.floor(Math.random() * (13 - 1) + 1);
@@ -150,6 +154,7 @@ export function randomSchedule() {
         // If no duplicate, pick spot for player and opponent
         if (dup2 == null) {
             let ran1 = Math.floor(Math.random() * (13 - 1) + 1);
+            sessionStorage.setItem('playerNRF', ran1);
             unv2.push(ran1);
 
             while(true){
@@ -183,6 +188,16 @@ export function randomSchedule() {
         var r = Math.floor(Math.random() * 24) + 1;
         if(arr.indexOf(r) === -1) arr.push(r);
     }
+    let arrayM = [];
+    for (let i = 1; i < 25; ++i) {
+        if (i == parseInt(sessionStorage.getItem('playerNR'))) {
+            arrayM.push(JSON.parse(sessionStorage.getItem('nr0')));
+        }
+        else {
+            arrayM.push(JSON.parse(sessionStorage.getItem('nr' + i)));
+        }
+    }
+    sessionStorage.setItem('standingsM', JSON.stringify(arrayM));
     console.log(arr);
 
     // Week 1
@@ -379,9 +394,9 @@ export function randomSchedule() {
     sessionStorage.setItem('w8f5p1', arr[4]);
     sessionStorage.setItem('w8f5p2', arr[23]);
     sessionStorage.setItem('w8f6p1', arr[5]);
-    sessionStorage.setItem('w87f6p2', arr[12]);
+    sessionStorage.setItem('w8f6p2', arr[12]);
     sessionStorage.setItem('w8f7p1', arr[6]);
-    sessionStorage.setItem('w87f7p2', arr[13]);
+    sessionStorage.setItem('w8f7p2', arr[13]);
     sessionStorage.setItem('w8f8p1', arr[7]);
     sessionStorage.setItem('w8f8p2', arr[14]);
     sessionStorage.setItem('w8f9p1', arr[8]);
@@ -400,6 +415,16 @@ export function randomSchedule() {
         var r = Math.floor(Math.random() * 12) + 1;
         if(arr1.indexOf(r) === -1) arr1.push(r);
     }
+    let arrayF = [];
+    for (let i = 1; i < 13; ++i) {
+        if (i == parseInt(sessionStorage.getItem('playerNRF'))) {
+            arrayF.push(JSON.parse(sessionStorage.getItem('nrf0')));
+        }
+        else {
+            arrayF.push(JSON.parse(sessionStorage.getItem('nrf' + i)));
+        }
+    }
+    sessionStorage.setItem('standingsF', JSON.stringify(arrayF));
     console.log(arr1);
 
     // Week 1

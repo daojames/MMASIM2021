@@ -526,8 +526,8 @@ class SFighterF extends React.Component {
         let month = sessionStorage.getItem('month');
         let year = sessionStorage.getItem('year');
         let fighter = null;
-        if (parseInt(sessionStorage.getItem('sfighter')) == 12345) {
-            fighter = JSON.parse(sessionStorage.getItem('nr0'));
+        if (parseInt(sessionStorage.getItem('sfighter')) == 0) {
+            fighter = JSON.parse(sessionStorage.getItem('nrf0'));
         }
         else {
             fighter = JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('sfighter'))));
