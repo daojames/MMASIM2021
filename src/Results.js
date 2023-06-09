@@ -829,7 +829,7 @@ class Results extends React.Component {
     }
 
     notFirst() {
-        sessionStorage.setItem('first', false);
+        sessionStorage.setItem('first', 'false');
     }
 
     progressTime() {
@@ -1070,7 +1070,7 @@ class Results extends React.Component {
 
             let num = parseInt(sessionStorage.getItem('oppNum'));
             if (num > 100) {
-                for (let i = 101; i < 110; ++i) {
+                for (let i = 101; i < 113; ++i) {
                     if (i == num) {
                         let x = 'nrf' + (num - 100);
                         let data = sessionStorage.getItem(x);
@@ -1088,7 +1088,7 @@ class Results extends React.Component {
                 }
             }
             else {
-                for (let i = 1; i < 22; ++i) {
+                for (let i = 1; i < 25; ++i) {
                     if (i == num) {
                         let x = 'nr' + num;
                         let data = sessionStorage.getItem(x);

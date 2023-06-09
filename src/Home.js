@@ -87,7 +87,7 @@ text-align: center;
 margin-top: -0.53304904vh;
 margin-left: 8.333333333vw;
 margin-right: 8.333333333vw;
-font-size: 1.5625vw;
+font-size: 2.08334vw;
 font-family: 'Roboto', sans-serif;
 font-style: italic;
 border: 2px solid white;
@@ -1265,7 +1265,7 @@ class Home extends React.Component {
     }
 
     notFirst() {
-        sessionStorage.setItem('first', false);
+        sessionStorage.setItem('first', 'false');
     }
 
     progressTime() {
@@ -1331,6 +1331,9 @@ class Home extends React.Component {
             swin: '0',
             sloss: '0',
             pts: '0',
+            strk: data.strk,
+            meth: data.meth,
+            prev: sessionStorage.getItem('prev'),
             code: (this.wc(data.weight) > 8 ? 'nrf0' : 'nr0')
           }
           sessionStorage.setItem(nr0.code, JSON.stringify(nr0));
@@ -1359,6 +1362,9 @@ class Home extends React.Component {
             swin: sessionStorage.getItem('playerSwin'),
             sloss: sessionStorage.getItem('playerSloss'),
             pts: sessionStorage.getItem('playerPts'),
+            strk: data.strk,
+            meth: data.meth,
+            prev: sessionStorage.getItem('prev'),
             code: (this.wc(data.weight) > 8 ? 'nrf0' : 'nr0')
           }
           sessionStorage.setItem(nr0.code, JSON.stringify(nr0));
@@ -1378,7 +1384,7 @@ class Home extends React.Component {
         let loss = sessionStorage.getItem('loss');
         let month = sessionStorage.getItem('month');
         let year = sessionStorage.getItem('year');
-        if (parseInt(sessionStorage.getItem('first')) == 1){
+        if (sessionStorage.getItem('first') === '1'){
             this.nr0First();
         }
         else {
@@ -1439,7 +1445,7 @@ class Home extends React.Component {
                     </div>
                     <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 0, fontSize: 30 }}>
                         <Button3>${sessionStorage.getItem('balance')}</Button3>
-                        <Link to='./home'><Button4 onClick={this.progressTime}>PROGRESS TIME</Button4></Link>
+                        <Link to='./home'><Button4>HELP</Button4></Link>
                         <Button3>{this.calcMonth(month)} {sessionStorage.getItem('year')}</Button3>
                     </div>
                 </div>

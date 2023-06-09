@@ -1,5 +1,8 @@
 export function returnFighterF(num) {
     switch(num) {
+        case 0:
+            return sessionStorage.getItem('nrf0');
+            break;
         case 1:
             return sessionStorage.getItem('nrf1');
             break;

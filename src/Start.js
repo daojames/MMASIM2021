@@ -24,12 +24,34 @@ const Button = styled.button`
   }
 `
 
+const Button1 = styled.button`
+  background-color: transparent;
+  color: white;
+  padding: 0vh;
+  width: 20.83333333vw;
+  height: 5.940298507vh;
+  margin: 0vh;
+  font-size: 3.264392324vh;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  border: 2px solid white;
+  border-radius: 2px;
+  outline: 0;
+  transition: ease background-color 250ms;
+  &:hover {
+    background-color: #616161;
+  }
+`
+
 function Start() {
     return (
       <div className="App">
         <header className="App-start">
           <img src={logo} className="App-logo" alt="logo" />
-          <Link to='./style'><Button>START</Button></Link>
+          <header style={{display: 'flex', justifyContent: 'center'}}>
+            <Link to='./style'><Button>CAREER</Button></Link>
+            <Button>EXHIBITION</Button>
+          </header>
         </header>
       </div>
     );

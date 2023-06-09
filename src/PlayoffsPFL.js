@@ -264,11 +264,11 @@ const Button8 = styled.button`
 background-color: transparent;
 color: white;
 padding: 0px;
-width: 900px;
+width: 575px;
 height: 57px;
 text-align: left;
-margin-top: 3px;
-margin-bottom: 3px;
+margin-top: -1px;
+margin-bottom: -1px;
 margin-left: 10px;
 margin-right: 10px;
 font-size: 30px;
@@ -283,7 +283,55 @@ transition: ease background-color 250ms;
 }
 `
 
-class CardPFL extends React.Component { 
+const Horizontal = styled.button`
+position: absolute;
+background-color: white;
+color: white;
+padding: 0px;
+width: 95px;
+height: 1px;
+text-align: left;
+font-size: 0px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 1px solid white;
+border-radius: 1px;
+outline: 0;
+`
+
+const Vertical = styled.button`
+position: absolute;
+background-color: white;
+color: white;
+padding: 0px;
+width: 1px;
+height: 160px;
+text-align: left;
+font-size: 0px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 1px solid white;
+border-radius: 1px;
+outline: 0;
+`
+
+const Vertical1 = styled.button`
+position: absolute;
+background-color: white;
+color: white;
+padding: 0px;
+width: 1px;
+height: 318px;
+text-align: left;
+font-size: 0px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 1px solid white;
+border-radius: 1px;
+outline: 0;
+`
+
+class PlayoffsPFL extends React.Component { 
     calcMonth(month){
         switch(month){
             case '1':
@@ -4261,48 +4309,50 @@ class CardPFL extends React.Component {
         let rank2 = null;
         let name2 = null;
         let rec2 = null;
-        if (data.weight != "WSTRAWWEIGHT" && data.weight != "WFLYWEIGHT" && data.weight != "WBANTAMWEIGHT") {
-            rank1 = sessionStorage.getItem('rank');
-            name1 = data.first + ' ' + data.last;
-            rec1 = '(' + sessionStorage.getItem('playerSwin') + ' - ' + sessionStorage.getItem('playerSloss') + ')';
-            rank2 = this.findRank1('f1m1');
-            name2 = this.findName1('f1m1');
-            rec2 = this.findRec1('f1m1');
-        }
-        else {
-            rank1 = this.findRank('f1p1');
-            name1 = this.findName('f1p1');
-            rec1 = this.findRec('f1p1');
-            rank2 = sessionStorage.getItem('rank');
-            name2 = data.first + ' ' + data.last;
-            rec2 = '(' + sessionStorage.getItem('playerSwin') + ' - ' + sessionStorage.getItem('playerSloss') + ')';
-        }
         return(
             <div className="App">
+                <Horizontal style={{marginTop: 188, marginLeft: -427}}></Horizontal>
+                <Horizontal style={{marginTop: 346, marginLeft: -427}}></Horizontal>
+                <Horizontal style={{marginTop: 504, marginLeft: -427}}></Horizontal>
+                <Horizontal style={{marginTop: 662, marginLeft: -427}}></Horizontal>
+                <Vertical style={{marginTop: 188, marginLeft: -333}}></Vertical>
+                <Vertical style={{marginTop: 504, marginLeft: -333}}></Vertical>
+                <Horizontal style={{marginTop: 268, marginLeft: -333}}></Horizontal>
+                <Horizontal style={{marginTop: 584, marginLeft: -333}}></Horizontal>
+                <Horizontal style={{marginTop: 268, marginLeft: 232}}></Horizontal>
+                <Horizontal style={{marginTop: 584, marginLeft: 232}}></Horizontal>
+                <Vertical1 style={{marginTop: 268, marginLeft: 325}}></Vertical1>
+                <Horizontal style={{marginTop: 427, marginLeft: 326}}></Horizontal>
                 <div className="App-header">
                     <div className="App-header-styleTop">
                         <img src={logo} alt='logo' className="App-logo1" style={{ marginTop: -730 }} />
                         PFL {month} FIGHT CARD<br/><br/>
                     </div>
-                    <div className="App-customize4" style={{marginTop: 110, marginBottom: 0, width: 1920 }}>
-                        <Button8><center><text style={{color: 'grey'}}>{rank1}</text><text> {name1}</text><text style={{color: 'grey'}}> {rec1}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank('f1p2')} </text><text>{this.findName('f1p2')}</text><text style={{color: 'grey'}}> {this.findRec('f1p2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank('f2p1')}</text><text> {this.findName('f2p1')}</text><text style={{color: 'grey'}}> {this.findRec('f2p1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank('f2p2')} </text><text>{this.findName('f2p2')}</text><text style={{color: 'grey'}}> {this.findRec('f2p2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank('f3p1')}</text><text> {this.findName('f3p1')}</text><text style={{color: 'grey'}}> {this.findRec('f3p1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank('f3p2')} </text><text>{this.findName('f3p2')}</text><text style={{color: 'grey'}}> {this.findRec('f3p2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank('f4p1')}</text><text> {this.findName('f4p1')}</text><text style={{color: 'grey'}}> {this.findRec('f4p1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank('f4p2')} </text><text>{this.findName('f4p2')}</text><text style={{color: 'grey'}}> {this.findRec('f4p2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank('f5p1')}</text><text> {this.findName('f5p1')}</text><text style={{color: 'grey'}}> {this.findRec('f5p1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank('f5p2')} </text><text>{this.findName('f5p2')}</text><text style={{color: 'grey'}}> {this.findRec('f5p2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank('f6p1')}</text><text> {this.findName('f6p1')}</text><text style={{color: 'grey'}}> {this.findRec('f6p1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank('f6p2')} </text><text>{this.findName('f6p2')}</text><text style={{color: 'grey'}}> {this.findRec('f6p2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank('f7p1')}</text><text> {this.findName('f7p1')}</text><text style={{color: 'grey'}}> {this.findRec('f7p1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank('f7p2')} </text><text>{this.findName('f7p2')}</text><text style={{color: 'grey'}}> {this.findRec('f7p2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank('f8p1')}</text><text> {this.findName('f8p1')}</text><text style={{color: 'grey'}}> {this.findRec('f8p1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank('f8p2')} </text><text>{this.findName('f8p2')}</text><text style={{color: 'grey'}}> {this.findRec('f8p2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank('f9p1')}</text><text> {this.findName('f9p1')}</text><text style={{color: 'grey'}}> {this.findRec('f9p1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank('f9p2')} </text><text>{this.findName('f9p2')}</text><text style={{color: 'grey'}}> {this.findRec('f9p2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank('f10p1')}</text><text> {this.findName('f10p1')}</text><text style={{color: 'grey'}}> {this.findRec('f10p1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank('f10p2')} </text><text>{this.findName('f10p2')}</text><text style={{color: 'grey'}}> {this.findRec('f10p2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank('f11p1')}</text><text> {this.findName('f11p1')}</text><text style={{color: 'grey'}}> {this.findRec('f11p1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank('f11p2')} </text><text>{this.findName('f11p2')}</text><text style={{color: 'grey'}}> {this.findRec('f11p2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank('f12p1')}</text><text> {this.findName('f12p1')}</text><text style={{color: 'grey'}}> {this.findRec('f12p1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank('f12p2')} </text><text>{this.findName('f12p2')}</text><text style={{color: 'grey'}}> {this.findRec('f12p2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{rank2}</text><text> {name2}</text><text style={{color: 'grey'}}> {rec2}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank1('f1m2')} </text><text>{this.findName1('f1m2')}</text><text style={{color: 'grey'}}> {this.findRec1('f1m2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank1('f2m1')}</text><text> {this.findName1('f2m1')}</text><text style={{color: 'grey'}}> {this.findRec1('f2m1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank1('f2m2')} </text><text>{this.findName1('f2m2')}</text><text style={{color: 'grey'}}> {this.findRec1('f2m2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank1('f3m1')}</text><text> {this.findName1('f3m1')}</text><text style={{color: 'grey'}}> {this.findRec1('f3m1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank1('f3m2')} </text><text>{this.findName1('f3m2')}</text><text style={{color: 'grey'}}> {this.findRec1('f3m2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank1('f4m1')}</text><text> {this.findName1('f4m1')}</text><text style={{color: 'grey'}}> {this.findRec1('f4m1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank1('f4m2')} </text><text>{this.findName1('f4m2')}</text><text style={{color: 'grey'}}> {this.findRec1('f4m2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank1('f5m1')}</text><text> {this.findName1('f5m1')}</text><text style={{color: 'grey'}}> {this.findRec1('f5m1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank1('f5m2')} </text><text>{this.findName1('f5m2')}</text><text style={{color: 'grey'}}> {this.findRec1('f5m2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank1('f6m1')}</text><text> {this.findName1('f6m1')}</text><text style={{color: 'grey'}}> {this.findRec1('f6m1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank1('f6m2')} </text><text>{this.findName1('f6m2')}</text><text style={{color: 'grey'}}> {this.findRec1('f6m2')}</text></center></Button8>
+                    <div className="App-customize4" style={{marginTop: 95, marginBottom: 15, width: 1920 }}>
+                        <div className="column1" style={{marginTop: 1, marginLeft: 0}}>
+                            <Button8>{whitespace}<text style={{color: 'grey'}}>NR</text><text> TYRONE MALDONADO</text><text style={{color: 'grey'}}> (0 - 0)</text><text className="alignright" style={{fontSize: '22px', marginTop: '5px'}}>TKO R5{whitespace}</text></Button8>
+                            <Button8>{whitespace}<text style={{color: 'grey'}}>NR</text><text style={{color: 'gray'}}> JAMES DAO</text><text style={{color: 'grey'}}> (0 - 0)</text></Button8>
+                            <br />
+                            <Button8>{whitespace}<text style={{color: 'grey'}}>NR</text><text> JAMES DAO</text><text style={{color: 'grey'}}> (0 - 0)</text></Button8>
+                            <Button8>{whitespace}<text style={{color: 'grey'}}>NR</text><text> JAMES DAO</text><text style={{color: 'grey'}}> (0 - 0)</text></Button8>
+                            <br />
+                            <Button8>{whitespace}<text style={{color: 'grey'}}>NR</text><text> JAMES DAO</text><text style={{color: 'grey'}}> (0 - 0)</text></Button8>
+                            <Button8>{whitespace}<text style={{color: 'grey'}}>NR</text><text> JAMES DAO</text><text style={{color: 'grey'}}> (0 - 0)</text></Button8>
+                            <br />
+                            <Button8>{whitespace}<text style={{color: 'grey'}}>NR</text><text> JAMES DAO</text><text style={{color: 'grey'}}> (0 - 0)</text></Button8>
+                            <Button8>{whitespace}<text style={{color: 'grey'}}>NR</text><text> JAMES DAO</text><text style={{color: 'grey'}}> (0 - 0)</text></Button8>
+                        </div>
+                        <div className="column2" style={{marginTop: -500, marginLeft: 663}}>
+                            <Button8 style={{marginTop: '-5px'}}>{whitespace}<text style={{color: 'grey'}}>NR</text><text> JAMES DAO</text><text style={{color: 'grey'}}> (0 - 0)</text></Button8>
+                            <Button8 style={{marginTop: '-1px'}}>{whitespace}<text style={{color: 'grey'}}>NR</text><text> JAMES DAO</text><text style={{color: 'grey'}}> (0 - 0)</text></Button8>
+                            <br /><br /><br /><br />
+                            <Button8 style={{marginTop: '13px'}}>{whitespace}<text style={{color: 'grey'}}>NR</text><text> JAMES DAO</text><text style={{color: 'grey'}}> (0 - 0)</text></Button8>
+                            <Button8 style={{marginTop: '-1px'}}>{whitespace}<text style={{color: 'grey'}}>NR</text><text> JAMES DAO</text><text style={{color: 'grey'}}> (0 - 0)</text></Button8>
+                        </div>
+                        <div className="column3" style={{marginTop: -264, marginLeft: 1325}}>
+                            <Button8 style={{marginTop: '-4px'}}>{whitespace}<text style={{color: 'grey'}}>NR</text><text> JAMES DAO</text><text style={{color: 'grey'}}> (0 - 0)</text></Button8>
+                            <Button8 style={{marginTop: '-1px'}}>{whitespace}<text style={{color: 'grey'}}>NR</text><text> JAMES DAO</text><text style={{color: 'grey'}}> (0 - 0)</text></Button8>
+                        </div>
                     </div>
                     <div className="App-header-style1" style={{marginTop: -98, marginRight: 0}}>
                         <Link to='./opponent'><Button>FIGHT</Button></Link>
@@ -4323,4 +4373,4 @@ class CardPFL extends React.Component {
     }
 }
 
-export default CardPFL;
+export default PlayoffsPFL;

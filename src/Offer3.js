@@ -593,7 +593,7 @@ class Offer3 extends React.Component {
     }
 
     notFirst() {
-        sessionStorage.setItem('first', false);
+        sessionStorage.setItem('first', 'false');
     }
 
     progressTime() {

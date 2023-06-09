@@ -83,6 +83,8 @@ import SFighter7 from './SFighter7.js';
 import SFighter8 from './SFighter8.js';
 import Opponent from './Opponent.js';
 import CardPFL from './CardPFL.js';
+import ResultsPFL from './ResultsPFL.js';
+import PlayoffsPFL from './PlayoffsPFL.js';
 
 const Button = styled.button`
   background-color: transparent;
@@ -180,6 +182,8 @@ function App() {
           <Route path="/sfighter8" exact component={SFighter8} />
           <Route path="/opponent" exact component={Opponent} />
           <Route path="/cardpfl" exact component={CardPFL} />
+          <Route path="/resultspfl" exact component={ResultsPFL} />
+          <Route path="/playoffspfl" exact component={PlayoffsPFL} />
         </Switch>
       </div>
     </Router>

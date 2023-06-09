@@ -135,7 +135,7 @@ text-align: center;
 margin-top: -5px;
 margin-left: 160px;
 margin-right: 160px;
-font-size: 30px;
+font-size: 40px;
 font-family: 'Roboto', sans-serif;
 font-style: italic;
 border: 2px solid white;
@@ -1238,7 +1238,7 @@ class Career extends React.Component {
     }
 
     notFirst() {
-        sessionStorage.setItem('first', false);
+        sessionStorage.setItem('first', 'false');
     }
 
     progressTime() {

@@ -71,6 +71,9 @@ function rankSort() {
                 swin: sessionStorage.getItem('playerSwin'),
                 sloss: sessionStorage.getItem('playerSloss'),
                 pts: sessionStorage.getItem('playerPts'),
+                strk: data.strk,
+                meth: data.meth,
+                prev: data.prev,
                 code: 'nr0'
             }
             arrayM.push(nr0);
@@ -80,6 +83,22 @@ function rankSort() {
         }
     }
     arrayM.sort(compareObjects);
+    let m = 0;
+    arrayM.forEach((element) => {
+        console.log('code: ' + arrayM[m].code);
+        if (arrayM[m].code == 'nr0') {
+            sessionStorage.setItem('prev', sessionStorage.getItem('rank'));
+            sessionStorage.setItem('rank', m + 1);
+        }
+        let dat = JSON.parse(sessionStorage.getItem(arrayM[m].code));
+        dat.prev = dat.rank;
+        dat.rank = m + 1;
+        sessionStorage.setItem(arrayM[m].code, JSON.stringify(dat));
+        arrayM[m].prev = arrayM[m].rank;
+        arrayM[m].rank = m + 1;
+        console.log('NR' + (m + 1) + ' rank: ' + arrayM[m].rank);
+        ++m;
+    });
     sessionStorage.setItem('standingsM', JSON.stringify(arrayM));
 
     let arrayF = [];
@@ -105,6 +124,9 @@ function rankSort() {
                 swin: sessionStorage.getItem('playerSwin'),
                 sloss: sessionStorage.getItem('playerSloss'),
                 pts: sessionStorage.getItem('playerPts'),
+                strk: data.strk,
+                meth: data.meth,
+                prev: data.prev,
                 code: 'nrf0'
             }
             arrayF.push(nr0);
@@ -114,6 +136,22 @@ function rankSort() {
         }
     }
     arrayF.sort(compareObjects);
+    let n = 0;
+    arrayF.forEach((element) => {
+        console.log('code: ' + arrayF[n].code);
+        if (arrayF[n].code == 'nrf0') {
+            sessionStorage.setItem('prev', sessionStorage.getItem('rank'));
+            sessionStorage.setItem('rank', n + 1);
+        }
+        let dat = JSON.parse(sessionStorage.getItem(arrayF[n].code));
+        dat.prev = dat.rank;
+        dat.rank = n + 1;
+        sessionStorage.setItem(arrayF[n].code, JSON.stringify(dat));
+        arrayF[n].prev = arrayF[n].rank;
+        arrayF[n].rank = n + 1;
+        console.log('NRF' + (n + 1) + ' rank: ' + arrayF[n].rank);
+        ++n;
+    });
     sessionStorage.setItem('standingsF', JSON.stringify(arrayF));
 }
 
@@ -334,7 +372,7 @@ function move(a, b, y) {
                         let hit = getHitA('STALL')
                         getDamageA(hit, 'STALL')
                     }
-                    else if (ranA >= 55) {
+                    else if (ranA >= 85) {
                         let hit = getHitA('GET UP')
                         getDamageA(hit, 'GET UP')
                     }
@@ -558,7 +596,7 @@ function move(a, b, y) {
                         let hit = getHitB('STALL')
                         getDamageB(hit, 'STALL')
                     }
-                    else if (ranB >= 55) {
+                    else if (ranB >= 85) {
                         let hit = getHitB('GET UP')
                         getDamageB(hit, 'GET UP')
                     }
@@ -707,6 +745,8 @@ function postFight(w, l) {
 
     let round = parseInt(sessionStorage.getItem('abRound'));
     let method = sessionStorage.getItem('abMethod');
+    objW.meth = 'R' + round + ' ' + method;
+    objL.meth = 'R' + round + ' ' + method;
     let pts = 3;
 
     if (method == 'KO' || method == 'TKO' || method == 'SUB') {
@@ -743,8 +783,8 @@ function postFight(w, l) {
 function nextRound() {
 	let totalDmgA = parseInt(sessionStorage.getItem('totalDmgA'));
 	let totalDmgB = parseInt(sessionStorage.getItem('totalDmgB'));
-	let aOppControl = parseInt(sessionStorage.getItem('aOppcontrol'));
-	let bOppControl = parseInt(sessionStorage.getItem('bOppcontrol'));
+	let aOppControl = parseInt(sessionStorage.getItem('aOppControl'));
+	let bOppControl = parseInt(sessionStorage.getItem('bOppControl'));
 	
 	if ((Math.abs(totalDmgA - totalDmgB)) < 40) {
 		if (aOppControl > bOppControl) {

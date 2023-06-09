@@ -530,7 +530,7 @@ export function randomSchedule() {
     sessionStorage.setItem('w8f1m2', arr1[5]);
     sessionStorage.setItem('w8f2m1', arr1[2]);
     sessionStorage.setItem('w8f2m2', arr1[4]);
-    sessionStorage.setItem('w8f3m1', arr1[4]);
+    sessionStorage.setItem('w8f3m1', arr1[1]);
     sessionStorage.setItem('w8f3m2', arr1[3]);
     sessionStorage.setItem('w8f4m1', arr1[6]);
     sessionStorage.setItem('w8f4m2', arr1[11]);

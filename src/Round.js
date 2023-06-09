@@ -3224,7 +3224,7 @@ class Round extends React.Component {
                     arr[3] = '';
                     console.log(arr[0])
                 }
-                else if (ran >= 55) {
+                else if (ran >= 85) {
                     arr[0] = 'GET UP';
                     arr[1] = this.getOppMsg1(arr[0]);
                     hit = this.getHit1('GET UP');

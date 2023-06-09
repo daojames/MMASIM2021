@@ -1081,7 +1081,7 @@ class Fighter2 extends React.Component {
     }
 
     notFirst() {
-        sessionStorage.setItem('first', false);
+        sessionStorage.setItem('first', 'false');
     }
 
     progressTime() {

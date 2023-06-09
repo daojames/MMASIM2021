@@ -9,11 +9,11 @@ import returnFighterM from './ReturnFighterM.js';
 const Button = styled.button`
 background-color: transparent;
 color: white;
-padding: 20px;
-width: 275px;
+padding: 2.132196162vh;
+width: 14.322916666vw;
 text-align: center;
-margin: 10px;
-font-size: 40px;
+margin: 1.066098081vh;
+font-size: 2.083333333vw;
 font-family: 'Roboto', sans-serif;
 font-style: italic;
 border: 2px solid white;
@@ -28,11 +28,11 @@ transition: ease background-color 250ms;
 const ButtonG = styled.button`
 background-color: grey;
 color: white;
-padding: 20px;
-width: 275px;
+padding: 2.132196162vh;
+width: 14.322916666vw;
 text-align: center;
-margin: 10px;
-font-size: 40px;
+margin: 1.066098081vh;
+font-size: 2.083333333vw;
 font-family: 'Roboto', sans-serif;
 font-style: italic;
 border: 2px solid white;
@@ -610,8 +610,8 @@ class StandingsMen extends React.Component {
                         <Link to='./schedule'><Button>SCHEDULE</Button></Link>
                         <Link to='./standingsmen'><ButtonG>MEN</ButtonG></Link>
                         <Link to='./standingswomen'><Button>WOMEN</Button></Link>
-                        <Link to='./cardpfl'><Button>CARD</Button></Link>
-                        <Link to='./fight'><Button>RESULTS</Button></Link>
+                        <Link to={parseInt(sessionStorage.getItem('month')) > 8 ? './playoffspfl' : './cardpfl'}><Button>CARD</Button></Link>
+                        <Link to={sessionStorage.getItem('firstResults') === 'true' ? './standingsmen' : './resultspfl'}><Button style={sessionStorage.getItem('firstResults') === 'true' ? {border: '2px solid gray', color: 'gray'} : {}}>RESULTS</Button></Link>
                     </div>
                     <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 0, fontSize: 30 }}>
                         <Button3>${sessionStorage.getItem('balance')}</Button3>

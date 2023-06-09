@@ -832,7 +832,7 @@ class Results extends React.Component {
     }
 
     notFirst() {
-        sessionStorage.setItem('first', false);
+        sessionStorage.setItem('first', 'false');
     }
 
     progressTime() {
@@ -900,6 +900,8 @@ class Results extends React.Component {
     }
 
     handleFight = (event) => {
+        sessionStorage.setItem('firstResults', 'false');
+
         let payType = sessionStorage.getItem('payType');
         let data = sessionStorage.getItem('player');
         data = JSON.parse(data);
@@ -948,6 +950,7 @@ class Results extends React.Component {
         }
 
         sessionStorage.setItem('payType', 0);
+        let rd = parseInt(sessionStorage.getItem('round')) - 1;
 
         if (sessionStorage.getItem('win') == 1) {
             sessionStorage.setItem('playerWin', parseInt(sessionStorage.getItem('playerWin')) + 1);
@@ -955,6 +958,40 @@ class Results extends React.Component {
             sessionStorage.setItem('prevFight', 1);
             sessionStorage.setItem('winStreak', parseInt(sessionStorage.getItem('winStreak')) + 1);
             sessionStorage.setItem('lossStreak', 0);
+            let data = JSON.parse(sessionStorage.getItem('player'));
+            data.strk = parseInt(data.strk) + 1;
+            let opp = parseInt(sessionStorage.getItem('oppNum'));
+            let oppData = null;
+            let oppCode = null;
+            if (opp > 100) {
+                oppCode = 'nrf' + (opp - 100);
+                oppData = JSON.parse(sessionStorage.getItem(oppCode));
+                oppData.strk = 0;
+            }
+            else {
+                oppCode = 'nr' + opp;
+                oppData = JSON.parse(sessionStorage.getItem(oppCode));
+                oppData.strk = 0;
+            }
+
+            if (sessionStorage.getItem('ko') == 1) {
+                data.meth = 'R' + rd + ' KO';
+                oppData.meth = 'R' + rd + ' KO';
+            }
+            else if (sessionStorage.getItem('tko') == 1) {
+                data.meth = 'R' + rd + ' TKO';
+                oppData.meth = 'R' + rd + ' TKO';
+            }
+            else if (sessionStorage.getItem('sub') == 1) {
+                data.meth = 'R' + rd + ' SUB';
+                oppData.meth = 'R' + rd + ' SUB';
+            }
+            else {
+                data.meth = 'R' + rd + ' DEC';
+                oppData.meth = 'R' + rd + ' DEC';
+            }
+            sessionStorage.setItem('player', JSON.stringify(data));
+            sessionStorage.setItem(oppCode, JSON.stringify(oppData));
         }
         else {
             sessionStorage.setItem('playerLoss', parseInt(sessionStorage.getItem('playerLoss')) + 1);
@@ -962,6 +999,40 @@ class Results extends React.Component {
             sessionStorage.setItem('prevFight', 2);
             sessionStorage.setItem('lossStreak', parseInt(sessionStorage.getItem('lossStreak')) + 1);
             sessionStorage.setItem('winStreak', 0);
+            let data = JSON.parse(sessionStorage.getItem('player'));
+            data.strk = 0;
+            let opp = parseInt(sessionStorage.getItem('oppNum'));
+            let oppData = null;
+            let oppCode = null;
+            if (opp > 100) {
+                oppCode = 'nrf' + (opp - 100);
+                oppData = JSON.parse(sessionStorage.getItem(oppCode));
+                oppData.strk = parseInt(oppData.strk) + 1;
+            }
+            else {
+                oppCode = 'nr' + opp;
+                oppData = JSON.parse(sessionStorage.getItem(oppCode));
+                oppData.strk = parseInt(oppData.strk) + 1;
+            }
+
+            if (sessionStorage.getItem('ko') == 1) {
+                data.meth = 'R' + rd + ' KO';
+                oppData.meth = 'R' + rd + ' KO';
+            }
+            else if (sessionStorage.getItem('tko') == 1) {
+                data.meth = 'R' + rd + ' TKO';
+                oppData.meth = 'R' + rd + ' TKO';
+            }
+            else if (sessionStorage.getItem('sub') == 1) {
+                data.meth = 'R' + rd + ' SUB';
+                oppData.meth = 'R' + rd + ' SUB';
+            }
+            else {
+                data.meth = 'R' + rd + ' DEC';
+                oppData.meth = 'R' + rd + ' DEC';
+            }
+            sessionStorage.setItem('player', JSON.stringify(data));
+            sessionStorage.setItem(oppCode, JSON.stringify(oppData));
         }
 
         switch (parseInt(sessionStorage.getItem('month'))) {
@@ -1186,7 +1257,7 @@ class Results extends React.Component {
 
             let num = parseInt(sessionStorage.getItem('oppNum'));
             if (num > 100) {
-                for (let i = 101; i < 110; ++i) {
+                for (let i = 101; i < 113; ++i) {
                     if (i == num) {
                         let x = 'nrf' + (num - 100);
                         let data = sessionStorage.getItem(x);
@@ -1204,7 +1275,7 @@ class Results extends React.Component {
                 }
             }
             else {
-                for (let i = 1; i < 22; ++i) {
+                for (let i = 1; i < 25; ++i) {
                     if (i == num) {
                         let x = 'nr' + num;
                         let data = sessionStorage.getItem(x);
@@ -1256,6 +1327,11 @@ class Results extends React.Component {
             updateRecNR();
             fightMatcher();
             AutoFight();
+    }
+
+    findWeek(str) {
+        let month = parseInt(sessionStorage.getItem('month'));
+        return 'w' + month + str;
     }
 
     fansGained() {

@@ -604,8 +604,8 @@ class Gym1 extends React.Component {
                         <ReactTooltip class="Membership" id="6" place="top" effect="solid">DUBLIN, IRELAND<br/><b>$11500</b>/FIGHT, <b>$800</b>/MONTH<br/><br/><u>FIGHT BUFF</u><br/>PNCH +10<br/>CLNH +5<br/><br/>CLICK TO SIGN<br/><b>$14000</b></ReactTooltip>
                     </div>
                     <div className="App-customize1" style={{marginTop: 10}}>
-                        <Link to='./gyms'><Button data-tip data-for="7" className={this.state.cgj ? "att1" : "att0"} onClick={this.gymCGJ}>CESAR GRACIE JIU JITSU</Button></Link>
-                        <ReactTooltip class="Membership" id="7" place="top" effect="solid">SAN FRANCISCO, CALIFORNIA<br/><b>$12000</b>/FIGHT, <b>$850</b>/MONTH<br/><br/><u>FIGHT BUFF</u><br/>PNCH +10<br/>GRPL +5<br/><br/>CLICK TO SIGN<br/><b>$14500</b></ReactTooltip>
+                        <Link to='./gyms'><Button data-tip data-for="7" className={this.state.cgj ? "att1" : "att0"} onClick={this.gymCGJ}>CHUTE BOXE ACADEMY</Button></Link>
+                        <ReactTooltip class="Membership" id="7" place="top" effect="solid">CURITIBA, BRAZIL<br/><b>$12000</b>/FIGHT, <b>$850</b>/MONTH<br/><br/><u>FIGHT BUFF</u><br/>PNCH +10<br/>GRPL +5<br/><br/>CLICK TO SIGN<br/><b>$14500</b></ReactTooltip>
                         <Buttona></Buttona>
                         <Link to='./gyms'><Button data-tip data-for="8" className={this.state.nvu ? "att1" : "att0"} onClick={this.gymNVU}>NOVA UNIÃO</Button></Link>
                         <ReactTooltip class="Membership" id="8" place="top" effect="solid">RIO DE JANEIRO, BRAZIL<br/><b>$9000</b>/FIGHT, <b>$700</b>/MONTH<br/><br/><u>FIGHT BUFF</u><br/>GRPL +10<br/>PNCH +5<br/><br/>CLICK TO SIGN<br/><b>$19000</b></ReactTooltip>
