@@ -10,6 +10,9 @@ import {fightMatcher} from './FightMatcher';
 import returnFighterM from './ReturnFighterM';
 import returnFighterF from './ReturnFighterF';
 import AutoFight from './AutoFight.js';
+import CalcRate from './CalcRate.js';
+import RecordSeasonPFL from './RecordSeasonPFL';
+import City from './City';
 
 const Button = styled.button`
 background-color: transparent;
@@ -895,8 +898,65 @@ class Results extends React.Component {
             break;
         }
 
-        let ufc = ((parseInt(sessionStorage.getItem('year')) - 2021) * 12) + 265 + mon;
+        let ufc = null;
+        if (parseInt(sessionStorage.getItem('org')) == 0) {
+            if (parseInt(sessionStorage.getItem('month')) > 8) {
+                switch (parseInt(sessionStorage.getItem('month'))) {
+                    case 9:
+                        ufc = 'PFL: QUARTERFINALS';
+                    break;
+                    case 10:
+                        ufc = 'PFL: SEMIFINALS';
+                    break;
+                    case 11:
+                        ufc = 'PFL: CHAMPIONSHIP';
+                    break;
+                }
+            }
+            else {
+                ufc = 'PFL ' + (mon + 1);
+            }
+        }
+        else {
+            ufc = 'UFC ' + ((parseInt(sessionStorage.getItem('year')) - 2021) * 12) + 265 + mon;
+        }
         return ufc;
+    }
+
+    wc(str) {
+        if (str == 'FLYWEIGHT'){
+            return 1;
+        }
+        else if (str == 'BANTAMWEIGHT'){
+            return 2;
+        }
+        else if (str == 'FEATHERWEIGHT'){
+            return 3;
+        }
+        else if (str == 'LIGHTWEIGHT'){
+            return 4;
+        }
+        else if (str == 'WELTERWEIGHT'){
+            return 5;
+        }
+        else if (str == 'MIDDLEWEIGHT'){
+            return 6;
+        }
+        else if (str == 'LIGHT HEAVYWEIGHT'){
+            return 7;
+        }
+        else if (str == 'HEAVYWEIGHT'){
+            return 8;
+        }
+        else if (str == 'WSTRAWWEIGHT'){
+            return 9;
+        }
+        else if (str == 'WFLYWEIGHT'){
+            return 10;
+        }
+        else if (str == 'WBANTAMWEIGHT'){
+            return 11;
+        }
     }
 
     handleFight = (event) => {
@@ -922,6 +982,7 @@ class Results extends React.Component {
             sessionStorage.setItem(str, JSON.stringify(opp));
         }
         else {
+            console.log(oppNum)
             opp = JSON.parse(returnFighterF(oppNum - 100));
             if (sessionStorage.getItem('win') == 1) {
                 opp.sloss = parseInt(opp.sloss) + 1;
@@ -939,11 +1000,11 @@ class Results extends React.Component {
         }
         else if (payType == 2) {
             sessionStorage.setItem('balance', parseInt(sessionStorage.getItem('balance')) + (parseInt(this.calcPurse()) - parseInt(sessionStorage.getItem('gymCamp'))));
-            sessionStorage.setItem('careerEarnings', parseInt(sessionStorage.getItem('careerEarnings')) + (parseInt(this.calcPurse()) - parseInt(sessionStorage.getItem('gymCamp'))));
+            sessionStorage.setItem('careerEarnings', parseInt(sessionStorage.getItem('careerEarnings')) + (parseInt(this.calcPurse())));
         }
         else if (payType == 3) {
             sessionStorage.setItem('balance', parseInt(sessionStorage.getItem('balance')) + (parseInt(this.calcPurse()) - parseInt(sessionStorage.getItem('gymCamp'))));
-            sessionStorage.setItem('careerEarnings', parseInt(sessionStorage.getItem('careerEarnings')) + (parseInt(this.calcPurse()) - parseInt(sessionStorage.getItem('gymCamp'))));
+            sessionStorage.setItem('careerEarnings', parseInt(sessionStorage.getItem('careerEarnings')) + (parseInt(this.calcPurse())));
         }
         else {
             console.log('pay error')
@@ -974,23 +1035,71 @@ class Results extends React.Component {
                 oppData.strk = 0;
             }
 
+            data.win = parseInt(data.win) + 1;
+
             if (sessionStorage.getItem('ko') == 1) {
                 data.meth = 'R' + rd + ' KO';
                 oppData.meth = 'R' + rd + ' KO';
+                
+                //data.ko = parseInt(data.ko) + 1;
+                //sessionStorage.setItem('playerKo', parseInt(sessionStorage.getItem('playerKo')) + 1);
             }
             else if (sessionStorage.getItem('tko') == 1) {
                 data.meth = 'R' + rd + ' TKO';
                 oppData.meth = 'R' + rd + ' TKO';
+
+                //data.ko = parseInt(data.ko) + 1;
+                //sessionStorage.setItem('playerKo', parseInt(sessionStorage.getItem('playerKo')) + 1);
             }
             else if (sessionStorage.getItem('sub') == 1) {
                 data.meth = 'R' + rd + ' SUB';
                 oppData.meth = 'R' + rd + ' SUB';
+
+                //data.sub = parseInt(data.sub) + 1;
+                //sessionStorage.setItem('playerSub', parseInt(sessionStorage.getItem('playerSub')) + 1);
             }
             else {
                 data.meth = 'R' + rd + ' DEC';
                 oppData.meth = 'R' + rd + ' DEC';
             }
+
+            //data.rate = Math.floor(((parseInt(data.ko) + parseInt(data.sub)) / parseInt(data.swin)) * 100);
+            sessionStorage.setItem('playerRate', Math.floor(((parseInt(sessionStorage.getItem('playerKo')) + parseInt(sessionStorage.getItem('playerSub'))) / parseInt(sessionStorage.getItem('playerSwin'))) * 100));
+            //sessionStorage.setItem('playerRate', data.rate);
             sessionStorage.setItem('player', JSON.stringify(data));
+            
+            let data1 = sessionStorage.getItem('player');
+            data1 = JSON.parse(data1);
+            let nr0 = {
+                rank: sessionStorage.getItem('rank'),
+                first: data.first,
+                last: data.last,
+                height: data.height,
+                weight: data.weight,
+                nation: data.nation,
+                win: sessionStorage.getItem('playerWin'),
+                loss: sessionStorage.getItem('playerLoss'),
+                strength: sessionStorage.getItem('str'),
+                speed: sessionStorage.getItem('spd'),
+                stamina: sessionStorage.getItem('stm'),
+                punching: sessionStorage.getItem('punch'),
+                kicking: sessionStorage.getItem('kick'),
+                wrestling: sessionStorage.getItem('wrestling'),
+                grappling: sessionStorage.getItem('grappling'),
+                clinch: sessionStorage.getItem('clinch'),
+                swin: sessionStorage.getItem('playerSwin'),
+                sloss: sessionStorage.getItem('playerSloss'),
+                pts: sessionStorage.getItem('playerPts'),
+                strk: data.strk,
+                meth: data.meth,
+                rate: sessionStorage.getItem('playerRate'),
+                ko: sessionStorage.getItem('playerKo'),
+                sub: sessionStorage.getItem('playerSub'),
+                prev: sessionStorage.getItem('prev'),
+                code: (this.wc(data.weight) > 8 ? 'nrf0' : 'nr0')
+            }
+            sessionStorage.setItem(nr0.code, JSON.stringify(nr0));
+
             sessionStorage.setItem(oppCode, JSON.stringify(oppData));
         }
         else {
@@ -1015,6 +1124,8 @@ class Results extends React.Component {
                 oppData.strk = parseInt(oppData.strk) + 1;
             }
 
+            data.loss = parseInt(data.loss) + 1;
+
             if (sessionStorage.getItem('ko') == 1) {
                 data.meth = 'R' + rd + ' KO';
                 oppData.meth = 'R' + rd + ' KO';
@@ -1031,7 +1142,48 @@ class Results extends React.Component {
                 data.meth = 'R' + rd + ' DEC';
                 oppData.meth = 'R' + rd + ' DEC';
             }
+
+            if (sessionStorage.getItem('ko') != 1 && sessionStorage.getItem('tko') != 1 && sessionStorage.getItem('sub') != 1) {
+                oppData.pts = parseInt(oppData.pts) + 3;
+            }
+            else {
+                oppData.pts = parseInt(oppData.pts) + 3 + (4 - parseInt(rd));
+            }
+
             sessionStorage.setItem('player', JSON.stringify(data));
+
+            let data1 = sessionStorage.getItem('player');
+            data1 = JSON.parse(data1);
+            let nr0 = {
+                rank: sessionStorage.getItem('rank'),
+                first: data.first,
+                last: data.last,
+                height: data.height,
+                weight: data.weight,
+                nation: data.nation,
+                win: sessionStorage.getItem('playerWin'),
+                loss: sessionStorage.getItem('playerLoss'),
+                strength: sessionStorage.getItem('str'),
+                speed: sessionStorage.getItem('spd'),
+                stamina: sessionStorage.getItem('stm'),
+                punching: sessionStorage.getItem('punch'),
+                kicking: sessionStorage.getItem('kick'),
+                wrestling: sessionStorage.getItem('wrestling'),
+                grappling: sessionStorage.getItem('grappling'),
+                clinch: sessionStorage.getItem('clinch'),
+                swin: sessionStorage.getItem('playerSwin'),
+                sloss: sessionStorage.getItem('playerSloss'),
+                pts: sessionStorage.getItem('playerPts'),
+                strk: data.strk,
+                meth: data.meth,
+                rate: sessionStorage.getItem('playerRate'),
+                ko: sessionStorage.getItem('playerKo'),
+                sub: sessionStorage.getItem('playerSub'),
+                prev: sessionStorage.getItem('prev'),
+                code: (this.wc(data.weight) > 8 ? 'nrf0' : 'nr0')
+            }
+            sessionStorage.setItem(nr0.code, JSON.stringify(nr0));
+
             sessionStorage.setItem(oppCode, JSON.stringify(oppData));
         }
 
@@ -1326,7 +1478,11 @@ class Results extends React.Component {
             randomNR();
             updateRecNR();
             fightMatcher();
+            
             AutoFight();
+            CalcRate();
+            RecordSeasonPFL();
+            City();
     }
 
     findWeek(str) {
@@ -1702,27 +1858,27 @@ class Results extends React.Component {
     }
 
     calcPay() {
-        let pay = null;
+        let pay = parseInt(sessionStorage.getItem('pay'));
         if (sessionStorage.getItem('championship') == 1){
-            pay = 10000;
-            sessionStorage.setItem('pay', pay);
+            //pay = 10000;
+            //sessionStorage.setItem('pay', pay);
             return pay;
         }
         else if (sessionStorage.getItem('playoffs') == 1){
-            pay = 10000;
-            sessionStorage.setItem('pay', pay);
+            //pay = 10000;
+            //sessionStorage.setItem('pay', pay);
             return pay;
         }
         else {
-            pay = 5000;
-            sessionStorage.setItem('pay', pay);
+            //pay = 5000;
+            //sessionStorage.setItem('pay', pay);
             return pay;
         }
     }
     
     calcPurse() {
         let pay = parseInt(this.calcPay());
-        if (sessionStorage.getItem('championship') == 1 && sessionStorage.getItem('win') == 1) {
+        if (sessionStorage.getItem('month') === '11' && sessionStorage.getItem('win') == 1) {
             return pay + 50000;
         }
         else {
@@ -1731,7 +1887,7 @@ class Results extends React.Component {
     }
 
     ifCwin() {
-        if (parseInt(sessionStorage.getItem('championship')) == 1){
+        if (sessionStorage.getItem('month') === '11'){
             return '50000';
         }
         else {
@@ -1835,7 +1991,7 @@ class Results extends React.Component {
             <div className="App">
                 <div className="App-header">
                     <div className="App-header-styleTop">
-                        <img src={logo} alt='logo' className="App-logo1" style={{ marginTop: -366 }} />
+                        <img src={logo} alt='logo' className="App-logo1" style={{ marginTop: -377 }} />
                         RESULTS
                         <div className="App-customize2" style={{marginTop: -20}}>
                             <Button1e><text style={{color: 'grey'}}>{(sessionStorage.getItem('win') == 1) ? sessionStorage.getItem('rank') : sessionStorage.getItem('oppRank')}</text> <b>{(sessionStorage.getItem('win') == 1) ? data.first : sessionStorage.getItem('oppFirst')} {(sessionStorage.getItem('win') == 1) ? data.last : sessionStorage.getItem('oppLast')}</b>{whitespace}DEF.{whitespace}<text style={{color: 'grey'}}>{(sessionStorage.getItem('win') == 1) ? sessionStorage.getItem('oppRank') : sessionStorage.getItem('rank')}</text> <b>{(sessionStorage.getItem('win') == 1) ? sessionStorage.getItem('oppFirst') : data.first} {(sessionStorage.getItem('win') == 1) ? sessionStorage.getItem('oppLast') : data.last}</b></Button1e>
@@ -1843,7 +1999,7 @@ class Results extends React.Component {
                         <div className="App-customize2-0" style={{marginTop: 0}}>
                             <Button1cl><center>VIA <b>{this.getVia()}</b></center></Button1cl>
                         </div>
-                        <div className="App-customize2-0" style={{marginTop: 0}}>
+                        <div className="App-customize2-0" style={{marginTop: 0, marginBottom: -3}}>
                             <Button1cl><center>{this.getPoints()}</center></Button1cl>
                         </div>
                         <div className="App-customize2-1" style={{marginTop: 0}}></div>
@@ -1856,7 +2012,7 @@ class Results extends React.Component {
                         <div className="App-customize2-0" style={{marginTop: 0}}>
                             <Button1cl><b>WIN BONUS</b></Button1cl>
                             <Button1f></Button1f>
-                            <Button1cr><text style={(sessionStorage.getItem('win') == 1 && sessionStorage.getItem('championship') == 1) ? {color: 'green'} : {color: 'gray'}}>${this.ifCwin()}</text></Button1cr>
+                            <Button1cr><text style={(sessionStorage.getItem('win') == 1 && sessionStorage.getItem('month') === '11') ? {color: 'green'} : {color: 'gray'}}>${this.ifCwin()}</text></Button1cr>
                         </div>
                         <div className="App-customize2-0" style={{marginTop: 0}}>
                             <Button1cl><b>POTN BONUS</b></Button1cl>
@@ -1881,15 +2037,15 @@ class Results extends React.Component {
                             <Button1cr><text style={{color: 'green'}}>{this.getGuaranteed0()}</text><text style={{color: 'red'}}>{this.getGuaranteed1()}</text></Button1cr>
                         </div>
                         <div className="App-customize2-0" style={{marginTop: 0}}>
-                            <Button1cl><b>POINTS EARNED</b></Button1cl>
+                            <Button1cl><b>{sessionStorage.getItem('playerPlayoffs') === '1' ? '' : 'POINTS EARNED'}</b></Button1cl>
                             <Button1f></Button1f>
-                            <Button1cr><text style={{color: '#1DA1F2'}}>+{this.fansGained()}</text></Button1cr>
+                            <Button1cr><text style={{color: '#1DA1F2'}}>{sessionStorage.getItem('playerPlayoffs') === '1' ? '' : '+' + this.fansGained()}</text></Button1cr>
                         </div>
-                        <div className="App-customize3" style={{marginTop: 14, marginBottom: -306}}>
+                        <div className="App-customize3" style={{marginTop: 21, marginBottom: -328}}>
                             <Link to='/home'><Button onClick={this.handleFight}>HOME</Button></Link>
                         </div>
                     </div>
-                    <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 833 }}>
+                    <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 837 }}>
                         <Button3>${sessionStorage.getItem('balance')}</Button3>
                         <Button4a>BACK</Button4a>
                         <Button3>{this.calcMonth(month)} {sessionStorage.getItem('year')}</Button3>

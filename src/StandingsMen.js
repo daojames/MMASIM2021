@@ -44,6 +44,110 @@ transition: ease background-color 250ms;
 }
 `
 
+const Button1 = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 14.322916666vw;
+height: 5.330490405vh;
+text-align: center;
+margin: 1.066098081vh;
+font-size: 1.5625vw;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button1a = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 800px;
+height: 50px;
+text-align: center;
+margin: 10px;
+font-size: 30px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button2 = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 14.322916666vw;
+height: 5.330490405vh;
+text-align: center;
+margin: 1.066098081vh;
+font-size: 5.208333333vw;
+font-family: 'Roboto', sans-serif;
+font-style: italic; 
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button2a = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 800px;
+height: 100px;
+text-align: center;
+margin: 10px;
+font-size: 100px;
+font-family: 'Roboto', sans-serif;
+font-style: italic; 
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button3 = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 14.322916666vw;
+height: 1.041666666vh;
+text-align: center;
+margin-top: -0.53304904vh;
+margin-left: 8.333333333vw;
+margin-right: 8.333333333vw;
+font-size: 3.198294243vh;
+font-family: 'Roboto', sans-serif;
+font-style: italic; 
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button4 = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 14.322916666vw;
+height: 5.330490405vh;
+text-align: center;
+margin-top: -0.53304904vh;
+margin-left: 8.333333333vw;
+margin-right: 8.333333333vw;
+font-size: 2.08334vw;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 2px solid white;
+border-radius: 2px;
+outline: 0;
+transition: ease background-color 250ms;
+&:hover {
+  background-color: #616161;
+}
+`
+
 const ButtonE = styled.button`
 background-color: transparent;
 color: white;
@@ -93,78 +197,6 @@ height: 90px;
 text-align: center;
 margin: 10px;
 font-size: 30px;
-font-family: 'Roboto', sans-serif;
-font-style: italic;
-border: 2px solid white;
-border-radius: 2px;
-outline: 0;
-transition: ease background-color 250ms;
-&:hover {
-  background-color: #616161;
-}
-`
-
-const Button1 = styled.button`
-background-color: transparent;
-color: white;
-padding: 0px;
-width: 275px;
-height: 50px;
-text-align: center;
-margin: 10px;
-font-size: 30px;
-font-family: 'Roboto', sans-serif;
-font-style: italic;
-border: 0px solid white;
-border-radius: 0px;
-outline: 0;
-`
-
-const Button2 = styled.button`
-background-color: transparent;
-color: white;
-padding: 0px;
-width: 275px;
-height: 50px;
-text-align: center;
-margin: 10px;
-font-size: 100px;
-font-family: 'Roboto', sans-serif;
-font-style: italic; 
-border: 0px solid white;
-border-radius: 0px;
-outline: 0;
-`
-
-const Button3 = styled.button`
-background-color: transparent;
-color: white;
-padding: 0px;
-width: 275px;
-height: 20px;
-text-align: center;
-margin-top: -5px;
-margin-left: 160px;
-margin-right: 160px;
-font-size: 30px;
-font-family: 'Roboto', sans-serif;
-font-style: italic; 
-border: 0px solid white;
-border-radius: 0px;
-outline: 0;
-`
-
-const Button4 = styled.button`
-background-color: transparent;
-color: white;
-padding: 0px;
-width: 275px;
-height: 50px;
-text-align: center;
-margin-top: 0px;
-margin-left: 160px;
-margin-right: 160px;
-font-size: 40px;
 font-family: 'Roboto', sans-serif;
 font-style: italic;
 border: 2px solid white;
@@ -541,6 +573,25 @@ class StandingsMen extends React.Component {
         let num = (rankList[23].code).substring(2);
         sessionStorage.setItem('sfighter', num);
     }
+    
+    getFightLink() {
+        let month = parseInt(sessionStorage.getItem('month'));
+
+        if (month > 8 && month < 12) {
+            if (sessionStorage.getItem('playerPlayoffs') === '1') {
+                return './opponent';
+            }
+            else {
+                return './standingsmen';
+            }
+        }
+        else if (month < 9) {
+            return './opponent';
+        }
+        else if (month == 12) {
+            return './manage';
+        }
+    }
 
     render() {
         let data = sessionStorage.getItem('player');
@@ -606,14 +657,14 @@ class StandingsMen extends React.Component {
                         <Link to='./sfighterm'><Button8a onClick={this.view24}>{whitespace}24.{whitespace}{rankList[23].first} {rankList[23].last}<text class='alignright'>{whitespace}{whitespace}{whitespace}{white}{parseInt(rankList[23].pts) < 10 ? white : ''}{rankList[23].pts}{whitespace}</text><text class='alignright' style={{color: 'gray'}}>({rankList[23].swin} - {rankList[23].sloss})</text></Button8a></Link>
                     </div>
                     <div className="App-header-style1" style={{marginTop: -130, marginRight: 0}}>
-                        <Link to='./opponent'><Button>FIGHT</Button></Link>
+                        <Link to={this.getFightLink}><Button style={parseInt(sessionStorage.getItem('month')) > 8 && parseInt(sessionStorage.getItem('month')) < 12 ? (sessionStorage.getItem('playerPlayoffs') === '1' ? {} : {border: '2px solid gray', color: 'gray'}) : {}}>{parseInt(sessionStorage.getItem('month')) == 12 ? 'MANAGE' : 'FIGHT'}</Button></Link>
                         <Link to='./schedule'><Button>SCHEDULE</Button></Link>
                         <Link to='./standingsmen'><ButtonG>MEN</ButtonG></Link>
                         <Link to='./standingswomen'><Button>WOMEN</Button></Link>
-                        <Link to={parseInt(sessionStorage.getItem('month')) > 8 ? './playoffspfl' : './cardpfl'}><Button>CARD</Button></Link>
-                        <Link to={sessionStorage.getItem('firstResults') === 'true' ? './standingsmen' : './resultspfl'}><Button style={sessionStorage.getItem('firstResults') === 'true' ? {border: '2px solid gray', color: 'gray'} : {}}>RESULTS</Button></Link>
+                        <Link to={parseInt(sessionStorage.getItem('month')) > 8 ? './playoffspfl' : './cardpfl'}><Button>{parseInt(sessionStorage.getItem('month')) > 8 ? 'BRACKET' : 'CARD'}</Button></Link>
+                        <Link to={sessionStorage.getItem('firstResults') === 'true' ? './standingsmen' : parseInt(month) > 9 ? './standingsmen' : './resultspfl'}><Button style={sessionStorage.getItem('firstResults') === 'true' ? {border: '2px solid gray', color: 'gray'} : parseInt(month) > 9 ? {border: '2px solid gray', color: 'gray'} : {}}>RESULTS</Button></Link>
                     </div>
-                    <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 0, fontSize: 30 }}>
+                    <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 5, fontSize: 30 }}>
                         <Button3>${sessionStorage.getItem('balance')}</Button3>
                         <Link to='./home'><Button4>BACK</Button4></Link>
                         <Button3>{this.calcMonth(month)} {sessionStorage.getItem('year')}</Button3>

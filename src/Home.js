@@ -1333,6 +1333,9 @@ class Home extends React.Component {
             pts: '0',
             strk: data.strk,
             meth: data.meth,
+            rate: data.rate,
+            ko: data.ko,
+            sub: data.sub,
             prev: sessionStorage.getItem('prev'),
             code: (this.wc(data.weight) > 8 ? 'nrf0' : 'nr0')
           }
@@ -1364,6 +1367,9 @@ class Home extends React.Component {
             pts: sessionStorage.getItem('playerPts'),
             strk: data.strk,
             meth: data.meth,
+            rate: sessionStorage.getItem('playerRate'),
+            ko: sessionStorage.getItem('playerKo'),
+            sub: sessionStorage.getItem('playerSub'),
             prev: sessionStorage.getItem('prev'),
             code: (this.wc(data.weight) > 8 ? 'nrf0' : 'nr0')
           }
@@ -1436,7 +1442,7 @@ class Home extends React.Component {
                             <Button2><b>{this.calcClinch(style)}</b></Button2>
                         </div>
                     </div>
-                    <div className="App-header-style-HOME">
+                    <div className="App-header-style-HOME" style={{ marginTop: 304 }}>
                         <Link to={(sessionStorage.getItem('org') == 1) ? './twitter' : './home'}><Button data-tip data-for="1" style={(sessionStorage.getItem('org') == 0) ? {border: '2px solid gray', color: 'gray'} : {}}>TWITTER</Button></Link>
                         <ReactTooltip id="1" place="top" effect="solid">MUST BE SIGNED WITH UFC TO ACCESS TWITTER</ReactTooltip>
                         <Link to='./gym'><Button onClick={this.notFirst}>GYM</Button></Link>

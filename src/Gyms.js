@@ -17,7 +17,87 @@ margin: 0px;
 font-size: 40px;
 font-family: 'Roboto', sans-serif;
 font-style: italic;
-border: 2px solid white;
+border: 10px solid white;
+border-radius: 2px;
+outline: 0;
+transition: ease background-color 250ms;
+&:hover {
+  background-color: #616161;
+}
+`
+
+const Bronze = styled.button`
+background-color: transparent;
+color: white;
+padding: 5px;
+width: 900px;
+height: 100px;
+text-align: center;
+margin: 0px;
+font-size: 40px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 10px solid #CD7F32;
+border-radius: 2px;
+outline: 0;
+transition: ease background-color 250ms;
+&:hover {
+  background-color: #616161;
+}
+`
+
+const Silver = styled.button`
+background-color: transparent;
+color: white;
+padding: 5px;
+width: 900px;
+height: 100px;
+text-align: center;
+margin: 0px;
+font-size: 40px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 10px solid #C0C0C0;
+border-radius: 2px;
+outline: 0;
+transition: ease background-color 250ms;
+&:hover {
+  background-color: #616161;
+}
+`
+
+const Gold = styled.button`
+background-color: transparent;
+color: white;
+padding: 5px;
+width: 900px;
+height: 100px;
+text-align: center;
+margin: 0px;
+font-size: 40px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 10px solid #FFD700;
+border-radius: 2px;
+outline: 0;
+transition: ease background-color 250ms;
+&:hover {
+  background-color: #616161;
+}
+`
+
+const Diamond = styled.button`
+background-color: transparent;
+color: white;
+padding: 5px;
+width: 900px;
+height: 100px;
+text-align: center;
+margin: 0px;
+font-size: 40px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 10px solid #00E891;
 border-radius: 2px;
 outline: 0;
 transition: ease background-color 250ms;
@@ -135,25 +215,25 @@ class Gym1 extends React.Component {
         this.state = {
             att: ((sessionStorage.getItem('gym') == 'AMERICAN TOP TEAM') ? true : false),
             ckb: ((sessionStorage.getItem('gym') == 'CITY KICKBOXING') ? true : false),
-            snf: ((sessionStorage.getItem('gym') == 'SANFORD MMA') ? true : false),
+            kcf: ((sessionStorage.getItem('gym') == 'KILL CLIFF FC') ? true : false),
             aka: ((sessionStorage.getItem('gym') == 'AMERICAN KICKBOXING ACADEMY') ? true : false),
             tmt: ((sessionStorage.getItem('gym') == 'TIGER MUAY THAI') ? true : false),
-            sbg: ((sessionStorage.getItem('gym') == 'SBG IRELAND') ? true : false),
-            cgj: ((sessionStorage.getItem('gym') == 'CESAR GRACIE JIU JITSU') ? true : false),
-            nvu: ((sessionStorage.getItem('gym') == 'NOVA UNIÃO') ? true : false),
-            oxs: ((sessionStorage.getItem('gym') == 'ONX SPORTS') ? true : false),
-            jwm: ((sessionStorage.getItem('gym') == 'JACKSON WINK MMA') ? true : false)
+            sbg: ((sessionStorage.getItem('gym') == 'XTREME COUTURE') ? true : false),
+            cba: ((sessionStorage.getItem('gym') == 'CHUTE BOXE ACADEMY') ? true : false),
+            nvu: ((sessionStorage.getItem('gym') == 'TEAM ALPHA MALE') ? true : false),
+            eft: ((sessionStorage.getItem('gym') == 'ELEVATION FIGHT TEAM') ? true : false),
+            jwm: ((sessionStorage.getItem('gym') == 'MCSWEENEY MMA') ? true : false)
         }
         this.gymATT = this.gymATT.bind(this);
         this.gymCKB = this.gymCKB.bind(this);
-        this.gymSNF = this.gymSNF.bind(this);
+        this.gymKCF = this.gymKCF.bind(this);
         this.gymAKA = this.gymAKA.bind(this);
         this.gymTMT = this.gymTMT.bind(this);
-        this.gymSBG = this.gymSBG.bind(this);
-        this.gymCGJ = this.gymCGJ.bind(this);
-        this.gymNVU = this.gymNVU.bind(this);
-        this.gymOXS = this.gymOXS.bind(this);
-        this.gymJWM = this.gymJWM.bind(this);
+        this.gymXCT = this.gymXCT.bind(this);
+        this.gymCBA = this.gymCBA.bind(this);
+        this.gymTAM = this.gymTAM.bind(this);
+        this.gymEFT = this.gymEFT.bind(this);
+        this.gymMCS = this.gymMCS.bind(this);
     }
     
     calcMonth(month){
@@ -203,322 +283,262 @@ class Gym1 extends React.Component {
     }
 
     gymATT = (event) => {
-        if (sessionStorage.getItem('gym') == 'AMERICAN TOP TEAM'){
-            sessionStorage.setItem('gym', 'NONE');
-            this.setState({
-                att: false
-            })
-        }
-        else if (parseInt(sessionStorage.getItem('balance')) >= 20000){
+        if (parseInt(sessionStorage.getItem('balance')) >= 200000){
             this.setState({
                 att: true,
                 ckb: false,
-                snf: false,
+                kcf: false,
                 aka: false,
                 tmt: false,
                 sbg: false,
-                cgj: false,
+                cba: false,
                 nvu: false,
-                oxs: false,
+                eft: false,
                 jwm: false
             })
             sessionStorage.setItem('gym', 'AMERICAN TOP TEAM');
+            sessionStorage.setItem('pnchBuff', 10);
+            sessionStorage.setItem('kickBuff', 10);
+            sessionStorage.setItem('wrstBuff', 5);
+            sessionStorage.setItem('grplBuff', 0);
+            sessionStorage.setItem('clnhBuff', 0);
+            sessionStorage.setItem('stmBuff', 0);
+            sessionStorage.setItem('balance', parseInt(sessionStorage.getItem('balance')) - 200000);
+            sessionStorage.setItem('gymCamp', 100000);
+        }
+    }
+
+    gymCKB = (event) => {
+        if (parseInt(sessionStorage.getItem('balance')) >= 50000){
+            this.setState({
+                att: false,
+                ckb: true,
+                kcf: false,
+                aka: false,
+                tmt: false,
+                sbg: false,
+                cba: false,
+                nvu: false,
+                eft: false,
+                jwm: false
+            })
+            sessionStorage.setItem('gym', 'CITY KICKBOXING');
             sessionStorage.setItem('pnchBuff', 5);
             sessionStorage.setItem('kickBuff', 10);
             sessionStorage.setItem('wrstBuff', 0);
             sessionStorage.setItem('grplBuff', 0);
             sessionStorage.setItem('clnhBuff', 0);
-            sessionStorage.setItem('balance', parseInt(sessionStorage.getItem('balance')) - 19000);
-            sessionStorage.setItem('gymMonth', 800);
-            sessionStorage.setItem('gymCamp', 10000);
-        }
-    }
-
-    gymCKB = (event) => {
-        if (sessionStorage.getItem('gym') == 'CITY KICKBOXING'){
-            sessionStorage.setItem('gym', 'NONE');
-            this.setState({
-                ckb: false
-            })
-        }
-        else if (parseInt(sessionStorage.getItem('balance')) >= 20000){
-            this.setState({
-                att: false,
-                ckb: true,
-                snf: false,
-                aka: false,
-                tmt: false,
-                sbg: false,
-                cgj: false,
-                nvu: false,
-                oxs: false,
-                jwm: false
-            })
-            sessionStorage.setItem('gym', 'CITY KICKBOXING');
-            sessionStorage.setItem('pnchBuff', 10);
-            sessionStorage.setItem('kickBuff', 5);
-            sessionStorage.setItem('wrstBuff', 0);
-            sessionStorage.setItem('grplBuff', 0);
-            sessionStorage.setItem('clnhBuff', 0);
-            sessionStorage.setItem('balance', parseInt(sessionStorage.getItem('balance')) - 14500);
-            sessionStorage.setItem('gymMonth', 900);
-            sessionStorage.setItem('gymCamp', 12500);
+            sessionStorage.setItem('stmBuff', 0);
+            sessionStorage.setItem('balance', parseInt(sessionStorage.getItem('balance')) - 50000);
+            sessionStorage.setItem('gymCamp', 25000);
         }
     }
     
-    gymSNF = (event) => {
-        if (sessionStorage.getItem('gym') == 'SANFORD MMA'){
-            sessionStorage.setItem('gym', 'NONE');
-            this.setState({
-                snf: false
-            })
-        }
-        else if (parseInt(sessionStorage.getItem('balance')) >= 20000){
+    gymKCF = (event) => {
+        if (parseInt(sessionStorage.getItem('balance')) >= 200000){
             this.setState({
                 att: false,
                 ckb: false,
-                snf: true,
+                kcf: true,
                 aka: false,
                 tmt: false,
                 sbg: false,
-                cgj: false,
+                cba: false,
                 nvu: false,
-                oxs: false,
+                eft: false,
                 jwm: false
             })
-            sessionStorage.setItem('gym', 'SANFORD MMA');
-            sessionStorage.setItem('pnchBuff', 10);
+            sessionStorage.setItem('gym', 'KILL CLIFF FC');
+            sessionStorage.setItem('pnchBuff', 5);
             sessionStorage.setItem('kickBuff', 0);
-            sessionStorage.setItem('wrstBuff', 5);
-            sessionStorage.setItem('grplBuff', 0);
+            sessionStorage.setItem('wrstBuff', 10);
+            sessionStorage.setItem('grplBuff', 10);
             sessionStorage.setItem('clnhBuff', 0);
-            sessionStorage.setItem('balance', parseInt(sessionStorage.getItem('balance')) - 15000);
-            sessionStorage.setItem('gymMonth', 900);
-            sessionStorage.setItem('gymCamp', 12500);
+            sessionStorage.setItem('stmBuff', 0);
+            sessionStorage.setItem('balance', parseInt(sessionStorage.getItem('balance')) - 200000);
+            sessionStorage.setItem('gymCamp', 100000);
         }
     }
     
     gymAKA = (event) => {
-        if (sessionStorage.getItem('gym') == 'AMERICAN KICKBOXING ACADEMY'){
-            sessionStorage.setItem('gym', 'NONE');
-            this.setState({
-                aka: false
-            })
-        }
-        else if (parseInt(sessionStorage.getItem('balance')) >= 20000){
+        if (parseInt(sessionStorage.getItem('balance')) >= 100000){
             this.setState({
                 att: false,
                 ckb: false,
-                snf: false,
+                kcf: false,
                 aka: true,
                 tmt: false,
                 sbg: false,
-                cgj: false,
+                cba: false,
                 nvu: false,
-                oxs: false,
+                eft: false,
                 jwm: false
             })
             sessionStorage.setItem('gym', 'AMERICAN KICKBOXING ACADEMY');
-            sessionStorage.setItem('pnchBuff', 5);
+            sessionStorage.setItem('pnchBuff', 10);
             sessionStorage.setItem('kickBuff', 0);
             sessionStorage.setItem('wrstBuff', 10);
             sessionStorage.setItem('grplBuff', 0);
             sessionStorage.setItem('clnhBuff', 0);
-            sessionStorage.setItem('balance', parseInt(sessionStorage.getItem('balance')) - 20000);
-            sessionStorage.setItem('gymMonth', 800);
-            sessionStorage.setItem('gymCamp', 10000);
+            sessionStorage.setItem('stmBuff', 0);
+            sessionStorage.setItem('balance', parseInt(sessionStorage.getItem('balance')) - 100000);
+            sessionStorage.setItem('gymCamp', 50000);
         }
     }
 
     gymTMT = (event) => {
-        if (sessionStorage.getItem('gym') == 'TIGER MUAY THAI'){
-            sessionStorage.setItem('gym', 'NONE');
-            this.setState({
-                tmt: false
-            })
-        }
-        else if (parseInt(sessionStorage.getItem('balance')) >= 20000){
+        if (parseInt(sessionStorage.getItem('balance')) >= 100000){
             this.setState({
                 att: false,
                 ckb: false,
-                snf: false,
+                kcf: false,
                 aka: false,
                 tmt: true,
                 sbg: false,
-                cgj: false,
+                cba: false,
                 nvu: false,
-                oxs: false,
+                eft: false,
                 jwm: false
             })
             sessionStorage.setItem('gym', 'TIGER MUAY THAI');
             sessionStorage.setItem('pnchBuff', 5);
-            sessionStorage.setItem('kickBuff', 0);
+            sessionStorage.setItem('kickBuff', 5);
             sessionStorage.setItem('wrstBuff', 0);
             sessionStorage.setItem('grplBuff', 0);
             sessionStorage.setItem('clnhBuff', 10);
-            sessionStorage.setItem('balance', parseInt(sessionStorage.getItem('balance')) - 18000);
-            sessionStorage.setItem('gymMonth', 600);
-            sessionStorage.setItem('gymCamp', 8000);
+            sessionStorage.setItem('stmBuff', 0);
+            sessionStorage.setItem('balance', parseInt(sessionStorage.getItem('balance')) - 100000);
+            sessionStorage.setItem('gymCamp', 50000);
         }
     }
     
-    gymSBG = (event) => {
-        if (sessionStorage.getItem('gym') == 'SBG IRELAND'){
-            sessionStorage.setItem('gym', 'NONE');
-            this.setState({
-                sbg: false
-            })
-        }
-        else if (parseInt(sessionStorage.getItem('balance')) >= 20000){
+    gymXCT = (event) => {
+        if (parseInt(sessionStorage.getItem('balance')) >= 20000){
             this.setState({
                 att: false,
                 ckb: false,
-                snf: false,
+                kcf: false,
                 aka: false,
                 tmt: false,
                 sbg: true,
-                cgj: false,
+                cba: false,
                 nvu: false,
-                oxs: false,
+                eft: false,
                 jwm: false
             })
-            sessionStorage.setItem('gym', 'SBG IRELAND');
-            sessionStorage.setItem('pnchBuff', 10);
+            sessionStorage.setItem('gym', 'XTREME COUTURE');
+            sessionStorage.setItem('pnchBuff', 5);
             sessionStorage.setItem('kickBuff', 0);
-            sessionStorage.setItem('wrstBuff', 0);
+            sessionStorage.setItem('wrstBuff', 5);
             sessionStorage.setItem('grplBuff', 0);
-            sessionStorage.setItem('clnhBuff', 5);
-            sessionStorage.setItem('balance', parseInt(sessionStorage.getItem('balance')) - 14000);
-            sessionStorage.setItem('gymMonth', 800);
-            sessionStorage.setItem('gymCamp', 11500);
-        }
-    }
-    
-    gymCGJ = (event) => {
-        if (sessionStorage.getItem('gym') == 'CESAR GRACIE JIU JITSU'){
-            sessionStorage.setItem('gym', 'NONE');
-            this.setState({
-                cgj: false
-            })
-        }
-        else if (parseInt(sessionStorage.getItem('balance')) >= 20000){
-            this.setState({
-                att: false,
-                ckb: false,
-                snf: false,
-                aka: false,
-                tmt: false,
-                sbg: false,
-                cgj: true,
-                nvu: false,
-                oxs: false,
-                jwm: false
-            })
-            sessionStorage.setItem('gym', 'CESAR GRACIE JIU JITSU');
-            sessionStorage.setItem('pnchBuff', 10);
-            sessionStorage.setItem('kickBuff', 0);
-            sessionStorage.setItem('wrstBuff', 0);
-            sessionStorage.setItem('grplBuff', 5);
             sessionStorage.setItem('clnhBuff', 0);
-            sessionStorage.setItem('balance', parseInt(sessionStorage.getItem('balance')) - 14500);
-            sessionStorage.setItem('gymMonth', 850);
-            sessionStorage.setItem('gymCamp', 12000);
+            sessionStorage.setItem('stmBuff', 0);
+            sessionStorage.setItem('balance', parseInt(sessionStorage.getItem('balance')) - 20000);
+            sessionStorage.setItem('gymCamp', 10000);
         }
     }
     
-    gymNVU = (event) => {
-        if (sessionStorage.getItem('gym') == 'NOVA UNIÃO'){
-            sessionStorage.setItem('gym', 'NONE');
-            this.setState({
-                nvu: false
-            })
-        }
-        else if (parseInt(sessionStorage.getItem('balance')) >= 20000){
+    gymCBA = (event) => {
+        if (parseInt(sessionStorage.getItem('balance')) >= 50000){
             this.setState({
                 att: false,
                 ckb: false,
-                snf: false,
+                kcf: false,
                 aka: false,
                 tmt: false,
                 sbg: false,
-                cgj: false,
-                nvu: true,
-                oxs: false,
+                cba: true,
+                nvu: false,
+                eft: false,
                 jwm: false
             })
-            sessionStorage.setItem('gym', 'NOVA UNIÃO');
+            sessionStorage.setItem('gym', 'CHUTE BOXE ACADEMY');
             sessionStorage.setItem('pnchBuff', 5);
             sessionStorage.setItem('kickBuff', 0);
             sessionStorage.setItem('wrstBuff', 0);
             sessionStorage.setItem('grplBuff', 10);
             sessionStorage.setItem('clnhBuff', 0);
-            sessionStorage.setItem('balance', parseInt(sessionStorage.getItem('balance')) - 19000);
-            sessionStorage.setItem('gymMonth', 700);
-            sessionStorage.setItem('gymCamp', 9000);
+            sessionStorage.setItem('stmBuff', 0);
+            sessionStorage.setItem('balance', parseInt(sessionStorage.getItem('balance')) - 50000);
+            sessionStorage.setItem('gymCamp', 25000);
         }
     }
     
-    gymOXS = (event) => {
-        if (sessionStorage.getItem('gym') == 'ONX SPORTS'){
-            sessionStorage.setItem('gym', 'NONE');
-            this.setState({
-                oxs: false
-            })
-        }
-        else if (parseInt(sessionStorage.getItem('balance')) >= 20000){
+    gymTAM = (event) => {
+        if (parseInt(sessionStorage.getItem('balance')) >= 20000){
             this.setState({
                 att: false,
                 ckb: false,
-                snf: false,
+                kcf: false,
                 aka: false,
                 tmt: false,
                 sbg: false,
-                cgj: false,
-                nvu: false,
-                oxs: true,
+                cba: false,
+                nvu: true,
+                eft: false,
                 jwm: false
             })
-            sessionStorage.setItem('gym', 'ONX SPORTS');
-            sessionStorage.setItem('pnchBuff', 15);
+            sessionStorage.setItem('gym', 'TEAM ALPHA MALE');
+            sessionStorage.setItem('pnchBuff', 10);
             sessionStorage.setItem('kickBuff', 0);
             sessionStorage.setItem('wrstBuff', 0);
             sessionStorage.setItem('grplBuff', 0);
             sessionStorage.setItem('clnhBuff', 0);
-            sessionStorage.setItem('balance', parseInt(sessionStorage.getItem('balance')) - 10000);
-            sessionStorage.setItem('gymMonth', 1000);
-            sessionStorage.setItem('gymCamp', 15000);
+            sessionStorage.setItem('stmBuff', 0);
+            sessionStorage.setItem('balance', parseInt(sessionStorage.getItem('balance')) - 20000);
+            sessionStorage.setItem('gymCamp', 10000);
         }
     }
-
-    gymJWM = (event) => {
-        if (sessionStorage.getItem('gym') == 'JACKSON WINK MMA'){
-            sessionStorage.setItem('gym', 'NONE');
-            this.setState({
-                jwm: false
-            })
-        }
-        else if (parseInt(sessionStorage.getItem('balance')) >= 20000){
+    
+    gymEFT = (event) => {
+        if (parseInt(sessionStorage.getItem('balance')) >= 20000){
             this.setState({
                 att: false,
                 ckb: false,
-                snf: false,
+                kcf: false,
                 aka: false,
                 tmt: false,
                 sbg: false,
-                cgj: false,
+                cba: false,
                 nvu: false,
-                oxs: false,
+                eft: true,
+                jwm: false
+            })
+            sessionStorage.setItem('gym', 'ELEVATION FIGHT TEAM');
+            sessionStorage.setItem('pnchBuff', 0);
+            sessionStorage.setItem('kickBuff', 0);
+            sessionStorage.setItem('wrstBuff', 0);
+            sessionStorage.setItem('grplBuff', 0);
+            sessionStorage.setItem('clnhBuff', 0);
+            sessionStorage.setItem('stmBuff', 10);
+            sessionStorage.setItem('balance', parseInt(sessionStorage.getItem('balance')) - 20000);
+            sessionStorage.setItem('gymCamp', 10000);
+        }
+    }
+
+    gymMCS = (event) => {
+        if (parseInt(sessionStorage.getItem('balance')) >= 0){
+            this.setState({
+                att: false,
+                ckb: false,
+                kcf: false,
+                aka: false,
+                tmt: false,
+                sbg: false,
+                cba: false,
+                nvu: false,
+                eft: false,
                 jwm: true
             })
-            sessionStorage.setItem('gym', 'JACKSON WINK MMA');
-            sessionStorage.setItem('pnchBuff', 5);
+            sessionStorage.setItem('gym', 'MCSWEENEY MMA');
+            sessionStorage.setItem('pnchBuff', 0);
             sessionStorage.setItem('kickBuff', 0);
-            sessionStorage.setItem('wrstBuff', 5);
-            sessionStorage.setItem('grplBuff', 5);
+            sessionStorage.setItem('wrstBuff', 0);
+            sessionStorage.setItem('grplBuff', 0);
             sessionStorage.setItem('clnhBuff', 0);
-            sessionStorage.setItem('balance', parseInt(sessionStorage.getItem('balance')) - 19500);
-            sessionStorage.setItem('gymMonth', 750);
-            sessionStorage.setItem('gymCamp', 9500);
+            sessionStorage.setItem('stmBuff', 0);
+            sessionStorage.setItem('balance', parseInt(sessionStorage.getItem('balance')) - 0);
+            sessionStorage.setItem('gymCamp', 4000);
         }
     }
 
@@ -527,34 +547,34 @@ class Gym1 extends React.Component {
             return 'NONE';
         }
         else if (sessionStorage.getItem('gym') == 'AMERICAN TOP TEAM') {
-            return '+10 KICKING, +5 PUNCHING';
+            return '+10 PUNCHING, +10 KICKING, +5 WRESTLING';
         }
         else if (sessionStorage.getItem('gym') == 'CITY KICKBOXING') {
-            return '+10 PUNCHING, +5 KICKING';
+            return '+10 KICKING, +5 PUNCHING';
         }
-        else if (sessionStorage.getItem('gym') == 'SANFORD MMA') {
-            return '+10 PUNCHING, +5 WRESTLING';
+        else if (sessionStorage.getItem('gym') == 'KILL CLIFF FC') {
+            return '+10 WRESTLING, +10 GRAPPLING, +5 PUNCHING';
         }
         else if (sessionStorage.getItem('gym') == 'AMERICAN KICKBOXING ACADEMY') {
-            return '+10 WRESTLING, +5 PUNCHING';
+            return '+10 WRESTLING, +10 PUNCHING';
         }
         else if (sessionStorage.getItem('gym') == 'TIGER MUAY THAI') {
-            return '+10 CLINCH, +5 PUNCHING';
+            return '+10 CLINCH, +5 PUNCHING, +5 KICKING';
         }
-        else if (sessionStorage.getItem('gym') == 'SBG IRELAND') {
-            return '+10 PUNCHING, +5 CLINCH';
+        else if (sessionStorage.getItem('gym') == 'XTREME COUTURE') {
+            return '+5 PUNCHING, +5 WRESTLING';
         }
-        else if (sessionStorage.getItem('gym') == 'CESAR GRACIE JIU JITSU') {
-            return '+10 PUNCHING, +5 GRAPPLING';
-        }
-        else if (sessionStorage.getItem('gym') == 'NOVA UNIÃO') {
+        else if (sessionStorage.getItem('gym') == 'CHUTE BOXE ACADEMY') {
             return '+10 GRAPPLING, +5 PUNCHING';
         }
-        else if (sessionStorage.getItem('gym') == 'ONX SPORTS') {
-            return '+15 PUNCHING';
+        else if (sessionStorage.getItem('gym') == 'TEAM ALPHA MALE') {
+            return '+10 PUNCHING';
         }
-        else if (sessionStorage.getItem('gym') == 'JACKSON WINK MMA') {
-            return '+5 PUNCHING, +5 WRESTLING, +5 GRAPPLING';
+        else if (sessionStorage.getItem('gym') == 'ELEVATION FIGHT TEAM') {
+            return '+10 STAMINA';
+        }
+        else if (sessionStorage.getItem('gym') == 'MCSWEENEY MMA') {
+            return 'NONE';
         }
     }
 
@@ -578,44 +598,44 @@ class Gym1 extends React.Component {
                         GYM MEMBERSHIP<br/><br/>
                     </div>
                     <div style={{marginTop: 106, marginBottom: -10, fontSize: 40}}>
-                        <Buttonb>CURRENT GYM<br/><b>{sessionStorage.getItem('gym')}</b></Buttonb>
+                        <Buttonb><text style={{ color: 'gray' }}>CURRENT GYM</text><br/><b>{sessionStorage.getItem('gym')}</b></Buttonb>
                         <Buttona></Buttona>
-                        <Buttonb>FIGHT BUFFS<br/><b>{this.fightBuffs()}</b></Buttonb>
+                        <Buttonb><text style={{ color: 'gray' }}>FIGHT BUFFS</text><br/><b>{this.fightBuffs()}</b></Buttonb>
                     </div>
                     <div className="App-customize1" style={{marginTop: 25}}>
-                        <Link to='./gyms'><Button data-tip data-for="1" className={this.state.att ? "att1" : "att0"} onClick={this.gymATT}>AMERICAN TOP TEAM</Button></Link>
-                        <ReactTooltip class="Membership" id="1" place="top" effect="solid">COCONUT CREEK, FLORIDA<br/><b>$10000</b>/FIGHT, <b>$800</b>/MONTH<br/><br/><u>FIGHT BUFF</u><br/>KICK +10<br/>PNCH +5<br/><br/>CLICK TO SIGN<br/><b>$19000</b></ReactTooltip>
+                    <Link to='./gyms'><Button data-tip data-for="10" className={this.state.jwm ? "att1" : "att0"} onClick={this.gymMCS}>MCSWEENEY MMA</Button></Link>
+                        <ReactTooltip class="Membership" id="10" place="top" effect="solid"><text style={{ color: 'grey' }}>PLANO, TEXAS</text><br/><b>-$4,000</b>/FIGHT<br/><br/><text style={{ color: 'grey' }}>FIGHT BUFFS</text><br/>NONE<br/><br/><text style={{ color: 'grey' }}>CLICK TO SIGN</text><br/><b>-$0</b><br/>‎</ReactTooltip>
                         <Buttona></Buttona>
-                        <Link to='./gyms'><Button data-tip data-for="2" className={this.state.ckb ? "att1" : "att0"} onClick={this.gymCKB}>CITY KICKBOXING</Button></Link>
-                        <ReactTooltip class="Membership" id="2" place="top" effect="solid">AUCKLAND, NEW ZEALAND<br/><b>$12500</b>/FIGHT, <b>$900</b>/MONTH<br/><br/><u>FIGHT BUFF</u><br/>PNCH +10<br/>KICK +5<br/><br/>CLICK TO SIGN<br/><b>$14500</b></ReactTooltip>
+                        <Link to='./gyms'><Bronze data-tip data-for="9" className={this.state.eft ? "att1" : "att0"} onClick={this.gymEFT}>ELEVATION FIGHT TEAM</Bronze></Link>
+                        <ReactTooltip class="Membership" id="9" place="top" effect="solid"><text style={{ color: 'grey' }}>AURORA, COLORADO</text><br/><b>-$10,000</b>/FIGHT<br/><br/><text style={{ color: 'grey' }}>FIGHT BUFFS</text><br/>STM <b>+10</b><br/><br/><text style={{ color: 'grey' }}>CLICK TO SIGN</text><br/><b>-$20,000</b><br/>‎</ReactTooltip>
                     </div>
                     <div className="App-customize1" style={{marginTop: 10}}>
-                        <Link to='./gyms'><Button data-tip data-for="3" className={this.state.snf ? "att1" : "att0"} onClick={this.gymSNF}>SANFORD MMA</Button></Link>
-                        <ReactTooltip class="Membership" id="3" place="top" effect="solid">FORT LAUDERDALE, FLORIDA<br/><b>$12500</b>/FIGHT, <b>$900</b>/MONTH<br/><br/><u>FIGHT BUFF</u><br/>PNCH +10<br/>WRST +5<br/><br/>CLICK TO SIGN<br/><b>$15000</b></ReactTooltip>
+                        <Link to='./gyms'><Bronze data-tip data-for="8" className={this.state.nvu ? "att1" : "att0"} onClick={this.gymTAM}>TEAM ALPHA MALE</Bronze></Link>
+                        <ReactTooltip class="Membership" id="8" place="top" effect="solid"><text style={{ color: 'grey' }}>SACRAMENTO, CALIFORNIA</text><br/><b>-$10,000</b>/FIGHT<br/><br/><text style={{ color: 'grey' }}>FIGHT BUFFS</text><br/>PNCH <b>+10</b><br/><br/><text style={{ color: 'grey' }}>CLICK TO SIGN</text><br/><b>-$20,000</b><br/>‎</ReactTooltip>
                         <Buttona></Buttona>
-                        <Link to='./gyms'><Button data-tip data-for="4" className={this.state.aka ? "att1" : "att0"} onClick={this.gymAKA}>AMERICAN KICKBOXING ACADEMY</Button></Link>
-                        <ReactTooltip class="Membership" id="4" place="top" effect="solid">SAN JOSE, CALIFORNIA<br/><b>$10000</b>/FIGHT, <b>$800</b>/MONTH<br/><br/><u>FIGHT BUFF</u><br/>WRST +10<br/>PNCH +5<br/><br/>CLICK TO SIGN<br/><b>$20000</b></ReactTooltip>
+                        <Link to='./gyms'><Bronze data-tip data-for="6" className={this.state.sbg ? "att1" : "att0"} onClick={this.gymXCT}>XTREME COUTURE</Bronze></Link>
+                        <ReactTooltip class="Membership" id="6" place="top" effect="solid"><text style={{ color: 'grey' }}>LAS VEGAS, NEVADA</text><br/><b>-$10,000</b>/FIGHT<br/><br/><text style={{ color: 'grey' }}>FIGHT BUFFS</text><br/>PNCH <b>+5</b><br/>WRST <b>+5</b><br/><br/><text style={{ color: 'grey' }}>CLICK TO SIGN</text><br/><b>-$20,000</b><br/>‎</ReactTooltip>
                     </div>
                     <div className="App-customize1" style={{marginTop: 10}}>
-                        <Link to='./gyms'><Button data-tip data-for="5" className={this.state.tmt ? "att1" : "att0"} onClick={this.gymTMT}>TIGER MUAY THAI</Button></Link>
-                        <ReactTooltip class="Membership" id="5" place="top" effect="solid">PHUKET, THAILAND<br/><b>$8000</b>/FIGHT, <b>$600</b>/MONTH<br/><br/><u>FIGHT BUFF</u><br/>CLNH +10<br/>PNCH +5<br/><br/>CLICK TO SIGN<br/><b>$18000</b></ReactTooltip>
+                        <Link to='./gyms'><Silver data-tip data-for="7" className={this.state.cba ? "att1" : "att0"} onClick={this.gymCBA}>CHUTE BOXE ACADEMY</Silver></Link>
+                        <ReactTooltip class="Membership" id="7" place="top" effect="solid"><text style={{ color: 'grey' }}>CURITIBA, BRAZIL</text><br/><b>-$25,000</b>/FIGHT<br/><br/><text style={{ color: 'grey' }}>FIGHT BUFFS</text><br/>GRPL <b>+10</b><br/>PNCH <b>+5</b><br/><br/><text style={{ color: 'grey' }}>CLICK TO SIGN</text><br/><b>-$50,000</b><br/>‎</ReactTooltip>
                         <Buttona></Buttona>
-                        <Link to='./gyms'><Button data-tip data-for="6" className={this.state.sbg ? "att1" : "att0"} onClick={this.gymSBG}>SBG IRELAND</Button></Link>
-                        <ReactTooltip class="Membership" id="6" place="top" effect="solid">DUBLIN, IRELAND<br/><b>$11500</b>/FIGHT, <b>$800</b>/MONTH<br/><br/><u>FIGHT BUFF</u><br/>PNCH +10<br/>CLNH +5<br/><br/>CLICK TO SIGN<br/><b>$14000</b></ReactTooltip>
+                        <Link to='./gyms'><Silver data-tip data-for="2" className={this.state.ckb ? "att1" : "att0"} onClick={this.gymCKB}>CITY KICKBOXING</Silver></Link>
+                        <ReactTooltip class="Membership" id="2" place="top" effect="solid"><text style={{ color: 'grey' }}>AUCKLAND, NEW ZEALAND</text><br/><b>-$25,000</b>/FIGHT<br/><br/><text style={{ color: 'grey' }}>FIGHT BUFFS</text><br/>KICK <b>+10</b><br/>PNCH <b>+5</b><br/><br/><text style={{ color: 'grey' }}>CLICK TO SIGN</text><br/><b>-$50,000</b><br/>‎</ReactTooltip>
                     </div>
                     <div className="App-customize1" style={{marginTop: 10}}>
-                        <Link to='./gyms'><Button data-tip data-for="7" className={this.state.cgj ? "att1" : "att0"} onClick={this.gymCGJ}>CHUTE BOXE ACADEMY</Button></Link>
-                        <ReactTooltip class="Membership" id="7" place="top" effect="solid">CURITIBA, BRAZIL<br/><b>$12000</b>/FIGHT, <b>$850</b>/MONTH<br/><br/><u>FIGHT BUFF</u><br/>PNCH +10<br/>GRPL +5<br/><br/>CLICK TO SIGN<br/><b>$14500</b></ReactTooltip>
+                        <Link to='./gyms'><Gold data-tip data-for="5" className={this.state.tmt ? "att1" : "att0"} onClick={this.gymTMT}>TIGER MUAY THAI</Gold></Link>
+                        <ReactTooltip class="Membership" id="5" place="top" effect="solid"><text style={{ color: 'grey' }}>PHUKET, THAILAND</text><br/><b>-$50,000</b>/FIGHT<br/><br/><text style={{ color: 'grey' }}>FIGHT BUFFS</text><br/>CLNC <b>+10</b><br/>PNCH <b>+5</b><br/>KICK <b>+5</b><br/><br/><text style={{ color: 'grey' }}>CLICK TO SIGN</text><br/><b>-$100,000</b><br/>‎</ReactTooltip>
                         <Buttona></Buttona>
-                        <Link to='./gyms'><Button data-tip data-for="8" className={this.state.nvu ? "att1" : "att0"} onClick={this.gymNVU}>NOVA UNIÃO</Button></Link>
-                        <ReactTooltip class="Membership" id="8" place="top" effect="solid">RIO DE JANEIRO, BRAZIL<br/><b>$9000</b>/FIGHT, <b>$700</b>/MONTH<br/><br/><u>FIGHT BUFF</u><br/>GRPL +10<br/>PNCH +5<br/><br/>CLICK TO SIGN<br/><b>$19000</b></ReactTooltip>
+                        <Link to='./gyms'><Gold data-tip data-for="4" className={this.state.aka ? "att1" : "att0"} onClick={this.gymAKA}>AMERICAN KICKBOXING ACADEMY</Gold></Link>
+                        <ReactTooltip class="Membership" id="4" place="top" effect="solid"><text style={{ color: 'grey' }}>SAN JOSE, CALIFORNIA</text><br/><b>-$50,000</b>/FIGHT<br/><br/><text style={{ color: 'grey' }}>FIGHT BUFFS</text><br/>WRST <b>+10</b><br/>PNCH <b>+10</b><br/><br/><text style={{ color: 'grey' }}>CLICK TO SIGN</text><br/><b>-$100,000</b><br/>‎</ReactTooltip>
                     </div>
                     <div className="App-customize1" style={{marginTop: 10}}>
-                        <Link to='./gyms'><Button data-tip data-for="9" className={this.state.oxs ? "att1" : "att0"} onClick={this.gymOXS}>ONX SPORTS</Button></Link>
-                        <ReactTooltip class="Membership" id="9" place="top" effect="solid">DENVER, COLORADO<br/><b>$15000</b>/FIGHT, <b>$1000</b>/MONTH<br/><br/><u>FIGHT BUFF</u><br/>PNCH +15<br/><br/>CLICK TO SIGN<br/><b>$10000</b></ReactTooltip>
+                        <Link to='./gyms'><Diamond data-tip data-for="3" className={this.state.kcf ? "att1" : "att0"} onClick={this.gymKCF}>KILL CLIFF FC</Diamond></Link>
+                        <ReactTooltip class="Membership" id="3" place="top" effect="solid"><text style={{ color: 'grey' }}>DEERFIELD BEACH, FLORIDA</text><br/><b>-$100,000</b>/FIGHT<br/><br/><text style={{ color: 'grey' }}>FIGHT BUFFS</text><br/>WRST <b>+10</b><br/>GRPL <b>+10</b><br/>PNCH <b>+5</b><br/><br/><text style={{ color: 'grey' }}>CLICK TO SIGN</text><br/><b>-$200,000</b><br/>‎</ReactTooltip>
                         <Buttona></Buttona>
-                        <Link to='./gyms'><Button data-tip data-for="10" className={this.state.jwm ? "att1" : "att0"} onClick={this.gymJWM}>JACKSON WINK MMA</Button></Link>
-                        <ReactTooltip class="Membership" id="10" place="top" effect="solid">ALBUQUERQUE, NEW MEXICO<br/><b>$9500</b>/FIGHT, <b>$750</b>/MONTH<br/><br/><u>FIGHT BUFF</u><br/>PNCH +5<br/>WRST +5<br/>GRPL +5<br/><br/>CLICK TO SIGN<br/><b>$19500</b></ReactTooltip>
+                        <Link to='./gyms'><Diamond data-tip data-for="1" className={this.state.att ? "att1" : "att0"} onClick={this.gymATT}>AMERICAN TOP TEAM</Diamond></Link>
+                        <ReactTooltip class="Membership" id="1" place="top" effect="solid"><text style={{ color: 'grey' }}>COCONUT CREEK, FLORIDA</text><br/><b>-$100,000</b>/FIGHT<br/><br/><text style={{ color: 'grey' }}>FIGHT BUFFS</text><br/>PNCH <b>+10</b><br/>KICK <b>+10</b><br/>WRST <b>+5</b><br/><br/><text style={{ color: 'grey' }}>CLICK TO SIGN</text><br/><b>-$200,000</b><br/>‎</ReactTooltip>
                     </div>
                     <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 26, fontSize: 30 }}>
                         <Button3>${sessionStorage.getItem('balance')}</Button3>

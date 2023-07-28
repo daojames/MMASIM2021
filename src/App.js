@@ -67,7 +67,7 @@ import Results from './Results.js';
 import SResults from './SResults.js';
 import Record from './Record.js';
 import Card from './Card.js';
-import Org from './Org.js';
+import Legacy from './Legacy.js';
 import Schedule from './Schedule.js';
 import StandingsMen from './StandingsMen.js';
 import StandingsWomen from './StandingsWomen.js';
@@ -85,6 +85,10 @@ import Opponent from './Opponent.js';
 import CardPFL from './CardPFL.js';
 import ResultsPFL from './ResultsPFL.js';
 import PlayoffsPFL from './PlayoffsPFL.js';
+import PlayoffsPFLF from './PlayoffsPFLF.js';
+import SFighterMP from './SFighterMP.js';
+import SFighterFP from './SFighterFP.js';
+import Manage from './Manage.js';
 
 const Button = styled.button`
   background-color: transparent;
@@ -166,7 +170,7 @@ function App() {
           <Route path="/sresults" exact component={SResults} />
           <Route path="/record" exact component={Record} />
           <Route path="/card" exact component={Card} />
-          <Route path="/org" exact component={Org} />
+          <Route path="/legacy" exact component={Legacy} />
           <Route path="/schedule" exact component={Schedule} />
           <Route path="/standingsmen" exact component={StandingsMen} />
           <Route path="/standingswomen" exact component={StandingsWomen} />
@@ -184,6 +188,10 @@ function App() {
           <Route path="/cardpfl" exact component={CardPFL} />
           <Route path="/resultspfl" exact component={ResultsPFL} />
           <Route path="/playoffspfl" exact component={PlayoffsPFL} />
+          <Route path="/playoffspflf" exact component={PlayoffsPFLF} />
+          <Route path="/sfightermp" exact component={SFighterMP} />
+          <Route path="/sfighterfp" exact component={SFighterFP} />
+          <Route path="/manage" exact component={Manage} />
         </Switch>
       </div>
     </Router>

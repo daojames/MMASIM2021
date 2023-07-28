@@ -10,11 +10,30 @@ import returnFighterF from './ReturnFighterF';
 const Button = styled.button`
 background-color: transparent;
 color: white;
-padding: 20px;
-width: 275px;
+padding: 2.132196162vh;
+width: 14.322916666vw;
 text-align: center;
-margin: 10px;
-font-size: 40px;
+margin: 1.066098081vh;
+font-size: 2.083333333vw;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 2px solid white;
+border-radius: 2px;
+outline: 0;
+transition: ease background-color 250ms;
+&:hover {
+  background-color: #616161;
+}
+`
+
+const ButtonG = styled.button`
+background-color: grey;
+color: white;
+padding: 2.132196162vh;
+width: 14.322916666vw;
+text-align: center;
+margin: 1.066098081vh;
+font-size: 2.083333333vw;
 font-family: 'Roboto', sans-serif;
 font-style: italic;
 border: 2px solid white;
@@ -30,16 +49,88 @@ const Button1 = styled.button`
 background-color: transparent;
 color: white;
 padding: 0px;
-width: 700px;
-height: 50px;
+width: 14.322916666vw;
+height: 5.330490405vh;
 text-align: center;
-margin: 10px;
-font-size: 30px;
+margin: 1.066098081vh;
+font-size: 1.5625vw;
 font-family: 'Roboto', sans-serif;
 font-style: italic;
 border: 0px solid white;
 border-radius: 0px;
 outline: 0;
+`
+
+const Button2 = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 14.322916666vw;
+height: 5.330490405vh;
+text-align: center;
+margin: 1.066098081vh;
+font-size: 5.208333333vw;
+font-family: 'Roboto', sans-serif;
+font-style: italic; 
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button2a = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 800px;
+height: 100px;
+text-align: center;
+margin: 10px;
+font-size: 100px;
+font-family: 'Roboto', sans-serif;
+font-style: italic; 
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button3 = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 14.322916666vw;
+height: 1.041666666vh;
+text-align: center;
+margin-top: -0.53304904vh;
+margin-left: 8.333333333vw;
+margin-right: 8.333333333vw;
+font-size: 3.198294243vh;
+font-family: 'Roboto', sans-serif;
+font-style: italic; 
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button4 = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 14.322916666vw;
+height: 5.330490405vh;
+text-align: center;
+margin-top: -0.53304904vh;
+margin-left: 8.333333333vw;
+margin-right: 8.333333333vw;
+font-size: 2.08334vw;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 2px solid white;
+border-radius: 2px;
+outline: 0;
+transition: ease background-color 250ms;
+&:hover {
+  background-color: #616161;
+}
 `
 
 const Button1d = styled.button`
@@ -48,38 +139,6 @@ color: white;
 padding: 0px;
 width: 700px;
 height: 50px;
-text-align: center;
-margin: 10px;
-font-size: 40px;
-font-family: 'Roboto', sans-serif;
-font-style: italic;
-border: 0px solid white;
-border-radius: 0px;
-outline: 0;
-`
-
-const Button1e = styled.button`
-background-color: transparent;
-color: white;
-padding: 0px;
-width: 1900px;
-height: 50px;
-text-align: center;
-margin: 10px;
-font-size: 40px;
-font-family: 'Roboto', sans-serif;
-font-style: italic;
-border: 0px solid white;
-border-radius: 0px;
-outline: 0;
-`
-
-const Button1f = styled.button`
-background-color: transparent;
-color: white;
-padding: 0px;
-width: 30px;
-height: 30px;
 text-align: center;
 margin: 10px;
 font-size: 40px;
@@ -187,62 +246,6 @@ border-radius: 0px;
 outline: 0;
 `
 
-const Button2 = styled.button`
-background-color: transparent;
-color: white;
-padding: 0px;
-width: 275px;
-height: 50px;
-text-align: center;
-margin: 10px;
-font-size: 100px;
-font-family: 'Roboto', sans-serif;
-font-style: italic; 
-border: 0px solid white;
-border-radius: 0px;
-outline: 0;
-`
-
-const Button3 = styled.button`
-background-color: transparent;
-color: white;
-padding: 0px;
-width: 275px;
-height: 20px;
-text-align: center;
-margin-top: -5px;
-margin-left: 160px;
-margin-right: 160px;
-font-size: 30px;
-font-family: 'Roboto', sans-serif;
-font-style: italic; 
-border: 0px solid white;
-border-radius: 0px;
-outline: 0;
-`
-
-const Button4 = styled.button`
-background-color: transparent;
-color: white;
-padding: 0px;
-width: 275px;
-height: 50px;
-text-align: center;
-margin-top: -5px;
-margin-left: 160px;
-margin-right: 160px;
-font-size: 40px;
-font-family: 'Roboto', sans-serif;
-font-style: italic;
-border: 2px solid white;
-border-radius: 2px;
-outline: 0;
-transition: ease background-color 250ms;
-&:hover {
-  background-color: #616161;
-}
-`
-
 const Button6 = styled.button`
 background-color: transparent;
 color: white;
@@ -258,6 +261,39 @@ border: 0px;
 font-family: 'Roboto', sans-serif;
 font-style: italic;
 `
+
+const Button1e = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 1900px;
+height: 50px;
+text-align: center;
+margin: 10px;
+font-size: 40px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button1f = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 30px;
+height: 30px;
+text-align: center;
+margin: 10px;
+font-size: 40px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
 
 class SContract extends React.Component {
     weightCalc(str) {
@@ -851,7 +887,7 @@ class SContract extends React.Component {
                     data = JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w8f1p2'))));
                 break;
                 default:
-                    data = JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w1f1p2'))));
+                    data = JSON.parse(sessionStorage.getItem('nr' + sessionStorage.getItem('oppNum')));
                 break;
             }
         }
@@ -882,7 +918,7 @@ class SContract extends React.Component {
                     data = JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w8f1m2'))));
                 break;
                 default:
-                    data = JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w1f1m2'))));
+                    data = JSON.parse(sessionStorage.getItem('nrf' + (parseInt(sessionStorage.getItem('oppNum')) - 100)));
                 break;
             }
         }
@@ -952,7 +988,7 @@ class SContract extends React.Component {
 
         sessionStorage.setItem('playerStance', '?');
         sessionStorage.setItem('playerGuard', '?');
-        sessionStorage.setItem('playerStm', 200 + ((parseInt(sessionStorage.getItem('stm')) - 50) * 1.5));
+        sessionStorage.setItem('playerStm', 200 + ((parseInt(sessionStorage.getItem('stm')) + parseInt(sessionStorage.getItem('stmBuff')) - 50) * 1.5));
         sessionStorage.setItem('oppStm', 200 + ((parseInt(data.stamina) - 50) * 1.5));
         sessionStorage.setItem('playerStatus', 1000);
         sessionStorage.setItem('oppStatus', 1000);
@@ -1124,7 +1160,7 @@ class SContract extends React.Component {
     }
 
     ifCtitle() {
-        if (parseInt(sessionStorage.getItem('championship')) == 1){
+        if (sessionStorage.getItem('month') === '11'){
             return 'YES';
         }
         else {
@@ -1133,8 +1169,11 @@ class SContract extends React.Component {
     }
 
     ifCrounds() {
-        if (parseInt(sessionStorage.getItem('playoffs')) == 1 || parseInt(sessionStorage.getItem('championship')) == 1){
+        if (sessionStorage.getItem('month') === '11') {
             return 5;
+        }
+        else if (parseInt(sessionStorage.getItem('playoffs')) == 1){
+            return 3;
         }
         else {
             return 3;
@@ -1268,11 +1307,12 @@ class SContract extends React.Component {
     }
 
     calcPay() {
+        let pay = parseInt(sessionStorage.getItem('pay'));
         if (parseInt(sessionStorage.getItem('playoffs')) == 1 || parseInt(sessionStorage.getItem('championship')) == 1){
-            return 10000;
+            return pay;
         }
         else {
-            return 5000; 
+            return pay; 
         }
     }
 
@@ -1408,7 +1448,7 @@ class SContract extends React.Component {
                     return JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w8f1p2'))));
                 break;
                 default:
-                    return JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w1f1p2'))));
+                    return JSON.parse(sessionStorage.getItem('nr' + sessionStorage.getItem('oppNum')));
                 break;
             }
         }
@@ -1439,7 +1479,7 @@ class SContract extends React.Component {
                     return JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w8f1m2'))));
                 break;
                 default:
-                    return JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w1f1m2'))));
+                    return JSON.parse(sessionStorage.getItem('nrf' + (parseInt(sessionStorage.getItem('oppNum')) - 100)));
                 break;
             }
         }
@@ -1450,7 +1490,9 @@ class SContract extends React.Component {
         let year = sessionStorage.getItem('year');
         let data = sessionStorage.getItem('player');
         data = JSON.parse(data)
-        sessionStorage.setItem('oppNum', this.getOppNum());
+        if (parseInt(month) <= 8) {
+            sessionStorage.setItem('oppNum', this.getOppNum());
+        }
         let whitespace = "\xa0\xa0\xa0";
         return(
             <div className="App">
@@ -1486,7 +1528,7 @@ class SContract extends React.Component {
                         <div className="App-customize2-0" style={{marginTop: 0}}>
                             <Button1cl><b>WIN BONUS</b></Button1cl>
                             <Button1f></Button1f>
-                            <Button1cr>{(parseInt(sessionStorage.getItem('championship')) == 1) ? '$50000' : '$0'}</Button1cr>
+                            <Button1cr>{(sessionStorage.getItem('month') === '11') ? '$50000' : '$0'}</Button1cr>
                         </div>
                         <div className="App-customize2-0" style={{marginTop: 0}}>
                             <Button1cl><b>POTN BONUS</b></Button1cl>
@@ -1510,11 +1552,11 @@ class SContract extends React.Component {
                             <Button1f></Button1f>
                             <Button1cr><text style={{color: 'green'}}>{this.getGuaranteed0()}</text><text style={{color: 'red'}}>{this.getGuaranteed1()}</text></Button1cr>
                         </div>
-                        <div className="App-customize3" style={{marginTop: 14, marginBottom: -306}}>
+                        <div className="App-customize3" style={{marginTop: 21, marginBottom: -314}}>
                             <Link to='/bout0'><Button onClick={this.handleFight}>SIGN</Button></Link>
                         </div>
                     </div>
-                    <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 833 }}>
+                    <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 837 }}>
                         <Button3>${sessionStorage.getItem('balance')}</Button3>
                         <Link to='./stale'><Button4>BACK</Button4></Link>
                         <Button3>{this.calcMonth(month)} {sessionStorage.getItem('year')}</Button3>

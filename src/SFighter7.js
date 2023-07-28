@@ -6,15 +6,31 @@ import logo from './mmasim2021logo.png';
 import './App.css';
 import returnFighterM from './ReturnFighterM.js';
 import returnFighterF from './ReturnFighterF.js';
+import getFlag from './GetFlag.js';
 
 const Button = styled.button`
 background-color: transparent;
-color: white;
-padding: 20px;
-width: 275px;
+color: transparent;
+padding: 2.132196162vh;
+width: 14.322916666vw;
 text-align: center;
-margin: 10px;
-font-size: 40px;
+margin: 1.066098081vh;
+font-size: 2.083333333vw;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const ButtonG = styled.button`
+background-color: grey;
+color: white;
+padding: 2.132196162vh;
+width: 14.322916666vw;
+text-align: center;
+margin: 1.066098081vh;
+font-size: 2.083333333vw;
 font-family: 'Roboto', sans-serif;
 font-style: italic;
 border: 2px solid white;
@@ -30,7 +46,23 @@ const Button1 = styled.button`
 background-color: transparent;
 color: white;
 padding: 0px;
-width: 275px;
+width: 14.322916666vw;
+height: 5.330490405vh;
+text-align: center;
+margin: 1.066098081vh;
+font-size: 1.5625vw;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button1a = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 800px;
 height: 50px;
 text-align: center;
 margin: 10px;
@@ -46,8 +78,24 @@ const Button2 = styled.button`
 background-color: transparent;
 color: white;
 padding: 0px;
-width: 275px;
-height: 50px;
+width: 14.322916666vw;
+height: 5.330490405vh;
+text-align: center;
+margin: 1.066098081vh;
+font-size: 5.208333333vw;
+font-family: 'Roboto', sans-serif;
+font-style: italic; 
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button2a = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 800px;
+height: 100px;
 text-align: center;
 margin: 10px;
 font-size: 100px;
@@ -62,13 +110,13 @@ const Button3 = styled.button`
 background-color: transparent;
 color: white;
 padding: 0px;
-width: 275px;
-height: 20px;
+width: 14.322916666vw;
+height: 1.041666666vh;
 text-align: center;
-margin-top: -5px;
-margin-left: 160px;
-margin-right: 160px;
-font-size: 30px;
+margin-top: -0.53304904vh;
+margin-left: 8.333333333vw;
+margin-right: 8.333333333vw;
+font-size: 3.198294243vh;
 font-family: 'Roboto', sans-serif;
 font-style: italic; 
 border: 0px solid white;
@@ -80,13 +128,13 @@ const Button4 = styled.button`
 background-color: transparent;
 color: white;
 padding: 0px;
-width: 275px;
-height: 50px;
+width: 14.322916666vw;
+height: 5.330490405vh;
 text-align: center;
-margin-top: -5px;
-margin-left: 160px;
-margin-right: 160px;
-font-size: 40px;
+margin-top: -0.53304904vh;
+margin-left: 8.333333333vw;
+margin-right: 8.333333333vw;
+font-size: 2.08334vw;
 font-family: 'Roboto', sans-serif;
 font-style: italic;
 border: 2px solid white;
@@ -112,6 +160,21 @@ font-size: 50px;
 border: 0px;
 font-family: 'Roboto', sans-serif;
 font-style: italic;
+`
+
+const Flag = styled.button`
+position: absolute;
+pointer-events: none;
+background-color: transparent;
+color: white;
+padding: 0px;
+text-align: left;
+font-size: 0px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
 `
 
 class SFighter7 extends React.Component {
@@ -513,6 +576,73 @@ class SFighter7 extends React.Component {
   
     }
 
+    getRate() {
+        let data = this.getOppObj();
+        return data.rate;
+    }
+
+    getKo() {
+        let data = this.getOppObj();
+        return data.ko;
+    }
+
+    getSub() {
+        let data = this.getOppObj();
+        return data.sub;
+    }
+
+    getColor(x) {
+        let data = this.getOppObj();
+
+        switch(data.nation) {
+            case 'USA':
+                return '#3A5EAB';
+            break;
+            case 'MEXICO':
+                return '#006341';
+            break;
+            case 'INDIA':
+                return '#FF671F';
+            break;
+            case 'VIETNAM':
+                return '#FFCD00';
+            break;
+            case 'PALESTINE':
+                return '#149954';
+            break;
+            case 'CANADA':
+                return '#D80621';
+            break;
+            case 'OMAN':
+                return '#C8102E';
+            break;
+            case 'PAKISTAN':
+                return '#115740';
+            break;
+            case 'PUERTO RICO':
+                return '#3A5EAB';
+            break;
+            case 'SWEDEN':
+                return '#006AA7';
+            break;
+            case 'CHINA':
+                return '#EE1C25';
+            break;
+            case 'KOREA':
+                return '#FFFFFF';
+            break;
+            case 'THAILAND':
+                return '#00247D';
+            break;
+            case 'RHODESIA':
+                return '#0F4B32';
+            break;
+            default:
+                return '#FFFFFF';
+            break;
+        }
+    }
+
     render() {
         let month = sessionStorage.getItem('month');
         let year = sessionStorage.getItem('year');
@@ -522,19 +652,20 @@ class SFighter7 extends React.Component {
                     <div className="App-header-styleTop">
                         <img src={logo} alt='logo' className="App-logo1" style={{ marginTop: -173 }} />
                         FIGHTER PROFILE<br/><br/>
-                        <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 130, marginRight: 120, fontSize: 70, marginTop: -70 }}><b>{this.getFirst(sessionStorage.getItem('wc'))} {this.getLast(sessionStorage.getItem('wc'))}</b><br/></div>
-                        <Button6>{this.getNation()}</Button6>
+                        <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 130, marginRight: 120, fontSize: 70, marginTop: -70 }}><text style={{ color: 'grey' }}>{this.getRank()}</text> <b>{this.getFirst(sessionStorage.getItem('wc'))} {this.getLast(sessionStorage.getItem('wc'))}</b> <text style={{ color: 'grey' }}>{this.getWin()} - {this.getLoss()}</text><br/></div>
+                        <Button6></Button6>
+                        <Flag style={{ marginTop: -470 }}><img src={getFlag(7)} width="123" height="70"></img></Flag>
                         <div className="App-customize2" style={{marginTop: 10}}>
-                            <Button1>RANK</Button1>
-                            <Button1>WINS</Button1>
-                            <Button1>LOSSES</Button1>
+                            <Button1>FINISH RATE</Button1>
+                            <Button1>KO</Button1>
+                            <Button1>SUB</Button1>
                             <Button1>WEIGHT</Button1>
                             <Button1>HEIGHT</Button1>
                         </div>
                         <div className="App-customize3" style={{marginTop: -20}}>
-                            <Button2><b>{this.getRank()}</b></Button2>
-                            <Button2><b>{this.getWin()}</b></Button2>
-                            <Button2><b>{this.getLoss()}</b></Button2>
+                            <Button2><b>{this.getRate()}%</b></Button2>
+                            <Button2><b>{this.getKo()}</b></Button2>
+                            <Button2><b>{this.getSub()}</b></Button2>
                             <Button2><b>{this.getWeight()}</b></Button2>
                             <Button2><b>{this.getHeight()}</b></Button2>
                         </div>
@@ -562,7 +693,8 @@ class SFighter7 extends React.Component {
                             <Button2><b>{this.getGrappling()}</b></Button2>
                             <Button2><b>{this.getClinch()}</b></Button2>
                         </div>
-                        <div className="App-customize3" style={{marginTop: 15, marginBottom: -113}}>
+                        <div className="App-header-style1" style={{marginTop: 23, marginBottom: -131}}>
+                            <Button>FIGHT</Button>
                         </div>
                     </div>
                     <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 837 }}>

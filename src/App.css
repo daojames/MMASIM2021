@@ -98,7 +98,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: top;
-  font-size: 60px;
+  font-size: 6.396588486vh;
   font-family: 'Roboto', sans-serif;
   font-style: italic;
   color: white;
@@ -238,7 +238,7 @@ body {
   margin-bottom: 5px;
   margin-left: 0px;
   height: 50px;
-  width: 1300px;
+  width: 1900px;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -257,6 +257,24 @@ body {
   margin-left: 0px;
   height: 50px;
   width: 1500px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  color: white;
+  overflow: hidden;
+}
+
+.Seasons {
+  user-select: none;
+  display: flex;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  margin-left: 0px;
+  height: 50px;
+  width: 600px;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -386,6 +404,23 @@ body {
   overflow: hidden;
 }
 
+.App-tale {
+  user-select: none;
+  display: block;
+  margin-top: 100px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  height: 150px;
+  flex-direction: row;
+  align-items: top;
+  justify-content: center;
+  font-size: 40px;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  color: white;
+  overflow: hidden;
+}
+
 .Fight-division {
   user-select: none;
   display: block;
@@ -411,6 +446,23 @@ body {
   width: 900px;
   height: 1000px;
   flex-direction: column;
+  align-items: top;
+  justify-content: center;
+  font-size: 40px;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  color: white;
+  overflow: hidden;
+}
+
+.Fight-offer-inline {
+  user-select: none;
+  display: flex;
+  flex-direction: inline;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  width: 900px;
+  height: 1000px;
   align-items: top;
   justify-content: center;
   font-size: 40px;
@@ -472,6 +524,21 @@ body {
   display: flex;
   flex-direction: column;
   margin-left: 1369px;
+}
+
+.column4 {
+  display: flex;
+  flex-direction: inline;
+  margin-left: 1369px;
+}
+
+.flex {
+  display: flex;
+  flex-direction: inline;
+}
+
+.inline-link {
+  display: inline;
 }
 
 @keyframes App-logo-spin {

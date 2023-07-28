@@ -5,7 +5,10 @@ import styled from 'styled-components';
 import logo from './mmasim2021logo.png';
 import './App.css';
 import returnFighterM from './ReturnFighterM';
-import returnFighterF from "./ReturnFighterF";
+import returnFighterF from './ReturnFighterF';
+import AutoFight from './AutoFight.js';
+import CalcRate from './CalcRate.js';
+import RecordSeasonPFL from './RecordSeasonPFL.js';
 
 const Button = styled.button`
 background-color: transparent;
@@ -34,6 +37,110 @@ width: 14.322916666vw;
 text-align: center;
 margin: 1.066098081vh;
 font-size: 2.083333333vw;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 2px solid white;
+border-radius: 2px;
+outline: 0;
+transition: ease background-color 250ms;
+&:hover {
+  background-color: #616161;
+}
+`
+
+const Button1 = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 14.322916666vw;
+height: 5.330490405vh;
+text-align: center;
+margin: 1.066098081vh;
+font-size: 1.5625vw;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button1a = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 800px;
+height: 50px;
+text-align: center;
+margin: 10px;
+font-size: 30px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button2 = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 14.322916666vw;
+height: 5.330490405vh;
+text-align: center;
+margin: 1.066098081vh;
+font-size: 5.208333333vw;
+font-family: 'Roboto', sans-serif;
+font-style: italic; 
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button2a = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 800px;
+height: 100px;
+text-align: center;
+margin: 10px;
+font-size: 100px;
+font-family: 'Roboto', sans-serif;
+font-style: italic; 
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button3 = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 14.322916666vw;
+height: 1.041666666vh;
+text-align: center;
+margin-top: -0.53304904vh;
+margin-left: 8.333333333vw;
+margin-right: 8.333333333vw;
+font-size: 3.198294243vh;
+font-family: 'Roboto', sans-serif;
+font-style: italic; 
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button4 = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 14.322916666vw;
+height: 5.330490405vh;
+text-align: center;
+margin-top: -0.53304904vh;
+margin-left: 8.333333333vw;
+margin-right: 8.333333333vw;
+font-size: 2.08334vw;
 font-family: 'Roboto', sans-serif;
 font-style: italic;
 border: 2px solid white;
@@ -94,78 +201,6 @@ height: 90px;
 text-align: center;
 margin: 10px;
 font-size: 30px;
-font-family: 'Roboto', sans-serif;
-font-style: italic;
-border: 2px solid white;
-border-radius: 2px;
-outline: 0;
-transition: ease background-color 250ms;
-&:hover {
-  background-color: #616161;
-}
-`
-
-const Button1 = styled.button`
-background-color: transparent;
-color: white;
-padding: 0px;
-width: 275px;
-height: 50px;
-text-align: center;
-margin: 10px;
-font-size: 30px;
-font-family: 'Roboto', sans-serif;
-font-style: italic;
-border: 0px solid white;
-border-radius: 0px;
-outline: 0;
-`
-
-const Button2 = styled.button`
-background-color: transparent;
-color: white;
-padding: 0px;
-width: 275px;
-height: 50px;
-text-align: center;
-margin: 10px;
-font-size: 100px;
-font-family: 'Roboto', sans-serif;
-font-style: italic; 
-border: 0px solid white;
-border-radius: 0px;
-outline: 0;
-`
-
-const Button3 = styled.button`
-background-color: transparent;
-color: white;
-padding: 0px;
-width: 275px;
-height: 20px;
-text-align: center;
-margin-top: -5px;
-margin-left: 160px;
-margin-right: 160px;
-font-size: 30px;
-font-family: 'Roboto', sans-serif;
-font-style: italic; 
-border: 0px solid white;
-border-radius: 0px;
-outline: 0;
-`
-
-const Button4 = styled.button`
-background-color: transparent;
-color: white;
-padding: 0px;
-width: 275px;
-height: 50px;
-text-align: center;
-margin-top: 0px;
-margin-left: 160px;
-margin-right: 160px;
-font-size: 40px;
 font-family: 'Roboto', sans-serif;
 font-style: italic;
 border: 2px solid white;
@@ -272,6 +307,52 @@ margin-bottom: -1px;
 margin-left: 10px;
 margin-right: 10px;
 font-size: 30px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 2px solid white;
+border-radius: 2px;
+outline: 0;
+transition: ease background-color 250ms;
+&:hover {
+  background-color: #616161;
+}
+`
+
+const Button9 = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 78px;
+height: 40px;
+text-align: center;
+margin-top: -1px;
+margin-bottom: -1px;
+margin-left: 10px;
+margin-right: 10px;
+font-size: 18px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 2px solid white;
+border-radius: 2px;
+outline: 0;
+transition: ease background-color 250ms;
+&:hover {
+  background-color: #616161;
+}
+`
+
+const ButtonW9 = styled.button`
+background-color: grey;
+color: white;
+padding: 0px;
+width: 78px;
+height: 40px;
+text-align: center;
+margin-top: -1px;
+margin-bottom: -1px;
+margin-left: 10px;
+margin-right: 10px;
+font-size: 18px;
 font-family: 'Roboto', sans-serif;
 font-style: italic;
 border: 2px solid white;
@@ -4284,6 +4365,244 @@ class PlayoffsPFL extends React.Component {
         return 'w' + month + str;
     }
 
+    findColorQuarter(code) {
+        let x = JSON.parse(sessionStorage.getItem('semiSeedsM'));
+
+        if (x === null) {
+            return 'white';
+        }
+
+        for (let i = 0; i < x.length; ++i) {
+            if (x[i].code === code) {
+                return 'white';
+            }
+        }
+
+        return 'gray';
+    }
+
+    findColorSemi(code) {
+        let x = JSON.parse(sessionStorage.getItem('finalSeedsM'));
+
+        if (x === null) {
+            return 'white';
+        }
+
+        for (let i = 0; i < x.length; ++i) {
+            if (x[i].code === code) {
+                return 'white';
+            }
+        }
+
+        return 'gray';
+    }
+
+    findColorFinal(code) {
+        let strk = JSON.parse(sessionStorage.getItem(code)).strk;
+
+        if (parseInt(strk) > 0) {
+            return 'white';
+        }
+        else {
+            return 'gray';
+        }
+    }
+
+    findMetQuarter(code) {
+        let x = JSON.parse(sessionStorage.getItem('semiSeedsM'));
+
+        if (x === null) {
+            return '';
+        }
+
+        for (let i = 0; i < x.length; ++i) {
+            if (x[i].code === code && parseInt(x[i].strk) > 0) {
+                return (x[i].meth).substring(0,2) + ' ' + (x[i].meth).substring(3);
+            }
+        }
+
+        return '';
+    }
+
+    findMetSemi(code) {
+        let x = JSON.parse(sessionStorage.getItem('finalSeedsM'));
+
+        if (x === null) {
+            return '';
+        }
+
+        for (let i = 0; i < x.length; ++i) {
+            if (x[i].code === code && parseInt(x[i].strk) > 0) {
+                return (x[i].meth).substring(0,2) + ' ' + (x[i].meth).substring(3);
+            }
+        }
+
+        return '';
+    }
+
+    findMetFinal(code) {
+        let x = JSON.parse(sessionStorage.getItem(code));
+
+        if (parseInt(x.strk) > 0) {
+            return (x.meth).substring(0,2) + ' ' + (x.meth).substring(3);
+        }
+
+        return '';
+    }
+
+    viewQuarter1() {
+        let quarterList = JSON.parse(sessionStorage.getItem('quarterSeedsM'));
+        let num = (quarterList[7].code).substring(2);
+        sessionStorage.setItem('sfighter', num);
+    }
+
+    viewQuarter2() {
+        let quarterList = JSON.parse(sessionStorage.getItem('quarterSeedsM'));
+        let num = (quarterList[6].code).substring(2);
+        sessionStorage.setItem('sfighter', num);
+    }
+
+    viewQuarter3() {
+        let quarterList = JSON.parse(sessionStorage.getItem('quarterSeedsM'));
+        let num = (quarterList[5].code).substring(2);
+        sessionStorage.setItem('sfighter', num);
+    }
+
+    viewQuarter4() {
+        let quarterList = JSON.parse(sessionStorage.getItem('quarterSeedsM'));
+        let num = (quarterList[4].code).substring(2);
+        sessionStorage.setItem('sfighter', num);
+    }
+
+    viewQuarter5() {
+        let quarterList = JSON.parse(sessionStorage.getItem('quarterSeedsM'));
+        let num = (quarterList[3].code).substring(2);
+        sessionStorage.setItem('sfighter', num);
+    }
+
+    viewQuarter6() {
+        let quarterList = JSON.parse(sessionStorage.getItem('quarterSeedsM'));
+        let num = (quarterList[2].code).substring(2);
+        sessionStorage.setItem('sfighter', num);
+    }
+
+    viewQuarter7() {
+        let quarterList = JSON.parse(sessionStorage.getItem('quarterSeedsM'));
+        let num = (quarterList[1].code).substring(2);
+        sessionStorage.setItem('sfighter', num);
+    }
+
+    viewQuarter8() {
+        let quarterList = JSON.parse(sessionStorage.getItem('quarterSeedsM'));
+        let num = (quarterList[0].code).substring(2);
+        sessionStorage.setItem('sfighter', num);
+    }
+
+    viewSemi1() {
+        if (parseInt(sessionStorage.getItem('month')) > 9) {
+            let semiList = JSON.parse(sessionStorage.getItem('semiSeedsM'));
+            let num = (semiList[0].code).substring(2);
+            sessionStorage.setItem('sfighter', num);
+        }
+    }
+
+    viewSemi2() {
+        if (parseInt(sessionStorage.getItem('month')) > 9) {
+            let semiList = JSON.parse(sessionStorage.getItem('semiSeedsM'));
+            let num = (semiList[1].code).substring(2);
+            sessionStorage.setItem('sfighter', num);
+        }
+    }
+
+    viewSemi3() {
+        if (parseInt(sessionStorage.getItem('month')) > 9) {
+            let semiList = JSON.parse(sessionStorage.getItem('semiSeedsM'));
+            let num = (semiList[2].code).substring(2);
+            sessionStorage.setItem('sfighter', num);
+        }
+    }
+
+    viewSemi4() {
+        if (parseInt(sessionStorage.getItem('month')) > 9) {
+            let semiList = JSON.parse(sessionStorage.getItem('semiSeedsM'));
+            let num = (semiList[3].code).substring(2);
+            sessionStorage.setItem('sfighter', num);
+        }
+    }
+
+    viewFinal1(x) {
+        if (parseInt(sessionStorage.getItem('month')) > 10) {
+            let finalList = JSON.parse(sessionStorage.getItem('finalSeedsM'));
+            let num = (finalList[0].code).substring(2);
+            sessionStorage.setItem('sfighter', num);
+        }
+    }
+
+    viewFinal2(x) {
+        if (parseInt(sessionStorage.getItem('month')) > 10) {
+            let finalList = JSON.parse(sessionStorage.getItem('finalSeedsM'));
+            let num = (finalList[1].code).substring(2);
+            sessionStorage.setItem('sfighter', num);
+        }
+    }
+
+    goAutoFight() {
+        if (sessionStorage.getItem('playerPlayoffs') === '1' || parseInt(sessionStorage.getItem('month')) > 11 || parseInt(sessionStorage.getItem('month')) < 9) {
+            return;
+        }
+        else {
+            sessionStorage.setItem('month', parseInt(sessionStorage.getItem('month')) + 1);
+            AutoFight();
+            CalcRate();
+            RecordSeasonPFL();
+        }
+    }
+
+    getTitle() {
+        if (sessionStorage.getItem('month') === '12') {
+            let finalList = JSON.parse(sessionStorage.getItem('finalSeedsM'));
+            let a = JSON.parse(returnFighterM(parseInt((finalList[0].code).substring(2))));
+            let b = JSON.parse(returnFighterM(parseInt((finalList[1].code).substring(2))));
+            if (parseInt(a.strk) > 0) {
+                return a.first + ' ' + a.last + ' - ' + sessionStorage.getItem('year') + ' PFL CHAMPION!';
+            }
+            else {
+                return b.first + ' ' + b.last + ' - ' + sessionStorage.getItem('year') + ' PFL CHAMPION!';
+            }
+        }
+        else if (sessionStorage.getItem('month') === '11') {
+            return 'PFL: CHAMPIONSHIP';
+        }
+        else if (sessionStorage.getItem('month') === '10') {
+            return 'PFL: SEMIFINALS';
+        }
+        else if (sessionStorage.getItem('month') === '9') {
+            return 'PFL: QUARTERFINALS';
+        }
+        else {
+            return 'PFL ' + sessionStorage.getItem('month') + ' FIGHT CARD';
+        }
+    }
+
+    getFightLink() {
+        let month = parseInt(sessionStorage.getItem('month'));
+
+        if (month > 8 && month < 12) {
+            if (sessionStorage.getItem('playerPlayoffs') === '1') {
+                return './opponent';
+            }
+            else {
+                return './playoffspfl';
+            }
+        }
+        else if (month < 9) {
+            return './opponent';
+        }
+        else if (month == 12) {
+            return './manage';
+        }
+    }
+
     render() {
         let data = sessionStorage.getItem('player');
         data = JSON.parse(data);
@@ -4326,43 +4645,48 @@ class PlayoffsPFL extends React.Component {
                 <div className="App-header">
                     <div className="App-header-styleTop">
                         <img src={logo} alt='logo' className="App-logo1" style={{ marginTop: -730 }} />
-                        PFL {month} FIGHT CARD<br/><br/>
+                        {this.getTitle()}<br/><br/>
                     </div>
                     <div className="App-customize4" style={{marginTop: 95, marginBottom: 15, width: 1920 }}>
                         <div className="column1" style={{marginTop: 1, marginLeft: 0}}>
-                            <Button8>{whitespace}<text style={{color: 'grey'}}>NR</text><text> TYRONE MALDONADO</text><text style={{color: 'grey'}}> (0 - 0)</text><text className="alignright" style={{fontSize: '22px', marginTop: '5px'}}>TKO R5{whitespace}</text></Button8>
-                            <Button8>{whitespace}<text style={{color: 'grey'}}>NR</text><text style={{color: 'gray'}}> JAMES DAO</text><text style={{color: 'grey'}}> (0 - 0)</text></Button8>
+                            <Button8 onClick={this.viewQuarter1}><Link to='./sfightermp' style={{ textDecoration: 'none' }}>{whitespace}<text style={{color: 'grey'}}> {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[7].rank}</text><text style={{color: this.findColorQuarter(JSON.parse(sessionStorage.getItem('quarterSeedsM'))[7].code)}}> {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[7].first} {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[7].last}</text><text style={{color: 'grey'}}> ({JSON.parse(sessionStorage.getItem('quarterSeedsM'))[7].swin} - {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[7].sloss})</text><text className="alignright" style={{fontSize: '22px', marginTop: '5px', color: 'white'}}>{this.findMetQuarter(JSON.parse(sessionStorage.getItem('quarterSeedsM'))[7].code)}{whitespace}</text></Link></Button8>
+                            <Button8 onClick={this.viewQuarter8}><Link to='./sfightermp' style={{ textDecoration: 'none' }}>{whitespace}<text style={{color: 'grey'}}> {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[0].rank}</text><text style={{color: this.findColorQuarter(JSON.parse(sessionStorage.getItem('quarterSeedsM'))[0].code)}}> {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[0].first} {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[0].last}</text><text style={{color: 'grey'}}> ({JSON.parse(sessionStorage.getItem('quarterSeedsM'))[0].swin} - {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[0].sloss})</text><text className="alignright" style={{fontSize: '22px', marginTop: '5px', color: 'white'}}>{this.findMetQuarter(JSON.parse(sessionStorage.getItem('quarterSeedsM'))[0].code)}{whitespace}</text></Link></Button8>
                             <br />
-                            <Button8>{whitespace}<text style={{color: 'grey'}}>NR</text><text> JAMES DAO</text><text style={{color: 'grey'}}> (0 - 0)</text></Button8>
-                            <Button8>{whitespace}<text style={{color: 'grey'}}>NR</text><text> JAMES DAO</text><text style={{color: 'grey'}}> (0 - 0)</text></Button8>
+                            <Button8 onClick={this.viewQuarter4}><Link to='./sfightermp' style={{ textDecoration: 'none' }}>{whitespace}<text style={{color: 'grey'}}> {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[4].rank}</text><text style={{color: this.findColorQuarter(JSON.parse(sessionStorage.getItem('quarterSeedsM'))[4].code)}}> {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[4].first} {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[4].last}</text><text style={{color: 'grey'}}> ({JSON.parse(sessionStorage.getItem('quarterSeedsM'))[4].swin} - {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[4].sloss})</text><text className="alignright" style={{fontSize: '22px', marginTop: '5px', color: 'white'}}>{this.findMetQuarter(JSON.parse(sessionStorage.getItem('quarterSeedsM'))[4].code)}{whitespace}</text></Link></Button8>
+                            <Button8 onClick={this.viewQuarter5}><Link to='./sfightermp' style={{ textDecoration: 'none' }}>{whitespace}<text style={{color: 'grey'}}> {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[3].rank}</text><text style={{color: this.findColorQuarter(JSON.parse(sessionStorage.getItem('quarterSeedsM'))[3].code)}}> {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[3].first} {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[3].last}</text><text style={{color: 'grey'}}> ({JSON.parse(sessionStorage.getItem('quarterSeedsM'))[3].swin} - {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[3].sloss})</text><text className="alignright" style={{fontSize: '22px', marginTop: '5px', color: 'white'}}>{this.findMetQuarter(JSON.parse(sessionStorage.getItem('quarterSeedsM'))[3].code)}{whitespace}</text></Link></Button8>
                             <br />
-                            <Button8>{whitespace}<text style={{color: 'grey'}}>NR</text><text> JAMES DAO</text><text style={{color: 'grey'}}> (0 - 0)</text></Button8>
-                            <Button8>{whitespace}<text style={{color: 'grey'}}>NR</text><text> JAMES DAO</text><text style={{color: 'grey'}}> (0 - 0)</text></Button8>
+                            <Button8 onClick={this.viewQuarter3}><Link to='./sfightermp' style={{ textDecoration: 'none' }}>{whitespace}<text style={{color: 'grey'}}> {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[5].rank}</text><text style={{color: this.findColorQuarter(JSON.parse(sessionStorage.getItem('quarterSeedsM'))[5].code)}}> {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[5].first} {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[5].last}</text><text style={{color: 'grey'}}> ({JSON.parse(sessionStorage.getItem('quarterSeedsM'))[5].swin} - {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[5].sloss})</text><text className="alignright" style={{fontSize: '22px', marginTop: '5px', color: 'white'}}>{this.findMetQuarter(JSON.parse(sessionStorage.getItem('quarterSeedsM'))[5].code)}{whitespace}</text></Link></Button8>
+                            <Button8 onClick={this.viewQuarter6}><Link to='./sfightermp' style={{ textDecoration: 'none' }}>{whitespace}<text style={{color: 'grey'}}> {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[2].rank}</text><text style={{color: this.findColorQuarter(JSON.parse(sessionStorage.getItem('quarterSeedsM'))[2].code)}}> {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[2].first} {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[2].last}</text><text style={{color: 'grey'}}> ({JSON.parse(sessionStorage.getItem('quarterSeedsM'))[2].swin} - {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[2].sloss})</text><text className="alignright" style={{fontSize: '22px', marginTop: '5px', color: 'white'}}>{this.findMetQuarter(JSON.parse(sessionStorage.getItem('quarterSeedsM'))[2].code)}{whitespace}</text></Link></Button8>
                             <br />
-                            <Button8>{whitespace}<text style={{color: 'grey'}}>NR</text><text> JAMES DAO</text><text style={{color: 'grey'}}> (0 - 0)</text></Button8>
-                            <Button8>{whitespace}<text style={{color: 'grey'}}>NR</text><text> JAMES DAO</text><text style={{color: 'grey'}}> (0 - 0)</text></Button8>
+                            <Button8 onClick={this.viewQuarter2}><Link to='./sfightermp' style={{ textDecoration: 'none' }}>{whitespace}<text style={{color: 'grey'}}> {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[6].rank}</text><text style={{color: this.findColorQuarter(JSON.parse(sessionStorage.getItem('quarterSeedsM'))[6].code)}}> {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[6].first} {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[6].last}</text><text style={{color: 'grey'}}> ({JSON.parse(sessionStorage.getItem('quarterSeedsM'))[6].swin} - {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[6].sloss})</text><text className="alignright" style={{fontSize: '22px', marginTop: '5px', color: 'white'}}>{this.findMetQuarter(JSON.parse(sessionStorage.getItem('quarterSeedsM'))[6].code)}{whitespace}</text></Link></Button8>
+                            <Button8 onClick={this.viewQuarter7}><Link to='./sfightermp' style={{ textDecoration: 'none' }}>{whitespace}<text style={{color: 'grey'}}> {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[1].rank}</text><text style={{color: this.findColorQuarter(JSON.parse(sessionStorage.getItem('quarterSeedsM'))[1].code)}}> {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[1].first} {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[1].last}</text><text style={{color: 'grey'}}> ({JSON.parse(sessionStorage.getItem('quarterSeedsM'))[1].swin} - {JSON.parse(sessionStorage.getItem('quarterSeedsM'))[1].sloss})</text><text className="alignright" style={{fontSize: '22px', marginTop: '5px', color: 'white'}}>{this.findMetQuarter(JSON.parse(sessionStorage.getItem('quarterSeedsM'))[1].code)}{whitespace}</text></Link></Button8>
                         </div>
                         <div className="column2" style={{marginTop: -500, marginLeft: 663}}>
-                            <Button8 style={{marginTop: '-5px'}}>{whitespace}<text style={{color: 'grey'}}>NR</text><text> JAMES DAO</text><text style={{color: 'grey'}}> (0 - 0)</text></Button8>
-                            <Button8 style={{marginTop: '-1px'}}>{whitespace}<text style={{color: 'grey'}}>NR</text><text> JAMES DAO</text><text style={{color: 'grey'}}> (0 - 0)</text></Button8>
+                            <Button8 onClick={this.viewSemi1} style={{marginTop: '-5px'}}><Link to={parseInt(month) > 9 ? './sfightermp' : 'playoffspfl'} style={{ textDecoration: 'none' }}>{whitespace}<text style={{color: 'grey'}}>{parseInt(sessionStorage.getItem('month')) > 9 ? JSON.parse(sessionStorage.getItem('semiSeedsM'))[0].rank : ''}</text><text style={{color: (parseInt(month) > 10 ? this.findColorSemi(JSON.parse(sessionStorage.getItem('semiSeedsM'))[0].code) : 'white')}}> {parseInt(sessionStorage.getItem('month')) > 9 ? JSON.parse(sessionStorage.getItem('semiSeedsM'))[0].first : ''} {parseInt(sessionStorage.getItem('month')) > 9 ? JSON.parse(sessionStorage.getItem('semiSeedsM'))[0].last : ''}</text><text style={{color: 'grey'}}> {parseInt(sessionStorage.getItem('month')) > 9 ? '(' + JSON.parse(sessionStorage.getItem('semiSeedsM'))[0].swin : ''} {parseInt(sessionStorage.getItem('month')) > 9 ? ' - ' + JSON.parse(sessionStorage.getItem('semiSeedsM'))[0].sloss + ')' : ''}</text><text className="alignright" style={{fontSize: '22px', marginTop: '5px', color: 'white'}}>{parseInt(sessionStorage.getItem('month')) > 9 ? this.findMetSemi(JSON.parse(sessionStorage.getItem('semiSeedsM'))[0].code) : ''}{whitespace}</text></Link></Button8>
+                            <Button8 onClick={this.viewSemi2} style={{marginTop: '-1px'}}><Link to={parseInt(month) > 9 ? './sfightermp' : 'playoffspfl'} style={{ textDecoration: 'none' }}>{whitespace}<text style={{color: 'grey'}}>{parseInt(sessionStorage.getItem('month')) > 9 ? JSON.parse(sessionStorage.getItem('semiSeedsM'))[1].rank : ''}</text><text style={{color: (parseInt(month) > 10 ? this.findColorSemi(JSON.parse(sessionStorage.getItem('semiSeedsM'))[1].code) : 'white')}}> {parseInt(sessionStorage.getItem('month')) > 9 ? JSON.parse(sessionStorage.getItem('semiSeedsM'))[1].first : ''} {parseInt(sessionStorage.getItem('month')) > 9 ? JSON.parse(sessionStorage.getItem('semiSeedsM'))[1].last : ''}</text><text style={{color: 'grey'}}> {parseInt(sessionStorage.getItem('month')) > 9 ? '(' + JSON.parse(sessionStorage.getItem('semiSeedsM'))[1].swin : ''} {parseInt(sessionStorage.getItem('month')) > 9 ? ' - ' + JSON.parse(sessionStorage.getItem('semiSeedsM'))[1].sloss + ')' : ''}</text><text className="alignright" style={{fontSize: '22px', marginTop: '5px', color: 'white'}}>{parseInt(sessionStorage.getItem('month')) > 9 ? this.findMetSemi(JSON.parse(sessionStorage.getItem('semiSeedsM'))[1].code) : ''}{whitespace}</text></Link></Button8>
                             <br /><br /><br /><br />
-                            <Button8 style={{marginTop: '13px'}}>{whitespace}<text style={{color: 'grey'}}>NR</text><text> JAMES DAO</text><text style={{color: 'grey'}}> (0 - 0)</text></Button8>
-                            <Button8 style={{marginTop: '-1px'}}>{whitespace}<text style={{color: 'grey'}}>NR</text><text> JAMES DAO</text><text style={{color: 'grey'}}> (0 - 0)</text></Button8>
+                            <Button8 onClick={this.viewSemi3} style={{marginTop: '13px'}}><Link to={parseInt(month) > 9 ? './sfightermp' : 'playoffspfl'} style={{ textDecoration: 'none' }}>{whitespace}<text style={{color: 'grey'}}>{parseInt(sessionStorage.getItem('month')) > 9 ? JSON.parse(sessionStorage.getItem('semiSeedsM'))[2].rank : ''}</text><text style={{color: (parseInt(month) > 10 ? this.findColorSemi(JSON.parse(sessionStorage.getItem('semiSeedsM'))[2].code) : 'white')}}> {parseInt(sessionStorage.getItem('month')) > 9 ? JSON.parse(sessionStorage.getItem('semiSeedsM'))[2].first : ''} {parseInt(sessionStorage.getItem('month')) > 9 ? JSON.parse(sessionStorage.getItem('semiSeedsM'))[2].last : ''}</text><text style={{color: 'grey'}}> {parseInt(sessionStorage.getItem('month')) > 9 ? '(' + JSON.parse(sessionStorage.getItem('semiSeedsM'))[2].swin : ''} {parseInt(sessionStorage.getItem('month')) > 9 ? ' - ' + JSON.parse(sessionStorage.getItem('semiSeedsM'))[2].sloss + ')' : ''}</text><text className="alignright" style={{fontSize: '22px', marginTop: '5px', color: 'white'}}>{parseInt(sessionStorage.getItem('month')) > 9 ? this.findMetSemi(JSON.parse(sessionStorage.getItem('semiSeedsM'))[2].code) : ''}{whitespace}</text></Link></Button8>
+                            <Button8 onClick={this.viewSemi4} style={{marginTop: '-1px'}}><Link to={parseInt(month) > 9 ? './sfightermp' : 'playoffspfl'} style={{ textDecoration: 'none' }}>{whitespace}<text style={{color: 'grey'}}>{parseInt(sessionStorage.getItem('month')) > 9 ? JSON.parse(sessionStorage.getItem('semiSeedsM'))[3].rank : ''}</text><text style={{color: (parseInt(month) > 10 ? this.findColorSemi(JSON.parse(sessionStorage.getItem('semiSeedsM'))[3].code) : 'white')}}> {parseInt(sessionStorage.getItem('month')) > 9 ? JSON.parse(sessionStorage.getItem('semiSeedsM'))[3].first : ''} {parseInt(sessionStorage.getItem('month')) > 9 ? JSON.parse(sessionStorage.getItem('semiSeedsM'))[3].last : ''}</text><text style={{color: 'grey'}}> {parseInt(sessionStorage.getItem('month')) > 9 ? '(' + JSON.parse(sessionStorage.getItem('semiSeedsM'))[3].swin : ''} {parseInt(sessionStorage.getItem('month')) > 9 ? ' - ' + JSON.parse(sessionStorage.getItem('semiSeedsM'))[3].sloss + ')' : ''}</text><text className="alignright" style={{fontSize: '22px', marginTop: '5px', color: 'white'}}>{parseInt(sessionStorage.getItem('month')) > 9 ? this.findMetSemi(JSON.parse(sessionStorage.getItem('semiSeedsM'))[3].code) : ''}{whitespace}</text></Link></Button8>
                         </div>
                         <div className="column3" style={{marginTop: -264, marginLeft: 1325}}>
-                            <Button8 style={{marginTop: '-4px'}}>{whitespace}<text style={{color: 'grey'}}>NR</text><text> JAMES DAO</text><text style={{color: 'grey'}}> (0 - 0)</text></Button8>
-                            <Button8 style={{marginTop: '-1px'}}>{whitespace}<text style={{color: 'grey'}}>NR</text><text> JAMES DAO</text><text style={{color: 'grey'}}> (0 - 0)</text></Button8>
+                            <Button8 onClick={this.viewFinal1} style={{marginTop: '-4px'}}><Link to={parseInt(month) > 10 ? './sfightermp' : 'playoffspfl'} style={{ textDecoration: 'none' }}>{whitespace}<text style={{color: 'grey'}}>{parseInt(sessionStorage.getItem('month')) > 10 ? JSON.parse(sessionStorage.getItem('finalSeedsM'))[0].rank : ''}</text><text style={{color: (parseInt(month) > 11 ? this.findColorFinal(JSON.parse(sessionStorage.getItem('finalSeedsM'))[0].code) : 'white')}}> {parseInt(sessionStorage.getItem('month')) > 10 ? JSON.parse(sessionStorage.getItem('finalSeedsM'))[0].first : ''} {parseInt(sessionStorage.getItem('month')) > 10 ? JSON.parse(sessionStorage.getItem('finalSeedsM'))[0].last : ''}</text><text style={{color: 'grey'}}> {parseInt(sessionStorage.getItem('month')) > 10 ? '(' + JSON.parse(sessionStorage.getItem('finalSeedsM'))[0].swin : ''} {parseInt(sessionStorage.getItem('month')) > 10 ? ' - ' + JSON.parse(sessionStorage.getItem('finalSeedsM'))[0].sloss + ')' : ''}</text><text className="alignright" style={{fontSize: '22px', marginTop: '5px', color: 'white'}}>{parseInt(sessionStorage.getItem('month')) > 11 ? this.findMetFinal(JSON.parse(sessionStorage.getItem('finalSeedsM'))[0].code) : ''}{whitespace}</text></Link></Button8>
+                            <Button8 onClick={this.viewFinal2} style={{marginTop: '-1px'}}><Link to={parseInt(month) > 10 ? './sfightermp' : 'playoffspfl'} style={{ textDecoration: 'none' }}>{whitespace}<text style={{color: 'grey'}}>{parseInt(sessionStorage.getItem('month')) > 10 ? JSON.parse(sessionStorage.getItem('finalSeedsM'))[1].rank : ''}</text><text style={{color: (parseInt(month) > 11 ? this.findColorFinal(JSON.parse(sessionStorage.getItem('finalSeedsM'))[1].code) : 'white')}}> {parseInt(sessionStorage.getItem('month')) > 10 ? JSON.parse(sessionStorage.getItem('finalSeedsM'))[1].first : ''} {parseInt(sessionStorage.getItem('month')) > 10 ? JSON.parse(sessionStorage.getItem('finalSeedsM'))[1].last : ''}</text><text style={{color: 'grey'}}> {parseInt(sessionStorage.getItem('month')) > 10 ? '(' + JSON.parse(sessionStorage.getItem('finalSeedsM'))[1].swin : ''} {parseInt(sessionStorage.getItem('month')) > 10 ? ' - ' + JSON.parse(sessionStorage.getItem('finalSeedsM'))[1].sloss + ')' : ''}</text><text className="alignright" style={{fontSize: '22px', marginTop: '5px', color: 'white'}}>{parseInt(sessionStorage.getItem('month')) > 11 ? this.findMetFinal(JSON.parse(sessionStorage.getItem('finalSeedsM'))[1].code) : ''}{whitespace}</text></Link></Button8>
+                        </div>
+                        <div className="column4" style={{marginTop: 210, marginLeft: 1255}}>
+                            <Link to='./playoffspfl'><ButtonW9>MEN</ButtonW9></Link>
+                            <Link to='./playoffspflf'><Button9>WOMEN</Button9></Link>
+                            <Link to='./playoffspfl'><Button9 onClick={this.goAutoFight} style={sessionStorage.getItem('playerPlayoffs') === '1' || parseInt(sessionStorage.getItem('month')) > 11 || parseInt(sessionStorage.getItem('month')) < 9 ? {border: '2px solid gray', color: 'gray'} : {}}>NEXT</Button9></Link>
                         </div>
                     </div>
                     <div className="App-header-style1" style={{marginTop: -98, marginRight: 0}}>
-                        <Link to='./opponent'><Button>FIGHT</Button></Link>
+                        <Link to={this.getFightLink}><Button style={parseInt(sessionStorage.getItem('month')) > 8 && parseInt(sessionStorage.getItem('month')) < 12 ? (sessionStorage.getItem('playerPlayoffs') === '1' ? {} : {border: '2px solid gray', color: 'gray'}) : {}}>{parseInt(sessionStorage.getItem('month')) == 12 ? 'MANAGE' : 'FIGHT'}</Button></Link>
                         <Link to='./schedule'><Button>SCHEDULE</Button></Link>
                         <Link to='./standingsmen'><Button>MEN</Button></Link>
                         <Link to='./standingswomen'><Button>WOMEN</Button></Link>
-                        <Link to={parseInt(sessionStorage.getItem('month')) > 8 ? './playoffspfl' : './cardpfl'}><ButtonG>CARD</ButtonG></Link>
-                        <Link to={sessionStorage.getItem('firstResults') === 'true' ? './cardpfl' : './resultspfl'}><Button style={sessionStorage.getItem('firstResults') === 'true' ? {border: '2px solid gray', color: 'gray'} : {}}>RESULTS</Button></Link>
+                        <Link to={parseInt(sessionStorage.getItem('month')) > 8 ? './playoffspfl' : './cardpfl'}><ButtonG>{parseInt(sessionStorage.getItem('month')) > 8 ? 'BRACKET' : 'CARD'}</ButtonG></Link>
+                        <Link to={sessionStorage.getItem('firstResults') === 'true' ? './playoffspfl' : parseInt(month) > 9 ? './playoffspfl' : './resultspfl'}><Button style={sessionStorage.getItem('firstResults') === 'true' ? {border: '2px solid gray', color: 'gray'} : parseInt(month) > 9 ? {border: '2px solid gray', color: 'gray'} : {}}>RESULTS</Button></Link>
                     </div>
-                    <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 0, fontSize: 30 }}>
+                    <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 5, fontSize: 30 }}>
                         <Button3>${sessionStorage.getItem('balance')}</Button3>
                         <Link to='./home'><Button4>BACK</Button4></Link>
                         <Button3>{this.calcMonth(month)} {sessionStorage.getItem('year')}</Button3>

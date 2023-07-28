@@ -9,11 +9,11 @@ import './App.css';
 const Button = styled.button`
 background-color: transparent;
 color: white;
-padding: 20px;
-width: 275px;
+padding: 2.132196162vh;
+width: 14.322916666vw;
 text-align: center;
-margin: 10px;
-font-size: 40px;
+margin: 1.066098081vh;
+font-size: 2.083333333vw;
 font-family: 'Roboto', sans-serif;
 font-style: italic;
 border: 2px solid white;
@@ -28,11 +28,11 @@ transition: ease background-color 250ms;
 const ButtonG = styled.button`
 background-color: grey;
 color: white;
-padding: 20px;
-width: 275px;
+padding: 2.132196162vh;
+width: 14.322916666vw;
 text-align: center;
-margin: 10px;
-font-size: 40px;
+margin: 1.066098081vh;
+font-size: 2.083333333vw;
 font-family: 'Roboto', sans-serif;
 font-style: italic;
 border: 2px solid white;
@@ -48,17 +48,18 @@ const Button1 = styled.button`
 background-color: transparent;
 color: white;
 padding: 0px;
-width: 275px;
-height: 50px;
+width: 14.322916666vw;
+height: 5.330490405vh;
 text-align: center;
-margin: 10px;
-font-size: 30px;
+margin: 1.066098081vh;
+font-size: 1.5625vw;
 font-family: 'Roboto', sans-serif;
 font-style: italic;
 border: 0px solid white;
 border-radius: 0px;
 outline: 0;
 `
+
 const Button1a = styled.button`
 background-color: transparent;
 color: white;
@@ -79,11 +80,11 @@ const Button2 = styled.button`
 background-color: transparent;
 color: white;
 padding: 0px;
-width: 275px;
-height: 50px;
+width: 14.322916666vw;
+height: 5.330490405vh;
 text-align: center;
-margin: 10px;
-font-size: 100px;
+margin: 1.066098081vh;
+font-size: 5.208333333vw;
 font-family: 'Roboto', sans-serif;
 font-style: italic; 
 border: 0px solid white;
@@ -111,13 +112,13 @@ const Button3 = styled.button`
 background-color: transparent;
 color: white;
 padding: 0px;
-width: 275px;
-height: 20px;
+width: 14.322916666vw;
+height: 1.041666666vh;
 text-align: center;
-margin-top: -5px;
-margin-left: 160px;
-margin-right: 160px;
-font-size: 30px;
+margin-top: -0.53304904vh;
+margin-left: 8.333333333vw;
+margin-right: 8.333333333vw;
+font-size: 3.198294243vh;
 font-family: 'Roboto', sans-serif;
 font-style: italic; 
 border: 0px solid white;
@@ -129,13 +130,13 @@ const Button4 = styled.button`
 background-color: transparent;
 color: white;
 padding: 0px;
-width: 275px;
-height: 50px;
+width: 14.322916666vw;
+height: 5.330490405vh;
 text-align: center;
-margin-top: -5px;
-margin-left: 160px;
-margin-right: 160px;
-font-size: 40px;
+margin-top: -0.53304904vh;
+margin-left: 8.333333333vw;
+margin-right: 8.333333333vw;
+font-size: 2.08334vw;
 font-family: 'Roboto', sans-serif;
 font-style: italic;
 border: 2px solid white;
@@ -1316,10 +1317,10 @@ class Career extends React.Component {
                 <div className="App-header">
                     <div className="App-header-styleTop">
                         <img src={logo} alt='logo' className="App-logo1" style={{ marginTop: -180 }} />
-                        CAREER<br/><br/>
+                        CAREER STATS<br/><br/>
                         <div className="App-customize2" style={{marginTop: -70}}>
                             <Button1a>CAREER EARNINGS</Button1a>
-                            <Button1a>PPV STATUS</Button1a>
+                            <Button1a>STAR POWER</Button1a>
                         </div>
                         <div className="App-customize3" style={{marginTop: -20}}>
                             <Button2a><b>${sessionStorage.getItem('careerEarnings')}</b></Button2a>
@@ -1368,10 +1369,10 @@ class Career extends React.Component {
                             <Button2><b>{this.getTakedownAcc()}</b>%</Button2>
                         </div>
                     </div>
-                    <div className="App-header-style" style={{marginTop: 300}}>
+                    <div className="App-header-style" style={{marginTop: 304}}>
                         <Link to='./career'><ButtonG>STATS</ButtonG></Link>
                         <Link to='./record'><Button>RECORD</Button></Link>
-                        <Link to={(sessionStorage.getItem('month') == 12) ? './org' : './career'}><Button data-tip data-for="1" style={(sessionStorage.getItem('month') != 12) ? {border: '2px solid gray', color: 'gray'} : {}}>UFC</Button></Link>
+                        <Link to='./legacy'><Button>LEGACY</Button></Link>
                         <ReactTooltip id="1" place="top" effect="solid">CAN ONLY SWITCH ORGANIZATIONS IN DECEMBER</ReactTooltip>
                     </div>
                     <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 0, fontSize: 30 }}>

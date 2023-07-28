@@ -45,6 +45,110 @@ transition: ease background-color 250ms;
 }
 `
 
+const Button1 = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 14.322916666vw;
+height: 5.330490405vh;
+text-align: center;
+margin: 1.066098081vh;
+font-size: 1.5625vw;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button1a = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 800px;
+height: 50px;
+text-align: center;
+margin: 10px;
+font-size: 30px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button2 = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 14.322916666vw;
+height: 5.330490405vh;
+text-align: center;
+margin: 1.066098081vh;
+font-size: 5.208333333vw;
+font-family: 'Roboto', sans-serif;
+font-style: italic; 
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button2a = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 800px;
+height: 100px;
+text-align: center;
+margin: 10px;
+font-size: 100px;
+font-family: 'Roboto', sans-serif;
+font-style: italic; 
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button3 = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 14.322916666vw;
+height: 1.041666666vh;
+text-align: center;
+margin-top: -0.53304904vh;
+margin-left: 8.333333333vw;
+margin-right: 8.333333333vw;
+font-size: 3.198294243vh;
+font-family: 'Roboto', sans-serif;
+font-style: italic; 
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button4 = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 14.322916666vw;
+height: 5.330490405vh;
+text-align: center;
+margin-top: -0.53304904vh;
+margin-left: 8.333333333vw;
+margin-right: 8.333333333vw;
+font-size: 2.08334vw;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 2px solid white;
+border-radius: 2px;
+outline: 0;
+transition: ease background-color 250ms;
+&:hover {
+  background-color: #616161;
+}
+`
+
 const ButtonE = styled.button`
 background-color: transparent;
 color: white;
@@ -94,78 +198,6 @@ height: 90px;
 text-align: center;
 margin: 10px;
 font-size: 30px;
-font-family: 'Roboto', sans-serif;
-font-style: italic;
-border: 2px solid white;
-border-radius: 2px;
-outline: 0;
-transition: ease background-color 250ms;
-&:hover {
-  background-color: #616161;
-}
-`
-
-const Button1 = styled.button`
-background-color: transparent;
-color: white;
-padding: 0px;
-width: 275px;
-height: 50px;
-text-align: center;
-margin: 10px;
-font-size: 30px;
-font-family: 'Roboto', sans-serif;
-font-style: italic;
-border: 0px solid white;
-border-radius: 0px;
-outline: 0;
-`
-
-const Button2 = styled.button`
-background-color: transparent;
-color: white;
-padding: 0px;
-width: 275px;
-height: 50px;
-text-align: center;
-margin: 10px;
-font-size: 100px;
-font-family: 'Roboto', sans-serif;
-font-style: italic; 
-border: 0px solid white;
-border-radius: 0px;
-outline: 0;
-`
-
-const Button3 = styled.button`
-background-color: transparent;
-color: white;
-padding: 0px;
-width: 275px;
-height: 20px;
-text-align: center;
-margin-top: -5px;
-margin-left: 160px;
-margin-right: 160px;
-font-size: 30px;
-font-family: 'Roboto', sans-serif;
-font-style: italic; 
-border: 0px solid white;
-border-radius: 0px;
-outline: 0;
-`
-
-const Button4 = styled.button`
-background-color: transparent;
-color: white;
-padding: 0px;
-width: 275px;
-height: 50px;
-text-align: center;
-margin-top: 0px;
-margin-left: 160px;
-margin-right: 160px;
-font-size: 40px;
 font-family: 'Roboto', sans-serif;
 font-style: italic;
 border: 2px solid white;
@@ -281,6 +313,310 @@ transition: ease background-color 250ms;
 &:hover {
   background-color: #616161;
 }
+`
+
+const Button10 = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 900px;
+height: 45px;
+text-align: left;
+margin-top: 0px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+font-size: 25px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button9 = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 364px;
+height: 45px;
+text-align: left;
+margin-top: 0px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+font-size: 25px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button9b = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 50px;
+height: 45px;
+text-align: left;
+margin-top: 0px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+font-size: 25px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button9c = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 123px;
+height: 45px;
+text-align: left;
+margin-top: 0px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+font-size: 25px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button9c1 = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 121px;
+height: 45px;
+text-align: left;
+margin-top: 0px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 2px;
+font-size: 25px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button9d = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 48px;
+height: 45px;
+text-align: left;
+margin-top: 0px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 2px;
+font-size: 25px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button9e = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 362px;
+height: 45px;
+text-align: left;
+margin-top: 0px;
+margin-bottom: 0px;
+margin-left: 2px;
+margin-right: 0px;
+font-size: 25px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button0 = styled.button`
+background-color: #474747;
+color: white;
+padding: 0px;
+width: 364px;
+height: 45px;
+text-align: left;
+margin-top: 0px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+font-size: 25px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button0b = styled.button`
+background-color: #474747;
+color: white;
+padding: 0px;
+width: 50px;
+height: 45px;
+text-align: left;
+margin-top: 0px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+font-size: 25px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button0c = styled.button`
+background-color: #474747;
+color: white;
+padding: 0px;
+width: 123px;
+height: 45px;
+text-align: left;
+margin-top: 0px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 0px;
+font-size: 25px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button0c1 = styled.button`
+background-color: #474747;
+color: white;
+padding: 0px;
+width: 121px;
+height: 45px;
+text-align: left;
+margin-top: 0px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 2px;
+font-size: 25px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button0d = styled.button`
+background-color: #474747;
+color: white;
+padding: 0px;
+width: 48px;
+height: 45px;
+text-align: left;
+margin-top: 0px;
+margin-bottom: 0px;
+margin-left: 0px;
+margin-right: 2px;
+font-size: 25px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button0e = styled.button`
+background-color: #474747;
+color: white;
+padding: 0px;
+width: 362px;
+height: 45px;
+text-align: left;
+margin-top: 0px;
+margin-bottom: 0px;
+margin-left: 2px;
+margin-right: 0px;
+font-size: 25px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button11 = styled.button`
+background-color: #616161;
+color: white;
+padding: 0px;
+width: 360px;
+height: 45px;
+text-align: left;
+margin-top: 0px;
+margin-bottom: 0px;
+margin-left: 2px;
+margin-right: 2px;
+font-size: 25px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button12 = styled.button`
+background-color: #616161;
+color: white;
+padding: 0px;
+width: 46px;
+height: 45px;
+text-align: left;
+margin-top: 0px;
+margin-bottom: 0px;
+margin-left: 2px;
+margin-right: 2px;
+font-size: 25px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button13 = styled.button`
+background-color: #616161;
+color: white;
+padding: 0px;
+width: 121px;
+height: 45px;
+text-align: left;
+margin-top: 0px;
+margin-bottom: 0px;
+margin-left: 2px;
+margin-right: 2px;
+font-size: 25px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
 `
 
 class CardPFL extends React.Component { 
@@ -4196,44 +4532,173 @@ class CardPFL extends React.Component {
     }
 
     findRank(str) {
-        let data = sessionStorage.getItem('player');
-        data = JSON.parse(data);
+        if (sessionStorage.getItem(this.findWeek(str)) === sessionStorage.getItem('playerNR')) {
+            return JSON.parse(sessionStorage.getItem('nr0')).rank;
+        }
         return JSON.parse(returnFighterM(parseInt(sessionStorage.getItem(this.findWeek(str))))).rank;
     }
 
     findRank1(str) {
-        let data = sessionStorage.getItem('player');
-        data = JSON.parse(data);
+        if (sessionStorage.getItem(this.findWeek(str)) === sessionStorage.getItem('playerNRF')) {
+            return JSON.parse(sessionStorage.getItem('nrf0')).rank;
+        }
         return JSON.parse(returnFighterF(parseInt(sessionStorage.getItem(this.findWeek(str))))).rank;
     }
 
     findName(str) {
-        let data = sessionStorage.getItem('player');
-        data = JSON.parse(data);
+        if (sessionStorage.getItem(this.findWeek(str)) === sessionStorage.getItem('playerNR')) {
+            return JSON.parse(sessionStorage.getItem('nr0')).first + ' ' + JSON.parse(sessionStorage.getItem('nr0')).last;
+        }
         return JSON.parse(returnFighterM(parseInt(sessionStorage.getItem(this.findWeek(str))))).first + ' ' + JSON.parse(returnFighterM(parseInt(sessionStorage.getItem(this.findWeek(str))))).last;
     }
 
     findName1(str) {
-        let data = sessionStorage.getItem('player');
-        data = JSON.parse(data);
+        if (sessionStorage.getItem(this.findWeek(str)) === sessionStorage.getItem('playerNRF')) {
+            return JSON.parse(sessionStorage.getItem('nrf0')).first + ' ' + JSON.parse(sessionStorage.getItem('nrf0')).last;
+        }
         return JSON.parse(returnFighterF(parseInt(sessionStorage.getItem(this.findWeek(str))))).first + ' ' + JSON.parse(returnFighterF(parseInt(sessionStorage.getItem(this.findWeek(str))))).last;
     }
 
     findRec(str) {
-        let data = sessionStorage.getItem('player');
-        data = JSON.parse(data);
+        if (sessionStorage.getItem(this.findWeek(str)) === sessionStorage.getItem('playerNR')) {
+            return '(' + JSON.parse(sessionStorage.getItem('nr0')).swin + ' - ' + JSON.parse(sessionStorage.getItem('nr0')).sloss + ')';
+        }
         return '(' + JSON.parse(returnFighterM(parseInt(sessionStorage.getItem(this.findWeek(str))))).swin + ' - ' + JSON.parse(returnFighterM(parseInt(sessionStorage.getItem(this.findWeek(str))))).sloss + ')';
     }
 
     findRec1(str) {
-        let data = sessionStorage.getItem('player');
-        data = JSON.parse(data);
+        if (sessionStorage.getItem(this.findWeek(str)) === sessionStorage.getItem('playerNRF')) {
+            return '(' + JSON.parse(sessionStorage.getItem('nrf0')).swin + ' - ' + JSON.parse(sessionStorage.getItem('nrf0')).sloss + ')';
+        }
         return '(' + JSON.parse(returnFighterF(parseInt(sessionStorage.getItem(this.findWeek(str))))).swin + ' - ' + JSON.parse(returnFighterF(parseInt(sessionStorage.getItem(this.findWeek(str))))).sloss + ')';
     }
 
     findWeek(str) {
         let month = sessionStorage.getItem('month');
         return 'w' + month + str;
+    }
+
+    
+    getFightLink() {
+        let month = parseInt(sessionStorage.getItem('month'));
+
+        if (month > 8 && month < 12) {
+            if (sessionStorage.getItem('playerPlayoffs') === '1') {
+                return './opponent';
+            }
+            else {
+                return './cardpfl';
+            }
+        }
+        else if (month < 9) {
+            return './opponent';
+        }
+        else if (month == 12) {
+            return './manage';
+        }
+    }
+
+    findPts(str) {
+        if (sessionStorage.getItem(this.findWeek(str)) === sessionStorage.getItem('playerNR')) {
+            return JSON.parse(sessionStorage.getItem('nr0')).pts;
+        }
+        return JSON.parse(returnFighterM(parseInt(sessionStorage.getItem(this.findWeek(str))))).pts;
+    }
+
+    findPts1(str) {
+        if (sessionStorage.getItem(this.findWeek(str)) === sessionStorage.getItem('playerNRF')) {
+            return JSON.parse(sessionStorage.getItem('nrf0')).pts;
+        }
+        return JSON.parse(returnFighterF(parseInt(sessionStorage.getItem(this.findWeek(str))))).pts;
+    }
+
+    findMen() {
+        let arr = [];
+        
+        for (let i = 1; i < 13; ++i) {
+            if (parseInt(this.findRank('f' + i + 'p1')) < parseInt(this.findRank('f' + i + 'p2'))) {
+                let x = {
+                    name1: this.findName('f' + i + 'p1'),
+                    rank1: this.findRank('f' + i + 'p1'),
+                    rec1: this.findRec('f' + i + 'p1'),
+                    name2: this.findName('f' + i + 'p2'),
+                    rank2: this.findRank('f' + i + 'p2'),
+                    rec2: this.findRec('f' + i + 'p2'),
+                    pts: parseInt(this.findPts('f' + i + 'p1')) + parseInt(this.findPts('f' + i + 'p2'))
+                }
+                arr.push(x);
+            }
+            else {
+                let x = {
+                    name1: this.findName('f' + i + 'p2'),
+                    rank1: this.findRank('f' + i + 'p2'),
+                    rec1: this.findRec('f' + i + 'p2'),
+                    name2: this.findName('f' + i + 'p1'),
+                    rank2: this.findRank('f' + i + 'p1'),
+                    rec2: this.findRec('f' + i + 'p1'),
+                    pts: parseInt(this.findPts('f' + i + 'p1')) + parseInt(this.findPts('f' + i + 'p2'))
+                }
+                arr.push(x);
+            }
+        }
+
+        return arr;
+    }
+
+    findWomen() {
+        let arr = [];
+        
+        for (let i = 1; i < 7; ++i) {
+            if (parseInt(this.findRank1('f' + i + 'm1')) < parseInt(this.findRank1('f' + i + 'm2'))) {
+                let x = {
+                    name1: this.findName1('f' + i + 'm1'),
+                    rank1: this.findRank1('f' + i + 'm1'),
+                    rec1: this.findRec1('f' + i + 'm1'),
+                    name2: this.findName1('f' + i + 'm2'),
+                    rank2: this.findRank1('f' + i + 'm2'),
+                    rec2: this.findRec1('f' + i + 'm2'),
+                    pts: parseInt(this.findPts1('f' + i + 'm1')) + parseInt(this.findPts1('f' + i + 'm2'))
+                }
+                arr.push(x);
+            }
+            else {
+                let x = {
+                    name1: this.findName1('f' + i + 'm2'),
+                    rank1: this.findRank1('f' + i + 'm2'),
+                    rec1: this.findRec1('f' + i + 'm2'),
+                    name2: this.findName1('f' + i + 'm1'),
+                    rank2: this.findRank1('f' + i + 'm1'),
+                    rec2: this.findRec1('f' + i + 'm1'),
+                    pts: parseInt(this.findPts1('f' + i + 'm1')) + parseInt(this.findPts1('f' + i + 'm2'))
+                }
+                arr.push(x);
+            }
+        }
+
+        return arr;
+    }
+
+    sortCard(arr) {
+        arr.sort((a, b) => {
+            if (parseInt(a.pts) > parseInt(b.pts)) return -1;
+            if (parseInt(a.pts) < parseInt(b.pts)) return 1;
+
+            return parseInt(a.rank1) - parseInt(b.rank1);
+        });
+
+        return arr;
+    }
+    
+    rankSpace(x) {
+        if (x === 'NR') {
+            return x;
+        }
+        else if (parseInt(x) > 9) {
+            return x;
+        }
+        else {
+            return '\xa0\xa0' + x;
+        }
     }
 
     render() {
@@ -4255,28 +4720,11 @@ class CardPFL extends React.Component {
         let space = '\xa0';
         let wc = sessionStorage.getItem('wc0');
         sessionStorage.setItem('wc', sessionStorage.getItem('wc0'));
-        let rank1 = null;
-        let name1 = null;
-        let rec1 = null;
-        let rank2 = null;
-        let name2 = null;
-        let rec2 = null;
-        if (data.weight != "WSTRAWWEIGHT" && data.weight != "WFLYWEIGHT" && data.weight != "WBANTAMWEIGHT") {
-            rank1 = sessionStorage.getItem('rank');
-            name1 = data.first + ' ' + data.last;
-            rec1 = '(' + sessionStorage.getItem('playerSwin') + ' - ' + sessionStorage.getItem('playerSloss') + ')';
-            rank2 = this.findRank1('f1m1');
-            name2 = this.findName1('f1m1');
-            rec2 = this.findRec1('f1m1');
-        }
-        else {
-            rank1 = this.findRank('f1p1');
-            name1 = this.findName('f1p1');
-            rec1 = this.findRec('f1p1');
-            rank2 = sessionStorage.getItem('rank');
-            name2 = data.first + ' ' + data.last;
-            rec2 = '(' + sessionStorage.getItem('playerSwin') + ' - ' + sessionStorage.getItem('playerSloss') + ')';
-        }
+
+        let men = this.findMen();
+        let women = this.findWomen();
+        let card1 = this.sortCard(men);
+        let card2 = this.sortCard(women);
         return(
             <div className="App">
                 <div className="App-header">
@@ -4285,34 +4733,37 @@ class CardPFL extends React.Component {
                         PFL {month} FIGHT CARD<br/><br/>
                     </div>
                     <div className="App-customize4" style={{marginTop: 110, marginBottom: 0, width: 1920 }}>
-                        <Button8><center><text style={{color: 'grey'}}>{rank1}</text><text> {name1}</text><text style={{color: 'grey'}}> {rec1}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank('f1p2')} </text><text>{this.findName('f1p2')}</text><text style={{color: 'grey'}}> {this.findRec('f1p2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank('f2p1')}</text><text> {this.findName('f2p1')}</text><text style={{color: 'grey'}}> {this.findRec('f2p1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank('f2p2')} </text><text>{this.findName('f2p2')}</text><text style={{color: 'grey'}}> {this.findRec('f2p2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank('f3p1')}</text><text> {this.findName('f3p1')}</text><text style={{color: 'grey'}}> {this.findRec('f3p1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank('f3p2')} </text><text>{this.findName('f3p2')}</text><text style={{color: 'grey'}}> {this.findRec('f3p2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank('f4p1')}</text><text> {this.findName('f4p1')}</text><text style={{color: 'grey'}}> {this.findRec('f4p1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank('f4p2')} </text><text>{this.findName('f4p2')}</text><text style={{color: 'grey'}}> {this.findRec('f4p2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank('f5p1')}</text><text> {this.findName('f5p1')}</text><text style={{color: 'grey'}}> {this.findRec('f5p1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank('f5p2')} </text><text>{this.findName('f5p2')}</text><text style={{color: 'grey'}}> {this.findRec('f5p2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank('f6p1')}</text><text> {this.findName('f6p1')}</text><text style={{color: 'grey'}}> {this.findRec('f6p1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank('f6p2')} </text><text>{this.findName('f6p2')}</text><text style={{color: 'grey'}}> {this.findRec('f6p2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank('f7p1')}</text><text> {this.findName('f7p1')}</text><text style={{color: 'grey'}}> {this.findRec('f7p1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank('f7p2')} </text><text>{this.findName('f7p2')}</text><text style={{color: 'grey'}}> {this.findRec('f7p2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank('f8p1')}</text><text> {this.findName('f8p1')}</text><text style={{color: 'grey'}}> {this.findRec('f8p1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank('f8p2')} </text><text>{this.findName('f8p2')}</text><text style={{color: 'grey'}}> {this.findRec('f8p2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank('f9p1')}</text><text> {this.findName('f9p1')}</text><text style={{color: 'grey'}}> {this.findRec('f9p1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank('f9p2')} </text><text>{this.findName('f9p2')}</text><text style={{color: 'grey'}}> {this.findRec('f9p2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank('f10p1')}</text><text> {this.findName('f10p1')}</text><text style={{color: 'grey'}}> {this.findRec('f10p1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank('f10p2')} </text><text>{this.findName('f10p2')}</text><text style={{color: 'grey'}}> {this.findRec('f10p2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank('f11p1')}</text><text> {this.findName('f11p1')}</text><text style={{color: 'grey'}}> {this.findRec('f11p1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank('f11p2')} </text><text>{this.findName('f11p2')}</text><text style={{color: 'grey'}}> {this.findRec('f11p2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank('f12p1')}</text><text> {this.findName('f12p1')}</text><text style={{color: 'grey'}}> {this.findRec('f12p1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank('f12p2')} </text><text>{this.findName('f12p2')}</text><text style={{color: 'grey'}}> {this.findRec('f12p2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{rank2}</text><text> {name2}</text><text style={{color: 'grey'}}> {rec2}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank1('f1m2')} </text><text>{this.findName1('f1m2')}</text><text style={{color: 'grey'}}> {this.findRec1('f1m2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank1('f2m1')}</text><text> {this.findName1('f2m1')}</text><text style={{color: 'grey'}}> {this.findRec1('f2m1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank1('f2m2')} </text><text>{this.findName1('f2m2')}</text><text style={{color: 'grey'}}> {this.findRec1('f2m2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank1('f3m1')}</text><text> {this.findName1('f3m1')}</text><text style={{color: 'grey'}}> {this.findRec1('f3m1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank1('f3m2')} </text><text>{this.findName1('f3m2')}</text><text style={{color: 'grey'}}> {this.findRec1('f3m2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank1('f4m1')}</text><text> {this.findName1('f4m1')}</text><text style={{color: 'grey'}}> {this.findRec1('f4m1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank1('f4m2')} </text><text>{this.findName1('f4m2')}</text><text style={{color: 'grey'}}> {this.findRec1('f4m2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank1('f5m1')}</text><text> {this.findName1('f5m1')}</text><text style={{color: 'grey'}}> {this.findRec1('f5m1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank1('f5m2')} </text><text>{this.findName1('f5m2')}</text><text style={{color: 'grey'}}> {this.findRec1('f5m2')}</text></center></Button8>
-                        <Button8><center><text style={{color: 'grey'}}>{this.findRank1('f6m1')}</text><text> {this.findName1('f6m1')}</text><text style={{color: 'grey'}}> {this.findRec1('f6m1')}</text><text> v. </text><text style={{color: 'grey'}}>{this.findRank1('f6m2')} </text><text>{this.findName1('f6m2')}</text><text style={{color: 'grey'}}> {this.findRec1('f6m2')}</text></center></Button8>
+                        <Button11>{whitespace}{whitespace}<text>RED</text></Button11><Button12>{space}</Button12><Button11>{whitespace}{whitespace}<text>BLUE</text></Button11><Button13><text><center>Σ POINTS</center></text></Button13>
+                        <Button11>{whitespace}{whitespace}<text>RED</text></Button11><Button12>{space}</Button12><Button11>{whitespace}{whitespace}<text>BLUE</text></Button11><Button13><text><center>Σ POINTS</center></text></Button13>
+                        <Button9>{space}<text style={{color: 'grey'}}>{this.rankSpace(men[0].rank1)}</text><text> {men[0].name1}</text><text style={{color: 'grey'}}> {men[0].rec1}</text></Button9><Button9b><center><text>v.</text></center></Button9b><Button9><text style={{color: 'grey'}}>{this.rankSpace(men[0].rank2)} </text><text>{men[0].name2}</text><text style={{color: 'grey'}}> {men[0].rec2}</text></Button9><Button9c1><center>{men[0].pts}</center></Button9c1>
+                        <Button9e>{space}<text style={{color: 'grey'}}>{this.rankSpace(men[1].rank1)}</text><text> {men[1].name1}</text><text style={{color: 'grey'}}> {men[1].rec1}</text></Button9e><Button9b><center><text>v.</text></center></Button9b><Button9><text style={{color: 'grey'}}>{this.rankSpace(men[1].rank2)} </text><text>{men[1].name2}</text><text style={{color: 'grey'}}> {men[1].rec2}</text></Button9><Button9c><center>{men[1].pts}</center></Button9c>
+                        <Button0>{space}<text style={{color: 'grey'}}>{this.rankSpace(men[2].rank1)}</text><text> {men[2].name1}</text><text style={{color: 'grey'}}> {men[2].rec1}</text></Button0><Button0b><center><text>v.</text></center></Button0b><Button0><text style={{color: 'grey'}}>{this.rankSpace(men[2].rank2)} </text><text>{men[2].name2}</text><text style={{color: 'grey'}}> {men[2].rec2}</text></Button0><Button0c1><center>{men[2].pts}</center></Button0c1>
+                        <Button0e>{space}<text style={{color: 'grey'}}>{this.rankSpace(men[3].rank1)}</text><text> {men[3].name1}</text><text style={{color: 'grey'}}> {men[3].rec1}</text></Button0e><Button0b><center><text>v.</text></center></Button0b><Button0><text style={{color: 'grey'}}>{this.rankSpace(men[3].rank2)} </text><text>{men[3].name2}</text><text style={{color: 'grey'}}> {men[3].rec2}</text></Button0><Button0c><center>{men[3].pts}</center></Button0c>
+                        <Button9>{space}<text style={{color: 'grey'}}>{this.rankSpace(men[4].rank1)}</text><text> {men[4].name1}</text><text style={{color: 'grey'}}> {men[4].rec1}</text></Button9><Button9b><center><text>v.</text></center></Button9b><Button9><text style={{color: 'grey'}}>{this.rankSpace(men[4].rank2)} </text><text>{men[4].name2}</text><text style={{color: 'grey'}}> {men[4].rec2}</text></Button9><Button9c1><center>{men[4].pts}</center></Button9c1>
+                        <Button9e>{space}<text style={{color: 'grey'}}>{this.rankSpace(men[5].rank1)}</text><text> {men[5].name1}</text><text style={{color: 'grey'}}> {men[5].rec1}</text></Button9e><Button9b><center><text>v.</text></center></Button9b><Button9><text style={{color: 'grey'}}>{this.rankSpace(men[5].rank2)} </text><text>{men[5].name2}</text><text style={{color: 'grey'}}> {men[5].rec2}</text></Button9><Button9c><center>{men[5].pts}</center></Button9c>
+                        <Button0>{space}<text style={{color: 'grey'}}>{this.rankSpace(men[6].rank1)}</text><text> {men[6].name1}</text><text style={{color: 'grey'}}> {men[6].rec1}</text></Button0><Button0b><center><text>v.</text></center></Button0b><Button0><text style={{color: 'grey'}}>{this.rankSpace(men[6].rank2)} </text><text>{men[6].name2}</text><text style={{color: 'grey'}}> {men[6].rec2}</text></Button0><Button0c1><center>{men[6].pts}</center></Button0c1>
+                        <Button0e>{space}<text style={{color: 'grey'}}>{this.rankSpace(men[7].rank1)}</text><text> {men[7].name1}</text><text style={{color: 'grey'}}> {men[7].rec1}</text></Button0e><Button0b><center><text>v.</text></center></Button0b><Button0><text style={{color: 'grey'}}>{this.rankSpace(men[7].rank2)} </text><text>{men[7].name2}</text><text style={{color: 'grey'}}> {men[7].rec2}</text></Button0><Button0c><center>{men[7].pts}</center></Button0c>
+                        <Button9>{space}<text style={{color: 'grey'}}>{this.rankSpace(men[8].rank1)}</text><text> {men[8].name1}</text><text style={{color: 'grey'}}> {men[8].rec1}</text></Button9><Button9b><center><text>v.</text></center></Button9b><Button9><text style={{color: 'grey'}}>{this.rankSpace(men[8].rank2)} </text><text>{men[8].name2}</text><text style={{color: 'grey'}}> {men[8].rec2}</text></Button9><Button9c1><center>{men[8].pts}</center></Button9c1>
+                        <Button9e>{space}<text style={{color: 'grey'}}>{this.rankSpace(men[9].rank1)}</text><text> {men[9].name1}</text><text style={{color: 'grey'}}> {men[9].rec1}</text></Button9e><Button9b><center><text>v.</text></center></Button9b><Button9><text style={{color: 'grey'}}>{this.rankSpace(men[9].rank2)} </text><text>{men[9].name2}</text><text style={{color: 'grey'}}> {men[9].rec2}</text></Button9><Button9c><center>{men[9].pts}</center></Button9c>
+                        <Button0>{space}<text style={{color: 'grey'}}>{this.rankSpace(men[10].rank1)}</text><text> {men[10].name1}</text><text style={{color: 'grey'}}> {men[10].rec1}</text></Button0><Button0b><center><text>v.</text></center></Button0b><Button0><text style={{color: 'grey'}}>{this.rankSpace(men[10].rank2)} </text><text>{men[10].name2}</text><text style={{color: 'grey'}}> {men[10].rec2}</text></Button0><Button0c1><center>{men[10].pts}</center></Button0c1>
+                        <Button0e>{space}<text style={{color: 'grey'}}>{this.rankSpace(men[11].rank1)}</text><text> {men[11].name1}</text><text style={{color: 'grey'}}> {men[11].rec1}</text></Button0e><Button0b><center><text>v.</text></center></Button0b><Button0><text style={{color: 'grey'}}>{this.rankSpace(men[11].rank2)} </text><text>{men[11].name2}</text><text style={{color: 'grey'}}> {men[11].rec2}</text></Button0><Button0c><center>{men[11].pts}</center></Button0c>
+                        <Button9>{space}<text style={{color: 'grey'}}>{this.rankSpace(women[0].rank1)}</text><text> {women[0].name1}</text><text style={{color: 'grey'}}> {women[0].rec1}</text></Button9><Button9b><center><text>v.</text></center></Button9b><Button9><text style={{color: 'grey'}}>{this.rankSpace(women[0].rank2)} </text><text>{women[0].name2}</text><text style={{color: 'grey'}}> {women[0].rec2}</text></Button9><Button9c1><center>{women[0].pts}</center></Button9c1>
+                        <Button9e>{space}<text style={{color: 'grey'}}>{this.rankSpace(women[1].rank1)}</text><text> {women[1].name1}</text><text style={{color: 'grey'}}> {women[1].rec1}</text></Button9e><Button9b><center><text>v.</text></center></Button9b><Button9><text style={{color: 'grey'}}>{this.rankSpace(women[1].rank2)} </text><text>{women[1].name2}</text><text style={{color: 'grey'}}> {women[1].rec2}</text></Button9><Button9c><center>{women[1].pts}</center></Button9c>
+                        <Button0>{space}<text style={{color: 'grey'}}>{this.rankSpace(women[2].rank1)}</text><text> {women[2].name1}</text><text style={{color: 'grey'}}> {women[2].rec1}</text></Button0><Button0b><center><text>v.</text></center></Button0b><Button0><text style={{color: 'grey'}}>{this.rankSpace(women[2].rank2)} </text><text>{women[2].name2}</text><text style={{color: 'grey'}}> {women[2].rec2}</text></Button0><Button0c1><center>{women[2].pts}</center></Button0c1>
+                        <Button0e>{space}<text style={{color: 'grey'}}>{this.rankSpace(women[3].rank1)}</text><text> {women[3].name1}</text><text style={{color: 'grey'}}> {women[3].rec1}</text></Button0e><Button0b><center><text>v.</text></center></Button0b><Button0><text style={{color: 'grey'}}>{this.rankSpace(women[3].rank2)} </text><text>{women[3].name2}</text><text style={{color: 'grey'}}> {women[3].rec2}</text></Button0><Button0c><center>{women[3].pts}</center></Button0c>
+                        <Button9>{space}<text style={{color: 'grey'}}>{this.rankSpace(women[4].rank1)}</text><text> {women[4].name1}</text><text style={{color: 'grey'}}> {women[4].rec1}</text></Button9><Button9b><center><text>v.</text></center></Button9b><Button9><text style={{color: 'grey'}}>{this.rankSpace(women[4].rank2)} </text><text>{women[4].name2}</text><text style={{color: 'grey'}}> {women[4].rec2}</text></Button9><Button9c1><center>{women[4].pts}</center></Button9c1>
+                        <Button9e>{space}<text style={{color: 'grey'}}>{this.rankSpace(women[5].rank1)}</text><text> {women[5].name1}</text><text style={{color: 'grey'}}> {women[5].rec1}</text></Button9e><Button9b><center><text>v.</text></center></Button9b><Button9><text style={{color: 'grey'}}>{this.rankSpace(women[5].rank2)} </text><text>{women[5].name2}</text><text style={{color: 'grey'}}> {women[5].rec2}</text></Button9><Button9c><center>{women[5].pts}</center></Button9c>
+                        <Button10><center><text style={{color: 'grey'}}>{sessionStorage.getItem('city')}</text></center></Button10>
                     </div>
                     <div className="App-header-style1" style={{marginTop: -98, marginRight: 0}}>
-                        <Link to='./opponent'><Button>FIGHT</Button></Link>
+                        <Link to={this.getFightLink}><Button style={parseInt(sessionStorage.getItem('month')) > 8 && parseInt(sessionStorage.getItem('month')) < 12 ? (sessionStorage.getItem('playerPlayoffs') === '1' ? {} : {border: '2px solid gray', color: 'gray'}) : {}}>{parseInt(sessionStorage.getItem('month')) == 12 ? 'MANAGE' : 'FIGHT'}</Button></Link>
                         <Link to='./schedule'><Button>SCHEDULE</Button></Link>
                         <Link to='./standingsmen'><Button>MEN</Button></Link>
                         <Link to='./standingswomen'><Button>WOMEN</Button></Link>
-                        <Link to={parseInt(sessionStorage.getItem('month')) > 8 ? './playoffspfl' : './cardpfl'}><ButtonG>CARD</ButtonG></Link>
+                        <Link to={parseInt(sessionStorage.getItem('month')) > 8 ? './playoffspfl' : './cardpfl'}><ButtonG>{parseInt(sessionStorage.getItem('month')) > 8 ? 'BRACKET' : 'CARD'}</ButtonG></Link>
                         <Link to={sessionStorage.getItem('firstResults') === 'true' ? './cardpfl' : './resultspfl'}><Button style={sessionStorage.getItem('firstResults') === 'true' ? {border: '2px solid gray', color: 'gray'} : {}}>RESULTS</Button></Link>
                     </div>
-                    <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 0, fontSize: 30 }}>
+                    <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 5, fontSize: 30 }}>
                         <Button3>${sessionStorage.getItem('balance')}</Button3>
                         <Link to='./home'><Button4>BACK</Button4></Link>
                         <Button3>{this.calcMonth(month)} {sessionStorage.getItem('year')}</Button3>

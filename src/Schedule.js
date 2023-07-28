@@ -45,6 +45,110 @@ transition: ease background-color 250ms;
 }
 `
 
+const Button1 = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 14.322916666vw;
+height: 5.330490405vh;
+text-align: center;
+margin: 1.066098081vh;
+font-size: 1.5625vw;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button1a = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 800px;
+height: 50px;
+text-align: center;
+margin: 10px;
+font-size: 30px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button2 = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 14.322916666vw;
+height: 5.330490405vh;
+text-align: center;
+margin: 1.066098081vh;
+font-size: 5.208333333vw;
+font-family: 'Roboto', sans-serif;
+font-style: italic; 
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button2a = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 800px;
+height: 100px;
+text-align: center;
+margin: 10px;
+font-size: 100px;
+font-family: 'Roboto', sans-serif;
+font-style: italic; 
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button3 = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 14.322916666vw;
+height: 1.041666666vh;
+text-align: center;
+margin-top: -0.53304904vh;
+margin-left: 8.333333333vw;
+margin-right: 8.333333333vw;
+font-size: 3.198294243vh;
+font-family: 'Roboto', sans-serif;
+font-style: italic; 
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Button4 = styled.button`
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 14.322916666vw;
+height: 5.330490405vh;
+text-align: center;
+margin-top: -0.53304904vh;
+margin-left: 8.333333333vw;
+margin-right: 8.333333333vw;
+font-size: 2.08334vw;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 2px solid white;
+border-radius: 2px;
+outline: 0;
+transition: ease background-color 250ms;
+&:hover {
+  background-color: #616161;
+}
+`
+
 const ButtonE = styled.button`
 background-color: transparent;
 color: white;
@@ -94,78 +198,6 @@ height: 90px;
 text-align: center;
 margin: 10px;
 font-size: 30px;
-font-family: 'Roboto', sans-serif;
-font-style: italic;
-border: 2px solid white;
-border-radius: 2px;
-outline: 0;
-transition: ease background-color 250ms;
-&:hover {
-  background-color: #616161;
-}
-`
-
-const Button1 = styled.button`
-background-color: transparent;
-color: white;
-padding: 0px;
-width: 275px;
-height: 50px;
-text-align: center;
-margin: 10px;
-font-size: 30px;
-font-family: 'Roboto', sans-serif;
-font-style: italic;
-border: 0px solid white;
-border-radius: 0px;
-outline: 0;
-`
-
-const Button2 = styled.button`
-background-color: transparent;
-color: white;
-padding: 0px;
-width: 275px;
-height: 50px;
-text-align: center;
-margin: 10px;
-font-size: 100px;
-font-family: 'Roboto', sans-serif;
-font-style: italic; 
-border: 0px solid white;
-border-radius: 0px;
-outline: 0;
-`
-
-const Button3 = styled.button`
-background-color: transparent;
-color: white;
-padding: 0px;
-width: 275px;
-height: 20px;
-text-align: center;
-margin-top: -5px;
-margin-left: 160px;
-margin-right: 160px;
-font-size: 30px;
-font-family: 'Roboto', sans-serif;
-font-style: italic; 
-border: 0px solid white;
-border-radius: 0px;
-outline: 0;
-`
-
-const Button4 = styled.button`
-background-color: transparent;
-color: white;
-padding: 0px;
-width: 275px;
-height: 50px;
-text-align: center;
-margin-top: 0px;
-margin-left: 160px;
-margin-right: 160px;
-font-size: 40px;
 font-family: 'Roboto', sans-serif;
 font-style: italic;
 border: 2px solid white;
@@ -4194,6 +4226,25 @@ class Schedule extends React.Component {
         
         return '$' + money;
     }
+    
+    getFightLink() {
+        let month = parseInt(sessionStorage.getItem('month'));
+
+        if (month > 8 && month < 12) {
+            if (sessionStorage.getItem('playerPlayoffs') === '1') {
+                return './opponent';
+            }
+            else {
+                return './schedule';
+            }
+        }
+        else if (month < 9) {
+            return './opponent';
+        }
+        else if (month == 12) {
+            return './manage';
+        }
+    }
 
     render() {
         let data = sessionStorage.getItem('player');
@@ -4222,24 +4273,24 @@ class Schedule extends React.Component {
                         PFL {year} FIGHT SCHEDULE<br/><br/>
                     </div>
                     <div className="Fight-offer" style={{marginTop: 137, marginBottom: 0, width: 1200 }}>
-                        <Link to='./SFighter1'><Button8>{whitespace}<text class="alignleft" style={(sessionStorage.getItem('w1res') == 1) ? {fontSize: 25, color: '#00ff7f'} : (sessionStorage.getItem('w1res') == 0) ? {fontSize: 25, color: '#ff3939'} : {fontSize: 25, color: 'white'}}>{whitespace}JAN</text><text style={{color: 'grey'}}>{(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w1f1p2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w1f1p2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w1f1p2')))).rank}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w1f1m2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w1f1m2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w1f1p2')))).rank}</text>}</text><text style={(sessionStorage.getItem('w1res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w1res') == 0) ? {color: '#ff3939'} : {color: 'white'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w1f1p2')))).first} {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w1f1p2')))).last}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w1f1m2')))).first} {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w1f1m2')))).last}</text>}</text><text style={{color: 'grey'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>({JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w1f1p2')))).swin} - {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w1f1p2')))).sloss})</text> : <text>({JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w1f1m2')))).swin} - {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w1f1m2')))).sloss})</text>}</text><text class="alignright" style={(sessionStorage.getItem('w1res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w1res') == 0) ? {color: '#ff3939'} : {color: 'white'}}>PFL 1{whitespace}</text><text class="alignright" style={(sessionStorage.getItem('w1res') == 1) ? {fontSize: 20, color: '#00ff7f'} : (sessionStorage.getItem('w1res') == 0) ? {fontSize: 20, color: '#ff3939'} : {fontSize: 20, color: 'white'}}>REG. SEASON{whitespace}</text></Button8></Link>
-                        <Link to='./SFighter2'><Button8>{whitespace}<text class="alignleft" style={(sessionStorage.getItem('w2res') == 1) ? {fontSize: 25, color: '#00ff7f'} : (sessionStorage.getItem('w2res') == 0) ? {fontSize: 25, color: '#ff3939'} : {fontSize: 25, color: 'white'}}>{whitespace}FEB</text><text style={{color: 'grey'}}>{(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w2f1p2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w2f1p2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w2f1p2')))).rank}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w2f1m2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w2f1m2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w2f1p2')))).rank}</text>}</text><text style={(sessionStorage.getItem('w2res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w2res') == 0) ? {color: '#ff3939'} : {color: 'white'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w2f1p2')))).first} {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w2f1p2')))).last}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w2f1m2')))).first} {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w2f1m2')))).last}</text>}</text><text style={{color: 'grey'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>({JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w2f1p2')))).swin} - {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w2f1p2')))).sloss})</text> : <text>({JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w2f1m2')))).swin} - {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w2f1m2')))).sloss})</text>}</text><text class="alignright" style={(sessionStorage.getItem('w2res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w2res') == 0) ? {color: '#ff3939'} : {color: 'white'}}>PFL 2{whitespace}</text><text class="alignright" style={(sessionStorage.getItem('w2res') == 1) ? {fontSize: 20, color: '#00ff7f'} : (sessionStorage.getItem('w2res') == 0) ? {fontSize: 20, color: '#ff3939'} : {fontSize: 20, color: 'white'}}>REG. SEASON{whitespace}</text></Button8></Link>
-                        <Link to='./SFighter3'><Button8>{whitespace}<text class="alignleft" style={(sessionStorage.getItem('w3res') == 1) ? {fontSize: 25, color: '#00ff7f'} : (sessionStorage.getItem('w3res') == 0) ? {fontSize: 25, color: '#ff3939'} : {fontSize: 25, color: 'white'}}>{white}MAR</text><text style={{color: 'grey'}}>{(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w3f1p2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w3f1p2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w3f1p2')))).rank}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w3f1m2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w3f1m2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w3f1p2')))).rank}</text>}</text><text style={(sessionStorage.getItem('w3res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w3res') == 0) ? {color: '#ff3939'} : {color: 'white'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w3f1p2')))).first} {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w3f1p2')))).last}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w3f1m2')))).first} {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w3f1m2')))).last}</text>}</text><text style={{color: 'grey'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>({JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w3f1p2')))).swin} - {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w3f1p2')))).sloss})</text> : <text>({JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w3f1m2')))).swin} - {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w3f1m2')))).sloss})</text>}</text><text class="alignright" style={(sessionStorage.getItem('w3res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w3res') == 0) ? {color: '#ff3939'} : {color: 'white'}}>PFL 3{whitespace}</text><text class="alignright" style={(sessionStorage.getItem('w3res') == 1) ? {fontSize: 20, color: '#00ff7f'} : (sessionStorage.getItem('w3res') == 0) ? {fontSize: 20, color: '#ff3939'} : {fontSize: 20, color: 'white'}}>REG. SEASON{whitespace}</text></Button8></Link>
-                        <Link to='./SFighter4'><Button8>{whitespace}<text class="alignleft" style={(sessionStorage.getItem('w4res') == 1) ? {fontSize: 25, color: '#00ff7f'} : (sessionStorage.getItem('w4res') == 0) ? {fontSize: 25, color: '#ff3939'} : {fontSize: 25, color: 'white'}}>{whitespace}APR</text><text style={{color: 'grey'}}>{(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w4f1p2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w4f1p2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w4f1p2')))).rank}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w4f1m2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w4f1m2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w4f1p2')))).rank}</text>}</text><text style={(sessionStorage.getItem('w4res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w4res') == 0) ? {color: '#ff3939'} : {color: 'white'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w4f1p2')))).first} {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w4f1p2')))).last}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w4f1m2')))).first} {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w4f1m2')))).last}</text>}</text><text style={{color: 'grey'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>({JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w4f1p2')))).swin} - {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w4f1p2')))).sloss})</text> : <text>({JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w4f1m2')))).swin} - {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w4f1m2')))).sloss})</text>}</text><text class="alignright" style={(sessionStorage.getItem('w4res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w4res') == 0) ? {color: '#ff3939'} : {color: 'white'}}>PFL 4{whitespace}</text><text class="alignright" style={(sessionStorage.getItem('w4res') == 1) ? {fontSize: 20, color: '#00ff7f'} : (sessionStorage.getItem('w4res') == 0) ? {fontSize: 20, color: '#ff3939'} : {fontSize: 20, color: 'white'}}>REG. SEASON{whitespace}</text></Button8></Link>
-                        <Link to='./SFighter5'><Button8>{whitespace}<text class="alignleft" style={(sessionStorage.getItem('w5res') == 1) ? {fontSize: 25, color: '#00ff7f'} : (sessionStorage.getItem('w5res') == 0) ? {fontSize: 25, color: '#ff3939'} : {fontSize: 25, color: 'white'}}>{white}MAY</text><text style={{color: 'grey'}}>{(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w5f1p2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w5f1p2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w5f1p2')))).rank}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w5f1m2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w5f1m2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w5f1p2')))).rank}</text>}</text><text style={(sessionStorage.getItem('w5res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w5res') == 0) ? {color: '#ff3939'} : {color: 'white'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w5f1p2')))).first} {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w5f1p2')))).last}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w5f1m2')))).first} {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w5f1m2')))).last}</text>}</text><text style={{color: 'grey'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>({JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w5f1p2')))).swin} - {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w5f1p2')))).sloss})</text> : <text>({JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w5f1m2')))).swin} - {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w5f1m2')))).sloss})</text>}</text><text class="alignright" style={(sessionStorage.getItem('w5res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w5res') == 0) ? {color: '#ff3939'} : {color: 'white'}}>PFL 5{whitespace}</text><text class="alignright" style={(sessionStorage.getItem('w5res') == 1) ? {fontSize: 20, color: '#00ff7f'} : (sessionStorage.getItem('w5res') == 0) ? {fontSize: 20, color: '#ff3939'} : {fontSize: 20, color: 'white'}}>REG. SEASON{whitespace}</text></Button8></Link>
-                        <Link to='./SFighter6'><Button8>{whitespace}<text class="alignleft" style={(sessionStorage.getItem('w6res') == 1) ? {fontSize: 25, color: '#00ff7f'} : (sessionStorage.getItem('w6res') == 0) ? {fontSize: 25, color: '#ff3939'} : {fontSize: 25, color: 'white'}}>{white}JUN</text><text style={{color: 'grey'}}>{(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w6f1p2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w6f1p2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w6f1p2')))).rank}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w6f1m2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w6f1m2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w6f1p2')))).rank}</text>}</text><text style={(sessionStorage.getItem('w6res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w6res') == 0) ? {color: '#ff3939'} : {color: 'white'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w6f1p2')))).first} {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w6f1p2')))).last}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w6f1m2')))).first} {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w6f1m2')))).last}</text>}</text><text style={{color: 'grey'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>({JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w6f1p2')))).swin} - {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w6f1p2')))).sloss})</text> : <text>({JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w6f1m2')))).swin} - {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w6f1m2')))).sloss})</text>}</text><text class="alignright" style={(sessionStorage.getItem('w6res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w6res') == 0) ? {color: '#ff3939'} : {color: 'white'}}>PFL 6{whitespace}</text><text class="alignright" style={(sessionStorage.getItem('w6res') == 1) ? {fontSize: 20, color: '#00ff7f'} : (sessionStorage.getItem('w6res') == 0) ? {fontSize: 20, color: '#ff3939'} : {fontSize: 20, color: 'white'}}>REG. SEASON{whitespace}</text></Button8></Link>
-                        <Link to='./SFighter7'><Button8>{whitespace}<text class="alignleft" style={(sessionStorage.getItem('w7res') == 1) ? {fontSize: 25, color: '#00ff7f'} : (sessionStorage.getItem('w7res') == 0) ? {fontSize: 25, color: '#ff3939'} : {fontSize: 25, color: 'white'}}>{whitespace}JUL</text><text style={{color: 'grey'}}>{(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w7f1p2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w7f1p2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w7f1p2')))).rank}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w7f1m2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w7f1m2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w7f1p2')))).rank}</text>}</text><text style={(sessionStorage.getItem('w7res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w7res') == 0) ? {color: '#ff3939'} : {color: 'white'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w7f1p2')))).first} {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w7f1p2')))).last}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w7f1m2')))).first} {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w7f1m2')))).last}</text>}</text><text style={{color: 'grey'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>({JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w7f1p2')))).swin} - {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w7f1p2')))).sloss})</text> : <text>({JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w7f1m2')))).swin} - {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w7f1m2')))).sloss})</text>}</text><text class="alignright" style={(sessionStorage.getItem('w7res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w7res') == 0) ? {color: '#ff3939'} : {color: 'white'}}>PFL 7{whitespace}</text><text class="alignright" style={(sessionStorage.getItem('w7res') == 1) ? {fontSize: 20, color: '#00ff7f'} : (sessionStorage.getItem('w7res') == 0) ? {fontSize: 20, color: '#ff3939'} : {fontSize: 20, color: 'white'}}>REG. SEASON{whitespace}</text></Button8></Link>
-                        <Link to='./SFighter8'><Button8>{whitespace}<text class="alignleft" style={(sessionStorage.getItem('w8res') == 1) ? {fontSize: 25, color: '#00ff7f'} : (sessionStorage.getItem('w8res') == 0) ? {fontSize: 25, color: '#ff3939'} : {fontSize: 25, color: 'white'}}>{white}AUG</text><text style={{color: 'grey'}}>{(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w8f1p2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w8f1p2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w8f1p2')))).rank}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w8f1m2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w8f1m2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w8f1p2')))).rank}</text>}</text><text style={(sessionStorage.getItem('w8res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w8res') == 0) ? {color: '#ff3939'} : {color: 'white'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w8f1p2')))).first} {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w8f1p2')))).last}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w8f1m2')))).first} {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w8f1m2')))).last}</text>}</text><text style={{color: 'grey'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>({JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w8f1p2')))).swin} - {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w8f1p2')))).sloss})</text> : <text>({JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w8f1m2')))).swin} - {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w8f1m2')))).sloss})</text>}</text><text class="alignright" style={(sessionStorage.getItem('w8res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w8res') == 0) ? {color: '#ff3939'} : {color: 'white'}}>PFL 8{whitespace}</text><text class="alignright" style={(sessionStorage.getItem('w8res') == 1) ? {fontSize: 20, color: '#00ff7f'} : (sessionStorage.getItem('w8res') == 0) ? {fontSize: 20, color: '#ff3939'} : {fontSize: 20, color: 'white'}}>REG. SEASON{whitespace}</text></Button8></Link>
+                        <Link to='./SFighter1'><Button8>{whitespace}<text class="alignleft" style={(sessionStorage.getItem('w1res') == 1) ? {fontSize: 25, color: '#00ff7f'} : (sessionStorage.getItem('w1res') == 0) ? {fontSize: 25, color: '#ff3939'} : {fontSize: 25, color: 'white'}}>{whitespace}JAN</text><text style={{color: 'grey'}}>{(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w1f1p2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w1f1p2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w1f1p2')))).rank}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w1f1m2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w1f1m2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w1f1m2')))).rank}</text>}</text><text style={(sessionStorage.getItem('w1res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w1res') == 0) ? {color: '#ff3939'} : {color: 'white'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w1f1p2')))).first} {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w1f1p2')))).last}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w1f1m2')))).first} {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w1f1m2')))).last}</text>}</text><text style={{color: 'grey'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>({JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w1f1p2')))).swin} - {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w1f1p2')))).sloss})</text> : <text>({JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w1f1m2')))).swin} - {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w1f1m2')))).sloss})</text>}</text><text class="alignright" style={(sessionStorage.getItem('w1res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w1res') == 0) ? {color: '#ff3939'} : {color: 'white'}}>PFL 1{whitespace}</text><text class="alignright" style={(sessionStorage.getItem('w1res') == 1) ? {fontSize: 20, color: '#00ff7f'} : (sessionStorage.getItem('w1res') == 0) ? {fontSize: 20, color: '#ff3939'} : {fontSize: 20, color: 'white'}}>REG. SEASON{whitespace}</text></Button8></Link>
+                        <Link to='./SFighter2'><Button8>{whitespace}<text class="alignleft" style={(sessionStorage.getItem('w2res') == 1) ? {fontSize: 25, color: '#00ff7f'} : (sessionStorage.getItem('w2res') == 0) ? {fontSize: 25, color: '#ff3939'} : {fontSize: 25, color: 'white'}}>{whitespace}FEB</text><text style={{color: 'grey'}}>{(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w2f1p2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w2f1p2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w2f1p2')))).rank}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w2f1m2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w2f1m2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w2f1m2')))).rank}</text>}</text><text style={(sessionStorage.getItem('w2res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w2res') == 0) ? {color: '#ff3939'} : {color: 'white'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w2f1p2')))).first} {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w2f1p2')))).last}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w2f1m2')))).first} {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w2f1m2')))).last}</text>}</text><text style={{color: 'grey'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>({JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w2f1p2')))).swin} - {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w2f1p2')))).sloss})</text> : <text>({JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w2f1m2')))).swin} - {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w2f1m2')))).sloss})</text>}</text><text class="alignright" style={(sessionStorage.getItem('w2res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w2res') == 0) ? {color: '#ff3939'} : {color: 'white'}}>PFL 2{whitespace}</text><text class="alignright" style={(sessionStorage.getItem('w2res') == 1) ? {fontSize: 20, color: '#00ff7f'} : (sessionStorage.getItem('w2res') == 0) ? {fontSize: 20, color: '#ff3939'} : {fontSize: 20, color: 'white'}}>REG. SEASON{whitespace}</text></Button8></Link>
+                        <Link to='./SFighter3'><Button8>{whitespace}<text class="alignleft" style={(sessionStorage.getItem('w3res') == 1) ? {fontSize: 25, color: '#00ff7f'} : (sessionStorage.getItem('w3res') == 0) ? {fontSize: 25, color: '#ff3939'} : {fontSize: 25, color: 'white'}}>{white}MAR</text><text style={{color: 'grey'}}>{(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w3f1p2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w3f1p2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w3f1p2')))).rank}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w3f1m2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w3f1m2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w3f1m2')))).rank}</text>}</text><text style={(sessionStorage.getItem('w3res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w3res') == 0) ? {color: '#ff3939'} : {color: 'white'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w3f1p2')))).first} {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w3f1p2')))).last}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w3f1m2')))).first} {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w3f1m2')))).last}</text>}</text><text style={{color: 'grey'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>({JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w3f1p2')))).swin} - {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w3f1p2')))).sloss})</text> : <text>({JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w3f1m2')))).swin} - {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w3f1m2')))).sloss})</text>}</text><text class="alignright" style={(sessionStorage.getItem('w3res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w3res') == 0) ? {color: '#ff3939'} : {color: 'white'}}>PFL 3{whitespace}</text><text class="alignright" style={(sessionStorage.getItem('w3res') == 1) ? {fontSize: 20, color: '#00ff7f'} : (sessionStorage.getItem('w3res') == 0) ? {fontSize: 20, color: '#ff3939'} : {fontSize: 20, color: 'white'}}>REG. SEASON{whitespace}</text></Button8></Link>
+                        <Link to='./SFighter4'><Button8>{whitespace}<text class="alignleft" style={(sessionStorage.getItem('w4res') == 1) ? {fontSize: 25, color: '#00ff7f'} : (sessionStorage.getItem('w4res') == 0) ? {fontSize: 25, color: '#ff3939'} : {fontSize: 25, color: 'white'}}>{whitespace}APR</text><text style={{color: 'grey'}}>{(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w4f1p2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w4f1p2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w4f1p2')))).rank}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w4f1m2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w4f1m2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w4f1m2')))).rank}</text>}</text><text style={(sessionStorage.getItem('w4res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w4res') == 0) ? {color: '#ff3939'} : {color: 'white'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w4f1p2')))).first} {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w4f1p2')))).last}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w4f1m2')))).first} {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w4f1m2')))).last}</text>}</text><text style={{color: 'grey'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>({JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w4f1p2')))).swin} - {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w4f1p2')))).sloss})</text> : <text>({JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w4f1m2')))).swin} - {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w4f1m2')))).sloss})</text>}</text><text class="alignright" style={(sessionStorage.getItem('w4res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w4res') == 0) ? {color: '#ff3939'} : {color: 'white'}}>PFL 4{whitespace}</text><text class="alignright" style={(sessionStorage.getItem('w4res') == 1) ? {fontSize: 20, color: '#00ff7f'} : (sessionStorage.getItem('w4res') == 0) ? {fontSize: 20, color: '#ff3939'} : {fontSize: 20, color: 'white'}}>REG. SEASON{whitespace}</text></Button8></Link>
+                        <Link to='./SFighter5'><Button8>{whitespace}<text class="alignleft" style={(sessionStorage.getItem('w5res') == 1) ? {fontSize: 25, color: '#00ff7f'} : (sessionStorage.getItem('w5res') == 0) ? {fontSize: 25, color: '#ff3939'} : {fontSize: 25, color: 'white'}}>{white}MAY</text><text style={{color: 'grey'}}>{(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w5f1p2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w5f1p2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w5f1p2')))).rank}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w5f1m2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w5f1m2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w5f1m2')))).rank}</text>}</text><text style={(sessionStorage.getItem('w5res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w5res') == 0) ? {color: '#ff3939'} : {color: 'white'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w5f1p2')))).first} {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w5f1p2')))).last}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w5f1m2')))).first} {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w5f1m2')))).last}</text>}</text><text style={{color: 'grey'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>({JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w5f1p2')))).swin} - {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w5f1p2')))).sloss})</text> : <text>({JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w5f1m2')))).swin} - {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w5f1m2')))).sloss})</text>}</text><text class="alignright" style={(sessionStorage.getItem('w5res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w5res') == 0) ? {color: '#ff3939'} : {color: 'white'}}>PFL 5{whitespace}</text><text class="alignright" style={(sessionStorage.getItem('w5res') == 1) ? {fontSize: 20, color: '#00ff7f'} : (sessionStorage.getItem('w5res') == 0) ? {fontSize: 20, color: '#ff3939'} : {fontSize: 20, color: 'white'}}>REG. SEASON{whitespace}</text></Button8></Link>
+                        <Link to='./SFighter6'><Button8>{whitespace}<text class="alignleft" style={(sessionStorage.getItem('w6res') == 1) ? {fontSize: 25, color: '#00ff7f'} : (sessionStorage.getItem('w6res') == 0) ? {fontSize: 25, color: '#ff3939'} : {fontSize: 25, color: 'white'}}>{white}JUN</text><text style={{color: 'grey'}}>{(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w6f1p2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w6f1p2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w6f1p2')))).rank}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w6f1m2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w6f1m2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w6f1m2')))).rank}</text>}</text><text style={(sessionStorage.getItem('w6res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w6res') == 0) ? {color: '#ff3939'} : {color: 'white'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w6f1p2')))).first} {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w6f1p2')))).last}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w6f1m2')))).first} {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w6f1m2')))).last}</text>}</text><text style={{color: 'grey'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>({JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w6f1p2')))).swin} - {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w6f1p2')))).sloss})</text> : <text>({JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w6f1m2')))).swin} - {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w6f1m2')))).sloss})</text>}</text><text class="alignright" style={(sessionStorage.getItem('w6res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w6res') == 0) ? {color: '#ff3939'} : {color: 'white'}}>PFL 6{whitespace}</text><text class="alignright" style={(sessionStorage.getItem('w6res') == 1) ? {fontSize: 20, color: '#00ff7f'} : (sessionStorage.getItem('w6res') == 0) ? {fontSize: 20, color: '#ff3939'} : {fontSize: 20, color: 'white'}}>REG. SEASON{whitespace}</text></Button8></Link>
+                        <Link to='./SFighter7'><Button8>{whitespace}<text class="alignleft" style={(sessionStorage.getItem('w7res') == 1) ? {fontSize: 25, color: '#00ff7f'} : (sessionStorage.getItem('w7res') == 0) ? {fontSize: 25, color: '#ff3939'} : {fontSize: 25, color: 'white'}}>{whitespace}JUL</text><text style={{color: 'grey'}}>{(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w7f1p2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w7f1p2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w7f1p2')))).rank}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w7f1m2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w7f1m2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w7f1m2')))).rank}</text>}</text><text style={(sessionStorage.getItem('w7res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w7res') == 0) ? {color: '#ff3939'} : {color: 'white'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w7f1p2')))).first} {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w7f1p2')))).last}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w7f1m2')))).first} {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w7f1m2')))).last}</text>}</text><text style={{color: 'grey'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>({JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w7f1p2')))).swin} - {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w7f1p2')))).sloss})</text> : <text>({JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w7f1m2')))).swin} - {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w7f1m2')))).sloss})</text>}</text><text class="alignright" style={(sessionStorage.getItem('w7res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w7res') == 0) ? {color: '#ff3939'} : {color: 'white'}}>PFL 7{whitespace}</text><text class="alignright" style={(sessionStorage.getItem('w7res') == 1) ? {fontSize: 20, color: '#00ff7f'} : (sessionStorage.getItem('w7res') == 0) ? {fontSize: 20, color: '#ff3939'} : {fontSize: 20, color: 'white'}}>REG. SEASON{whitespace}</text></Button8></Link>
+                        <Link to='./SFighter8'><Button8>{whitespace}<text class="alignleft" style={(sessionStorage.getItem('w8res') == 1) ? {fontSize: 25, color: '#00ff7f'} : (sessionStorage.getItem('w8res') == 0) ? {fontSize: 25, color: '#ff3939'} : {fontSize: 25, color: 'white'}}>{white}AUG</text><text style={{color: 'grey'}}>{(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w8f1p2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w8f1p2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w8f1p2')))).rank}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w8f1m2')))).rank != 'NR' && parseInt(JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w8f1m2')))).rank) < 10 ? white : ''}{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w8f1m2')))).rank}</text>}</text><text style={(sessionStorage.getItem('w8res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w8res') == 0) ? {color: '#ff3939'} : {color: 'white'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>{JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w8f1p2')))).first} {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w8f1p2')))).last}</text> : <text>{JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w8f1m2')))).first} {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w8f1m2')))).last}</text>}</text><text style={{color: 'grey'}}> {(data.weight != 'WSTRAWWEIGHT' && data.weight != 'WFLYWEIGHT' && data.weight != 'WBANTAMWEIGHT') ? <text>({JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w8f1p2')))).swin} - {JSON.parse(returnFighterM(parseInt(sessionStorage.getItem('w8f1p2')))).sloss})</text> : <text>({JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w8f1m2')))).swin} - {JSON.parse(returnFighterF(parseInt(sessionStorage.getItem('w8f1m2')))).sloss})</text>}</text><text class="alignright" style={(sessionStorage.getItem('w8res') == 1) ? {color: '#00ff7f'} : (sessionStorage.getItem('w8res') == 0) ? {color: '#ff3939'} : {color: 'white'}}>PFL 8{whitespace}</text><text class="alignright" style={(sessionStorage.getItem('w8res') == 1) ? {fontSize: 20, color: '#00ff7f'} : (sessionStorage.getItem('w8res') == 0) ? {fontSize: 20, color: '#ff3939'} : {fontSize: 20, color: 'white'}}>REG. SEASON{whitespace}</text></Button8></Link>
                     </div>
                     <div className="App-header-style1" style={{marginTop: -425, marginRight: 0}}>
-                        <Link to='./opponent'><Button>FIGHT</Button></Link>
+                        <Link to={this.getFightLink}><Button style={parseInt(sessionStorage.getItem('month')) > 8 && parseInt(sessionStorage.getItem('month')) < 12 ? (sessionStorage.getItem('playerPlayoffs') === '1' ? {} : {border: '2px solid gray', color: 'gray'}) : {}}>{parseInt(sessionStorage.getItem('month')) == 12 ? 'MANAGE' : 'FIGHT'}</Button></Link>
                         <Link to='./schedule'><ButtonG>SCHEDULE</ButtonG></Link>
                         <Link to='./standingsmen'><Button>MEN</Button></Link>
                         <Link to='./standingswomen'><Button>WOMEN</Button></Link>
-                        <Link to={parseInt(sessionStorage.getItem('month')) > 8 ? './playoffspfl' : './cardpfl'}><Button>CARD</Button></Link>
-                        <Link to={sessionStorage.getItem('firstResults') === 'true' ? './schedule' : './resultspfl'}><Button style={sessionStorage.getItem('firstResults') === 'true' ? {border: '2px solid gray', color: 'gray'} : {}}>RESULTS</Button></Link>
+                        <Link to={parseInt(sessionStorage.getItem('month')) > 8 ? './playoffspfl' : './cardpfl'}><Button>{parseInt(sessionStorage.getItem('month')) > 8 ? 'BRACKET' : 'CARD'}</Button></Link>
+                        <Link to={sessionStorage.getItem('firstResults') === 'true' ? './schedule' : parseInt(month) > 9 ? './schedule' : './resultspfl'}><Button style={sessionStorage.getItem('firstResults') === 'true' ? {border: '2px solid gray', color: 'gray'} : parseInt(month) > 9 ? {border: '2px solid gray', color: 'gray'} : {}}>RESULTS</Button></Link>
                     </div>
-                    <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 0, fontSize: 30 }}>
+                    <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 5, fontSize: 30 }}>
                         <Button3>${sessionStorage.getItem('balance')}</Button3>
                         <Link to='./home'><Button4>BACK</Button4></Link>
                         <Button3>{this.calcMonth(month)} {sessionStorage.getItem('year')}</Button3>

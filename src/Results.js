@@ -905,11 +905,11 @@ class Results extends React.Component {
         }
         else if (payType == 2) {
             sessionStorage.setItem('balance', parseInt(sessionStorage.getItem('balance')) + (parseInt(this.calcPurse()) - parseInt(sessionStorage.getItem('gymCamp'))));
-            sessionStorage.setItem('careerEarnings', parseInt(sessionStorage.getItem('careerEarnings')) + (parseInt(this.calcPurse()) - parseInt(sessionStorage.getItem('gymCamp'))));
+            sessionStorage.setItem('careerEarnings', parseInt(sessionStorage.getItem('careerEarnings')) + (parseInt(this.calcPurse())));
         }
         else if (payType == 3) {
             sessionStorage.setItem('balance', parseInt(sessionStorage.getItem('balance')) + (parseInt(this.calcPurse()) - parseInt(sessionStorage.getItem('gymCamp'))));
-            sessionStorage.setItem('careerEarnings', parseInt(sessionStorage.getItem('careerEarnings')) + (parseInt(this.calcPurse()) - parseInt(sessionStorage.getItem('gymCamp'))));
+            sessionStorage.setItem('careerEarnings', parseInt(sessionStorage.getItem('careerEarnings')) + (parseInt(this.calcPurse())));
         }
         else {
             console.log('pay error')

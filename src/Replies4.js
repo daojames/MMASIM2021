@@ -83,13 +83,13 @@ const Button3 = styled.button`
 background-color: transparent;
 color: white;
 padding: 0px;
-width: 275px;
-height: 20px;
+width: 14.322916666vw;
+height: 1.041666666vh;
 text-align: center;
-margin-top: -5px;
-margin-left: 160px;
-margin-right: 160px;
-font-size: 30px;
+margin-top: -0.53304904vh;
+margin-left: 8.333333333vw;
+margin-right: 8.333333333vw;
+font-size: 3.198294243vh;
 font-family: 'Roboto', sans-serif;
 font-style: italic; 
 border: 0px solid white;
@@ -101,13 +101,13 @@ const Button4 = styled.button`
 background-color: transparent;
 color: white;
 padding: 0px;
-width: 275px;
-height: 50px;
+width: 14.322916666vw;
+height: 5.330490405vh;
 text-align: center;
-margin-top: -5px;
-margin-left: 160px;
-margin-right: 160px;
-font-size: 40px;
+margin-top: -0.53304904vh;
+margin-left: 8.333333333vw;
+margin-right: 8.333333333vw;
+font-size: 2.08334vw;
 font-family: 'Roboto', sans-serif;
 font-style: italic;
 border: 2px solid white;
@@ -123,7 +123,7 @@ const Button6 = styled.button`
 background-color: transparent;
 color: white;
 padding: 0px;
-width: 760px;
+width: 850px;
 height: 50px;
 text-align: center;
 margin-top: 0px;
@@ -140,29 +140,6 @@ background-color: white;
 color: #212121;
 padding: 0px;
 width: 850px;
-height: 130px;
-text-align: left;
-margin-top: 10px;
-margin-bottom: 0px;
-margin-left: 35px;
-margin-right: 35px;
-font-size: 30px;
-font-family: 'Roboto', sans-serif;
-font-style: italic;
-border: 0px solid white;
-border-radius: 20px;
-outline: 0;
-transition: ease background-color 250ms;
-&:hover {
-  background-color: #616161;
-}
-`
-
-const Button7R = styled.button`
-background-color: white;
-color: #212121;
-padding: 0px;
-width: 1100px;
 height: 130px;
 text-align: left;
 margin-top: 10px;
@@ -218,6 +195,29 @@ font-size: 30px;
 border: 0px;
 font-family: 'Roboto', sans-serif;
 font-style: italic;
+`
+
+const Button7R = styled.button`
+background-color: white;
+color: #212121;
+padding: 0px;
+width: 1100px;
+height: 130px;
+text-align: left;
+margin-top: 10px;
+margin-bottom: 0px;
+margin-left: 35px;
+margin-right: 35px;
+font-size: 30px;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 20px;
+outline: 0;
+transition: ease background-color 250ms;
+&:hover {
+  background-color: #616161;
+}
 `
 
 class Replies4 extends React.Component { 

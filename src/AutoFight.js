@@ -8,40 +8,482 @@ export function AutoFight() {
     let weight = data.weight;
     let month = parseInt(sessionStorage.getItem('month')) - 1;
     let week = 'w' + month;
-    if (data.weight != "WSTRAWWEIGHT" && data.weight != "WFLYWEIGHT" && data.weight != "WBANTAMWEIGHT") {
-        for (let i = 2; i < 13; ++i) {
-            let a = week + 'f' + i + 'p1';
-            let b = week + 'f' + i + 'p2';
-            moveSetA(a, 0);
-            moveSetB(b, 0);
-            move(a, b, 0);
+
+    if (month < 9) {
+        if (data.weight != "WSTRAWWEIGHT" && data.weight != "WFLYWEIGHT" && data.weight != "WBANTAMWEIGHT") {
+            for (let i = 2; i < 13; ++i) {
+                let a = week + 'f' + i + 'p1';
+                let b = week + 'f' + i + 'p2';
+                moveSetA(a, 0);
+                moveSetB(b, 0);
+                move(a, b, 0);
+            }
+            for (let i = 1; i < 7; ++i) {
+                let a = week + 'f' + i + 'm1';
+                let b = week + 'f' + i + 'm2';
+                moveSetA(a, 1);
+                moveSetB(b, 1);
+                move(a, b, 1);
+            }
         }
-        for (let i = 1; i < 7; ++i) {
-            let a = week + 'f' + i + 'm1';
-            let b = week + 'f' + i + 'm2';
-            moveSetA(a, 1);
-            moveSetB(b, 1);
-            move(a, b, 1);
+        else {
+            for (let i = 1; i < 13; ++i) {
+                let a = week + 'f' + i + 'p1';
+                let b = week + 'f' + i + 'p2';
+                moveSetA(a, 0);
+                moveSetB(b, 0);
+                move(a, b, 0);
+            }
+            for (let i = 2; i < 7; ++i) {
+                let a = week + 'f' + i + 'm1';
+                let b = week + 'f' + i + 'm2';
+                moveSetA(a, 1);
+                moveSetB(b, 1);
+                move(a, b, 1);
+            }
+        }
+
+        rankSort();
+    }
+    if (month > 7) {
+        console.log('month: ' + sessionStorage.getItem('month'))
+
+        if (parseInt(sessionStorage.getItem('month')) > 9) {
+            sessionStorage.setItem('playoffs', 1);
+            fightPlayoffs();
+        }
+
+        switch (parseInt(sessionStorage.getItem('month'))) {
+            case 9:
+                let quarter = JSON.parse(sessionStorage.getItem('standingsM'));
+                let qtr = [];
+
+                let playerRank = null;
+                rankLoop: for (let i = 8; i > 0; --i) {
+                    playerLoop: for (let j = 0; j < 24; ++j) {
+                        if (parseInt(quarter[j].rank) == i) {
+                            qtr.push(quarter[j]);
+                            if (quarter[j].code === 'nr0') {
+                                sessionStorage.setItem('playerPlayoffs', 1);
+                            }
+                            break playerLoop;
+                        }
+                    }
+                }
+                sessionStorage.setItem('quarterSeedsM', JSON.stringify(qtr));
+
+                rankLoop: for (let i = 0; i < qtr.length; ++i) {
+                    if (qtr[i].code === 'nr0') {
+                        let oppRank = 8 - (parseInt(qtr[i].rank) - 1);
+                        console.log('i: ' + i)
+                        console.log('oppRank: ' + oppRank)
+                        playerLoop: for (let j = 0; j < qtr.length; ++j) {
+                            if (parseInt(qtr[j].rank) === oppRank) {
+                                sessionStorage.setItem('oppNum', (qtr[j].code).substring(2));
+                                console.log('j: ' + j)
+                                console.log('oppNum: ' + sessionStorage.getItem('oppNum'))
+                                break rankLoop;
+                            }
+                        }
+                    }
+                }
+
+            break;
+            case 10:
+                let semi = JSON.parse(sessionStorage.getItem('quarterSeedsM'));
+                let smi = [];
+
+                if (parseInt(JSON.parse(sessionStorage.getItem(semi[0].code)).strk) > 0) {
+                    smi.push(JSON.parse(sessionStorage.getItem(semi[0].code)));
+                }
+                else {
+                    smi.push(JSON.parse(sessionStorage.getItem(semi[7].code)));
+                }
+
+                if (parseInt(JSON.parse(sessionStorage.getItem(semi[3].code)).strk) > 0) {
+                    smi.push(JSON.parse(sessionStorage.getItem(semi[3].code)));
+                }
+                else {
+                    smi.push(JSON.parse(sessionStorage.getItem(semi[4].code)));
+                }
+
+                if (parseInt(JSON.parse(sessionStorage.getItem(semi[2].code)).strk) > 0) {
+                    smi.push(JSON.parse(sessionStorage.getItem(semi[2].code)));
+                }
+                else {
+                    smi.push(JSON.parse(sessionStorage.getItem(semi[5].code)));
+                }
+
+                if (parseInt(JSON.parse(sessionStorage.getItem(semi[1].code)).strk) > 0) {
+                    smi.push(JSON.parse(sessionStorage.getItem(semi[1].code)));
+                }
+                else {
+                    smi.push(JSON.parse(sessionStorage.getItem(semi[6].code)));
+                }
+                console.log('smi: ' + JSON.stringify(smi))
+                sessionStorage.setItem('semiSeedsM', JSON.stringify(smi));
+
+                if (data.code === 'nr0') {
+                    sessionStorage.setItem('playerPlayoffs', 0);
+                }
+                console.log('case 10')
+                rankLoop: for (let i = 0; i < smi.length; ++i) {
+                    console.log('smi code: ' + smi[i].code);
+                    if (smi[i].code === 'nr0') {
+                        sessionStorage.setItem('playerPlayoffs', 1);
+                        console.log('player in playoffs');
+                        if (((i + 1) % 2) != 1) {
+                            sessionStorage.setItem('oppNum', (smi[i - 1].code).substring(2));
+                        }
+                        else {
+                            sessionStorage.setItem('oppNum', (smi[i + 1].code).substring(2));
+                        }
+                        break rankLoop;
+                    }
+                }
+
+            break;
+            case 11:
+                let final = JSON.parse(sessionStorage.getItem('semiSeedsM'));
+                let fnl = [];
+
+                if (parseInt(JSON.parse(sessionStorage.getItem(final[0].code)).strk) > 0) {
+                    fnl.push(JSON.parse(sessionStorage.getItem(final[0].code)));
+                }
+                else {
+                    fnl.push(JSON.parse(sessionStorage.getItem(final[1].code)));
+                }
+
+                if (parseInt(JSON.parse(sessionStorage.getItem(final[2].code)).strk) > 0) {
+                    fnl.push(JSON.parse(sessionStorage.getItem(final[2].code)));
+                }
+                else {
+                    fnl.push(JSON.parse(sessionStorage.getItem(final[3].code)));
+                }
+
+                sessionStorage.setItem('finalSeedsM', JSON.stringify(fnl));
+                
+                if (data.code === 'nr0') {
+                    sessionStorage.setItem('playerPlayoffs', 0);
+                }
+                console.log('fnl 0 code: ' + fnl[0].code);
+                console.log('fnl 1 code: ' + fnl[1].code);
+                if (fnl[0].code === 'nr0') {
+                    sessionStorage.setItem('playerPlayoffs', 1);
+                    sessionStorage.setItem('oppNum', (fnl[1].code).substring(2));
+                }
+                else if (fnl[1].code === 'nr0') {
+                    sessionStorage.setItem('playerPlayoffs', 1);
+                    sessionStorage.setItem('oppNum', (fnl[0].code).substring(2));
+                }
+
+            break;
+        }
+
+        switch (parseInt(sessionStorage.getItem('month'))) {
+            case 9:
+                let quarter = JSON.parse(sessionStorage.getItem('standingsF'));
+                let qtr = [];
+
+                rankLoop: for (let i = 8; i > 0; --i) {
+                    playerLoop: for (let j = 0; j < 12; ++j) {
+                        if (parseInt(quarter[j].rank) == i) {
+                            qtr.push(quarter[j]);
+                            if (quarter[j].code === 'nrf0') {
+                                sessionStorage.setItem('playerPlayoffs', 1);
+                            }
+                            break playerLoop;
+                        }
+                    }
+                }
+                sessionStorage.setItem('quarterSeedsF', JSON.stringify(qtr));
+
+                rankLoop: for (let i = 0; i < qtr.length; ++i) {
+                    if (qtr[i].code === 'nrf0') {
+                        let oppRank = 8 - (parseInt(qtr[i].rank) - 1);
+                        playerLoop: for (let j = 0; j < qtr.length; ++j) {
+                            if (parseInt(qtr[j].rank) === oppRank) {
+                                sessionStorage.setItem('oppNum', parseInt((qtr[j].code).substring(3)) + 100);
+                                break rankLoop;
+                            }
+                        }
+                    }
+                }
+
+            break;
+            case 10:
+                let semi = JSON.parse(sessionStorage.getItem('quarterSeedsF'));
+                let smi = [];
+
+                if (parseInt(JSON.parse(sessionStorage.getItem(semi[0].code)).strk) > 0) {
+                    smi.push(JSON.parse(sessionStorage.getItem(semi[0].code)));
+                }
+                else {
+                    smi.push(JSON.parse(sessionStorage.getItem(semi[7].code)));
+                }
+
+                if (parseInt(JSON.parse(sessionStorage.getItem(semi[3].code)).strk) > 0) {
+                    smi.push(JSON.parse(sessionStorage.getItem(semi[3].code)));
+                }
+                else {
+                    smi.push(JSON.parse(sessionStorage.getItem(semi[4].code)));
+                }
+
+                if (parseInt(JSON.parse(sessionStorage.getItem(semi[2].code)).strk) > 0) {
+                    smi.push(JSON.parse(sessionStorage.getItem(semi[2].code)));
+                }
+                else {
+                    smi.push(JSON.parse(sessionStorage.getItem(semi[5].code)));
+                }
+
+                if (parseInt(JSON.parse(sessionStorage.getItem(semi[1].code)).strk) > 0) {
+                    smi.push(JSON.parse(sessionStorage.getItem(semi[1].code)));
+                }
+                else {
+                    smi.push(JSON.parse(sessionStorage.getItem(semi[6].code)));
+                }
+
+                sessionStorage.setItem('semiSeedsF', JSON.stringify(smi));
+
+                if (data.code === 'nrf0') {
+                    sessionStorage.setItem('playerPlayoffs', 0);
+                }
+                rankLoop: for (let i = 0; i < smi.length; ++i) {
+                    if (smi[i].code === 'nrf0') {
+                        sessionStorage.setItem('playerPlayoffs', 1);
+                        if (((i + 1) % 2) != 1) {
+                            sessionStorage.setItem('oppNum', parseInt((smi[i - 1].code).substring(3)) + 100);
+                        }
+                        else {
+                            sessionStorage.setItem('oppNum', parseInt((smi[i + 1].code).substring(3)) + 100);
+                        }
+                        break rankLoop;
+                    }
+                }
+
+            break;
+            case 11:
+                let final = JSON.parse(sessionStorage.getItem('semiSeedsF'));
+                let fnl = [];
+
+                if (parseInt(JSON.parse(sessionStorage.getItem(final[0].code)).strk) > 0) {
+                    fnl.push(JSON.parse(sessionStorage.getItem(final[0].code)));
+                }
+                else {
+                    fnl.push(JSON.parse(sessionStorage.getItem(final[1].code)));
+                }
+
+                if (parseInt(JSON.parse(sessionStorage.getItem(final[2].code)).strk) > 0) {
+                    fnl.push(JSON.parse(sessionStorage.getItem(final[2].code)));
+                }
+                else {
+                    fnl.push(JSON.parse(sessionStorage.getItem(final[3].code)));
+                }
+
+                sessionStorage.setItem('finalSeedsF', JSON.stringify(fnl));
+
+                if (data.code === 'nrf0') {
+                    sessionStorage.setItem('playerPlayoffs', 0);
+                }
+                if (fnl[0].code === 'nrf0') {
+                    sessionStorage.setItem('playerPlayoffs', 1);
+                    sessionStorage.setItem('oppNum', parseInt((fnl[1].code).substring(3)) + 100);
+                }
+                else if (fnl[1].code === 'nrf0') {
+                    sessionStorage.setItem('playerPlayoffs', 1);
+                    sessionStorage.setItem('oppNum', parseInt((fnl[0].code).substring(3)) + 100);
+                }
+
+            break;
+        }
+
+        if (parseInt(sessionStorage.getItem('month')) == 12) {
+            console.log('month 12 hit');
+            sessionStorage.setItem('playerPlayoffs', 0);
+            sessionStorage.setItem('playoffs', 0);
         }
     }
-    else {
-        for (let i = 1; i < 13; ++i) {
-            let a = week + 'f' + i + 'p1';
-            let b = week + 'f' + i + 'p2';
-            moveSetA(a, 0);
-            moveSetB(b, 0);
-            move(a, b, 0);
+}
+
+function fightPlayoffs() {
+    let standingsM;
+    let standingsF;
+    let numFighters;
+
+    switch (parseInt(sessionStorage.getItem('month'))) {
+        case 10:
+            console.log('standings month 10')
+            standingsM = JSON.parse(sessionStorage.getItem('quarterSeedsM'));
+            standingsF = JSON.parse(sessionStorage.getItem('quarterSeedsF'));
+            numFighters = 8;
+        break;
+        case 11:
+            console.log('standings month 11')
+            standingsM = JSON.parse(sessionStorage.getItem('semiSeedsM'));
+            standingsF = JSON.parse(sessionStorage.getItem('semiSeedsF'));
+            numFighters = 4;
+        break;
+        case 12:
+            console.log('standings month 12')
+            standingsM = JSON.parse(sessionStorage.getItem('finalSeedsM'));
+            standingsF = JSON.parse(sessionStorage.getItem('finalSeedsF'));
+            numFighters = 2;
+        break;
+    }
+
+    sessionStorage.setItem('playerPlayoffs', 0);
+    let playerPlayoffs = 0;
+    searchPlayer: for (let i = 0; i < numFighters; ++i) {
+        if (standingsM[i].code === 'nr0') {
+            sessionStorage.setItem('playerPlayoffs', 1);
+            playerPlayoffs = 1;
+            break searchPlayer;
         }
-        for (let i = 2; i < 7; ++i) {
-            let a = week + 'f' + i + 'm1';
-            let b = week + 'f' + i + 'm2';
-            moveSetA(a, 1);
-            moveSetB(b, 1);
-            move(a, b, 1);
+        else if (standingsF[i].code === 'nrf0') {
+            sessionStorage.setItem('playerPlayoffs', 1);
+            playerPlayoffs = 1;
+            break searchPlayer;
         }
     }
 
-    rankSort();
+    if (parseInt(sessionStorage.getItem('month')) < 11) {
+        console.log('<11 month: ' + sessionStorage.getItem('month'))
+        switch (playerPlayoffs) {
+            case 0:
+                for (let i = 0; i < (numFighters / 2); ++i) {
+                    let j = (numFighters - 1) - i;
+                    let a = (standingsM[i].code).substring(2);
+                    let b = (standingsM[j].code).substring(2);
+
+                    moveSetA(a, 2);
+                    moveSetB(b, 2);
+                    move(a, b, 0);
+                }
+                for (let i = 0; i < (numFighters / 2); ++i) {
+                    let j = (numFighters - 1) - i;
+                    let a = (standingsF[i].code).substring(3);
+                    let b = (standingsF[j].code).substring(3);
+
+                    moveSetA(a, 3);
+                    moveSetB(b, 3);
+                    move(a, b, 1);
+                }
+            break;
+            case 1:
+                for (let i = 0; i < (numFighters / 2); ++i) {
+                    let j = (numFighters - 1) - i;
+                    let a = (standingsM[i].code).substring(2);
+                    let b = (standingsM[j].code).substring(2);
+                    if (a === '0' || b === '0') {
+                        continue;
+                    }
+
+                    moveSetA(a, 2);
+                    moveSetB(b, 2);
+                    move(a, b, 0);
+                }
+                for (let i = 0; i < (numFighters / 2); ++i) {
+                    let j = (numFighters - 1) - i;
+                    let a = (standingsF[i].code).substring(3);
+                    let b = (standingsF[j].code).substring(3);
+                    if (a === '0' || b === '0') {
+                        continue;
+                    }
+
+                    moveSetA(a, 3);
+                    moveSetB(b, 3);
+                    move(a, b, 1);
+                }
+            break;
+        }
+    }
+    else if (parseInt(sessionStorage.getItem('month')) < 12){
+        console.log('<12 month: ' + sessionStorage.getItem('month'))
+        switch (playerPlayoffs) {
+            case 0:
+                for (let i = 0; i < numFighters; ++i) {
+                    let j = i + 1;
+                    let a = (standingsM[i].code).substring(2);
+                    let b = (standingsM[j].code).substring(2);
+
+                    moveSetA(a, 2);
+                    moveSetB(b, 2);
+                    move(a, b, 0);
+
+                    ++i;
+                }
+                for (let i = 0; i < numFighters; ++i) {
+                    let j = i + 1;
+                    let a = (standingsF[i].code).substring(3);
+                    let b = (standingsF[j].code).substring(3);
+
+                    moveSetA(a, 3);
+                    moveSetB(b, 3);
+                    move(a, b, 1);
+
+                    ++i;
+                }
+            break;
+            case 1:
+                for (let i = 0; i < numFighters; ++i) {
+                    let j = i + 1;
+                    let a = (standingsM[i].code).substring(2);
+                    let b = (standingsM[j].code).substring(2);
+                    ++i;
+                    if (a === '0' || b === '0') {
+                        continue;
+                    }
+
+                    moveSetA(a, 2);
+                    moveSetB(b, 2);
+                    move(a, b, 0);
+                }
+                for (let i = 0; i < numFighters; ++i) {
+                    let j = i + 1;
+                    let a = (standingsF[i].code).substring(3);
+                    let b = (standingsF[j].code).substring(3);
+                    ++i;
+                    if (a === '0' || b === '0') {
+                        continue;
+                    }
+
+                    moveSetA(a, 3);
+                    moveSetB(b, 3);
+                    move(a, b, 1);
+                }
+            break;
+        }
+    }
+    else {
+        let data = JSON.parse(sessionStorage.getItem('player'));
+        if (parseInt(playerPlayoffs) == 0) {
+            let a = (standingsM[0].code).substring(2);
+            let b = (standingsM[1].code).substring(2);
+            moveSetA(a, 2);
+            moveSetB(b, 2);
+            move(a, b, 0);
+
+            a = (standingsF[0].code).substring(3);
+            b = (standingsF[1].code).substring(3);
+            moveSetA(a, 3);
+            moveSetB(b, 3);
+            move(a, b, 1);
+        }
+        else if (data.code === 'nr0') {
+            let a = (standingsF[0].code).substring(3);
+            let b = (standingsF[1].code).substring(3);
+            moveSetA(a, 3);
+            moveSetB(b, 3);
+            move(a, b, 1);
+        }
+        else {
+            let a = (standingsM[0].code).substring(2);
+            let b = (standingsM[1].code).substring(2);
+            moveSetA(a, 2);
+            moveSetB(b, 2);
+            move(a, b, 0);
+        }
+    }
 }
 
 function rankSort() {
@@ -73,6 +515,9 @@ function rankSort() {
                 pts: sessionStorage.getItem('playerPts'),
                 strk: data.strk,
                 meth: data.meth,
+                rate: data.rate,
+                ko: data.ko,
+                sub: data.sub,
                 prev: data.prev,
                 code: 'nr0'
             }
@@ -126,6 +571,9 @@ function rankSort() {
                 pts: sessionStorage.getItem('playerPts'),
                 strk: data.strk,
                 meth: data.meth,
+                rate: data.rate,
+                ko: data.ko,
+                sub: data.sub,
                 prev: data.prev,
                 code: 'nrf0'
             }
@@ -156,11 +604,17 @@ function rankSort() {
 }
 
 function compareObjects(a, b) {
-    if (a.pts < b.pts) return 1;
-    if (a.pts > b.pts) return -1;
+    if (parseInt(a.pts) < parseInt(b.pts)) return 1;
+    if (parseInt(a.pts) > parseInt(b.pts)) return -1;
   
-    if (a.swin < b.swin) return 1;
-    if (a.swin > b.swin) return -1;
+    if (parseInt(a.swin) < parseInt(b.swin)) return 1;
+    if (parseInt(a.swin) > parseInt(b.swin)) return -1;
+
+    if (parseInt(a.rate) < parseInt(b.rate)) return 1;
+    if (parseInt(a.rate) > parseInt(b.rate)) return -1;
+  
+    if (parseInt(a.strk) < parseInt(b.strk)) return 1;
+    if (parseInt(a.strk) > parseInt(b.strk)) return -1;
   
     if (a.first < b.first) return -1;
     if (a.first > b.first) return 1;
@@ -223,7 +677,16 @@ function move(a, b, y) {
     sessionStorage.setItem('feintedA', 0);
     sessionStorage.setItem('feintedB', 0);
 
-    roundLoop: for (let j = 0; j < 3; ++j) {
+    let rds = null;
+
+    if (sessionStorage.getItem('month') === '12') {
+        rds = 5;
+    }
+    else {
+        rds = 3;
+    }
+
+    roundLoop: for (let j = 0; j < rds; ++j) {
         sessionStorage.setItem('abRound', parseInt(sessionStorage.getItem('abRound')) + 1);
         for (let i = 0; i < 8; ++i) {
             let ranA = Random();
@@ -693,13 +1156,13 @@ function move(a, b, y) {
             sessionStorage.setItem(str + 'pw', a);
             sessionStorage.setItem(str + 'pl', b);
 
-            postFight(a, b);
+            postFight(a, b, y);
         }
         else {
             sessionStorage.setItem(str + 'pw', b);
             sessionStorage.setItem(str + 'pl', a);
 
-            postFight(b, a);
+            postFight(b, a, y);
         }
     }
     else {
@@ -707,13 +1170,13 @@ function move(a, b, y) {
             sessionStorage.setItem(str + 'mw', a);
             sessionStorage.setItem(str + 'ml', b);
 
-            postFight(a, b);
+            postFight(a, b, y);
         }
         else {
             sessionStorage.setItem(str + 'mw', b);
             sessionStorage.setItem(str + 'ml', a);
 
-            postFight(b, a);
+            postFight(b, a, y);
         }
     }
     sessionStorage.setItem(str + 'm', sessionStorage.getItem('abMethod'));
@@ -730,17 +1193,28 @@ function move(a, b, y) {
     }
 }
 
-function postFight(w, l) {
+function postFight(w, l, y) {
     let objW = null;
     let objL = null;
-
-    if (w.charAt(w.length - 2) == 'p') {
-        objW = JSON.parse(returnFighterM(parseInt(sessionStorage.getItem(w))));
-        objL = JSON.parse(returnFighterM(parseInt(sessionStorage.getItem(l))));
+    if (y == 0) {
+        if (parseInt(sessionStorage.getItem('playoffs')) == 0) {
+            objW = JSON.parse(returnFighterM(parseInt(sessionStorage.getItem(w))));
+            objL = JSON.parse(returnFighterM(parseInt(sessionStorage.getItem(l))));
+        }
+        else {
+            objW = JSON.parse(returnFighterM(parseInt(w)));
+            objL = JSON.parse(returnFighterM(parseInt(l)));
+        }
     }
     else {
-        objW = JSON.parse(returnFighterF(parseInt(sessionStorage.getItem(w))));
-        objL = JSON.parse(returnFighterF(parseInt(sessionStorage.getItem(l))));
+        if (parseInt(sessionStorage.getItem('playoffs')) == 0) {
+            objW = JSON.parse(returnFighterF(parseInt(sessionStorage.getItem(w))));
+            objL = JSON.parse(returnFighterF(parseInt(sessionStorage.getItem(l))));
+        }
+        else {
+            objW = JSON.parse(returnFighterF(parseInt(w)));
+            objL = JSON.parse(returnFighterF(parseInt(l)));
+        }
     }
 
     let round = parseInt(sessionStorage.getItem('abRound'));
@@ -840,8 +1314,14 @@ function moveSetA(x, y) {
     if (y == 0) {
         obj = JSON.parse(returnFighterM(parseInt(sessionStorage.getItem(x))));
     }
-    else {
+    else if (y == 1) {
         obj = JSON.parse(returnFighterF(parseInt(sessionStorage.getItem(x))));
+    }
+    else if (y == 2) {
+        obj = JSON.parse(returnFighterM(parseInt(x)));
+    }
+    else if (y == 3) {
+        obj = JSON.parse(returnFighterF(parseInt(x)));
     }
 
     sessionStorage.setItem('aOppStatus', 1000);
@@ -1154,8 +1634,14 @@ function moveSetB(x, y) {
     if (y == 0) {
         obj = JSON.parse(returnFighterM(parseInt(sessionStorage.getItem(x))));
     }
-    else {
+    else if (y == 1) {
         obj = JSON.parse(returnFighterF(parseInt(sessionStorage.getItem(x))));
+    }
+    else if (y == 2) {
+        obj = JSON.parse(returnFighterM(parseInt(x)));
+    }
+    else if (y == 3) {
+        obj = JSON.parse(returnFighterF(parseInt(x)));
     }
 
     sessionStorage.setItem('bOppStatus', 1000);
@@ -1620,21 +2106,23 @@ function getHitA(att) {
 		}
 	}
 	else if (att == 'CLINCH'){
-		for (let i = 0; i < 2; ++i){
+        let cPer = (4 * (aOppClinch) - 4 * (bOppClinch)) + (.8 * (aOppSpd - bOppSpd));
+		for (let i = 0; i < 1; ++i){
 			let ran1 = Random();
-			if (per >= 0){
-				if (ran1 <= 30 + (Math.pow(per, .63)) + aBladedBuff - bBladedBuff - bHighBuff + bLongNerf + getFeintedB()) {
+			if (cPer >= 0){
+				if (ran1 <= 30 + (Math.pow(cPer, .63)) + getFeintedB()) {
 					++hit;
+                    sessionStorage.setItem('abPos', 1);
 				}
 			}
 			else {
-				let per1 = Math.abs(per);
-				if (ran1 <= 30 - (Math.pow(per1, .63)) + aBladedBuff - bBladedBuff - bHighBuff + bLongNerf + getFeintedB()) {
+				let per1 = Math.abs(cPer);
+				if (ran1 <= 30 - (Math.pow(per1, .63)) + getFeintedB()) {
 					++hit;
+                    sessionStorage.setItem('abPos', 1);
 				}
 			}
 		}
-		sessionStorage.setItem('abPos', 1);
 	}
 	else if (att == 'KNEE') {
 		let cPer = parseInt(60 + Math.pow(aOppClinch, .9) - Math.pow(bOppClinch, .9) + (.8 * (aOppSpd - bOppSpd)));
@@ -1891,21 +2379,23 @@ function getHitB(att) {
 		}
 	}
 	else if (att == 'CLINCH'){
-		for (let i = 0; i < 2; ++i){
+        let cPer = (4 * (bOppClinch) - 4 * (aOppClinch)) + (.8 * (bOppSpd - aOppSpd));
+		for (let i = 0; i < 1; ++i){
 			let ran1 = Random();
-			if (per >= 0){
-				if (ran1 <= 30 + (Math.pow(per, .63)) + bBladedBuff - aBladedBuff - aHighBuff + aLongNerf + getFeintedA()) {
+			if (cPer >= 0){
+				if (ran1 <= 30 + (Math.pow(cPer, .63)) + getFeintedA()) {
 					++hit;
+                    sessionStorage.setItem('abPos', 1);
 				}
 			}
 			else {
-				let per1 = Math.abs(per);
-				if (ran1 <= 30 - (Math.pow(per1, .63)) + bBladedBuff - aBladedBuff - aHighBuff + aLongNerf + getFeintedA()) {
+				let per1 = Math.abs(cPer);
+				if (ran1 <= 30 - (Math.pow(per1, .63)) + getFeintedA()) {
 					++hit;
+                    sessionStorage.setItem('abPos', 1);
 				}
 			}
 		}
-		sessionStorage.setItem('abPos', 1);
 	}
 	else if (att == 'KNEE') {
 		let cPer = parseInt(60 + Math.pow(bOppClinch, .9) - Math.pow(aOppClinch, .9) + (.8 * (bOppSpd - aOppSpd)));
@@ -2042,8 +2532,13 @@ function getDamageA(hit, att) {
     }
     else if (att == 'LOW KICK') {
         dmg = hit * (((aOppStr - 50) / 10) + 10 + aThaiBuff + bReactNerf);
+
+        let kicking = parseInt(sessionStorage.getItem('aOppKicking'));
+        let thai = (aThaiBuff > 0) ? 1.2 : 1;
+
         if (hit > 0) {
-            sessionStorage.setItem('bOppSpeed', parseInt(sessionStorage.getItem('bOppSpeed')) - 5);
+            sessionStorage.setItem('bOppSpeed', parseInt(sessionStorage.getItem('bOppSpeed')) - (parseInt(sessionStorage.getItem('bOppSpeed')) <= 0 ? 0 : Math.pow(kicking / 5, .63) * thai));
+            (parseInt(sessionStorage.getItem('bOppSpeed')) < 0 ? sessionStorage.setItem('bOppSpeed', 0) : sessionStorage.setItem('bOppSpeed', parseInt(sessionStorage.getItem('bOppSpeed'))));
         }
     }
     else if (att == 'KNEE') {
@@ -2161,8 +2656,13 @@ function getDamageB(hit, att) {
     }
     else if (att == 'LOW KICK') {
         dmg = hit * (((bOppStr - 50) / 10) + 10 + bThaiBuff + aReactNerf);
+
+        let kicking = parseInt(sessionStorage.getItem('bOppKicking'));
+        let thai = (bThaiBuff > 0) ? 1.2 : 1;
+
         if (hit > 0) {
-            sessionStorage.setItem('aOppSpeed', parseInt(sessionStorage.getItem('aOppSpeed')) - 5);
+            sessionStorage.setItem('aOppSpeed', parseInt(sessionStorage.getItem('aOppSpeed')) - (parseInt(sessionStorage.getItem('aOppSpeed')) <= 0 ? 0 : Math.pow(kicking / 5, .63) * thai));
+            (parseInt(sessionStorage.getItem('aOppSpeed')) < 0 ? sessionStorage.setItem('aOppSpeed', 0) : sessionStorage.setItem('aOppSpeed', parseInt(sessionStorage.getItem('aOppSpeed'))));
         }
     }
     else if (att == 'KNEE') {

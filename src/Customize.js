@@ -6,6 +6,7 @@ import logo from './mmasim2021logo.png';
 import './App.css';
 import './AppCustomize.css';
 import randomSchedule from './RandomSchedule.js';
+import City from './City';
 
 const Button4 = styled.button`
 background-color: transparent;
@@ -151,6 +152,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: (this.wc(cWeight) > 8 ? 'nrf0' : 'nr0')
       }
@@ -170,6 +174,9 @@ class Customize extends React.Component {
       sessionStorage.setItem('playerSwin', 0);
       sessionStorage.setItem('playerSloss', 0);
       sessionStorage.setItem('playerPts', 0);
+      sessionStorage.setItem('playerRate', 0);
+      sessionStorage.setItem('playerKo', 0);
+      sessionStorage.setItem('playerSub', 0);
       sessionStorage.setItem('w1res', 2);
       sessionStorage.setItem('w2res', 2);
       sessionStorage.setItem('w3res', 2);
@@ -187,7 +194,7 @@ class Customize extends React.Component {
       sessionStorage.setItem('rank', 'NR');
       sessionStorage.setItem('prev', 'NR');
       sessionStorage.setItem('ppv', 1);
-      sessionStorage.setItem('gym', 'NONE');
+      sessionStorage.setItem('gym', 'MCSWEENEY MMA');
       sessionStorage.setItem('org', 0);
       sessionStorage.setItem('playoffs', 0);
       sessionStorage.setItem('championship', 0);
@@ -196,6 +203,7 @@ class Customize extends React.Component {
       sessionStorage.setItem('wrstBuff', 0);
       sessionStorage.setItem('grplBuff', 0);
       sessionStorage.setItem('clnhBuff', 0);
+      sessionStorage.setItem('stmBuff', 0);
       sessionStorage.setItem('injury', 0);
       sessionStorage.setItem('playerStrength', 0);
       sessionStorage.setItem('playerSpeed', 0);
@@ -219,8 +227,7 @@ class Customize extends React.Component {
       sessionStorage.setItem('attack6', false);
       sessionStorage.setItem('attack7', false);
       sessionStorage.setItem('attack8', false);
-      sessionStorage.setItem('gymMonth', 0);
-      sessionStorage.setItem('gymCamp', 0);
+      sessionStorage.setItem('gymCamp', 4000);
 
       sessionStorage.setItem('prevFight', 0);
       sessionStorage.setItem('winStreak', 0);
@@ -363,6 +370,74 @@ class Customize extends React.Component {
       sessionStorage.setItem('ranWeight2', null);
       sessionStorage.setItem('sFighter', null);
 
+      sessionStorage.setItem('quarterSeedsM', null);
+      sessionStorage.setItem('semiSeedsM', null);
+      sessionStorage.setItem('finalSeedsM', null);
+      sessionStorage.setItem('quarterSeedsF', null);
+      sessionStorage.setItem('semiSeedsF', null);
+      sessionStorage.setItem('finalSeedsF', null);
+
+      sessionStorage.setItem('pflChampionships', 0);
+      sessionStorage.setItem('contractPay', '$5,000 SHOW / $0 WIN');
+      sessionStorage.setItem('legacyYear1', null);
+      sessionStorage.setItem('legacyOrg1', null);
+      sessionStorage.setItem('legacyRank1', null);
+      sessionStorage.setItem('legacyRec1', null);
+      sessionStorage.setItem('legacyRes1', null);
+      sessionStorage.setItem('legacyPay1', null);
+      sessionStorage.setItem('legacyYear2', null);
+      sessionStorage.setItem('legacyOrg2', null);
+      sessionStorage.setItem('legacyRank2', null);
+      sessionStorage.setItem('legacyRec2', null);
+      sessionStorage.setItem('legacyRes2', null);
+      sessionStorage.setItem('legacyPay2', null);
+      sessionStorage.setItem('legacyYear3', null);
+      sessionStorage.setItem('legacyOrg3', null);
+      sessionStorage.setItem('legacyRank3', null);
+      sessionStorage.setItem('legacyRec3', null);
+      sessionStorage.setItem('legacyRes3', null);
+      sessionStorage.setItem('legacyPay3', null);
+      sessionStorage.setItem('legacyYear4', null);
+      sessionStorage.setItem('legacyOrg4', null);
+      sessionStorage.setItem('legacyRank4', null);
+      sessionStorage.setItem('legacyRec4', null);
+      sessionStorage.setItem('legacyRes4', null);
+      sessionStorage.setItem('legacyPay4', null);
+      sessionStorage.setItem('legacyYear5', null);
+      sessionStorage.setItem('legacyOrg5', null);
+      sessionStorage.setItem('legacyRank5', null);
+      sessionStorage.setItem('legacyRec5', null);
+      sessionStorage.setItem('legacyRes5', null);
+      sessionStorage.setItem('legacyPay5', null);
+      sessionStorage.setItem('legacyYear6', null);
+      sessionStorage.setItem('legacyOrg6', null);
+      sessionStorage.setItem('legacyRank6', null);
+      sessionStorage.setItem('legacyRec6', null);
+      sessionStorage.setItem('legacyRes6', null);
+      sessionStorage.setItem('legacyPay6', null);
+      sessionStorage.setItem('legacyYear7', null);
+      sessionStorage.setItem('legacyOrg7', null);
+      sessionStorage.setItem('legacyRank7', null);
+      sessionStorage.setItem('legacyRec7', null);
+      sessionStorage.setItem('legacyRes7', null);
+      sessionStorage.setItem('legacyPay7', null);
+      sessionStorage.setItem('legacyYear8', null);
+      sessionStorage.setItem('legacyOrg8', null);
+      sessionStorage.setItem('legacyRank8', null);
+      sessionStorage.setItem('legacyRec8', null);
+      sessionStorage.setItem('legacyRes8', null);
+      sessionStorage.setItem('legacyPay8', null);
+      sessionStorage.setItem('legacyYear9', null);
+      sessionStorage.setItem('legacyOrg9', null);
+      sessionStorage.setItem('legacyRank9', null);
+      sessionStorage.setItem('legacyRec9', null);
+      sessionStorage.setItem('legacyRes9', null);
+      sessionStorage.setItem('legacyPay9', null);
+
+      sessionStorage.setItem('pay', 5000);
+
+      City();
+
       let nr1 = {
         rank: 'NR',
         first: 'SANCHIT',
@@ -385,6 +460,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nr1'
       }
@@ -412,6 +490,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nr2'
       }
@@ -439,6 +520,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nr3'
       }
@@ -466,6 +550,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nr4'
       }
@@ -477,7 +564,7 @@ class Customize extends React.Component {
         last: 'GRAY',
         height: '2',
         weight: '0',
-        nation: 'TAIWAN',
+        nation: 'THAILAND',
         win: '0',
         loss: '0',
         strength: '95',
@@ -493,6 +580,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nr5'
       }
@@ -520,6 +610,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nr6'
       }
@@ -547,6 +640,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nr7'
       }
@@ -574,6 +670,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nr8'
       }
@@ -601,6 +700,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nr9'
       }
@@ -628,6 +730,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nr10'
       }
@@ -655,6 +760,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nr11'
       }
@@ -682,6 +790,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nr12'
       }
@@ -709,6 +820,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nr13'
       }
@@ -736,6 +850,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nr14'
       }
@@ -763,6 +880,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nr15'
       }
@@ -790,6 +910,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nr16'
       }
@@ -817,6 +940,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nr17'
       }
@@ -844,6 +970,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nr18'
       }
@@ -871,6 +1000,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nr19'
       }
@@ -898,6 +1030,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nr20'
       }
@@ -925,6 +1060,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nr21'
       }
@@ -952,6 +1090,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nr22'
       }
@@ -979,6 +1120,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nr23'
       }
@@ -1006,6 +1150,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nr24'
       }
@@ -1033,6 +1180,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nrf1'
       }
@@ -1060,6 +1210,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nrf2'
       }
@@ -1087,6 +1240,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nrf3'
       }
@@ -1114,6 +1270,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nrf4'
       }
@@ -1141,6 +1300,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nrf5'
       }
@@ -1168,6 +1330,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nrf6'
       }
@@ -1195,6 +1360,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nrf7'
       }
@@ -1222,6 +1390,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nrf8'
       }
@@ -1249,6 +1420,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nrf9'
       }
@@ -1276,6 +1450,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nrf10'
       }
@@ -1303,6 +1480,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nrf11'
       }
@@ -1330,6 +1510,9 @@ class Customize extends React.Component {
         pts: '0',
 				strk: '0',
         meth: '',
+				rate: '0',
+				ko: '0',
+				sub: '0',
         prev: 'NR',
         code: 'nrf12'
       }
