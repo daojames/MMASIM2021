@@ -1378,7 +1378,7 @@ class Bout0 extends React.Component {
                     <Button data-tip data-for="4" className={this.state.att6 ? "att1" : "att0"} onClick={this.att6}>LOW KICK</Button>
                     <ReactTooltip class="Membership" id="4" place="top" effect="float"><text style={{fontSize: 30}}>LOW KICK</text><br/>KICK CALF TO REDUCE OPPONENT SPEED<br/><b>✓{w}REDUCE OPPONENT SPEED</b><br/><b>✘{w}LOW DAMAGE</b><br/><b>★{w}4 STAMINA</b></ReactTooltip>
                     <Button data-tip data-for="10" className={this.state.att8 ? "att1" : "att0"} onClick={this.att8}>CLINCH</Button>
-                    <ReactTooltip class="Membership" id="10" place="top" effect="float"><text style={{fontSize: 30}}>CLINCH</text><br/>STRIKE INTO A CLINCH<br/><b>✓{w}MORE OFFENSIVE OPTIONS</b><br/><b>✘{w}UNPREDICTABLE OUTCOME</b><br/><b>★{w}4 STAMINA</b></ReactTooltip>
+                    <ReactTooltip class="Membership" id="10" place="top" effect="float"><text style={{fontSize: 30}}>CLINCH</text><br/>ENTER A CLINCH<br/><b>✓{w}MORE OFFENSIVE OPTIONS</b><br/><b>✘{w}UNPREDICTABLE OUTCOME</b><br/><b>★{w}4 STAMINA</b></ReactTooltip>
                     <Button data-tip data-for="5" className={this.state.att7 ? "att1" : "att0"} onClick={this.att7}>TAKEDOWN</Button>
                     <ReactTooltip class="Membership" id="5" place="top" effect="float"><text style={{fontSize: 30}}>TAKEDOWN</text><br/>TAKE OPPONENT DOWN TO GROUND<br/><b>✓{w}DOMINANT POSITON</b><br/><b>✘{w}HIGH ENERGY</b><br/><b>★{w}12 STAMINA</b></ReactTooltip>
                 </div>

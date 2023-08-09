@@ -1643,7 +1643,7 @@ class Record extends React.Component {
             <div className="App">
                 <div className="App-header">
                     <div className="App-header2">
-                        <img src={logo} alt='logo' className="App-logo1" style={{ marginTop: 17 }} />
+                        <img src={logo} alt='logo' className="App-logo1" style={{ marginTop: 20 }} />
                         <br/>
                         <div className="Record" style={{ marginTop: -42 }}>
                             <div>
@@ -1694,7 +1694,7 @@ class Record extends React.Component {
                         <Link to='./record'><ButtonG>RECORD</ButtonG></Link>
                         <Link to='./legacy'><Button>LEGACY</Button></Link>
                     </div>
-                    <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 365, fontSize: 30 }}>
+                    <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 369, fontSize: 30 }}>
                         <Button3>${sessionStorage.getItem('balance')}</Button3>
                         <Link to='./home'><Button4>BACK</Button4></Link>
                         <Button3>{this.calcMonth(month)} {sessionStorage.getItem('year')}</Button3>

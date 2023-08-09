@@ -370,9 +370,43 @@ body {
   overflow: hidden;
 }
 
+.App-customize2-2 {
+  user-select: none;
+  display: flex;
+  margin-top: 100px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  height: 50px;
+  flex-direction: row;
+  align-items: top;
+  justify-content: center;
+  font-size: 40px;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  color: white;
+  overflow: hidden;
+}
+
 .App-customize3 {
   user-select: none;
   display: block;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  height: 110px;
+  flex-direction: row;
+  align-items: top;
+  justify-content: center;
+  font-size: 40px;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  color: white;
+  overflow: hidden;
+}
+
+.App-customize3-1 {
+  user-select: none;
+  display: flex;
   margin-top: 0px;
   margin-bottom: 0px;
   margin-left: 0px;

@@ -14,28 +14,6 @@ import Gym from './Gym.js';
 import Gyms from './Gyms.js';
 import Twitter from './Twitter.js';
 import Fight from './Fight.js';
-import Fight1 from './Fight1.js';
-import Fight2 from './Fight2.js';
-import Fight3 from './Fight3.js';
-import Fight4 from './Fight4.js';
-import Fight5 from './Fight5.js';
-import Fight6 from './Fight6.js';
-import Fight7 from './Fight7.js';
-import Fight8 from './Fight8.js';
-import Fight9 from './Fight9.js';
-import Fight10 from './Fight10.js';
-import Fight11 from './Fight11.js';
-import FighterC from './FighterC.js';
-import Fighter1 from './Fighter1.js';
-import Fighter2 from './Fighter2.js';
-import Fighter3 from './Fighter3.js';
-import Fighter4 from './Fighter4.js';
-import Fighter5 from './Fighter5.js';
-import Fighter6 from './Fighter6.js';
-import Fighter7 from './Fighter7.js';
-import Fighter8 from './Fighter8.js';
-import Fighter9 from './Fighter9.js';
-import Fighter10 from './Fighter10.js';
 import Career from './Career.js';
 import Replies1 from './Replies1.js';
 import Replies2 from './Replies2.js';
@@ -89,6 +67,7 @@ import PlayoffsPFLF from './PlayoffsPFLF.js';
 import SFighterMP from './SFighterMP.js';
 import SFighterFP from './SFighterFP.js';
 import Manage from './Manage.js';
+import StandingsUFC from './StandingsUFC.js';
 
 const Button = styled.button`
   background-color: transparent;
@@ -117,28 +96,6 @@ function App() {
           <Route path="/gyms" exact component={Gyms} />
           <Route path="/twitter" exact component={Twitter} />
           <Route path="/fight" exact component={Fight} />
-          <Route path="/fight1" exact component={Fight1} />
-          <Route path="/fight2" exact component={Fight2} />
-          <Route path="/fight3" exact component={Fight3} />
-          <Route path="/fight4" exact component={Fight4} />
-          <Route path="/fight5" exact component={Fight5} />
-          <Route path="/fight6" exact component={Fight6} />
-          <Route path="/fight7" exact component={Fight7} />
-          <Route path="/fight8" exact component={Fight8} />
-          <Route path="/fight9" exact component={Fight9} />
-          <Route path="/fight10" exact component={Fight10} />
-          <Route path="/fight11" exact component={Fight11} />
-          <Route path="/fighterC" exact component={FighterC} />
-          <Route path="/fighter1" exact component={Fighter1} />
-          <Route path="/fighter2" exact component={Fighter2} />
-          <Route path="/fighter3" exact component={Fighter3} />
-          <Route path="/fighter4" exact component={Fighter4} />
-          <Route path="/fighter5" exact component={Fighter5} />
-          <Route path="/fighter6" exact component={Fighter6} />
-          <Route path="/fighter7" exact component={Fighter7} />
-          <Route path="/fighter8" exact component={Fighter8} />
-          <Route path="/fighter9" exact component={Fighter9} />
-          <Route path="/fighter10" exact component={Fighter10} />
           <Route path="/career" exact component={Career} />
           <Route path="/replies1" exact component={Replies1} />
           <Route path="/replies2" exact component={Replies2} />
@@ -192,6 +149,7 @@ function App() {
           <Route path="/sfightermp" exact component={SFighterMP} />
           <Route path="/sfighterfp" exact component={SFighterFP} />
           <Route path="/manage" exact component={Manage} />
+          <Route path="/standingsufc" exact component={StandingsUFC} />
         </Switch>
       </div>
     </Router>

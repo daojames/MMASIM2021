@@ -1447,7 +1447,7 @@ class Home extends React.Component {
                         <ReactTooltip id="1" place="top" effect="solid">MUST BE SIGNED WITH UFC TO ACCESS TWITTER</ReactTooltip>
                         <Link to='./gym'><Button onClick={this.notFirst}>GYM</Button></Link>
                         <Link to='./career'><Button onClick={this.notFirst}>CAREER</Button></Link>
-                        <Link to={(sessionStorage.getItem('org') == 0) ? './schedule' : './fight'}><Button onClick={this.notFirst}>FIGHT</Button></Link>
+                        <Link to={(sessionStorage.getItem('org') == 0) ? './schedule' : './standingsufc'}><Button onClick={this.notFirst}>FIGHT</Button></Link>
                     </div>
                     <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: 0, fontSize: 30 }}>
                         <Button3>${sessionStorage.getItem('balance')}</Button3>

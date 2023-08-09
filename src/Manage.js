@@ -181,6 +181,10 @@ font-style: italic;
 border: 2px solid white;
 border-radius: 2px;
 outline: 0;
+transition: ease background-color 250ms;
+&:hover {
+  background-color: #616161;
+}
 `
 
 const ButtonE = styled.button`
@@ -1529,20 +1533,34 @@ class Manage extends React.Component {
         return 'yikes';
     }
 
+    newSeasonUFC() {
+        if (sessionStorage.getItem('org') === '0') {
+            if (sessionStorage.getItem('legacyRes1') === 'CHAMPION') {
+                return (parseInt(sessionStorage.getItem('pay')) + 3000) * 2;
+            }
+            else if (sessionStorage.getItem('legacyRes1') === 'TOP 8') {
+                return (parseInt(sessionStorage.getItem('pay')) + 1000) * 2;
+            }
+            else {
+                return parseInt(sessionStorage.getItem('pay')) * 2;
+            }
+        }
+        sessionStorage.setItem('contractPay' , '$' + sessionStorage.getItem('pay') + ' SHOW / $' + sessionStorage.getItem('pay') + ' WIN');
+
+        sessionStorage.setItem('org', '1');
+    }
+
     newSeason() {
-        if (sessionStorage.getItem('org') === '0' && sessionStorage.getItem('legacyRes1') === 'CHAMPION') {
+        sessionStorage.setItem('org', '0');
+
+        if (sessionStorage.getItem('legacyRes1') === 'CHAMPION') {
             sessionStorage.setItem('pay', parseInt(sessionStorage.getItem('pay')) + 3000);
         }
-        else if (sessionStorage.getItem('org') === '0' && sessionStorage.getItem('legacyRes1') === 'TOP 8') {
+        else if (sessionStorage.getItem('legacyRes1') === 'TOP 8') {
             sessionStorage.setItem('pay', parseInt(sessionStorage.getItem('pay')) + 1000);
         }
 
-        if (sessionStorage.getItem('org') === '0') {
-            sessionStorage.setItem('contractPay' , '$' + sessionStorage.getItem('pay') + ' SHOW / $0 WIN');
-        }
-        else {
-            sessionStorage.setItem('contractPay' , '$' + sessionStorage.getItem('pay') + ' SHOW / $' + sessionStorage.getItem('pay') + ' WIN');
-        }
+        sessionStorage.setItem('contractPay' , '$' + sessionStorage.getItem('pay') + ' SHOW / $0 WIN');
 
         sessionStorage.setItem('month', 1);
         sessionStorage.setItem('year', parseInt(sessionStorage.getItem('year')) + 1);
@@ -1616,7 +1634,9 @@ class Manage extends React.Component {
         sessionStorage.setItem('playerSloss', 0);
         sessionStorage.setItem('playerPts', 0);
         sessionStorage.setItem('playerRate', 0);
+        sessionStorage.setItem('playerKoTotal', parseInt(sessionStorage.getItem('playerKoTotal')) + parseInt(sessionStorage.getItem('playerKo')));
         sessionStorage.setItem('playerKo', 0);
+        sessionStorage.setItem('playerSubTotal', parseInt(sessionStorage.getItem('playerKoTotal')) + parseInt(sessionStorage.getItem('playerSub')));
         sessionStorage.setItem('playerSub', 0);
         sessionStorage.setItem('w1res', 2);
         sessionStorage.setItem('w2res', 2);
@@ -1690,7 +1710,7 @@ class Manage extends React.Component {
                     <div className="Fight-offer" style={{marginTop: -30, marginBottom: 0, width: 1200 }}>
                         <Link to='./schedule'><ButtonA1 data-tip data-for="1" onClick={this.newSeason}>SIGN</ButtonA1></Link>
                         <ReactTooltip class="Membership" id="1" place="bottom" effect="solid">${this.payPFL()} show / $0 win<br/>8 fights, 3 playoff fights<br/><text style={{ color: 'gray' }}>${(parseInt(this.payPFL()) * 11) + 50000} max total pay</text></ReactTooltip>
-                        <ButtonA1 data-tip data-for="2">SIGN</ButtonA1>
+                        <Link to='./standingsufc'><ButtonA1 data-tip data-for="2" onClick={this.newSeason}>SIGN</ButtonA1></Link>
                         <ReactTooltip class="Membership" id="2" place="bottom" effect="solid">${this.payUFC()} show / ${this.payUFC()} win<br/>4 fights<br/><text style={{ color: 'gray' }}>${parseInt(this.payUFC()) * 8} max total pay</text></ReactTooltip>
                     </div>
                     <div className="App-header-style1" style={{marginTop: -618, marginRight: 0}}>

@@ -16,7 +16,10 @@ export function RecordSeasonPFL() {
     }
 
     if (sessionStorage.getItem('org') === '0') {
+
+        sessionStorage.setItem('pflSeasons', parseInt(sessionStorage.getItem('pflSeasons')) + 1);
         sessionStorage.setItem('legacyOrg1', 'PFL');
+
         if (sessionStorage.getItem('nrf0') === 'null') {
             let nr0 = JSON.parse(sessionStorage.getItem('nr0'));
             let rank = JSON.parse(nr0.rank);
@@ -24,8 +27,11 @@ export function RecordSeasonPFL() {
             let rec = sessionStorage.getItem('playerSwin') + ' - ' + sessionStorage.getItem('playerSloss');
 
             if (rank < 9) {
+                
+                sessionStorage.setItem('pflPlayoffBerths', parseInt(sessionStorage.getItem('pflPlayoffBerths')) + 1);
+
                 if (JSON.parse(nr0.strk) > 0) {
-                    sessionStorage.setItem('pflChampionships', parseInt(sessionStorage.getItem('pflChampionships')) + 1);
+                    sessionStorage.setItem('pflTitles', parseInt(sessionStorage.getItem('pflTitles')) + 1);
 
                     sessionStorage.setItem('legacyYear1', 'JAN ' + year);
                     sessionStorage.setItem('legacyRank1', rank);
@@ -57,8 +63,11 @@ export function RecordSeasonPFL() {
             let rec = standingsF[rank - 1].swin + ' - ' + standingsF[rank - 1].sloss;
 
             if (rank < 9) {
+
+                sessionStorage.setItem('pflPlayoffBerths', parseInt(sessionStorage.getItem('pflPlayoffBerths')) + 1);
+                
                 if (JSON.parse(nrf0.strk) > 0) {
-                    sessionStorage.setItem('pflChampionships', parseInt(sessionStorage.getItem('pflChampionships')) + 1);
+                    sessionStorage.setItem('pflTitles', parseInt(sessionStorage.getItem('pflTitles')) + 1);
 
                     sessionStorage.setItem('legacyYear1', 'JAN ' + year);
                     sessionStorage.setItem('legacyRank1', rank);

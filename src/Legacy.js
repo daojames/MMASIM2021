@@ -379,6 +379,42 @@ border-radius: 0px;
 outline: 0;
 `
 
+const Type = styled.button`
+position: absolute;
+pointer-events: none;
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 14.322916666vw;
+height: 5.330490405vh;
+text-align: center;
+margin: 1.066098081vh;
+font-size: 1.5625vw;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
+const Num = styled.button`
+position: absolute;
+pointer-events: none;
+background-color: transparent;
+color: white;
+padding: 0px;
+width: 14.322916666vw;
+height: 5.330490405vh;
+text-align: center;
+margin: 1.066098081vh;
+font-size: 5.208333333vw;
+font-family: 'Roboto', sans-serif;
+font-style: italic; 
+border: 0px solid white;
+border-radius: 0px;
+outline: 0;
+`
+
 class Legacy extends React.Component {
     constructor(props){
         super(props)
@@ -1601,6 +1637,30 @@ class Legacy extends React.Component {
                         <img src={logo} alt='logo' className="App-logo1" style={{ marginTop: -730 }} />
                         LEGACY<br/><br/>
                     </div>
+                    <Type style={{ marginTop: 135, marginLeft: 250 }}>PFL SEASONS</Type>
+                    <Num style={{ marginTop: 165, marginLeft: 250 }}><b>{sessionStorage.getItem('pflSeasons')}</b></Num>
+                    <Type style={{ marginTop: 135, marginLeft: 850 }}>PLAYOFF BERTHS</Type>
+                    <Num style={{ marginTop: 165, marginLeft: 850 }}><b>{sessionStorage.getItem('pflPlayoffBerths')}</b></Num>
+                    <Type style={{ marginTop: 135, marginLeft: 1450 }}>PFL TITLES</Type>
+                    <Num style={{ marginTop: 165, marginLeft: 1450 }}><b>{sessionStorage.getItem('pflTitles')}</b></Num>
+                    <Type style={{ marginTop: 280, marginLeft: 250 }}>UFC FIGHTS</Type>
+                    <Num style={{ marginTop: 310, marginLeft: 250 }}><b>{sessionStorage.getItem('ufcFights')}</b></Num>
+                    <Type style={{ marginTop: 280, marginLeft: 850 }}>UFC RANK BEST</Type>
+                    <Num style={{ marginTop: 310, marginLeft: 850 }}><b>{sessionStorage.getItem('ufcRankBest')}</b></Num>
+                    <Type style={{ marginTop: 280, marginLeft: 1450 }}>P4P BEST</Type>
+                    <Num style={{ marginTop: 310, marginLeft: 1450 }}><b>{sessionStorage.getItem('ufcP4PBest')}</b></Num>
+                    <Type style={{ marginTop: 425, marginLeft: 250 }}>UFC TITLE WINS</Type>
+                    <Num style={{ marginTop: 455, marginLeft: 250 }}><b>{sessionStorage.getItem('ufcTitleWins')}</b></Num>
+                    <Type style={{ marginTop: 425, marginLeft: 850 }}>BEST DEF. STREAK</Type>
+                    <Num style={{ marginTop: 455, marginLeft: 850 }}><b>{sessionStorage.getItem('ufcBestDefStreak')}</b></Num>
+                    <Type style={{ marginTop: 425, marginLeft: 1450 }}>BEST WIN STREAK</Type>
+                    <Num style={{ marginTop: 455, marginLeft: 1450 }}><b>{sessionStorage.getItem('ufcBestWinStreak')}</b></Num>
+                    <Type style={{ marginTop: 570, marginLeft: 250 }}>MAIN EVENTS</Type>
+                    <Num style={{ marginTop: 600, marginLeft: 250 }}><b>{sessionStorage.getItem('ufcMainEvents')}</b></Num>
+                    <Type style={{ marginTop: 570, marginLeft: 850 }}>POTN BONUSES</Type>
+                    <Num style={{ marginTop: 600, marginLeft: 850 }}><b>{sessionStorage.getItem('ufcPotnBonuses')}</b></Num>
+                    <Type style={{ marginTop: 570, marginLeft: 1450 }}>FOTN BONUSES</Type>
+                    <Num style={{ marginTop: 600, marginLeft: 1450 }}><b>{sessionStorage.getItem('ufcFotnBonuses')}</b></Num>
                     <div className="App-header2" style={{ marginTop: 110, marginBottom: -660, marginLeft: -1000 }}>
                         <div className="Record">
                             <div>
@@ -1710,7 +1770,7 @@ class Legacy extends React.Component {
                         <Link to='./record'><Button>RECORD</Button></Link>
                         <Link to='./legacy'><ButtonG>LEGACY</ButtonG></Link>
                     </div>
-                    <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: -396, fontSize: 30 }}>
+                    <div className="Customize-desc1" style={{ textAlign: 'right', marginLeft: 0, marginRight: 0, marginTop: -400, fontSize: 30 }}>
                         <Button3>${sessionStorage.getItem('balance')}</Button3>
                         <Link to='./home'><Button4>BACK</Button4></Link>
                         <Button3>{this.calcMonth(month)} {sessionStorage.getItem('year')}</Button3>
